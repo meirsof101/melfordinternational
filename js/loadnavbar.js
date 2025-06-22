@@ -1,7 +1,21 @@
 // js/loadNavbar.js
-fetch('../partials/navbar.html')
+
+// Determine correct path to navbar.html based on current page location
+let navbarPath = 'partials/navbar.html';
+
+// If this page is inside a folder (like /pages/), go up one level
+if (window.location.pathname.includes('/pages/')) {
+  navbarPath = '../partials/navbar.html';
+}
+
+fetch(navbarPath)
   .then(response => response.text())
   .then(data => {
-    document.getElementById('navbar').innerHTML = data;
+    const navbar = document.getElementById('navbar');
+    if (navbar) {
+      navbar.innerHTML = data;
+    } else {
+      console.warn('Navbar div not found on this page.');
+    }
   })
   .catch(error => console.error('Error loading navbar:', error));
