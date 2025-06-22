@@ -15,9 +15,8 @@
     <style>
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
-            padding: 20px 0;
+            padding: 70px 0;
         }
         
         .contact-container {
@@ -31,8 +30,8 @@
         }
         
         .contact-image {
-            background: linear-gradient(45deg, rgba(102, 126, 234, 0.8), rgba(118, 75, 162, 0.8)), 
-                        url('../assets/images/officiallogo.jpg');
+            /* background: url('../assets/images/officiallogo.jpg'); */
+                        
             background-size: cover;
             background-position: center;
             display: flex;
@@ -49,7 +48,7 @@
         }
         
         .section-title {
-            color: #333;
+            color: var(--primary-blue);
             font-weight: 700;
             margin-bottom: 15px;
             position: relative;
@@ -62,12 +61,12 @@
             left: 0;
             width: 50px;
             height: 3px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
+            background: linear-gradient(45deg, var(--primary-blue), var(--primary-yellow));
             border-radius: 2px;
         }
         
         .section-subtitle {
-            color: #666;
+            color: var(--primary-blue);
             margin-bottom: 40px;
             font-size: 1.1rem;
         }
@@ -82,19 +81,19 @@
         }
         
         .form-control:focus {
-            border-color: #667eea;
+            border-color: var(--primary-blue);
             box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
             background: white;
         }
         
         .form-label {
             font-weight: 600;
-            color: #333;
+            color: var(--primary-blue);
             margin-bottom: 8px;
         }
         
         .btn-primary {
-            background: linear-gradient(45deg, #667eea, #764ba2);
+            background: linear-gradient(45deg, var(--primary-blue), var(--primary-yellow));
             border: none;
             padding: 15px 40px;
             border-radius: 50px;
@@ -107,7 +106,7 @@
         .btn-primary:hover {
             transform: translateY(-2px);
             box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
-            background: linear-gradient(45deg, #5a6fd8, #6a4190);
+            background: linear-gradient(45deg, var(--primary-yellow), var(--primary-blue));
         }
         
         .contact-info {
@@ -149,7 +148,7 @@
         }
         
         .image-overlay {
-            background: rgba(0, 0, 0, 0.3);
+            background: rgba(56, 119, 202, 0.247);
             padding: 40px;
             border-radius: 15px;
         }
@@ -158,12 +157,14 @@
             font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 20px;
+            color: var(--primary-blue);
         }
         
         .image-overlay p {
             font-size: 1.2rem;
             opacity: 0.9;
             line-height: 1.6;
+            color: var(--primary-blue);
         }
         
         @media (max-width: 768px) {
@@ -426,14 +427,6 @@
             });
         });
     </script>
-      <script>
-    // Load navbar.html into the #navbar div
-    fetch('/components/navbar.html')
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('navbar').innerHTML = data;
-      })
-      .catch(error => console.error('Error loading navbar:', error));
-  </script>
-</body>
+<script src="/js/loadNavbar.js" defer></script>
+</body> 
 </html>
