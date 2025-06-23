@@ -24,42 +24,6 @@
 <body>
     <!-- Navigation -->
      <div id="navbar"></div>
-    <!-- <nav class="navbar navbar-expand-lg navbar-light sticky-top">
-        <div class="container">
-          <a class="navbar-brand d-flex align-items-center" href="#">
-            <img src="../assets/images/melfordfavicon.jpg" alt="Melford Logo" width="30" height="30" class="me-2">
-            <span>
-                <span style="color: #0077B6;">Melford</span>
-                <span style="color: #FFC000;">International</span>
-            </span>
-            </a>
-
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#home">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#services">Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#universities">Universities</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#testimonials">Testimonials</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
-                    </li>
-                </ul>
-                <button class="btn btn-primary ms-3">Apply Now</button>
-            </div>
-        </div>
-    </nav> -->
 
     <!-- Hero Section -->
     <section id="home" class="hero-section">
@@ -396,14 +360,7 @@
     <!-- inject the footer -->
     <div id="footer-placeholder"></div>
 
-    <script>
-    fetch('/partials/footer.html')
-        .then(response => response.text())
-        .then(data => {
-        document.getElementById('footer-placeholder').innerHTML = data;
-        })
-        .catch(error => console.error('Footer load error:', error));
-    </script>
+  
 
 
 
@@ -469,7 +426,7 @@
             });
         });
     </script>
-    <script src="../js/loadnavbar.js" defer></script>
+    <script src="../js/loadpartials.js" defer></script>
 
 </body>
 </html>

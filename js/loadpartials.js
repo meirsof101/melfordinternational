@@ -19,3 +19,12 @@ fetch(navbarPath)
     }
   })
   .catch(error => console.error('Error loading navbar:', error));
+
+//   Load Footer
+    fetch('/partials/footer.html')
+        .then(response => response.text())
+        .then(data => {
+        document.getElementById('footer-placeholder').innerHTML = data;
+        })
+        .catch(error => console.error('Footer load error:', error));
+   
