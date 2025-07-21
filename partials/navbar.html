@@ -1,11 +1,7 @@
-<!-- Melford International Navbar Component -->
-<!-- Required dependencies: Bootstrap 5.3.0, Font Awesome 6.4.0, Google Fonts (Poppins) -->
-
-<nav class="navbar navbar-expand-lg navbar-custom" id="melfordNavbar">
-    <div class="container">
+  <nav class="navbar navbar-expand-lg navbar-custom" id="melfordNavbar">
         <!-- Brand Logo -->
         <a class="navbar-brand" href="../pages/index.html">
-            <img src="../assets/images/melfordfavicon.jpg" alt="Melford Logo" class="brand-logo">
+            <img src="https://via.placeholder.com/40x40/FFC000/1a1a1a?text=M" alt="Melford Logo" class="brand-logo">
             <div class="brand-text">
                 <span style="color: #f8f9fa;">Melford</span>
                 <span style="color: #FFC000;">International</span>
@@ -53,61 +49,4 @@
             </ul>
             <button class="btn btn-primary ms-3">Book Consultation</button>
         </div>
-    </div>
-</nav>
-
-<script>
-    // Initialize Melford Navbar functionality
-    (function() {
-        const navbar = document.getElementById('melfordNavbar');
-        
-        // Navbar scroll effect
-        function handleScroll() {
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        }
-        
-        // Active page highlighting
-        function setActiveNavLink() {
-            const currentPage = window.location.pathname.split('/').pop();
-            const navLinks = navbar.querySelectorAll('.nav-link');
-            
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                const linkPage = link.getAttribute('href').split('/').pop();
-                if (linkPage === currentPage || (currentPage === '' && linkPage === 'index.html')) {
-                    link.classList.add('active');
-                }
-            });
-        }
-        
-        // Close mobile menu when clicking outside
-        function handleOutsideClick(event) {
-            const navbarCollapse = navbar.querySelector('.navbar-collapse');
-            const toggler = navbar.querySelector('.navbar-toggler');
-            
-            if (navbarCollapse.classList.contains('show') && 
-                !navbarCollapse.contains(event.target) && 
-                !toggler.contains(event.target)) {
-                const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
-                    toggle: false
-                });
-                bsCollapse.hide();
-            }
-        }
-        
-        // Event listeners
-        window.addEventListener('scroll', handleScroll);
-        document.addEventListener('click', handleOutsideClick);
-        
-        // Set active nav link on load
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', setActiveNavLink);
-        } else {
-            setActiveNavLink();
-        }
-    })();
-</script>
+    </nav>
