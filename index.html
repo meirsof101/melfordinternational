@@ -5,42 +5,595 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Melford International - Global Education Agency</title>
     <link rel="icon" href="../assets/images/melfordfavicon.jpg" type="image/x-icon">
-    <link rel="stylesheet" href="../styles/styles.css">
-    <!-- Bootstrap CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Bootstrap JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-    <!-- Bootstrap Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
     <style>
+        :root {
+            --primary-blue: #2563eb;
+            --primary-yellow: #fbbf24;
+            --white: #ffffff;
+            --light-gray: #f8fafc;
+            --text-gray: #374151;
+            --border-gray: #e5e7eb;
+            --success-green: #059669;
+            --accent-purple: #7c3aed;
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-gray);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Mobile menu */
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: var(--primary-blue);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-purple) 100%);
+            color: var(--white);
+            padding: 8rem 0 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--primary-yellow) 0%, transparent 70%);
+            opacity: 0.1;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(10deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+            max-width: 600px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-yellow);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin: 0;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 25px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--primary-yellow);
+            color: var(--primary-blue);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        .hero-image {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .hero-image-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero-circles {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .circle-1 {
+            width: 350px;
+            height: 350px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            position: absolute;
+            animation: rotate 20s linear infinite;
+        }
+
+        .circle-2 {
+            width: 280px;
+            height: 280px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 50%;
+            position: absolute;
+            top: 35px;
+            left: 35px;
+            animation: rotate 15s linear infinite reverse;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .hero-main-image {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            position: relative;
+            border: 6px solid var(--primary-yellow);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            color: var(--primary-blue);
+            font-size: 2.8rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            text-align: center;
+            opacity: 0.8;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--primary-yellow));
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-yellow));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--white);
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+        }
+
+        .feature-card h4 {
+            color: var(--primary-blue);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card p {
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .btn-outline-primary {
+            background: transparent;
+            color: var(--primary-blue);
+            border: 2px solid var(--primary-blue);
+        }
+
+        .btn-outline-primary:hover {
+            background: var(--primary-blue);
+            color: var(--white);
+        }
+
+        /* Universities Section */
+        .universities-section {
+            background: var(--light-gray);
+            padding: 5rem 0;
+        }
+
+        .universities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .university-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .university-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .university-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-yellow));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.5rem;
+            font-weight: 600;
+            position: relative;
+        }
+
+        .university-rating {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255,255,255,0.9);
+            color: var(--text-gray);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-weight: 600;
+        }
+
+        .university-card .card-content {
+            padding: 2rem;
+        }
+
+        .university-card h5 {
+            color: var(--primary-blue);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .university-details {
+            display: flex;
+            justify-content: space-between;
+            margin: 1rem 0;
+        }
+
+        .detail-item {
+            text-align: center;
+        }
+
+        .detail-label {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            opacity: 0.7;
+        }
+
+        .detail-value {
+            font-weight: 600;
+            color: var(--primary-blue);
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: var(--primary-blue);
+            color: var(--white);
+            padding: 4rem 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stats-grid .stat-item {
+            padding: 2rem 1rem;
+        }
+
+        .stats-grid .stat-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--primary-yellow);
+            margin-bottom: 0.5rem;
+        }
+
+        .stats-grid h5 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Testimonials Section */
+        .testimonial-section {
+            padding: 5rem 0;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-size: 4rem;
+            color: var(--primary-yellow);
+            font-weight: bold;
+        }
+
+        .testimonial-text {
+            margin-bottom: 2rem;
+            font-style: italic;
+            line-height: 1.7;
+        }
+
+        .client-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .client-avatar {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .client-info h5 {
+            color: var(--primary-blue);
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-yellow) 0%, var(--primary-blue) 100%);
+            color: var(--white);
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        .cta-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .cta-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .btn-dark {
+            background: var(--white);
+            color: var(--primary-blue);
+        }
+
+        .btn-outline-dark {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-stats {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+            
+            .hero-cta {
+                flex-direction: column;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cta-title {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .hero-main-image {
+                width: 200px;
+                height: 200px;
+            }
+
+            .circle-1 {
+                width: 280px;
+                height: 280px;
+            }
+
+            .circle-2 {
+                width: 220px;
+                height: 220px;
+                top: 30px;
+                left: 30px;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body>
     <!-- Navigation -->
-     <div id="navbar"></div>
+   <div id="navbar"></div>
 
     <!-- Hero Section -->
     <section id="home" class="hero-section">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-7 hero-content">
+            <div class="row" style="display: flex; align-items: center; gap: 3rem; flex-wrap: wrap;">
+                <div class="hero-content" style="flex: 1; min-width: 300px;">
                     <h1 class="hero-title">Discover Your Global Education Journey</h1>
                     <p class="hero-subtitle">Melford International connects students with world-class educational opportunities across the globe. Your future starts here.</p>
-                    
-                    <div class="search-box">
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Search universities, courses, or countries...">
-                            <button class="btn search-btn">
-                                <i class="fas fa-search me-2"></i>Search
-                            </button>
-                        </div>
-                    </div>
                     
                     <div class="hero-stats">
                         <div class="stat-item">
@@ -56,14 +609,20 @@
                             <p>Students Placed</p>
                         </div>
                     </div>
+                    
+                    <div class="hero-cta">
+                        <a href="./pages/services.html" class="btn btn-primary">Explore Services</a>
+                        <a href="./pages/contact.html" class="btn btn-secondary">Book Consultation</a>
+                    </div>
                 </div>
-                <div class="col-lg-5 d-none d-lg-flex align-items-center">
-                    <div class="text-center">
-                        <div style="position: relative; display: inline-block;">
-                            <div style="width: 300px; height: 300px; background: rgba(255,255,255,0.1); border-radius: 50%; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);"></div>
-                            <div style="width: 250px; height: 250px; background: rgba(255,255,255,0.2); border-radius: 50%; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);"></div>
-                            <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Global Education" style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover; position: relative; border: 5px solid var(--golden-yellow);">
+                
+                <div class="hero-image" style="flex: 1; min-width: 300px;">
+                    <div class="hero-image-container">
+                        <div class="hero-circles">
+                            <div class="circle-1"></div>
+                            <div class="circle-2"></div>
                         </div>
+                        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Global Education" class="hero-main-image">
                     </div>
                 </div>
             </div>
@@ -71,80 +630,64 @@
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="py-5">
+    <section id="services" class="section">
         <div class="container">
-            <div class="row text-center mb-5">
-                <div class="col-lg-8 mx-auto">
-                    <h2 class="section-title">Our Education Services</h2>
-                    <p class="section-subtitle">Comprehensive support for your international education journey</p>
-                </div>
-            </div>
+            <h2 class="section-title fade-in">Our Education Services</h2>
+            <p class="section-subtitle fade-in">Comprehensive support for your international education journey</p>
             
-            <div class="row g-4">
-                <div class="col-lg-4 col-md-6">
-                    <div class="feature-card">
-                        <div class="feature-icon mx-auto">
-                            <i class="fas fa-search-location"></i>
-                        </div>
-                        <h4>University Selection</h4>
-                        <p>Personalized guidance to find the perfect university match based on your academic profile and career goals.</p>
-                        <a href="#" class="btn btn-outline-primary mt-3">Learn More</a>
+            <div class="services-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-search-location"></i>
                     </div>
+                    <h4>University Selection</h4>
+                    <p>Personalized guidance to find the perfect university match based on your academic profile and career goals.</p>
+                    <a href="#" class="btn btn-outline-primary">Learn More</a>
                 </div>
                 
-                <div class="col-lg-4 col-md-6">
-                    <div class="feature-card">
-                        <div class="feature-icon mx-auto">
-                            <i class="fas fa-file-alt"></i>
-                        </div>
-                        <h4>Application Assistance</h4>
-                        <p>Expert help with applications, essays, and documentation to maximize your acceptance chances.</p>
-                        <a href="#" class="btn btn-outline-primary mt-3">Learn More</a>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-file-alt"></i>
                     </div>
+                    <h4>Application Assistance</h4>
+                    <p>Expert help with applications, essays, and documentation to maximize your acceptance chances.</p>
+                    <a href="#" class="btn btn-outline-primary">Learn More</a>
                 </div>
                 
-                <div class="col-lg-4 col-md-6">
-                    <div class="feature-card">
-                        <div class="feature-icon mx-auto">
-                            <i class="fas fa-passport"></i>
-                        </div>
-                        <h4>Visa Processing</h4>
-                        <p>Guidance through the complex visa application process with a 95% success rate.</p>
-                        <a href="#" class="btn btn-outline-primary mt-3">Learn More</a>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-passport"></i>
                     </div>
+                    <h4>Visa Processing</h4>
+                    <p>Guidance through the complex visa application process with a 95% success rate.</p>
+                    <a href="#" class="btn btn-outline-primary">Learn More</a>
                 </div>
                 
-                <div class="col-lg-4 col-md-6">
-                    <div class="feature-card">
-                        <div class="feature-icon mx-auto">
-                            <i class="fas fa-dollar-sign"></i>
-                        </div>
-                        <h4>Scholarship Guidance</h4>
-                        <p>Access to exclusive scholarship opportunities and financial aid options.</p>
-                        <a href="#" class="btn btn-outline-primary mt-3">Learn More</a>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-dollar-sign"></i>
                     </div>
+                    <h4>Scholarship Guidance</h4>
+                    <p>Access to exclusive scholarship opportunities and financial aid options.</p>
+                    <a href="#" class="btn btn-outline-primary">Learn More</a>
                 </div>
                 
-                <div class="col-lg-4 col-md-6">
-                    <div class="feature-card">
-                        <div class="feature-icon mx-auto">
-                            <i class="fas fa-home"></i>
-                        </div>
-                        <h4>Accommodation</h4>
-                        <p>Assistance in finding safe and comfortable housing near your university.</p>
-                        <a href="#" class="btn btn-outline-primary mt-3">Learn More</a>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-home"></i>
                     </div>
+                    <h4>Accommodation</h4>
+                    <p>Assistance in finding safe and comfortable housing near your university.</p>
+                    <a href="#" class="btn btn-outline-primary">Learn More</a>
                 </div>
                 
-                <div class="col-lg-4 col-md-6">
-                    <div class="feature-card">
-                        <div class="feature-icon mx-auto">
-                            <i class="fas fa-user-graduate"></i>
-                        </div>
-                        <h4>Career Counseling</h4>
-                        <p>Guidance on career paths and job opportunities after graduation.</p>
-                        <a href="#" class="btn btn-outline-primary mt-3">Learn More</a>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-graduate"></i>
                     </div>
+                    <h4>Career Counseling</h4>
+                    <p>Guidance on career paths and job opportunities after graduation.</p>
+                    <a href="#" class="btn btn-outline-primary">Learn More</a>
                 </div>
             </div>
         </div>
@@ -153,130 +696,112 @@
     <!-- Universities Section -->
     <section id="universities" class="universities-section">
         <div class="container">
-            <div class="row text-center mb-5">
-                <div class="col-lg-8 mx-auto">
-                    <h2 class="section-title">Featured Universities</h2>
-                    <p class="section-subtitle">Partner institutions across the globe</p>
-                </div>
-            </div>
+            <h2 class="section-title fade-in">Featured Universities</h2>
+            <p class="section-subtitle fade-in">Partner institutions across the globe</p>
             
-            <div class="row g-4">
-                <div class="col-lg-4 col-md-6">
-                    <div class="university-card">
-                        <div class="university-image">
-                            <span>Harvard University</span>
-                            <div class="university-rating">
-                                <i class="fas fa-star text-warning"></i> 4.9
+            <div class="universities-grid">
+                <div class="university-card fade-in">
+                    <div class="university-image">
+                        <span>Harvard University</span>
+                        <div class="university-rating">
+                            <i class="fas fa-star" style="color: #fbbf24;"></i> 4.9
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h5>Harvard University</h5>
+                        <p style="color: var(--text-gray); opacity: 0.7; margin-bottom: 1rem;"><i class="fas fa-map-marker-alt" style="margin-right: 0.5rem;"></i>Cambridge, USA</p>
+                        <div class="university-details">
+                            <div class="detail-item">
+                                <div class="detail-label">Tuition</div>
+                                <div class="detail-value">$54,000/year</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Programs</div>
+                                <div class="detail-value">200+</div>
                             </div>
                         </div>
-                        <div class="p-4">
-                            <h5 class="mb-2">Harvard University</h5>
-                            <p class="text-muted mb-3"><i class="fas fa-map-marker-alt me-2"></i>Cambridge, USA</p>
-                            <div class="d-flex justify-content-between mb-3">
-                                <div>
-                                    <small class="text-muted">Tuition</small>
-                                    <div class="fw-bold">$54,000/year</div>
-                                </div>
-                                <div>
-                                    <small class="text-muted">Programs</small>
-                                    <div class="fw-bold">200+</div>
-                                </div>
-                            </div>
-                            <button class="btn btn-primary w-100">View Programs</button>
-                        </div>
+                        <button class="btn btn-primary" style="width: 100%;">View Programs</button>
                     </div>
                 </div>
                 
-                <div class="col-lg-4 col-md-6">
-                    <div class="university-card">
-                        <div class="university-image">
-                            <span>Oxford University</span>
-                            <div class="university-rating">
-                                <i class="fas fa-star text-warning"></i> 4.8
+                <div class="university-card fade-in">
+                    <div class="university-image">
+                        <span>Oxford University</span>
+                        <div class="university-rating">
+                            <i class="fas fa-star" style="color: #fbbf24;"></i> 4.8
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h5>University of Oxford</h5>
+                        <p style="color: var(--text-gray); opacity: 0.7; margin-bottom: 1rem;"><i class="fas fa-map-marker-alt" style="margin-right: 0.5rem;"></i>Oxford, UK</p>
+                        <div class="university-details">
+                            <div class="detail-item">
+                                <div class="detail-label">Tuition</div>
+                                <div class="detail-value">£26,000/year</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Programs</div>
+                                <div class="detail-value">150+</div>
                             </div>
                         </div>
-                        <div class="p-4">
-                            <h5 class="mb-2">University of Oxford</h5>
-                            <p class="text-muted mb-3"><i class="fas fa-map-marker-alt me-2"></i>Oxford, UK</p>
-                            <div class="d-flex justify-content-between mb-3">
-                                <div>
-                                    <small class="text-muted">Tuition</small>
-                                    <div class="fw-bold">£26,000/year</div>
-                                </div>
-                                <div>
-                                    <small class="text-muted">Programs</small>
-                                    <div class="fw-bold">150+</div>
-                                </div>
-                            </div>
-                            <button class="btn btn-primary w-100">View Programs</button>
-                        </div>
+                        <button class="btn btn-primary" style="width: 100%;">View Programs</button>
                     </div>
                 </div>
                 
-                <div class="col-lg-4 col-md-6">
-                    <div class="university-card">
-                        <div class="university-image">
-                            <span>University of Toronto</span>
-                            <div class="university-rating">
-                                <i class="fas fa-star text-warning"></i> 4.7
+                <div class="university-card fade-in">
+                    <div class="university-image">
+                        <span>University of Toronto</span>
+                        <div class="university-rating">
+                            <i class="fas fa-star" style="color: #fbbf24;"></i> 4.7
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h5>University of Toronto</h5>
+                        <p style="color: var(--text-gray); opacity: 0.7; margin-bottom: 1rem;"><i class="fas fa-map-marker-alt" style="margin-right: 0.5rem;"></i>Toronto, Canada</p>
+                        <div class="university-details">
+                            <div class="detail-item">
+                                <div class="detail-label">Tuition</div>
+                                <div class="detail-value">$42,000/year</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Programs</div>
+                                <div class="detail-value">180+</div>
                             </div>
                         </div>
-                        <div class="p-4">
-                            <h5 class="mb-2">University of Toronto</h5>
-                            <p class="text-muted mb-3"><i class="fas fa-map-marker-alt me-2"></i>Toronto, Canada</p>
-                            <div class="d-flex justify-content-between mb-3">
-                                <div>
-                                    <small class="text-muted">Tuition</small>
-                                    <div class="fw-bold">$42,000/year</div>
-                                </div>
-                                <div>
-                                    <small class="text-muted">Programs</small>
-                                    <div class="fw-bold">180+</div>
-                                </div>
-                            </div>
-                            <button class="btn btn-primary w-100">View Programs</button>
-                        </div>
+                        <button class="btn btn-primary" style="width: 100%;">View Programs</button>
                     </div>
                 </div>
             </div>
             
-            <div class="text-center mt-5">
-                <button class="btn btn-outline-primary btn-lg">Explore All Universities</button>
+            <div style="text-align: center; margin-top: 3rem;">
+                <button class="btn btn-outline-primary fade-in" style="padding: 1rem 3rem; font-size: 1.1rem;">Explore All Universities</button>
             </div>
         </div>
     </section>
 
     <!-- Stats Section -->
     <section class="stats-section">
-        <div class="container stats-content">
-            <div class="row">
-                <div class="col-lg-3 col-md-6">
-                    <div class="stat-item">
-                        <div class="stat-number">50+</div>
-                        <h5>Countries</h5>
-                        <p>Global partnerships</p>
-                    </div>
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item fade-in">
+                    <div class="stat-number">50+</div>
+                    <h5>Countries</h5>
+                    <p>Global partnerships</p>
                 </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="stat-item">
-                        <div class="stat-number">15K+</div>
-                        <h5>Students Placed</h5>
-                        <p>Successful enrollments</p>
-                    </div>
+                <div class="stat-item fade-in">
+                    <div class="stat-number">15K+</div>
+                    <h5>Students Placed</h5>
+                    <p>Successful enrollments</p>
                 </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="stat-item">
-                        <div class="stat-number">98%</div>
-                        <h5>Acceptance Rate</h5>
-                        <p>University applications</p>
-                    </div>
+                <div class="stat-item fade-in">
+                    <div class="stat-number">98%</div>
+                    <h5>Acceptance Rate</h5>
+                    <p>University applications</p>
                 </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="stat-item">
-                        <div class="stat-number">500+</div>
-                        <h5>Partner Institutions</h5>
-                        <p>Worldwide</p>
-                    </div>
+                <div class="stat-item fade-in">
+                    <div class="stat-number">500+</div>
+                    <h5>Partner Institutions</h5>
+                    <p>Worldwide</p>
                 </div>
             </div>
         </div>
@@ -285,55 +810,45 @@
     <!-- Testimonials -->
     <section id="testimonials" class="testimonial-section">
         <div class="container">
-            <div class="row text-center mb-5">
-                <div class="col-lg-8 mx-auto">
-                    <h2 class="section-title">Student Success Stories</h2>
-                    <p class="section-subtitle">Hear from students who achieved their dreams with Melford</p>
-                </div>
-            </div>
+            <h2 class="section-title fade-in">Student Success Stories</h2>
+            <p class="section-subtitle fade-in">Hear from students who achieved their dreams with Melford</p>
             
-            <div class="row g-4">
-                <div class="col-lg-4 col-md-6">
-                    <div class="testimonial-card">
-                        <div class="testimonial-text">
-                            "Melford International helped me secure admission to my dream university with a full scholarship. Their guidance was invaluable throughout the entire process."
-                        </div>
-                        <div class="client-info">
-                            <div class="client-avatar">SA</div>
-                            <div>
-                                <h5 class="mb-0">Sarah Ahmed</h5>
-                                <p class="text-muted mb-0">Harvard University, USA</p>
-                            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-text">
+                        "Melford International helped me secure admission to my dream university with a full scholarship. Their guidance was invaluable throughout the entire process."
+                    </div>
+                    <div class="client-info">
+                        <div class="client-avatar">SA</div>
+                        <div>
+                            <h5>Sarah Ahmed</h5>
+                            <p style="color: var(--text-gray); opacity: 0.7; margin: 0;">Harvard University, USA</p>
                         </div>
                     </div>
                 </div>
                 
-                <div class="col-lg-4 col-md-6">
-                    <div class="testimonial-card">
-                        <div class="testimonial-text">
-                            "The visa assistance I received was exceptional. Melford made the complex process simple and stress-free. I'm now studying in Canada thanks to them!"
-                        </div>
-                        <div class="client-info">
-                            <div class="client-avatar">MR</div>
-                            <div>
-                                <h5 class="mb-0">Michael Rodriguez</h5>
-                                <p class="text-muted mb-0">University of Toronto, Canada</p>
-                            </div>
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-text">
+                        "The visa assistance I received was exceptional. Melford made the complex process simple and stress-free. I'm now studying in Canada thanks to them!"
+                    </div>
+                    <div class="client-info">
+                        <div class="client-avatar">MR</div>
+                        <div>
+                            <h5>Michael Rodriguez</h5>
+                            <p style="color: var(--text-gray); opacity: 0.7; margin: 0;">University of Toronto, Canada</p>
                         </div>
                     </div>
                 </div>
                 
-                <div class="col-lg-4 col-md-6">
-                    <div class="testimonial-card">
-                        <div class="testimonial-text">
-                            "From university selection to accommodation, Melford provided comprehensive support. Their expertise made my UK education journey seamless."
-                        </div>
-                        <div class="client-info">
-                            <div class="client-avatar">JC</div>
-                            <div>
-                                <h5 class="mb-0">James Chen</h5>
-                                <p class="text-muted mb-0">Imperial College London, UK</p>
-                            </div>
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-text">
+                        "From university selection to accommodation, Melford provided comprehensive support. Their expertise made my UK education journey seamless."
+                    </div>
+                    <div class="client-info">
+                        <div class="client-avatar">JC</div>
+                        <div>
+                            <h5>James Chen</h5>
+                            <p style="color: var(--text-gray); opacity: 0.7; margin: 0;">Imperial College London, UK</p>
                         </div>
                     </div>
                 </div>
@@ -342,67 +857,135 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container cta-content">
-            <div class="row justify-content-center text-center">
-                <div class="col-lg-8">
-                    <h2 class="cta-title">Start Your Global Education Journey</h2>
-                    <p class="lead mb-4">Join thousands of students who have achieved their academic dreams with Melford International. Your future begins today!</p>
-                    <div class="d-flex flex-wrap justify-content-center gap-3">
-                        <button class="btn btn-dark btn-lg px-4">Apply Now</button>
-                        <button class="btn btn-outline-dark btn-lg px-4">Book Consultation</button>
-                    </div>
-                </div>
+    <section id="contact" class="cta-section">
+        <div class="container">
+            <h2 class="cta-title fade-in">Start Your Global Education Journey Today</h2>
+            <p class="cta-subtitle fade-in">Join thousands of students who have transformed their lives through international education</p>
+            
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-dark">Schedule Free Consultation</a>
+                <a href="#" class="btn btn-outline-dark">Download Brochure</a>
             </div>
         </div>
     </section>
 
-    <!-- inject the footer -->
+    <!-- Footer -->
     <div id="footer-placeholder"></div>
 
-  
 
-
-
-    <!-- Bootstrap JS Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Simple animation for stats counters
-        const counters = document.querySelectorAll('.stat-number');
-        const speed = 200;
-        
-        counters.forEach(counter => {
-            const updateCount = () => {
-                const target = +counter.innerText.replace(/,/g, '');
-                const count = +counter.innerText;
-                
-                // Animate if the element is in viewport
-                if(count < target) {
-                    counter.innerText = Math.ceil(count + target/speed).toLocaleString();
-                    setTimeout(updateCount, 1);
-                } else {
-                    counter.innerText = target.toLocaleString();
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
                 }
-            };
-            
-            updateCount();
+            });
         });
 
         // Navbar scroll effect
         window.addEventListener('scroll', function() {
             const navbar = document.querySelector('.navbar');
-            if(window.scrollY > 50) {
-                navbar.classList.add('shadow-sm');
-                navbar.style.padding = "10px 0";
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.backdropFilter = 'blur(10px)';
             } else {
-                navbar.classList.remove('shadow-sm');
-                navbar.style.padding = "15px 0";
+                navbar.style.background = 'var(--white)';
+                navbar.style.backdropFilter = 'none';
             }
         });
 
-        // Feature card hover effect
-        const featureCards = document.querySelectorAll('.feature-card');
-        featureCards.forEach(card => {
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Mobile menu toggle (basic implementation)
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenu.addEventListener('click', function() {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            navLinks.style.flexDirection = 'column';
+            navLinks.style.position = 'absolute';
+            navLinks.style.top = '100%';
+            navLinks.style.left = '0';
+            navLinks.style.width = '100%';
+            navLinks.style.background = 'var(--white)';
+            navLinks.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            navLinks.style.padding = '1rem';
+        });
+
+        // Counter animation for stats
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            
+            counters.forEach(counter => {
+                const target = parseInt(counter.textContent.replace(/[^\d]/g, ''));
+                const increment = target / 100;
+                let current = 0;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        counter.textContent = counter.textContent.replace(/\d+/, target);
+                        clearInterval(timer);
+                    } else {
+                        counter.textContent = counter.textContent.replace(/\d+/, Math.floor(current));
+                    }
+                }, 20);
+            });
+        }
+
+        // Trigger counter animation when stats section is visible
+        const statsSection = document.querySelector('.stats-section');
+        const statsObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+
+        // Form submission handling (placeholder)
+        document.addEventListener('DOMContentLoaded', function() {
+            const ctaButtons = document.querySelectorAll('.btn');
+            ctaButtons.forEach(button => {
+                if (button.textContent.includes('Consultation') || button.textContent.includes('Get Started')) {
+                    button.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        alert('Thank you for your interest! Our team will contact you within 24 hours to schedule your free consultation.');
+                    });
+                }
+            });
+        });
+
+        // Add hover effects to cards
+        document.querySelectorAll('.feature-card, .university-card, .testimonial-card').forEach(card => {
             card.addEventListener('mouseenter', function() {
                 this.style.transform = 'translateY(-10px)';
             });
@@ -411,22 +994,7 @@
                 this.style.transform = 'translateY(0)';
             });
         });
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
     </script>
     <script src="../js/loadpartials.js" defer></script>
-
 </body>
 </html>

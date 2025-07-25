@@ -1,52 +1,133 @@
-  <nav class="navbar navbar-expand-lg navbar-custom" id="melfordNavbar">
+<nav style="background: var(--primary-blue); padding: 15px 0; box-shadow: 0 2px 20px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; font-family: 'Poppins', sans-serif;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; align-items: center; justify-content: space-between;">
         <!-- Brand Logo -->
-        <a class="navbar-brand" href="../pages/index.html">
-            <img src="https://via.placeholder.com/40x40/FFC000/1a1a1a?text=M" alt="Melford Logo" class="brand-logo">
-            <div class="brand-text">
-                <span style="color: #f8f9fa;">Melford</span>
-                <span style="color: #FFC000;">International</span>
+        <a href="./index.html" style="text-decoration: none; display: flex; align-items: center; gap: 12px;">
+            <img src="../assets/images/melford3Dlogo.jpg" alt="Melford Logo" style="width: 45px; height: 45px; border-radius: 50%; object-fit: cover;">
+            <div style="display: flex; flex-direction: column; line-height: 1.2;">
+                <span style="color: #f8f9fa; font-weight: 600; font-size: 18px;">Melford</span>
+                <span style="color: #FFC000; font-weight: 600; font-size: 18px;">International</span>
             </div>
         </a>
-        
+
         <!-- Mobile Toggle Button -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#melfordNavbarNav" aria-controls="melfordNavbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+        <button id="navToggle" style="display: none; background: none; border: none; color: white; font-size: 24px; cursor: pointer;">
+            <i class="fas fa-bars"></i>
         </button>
-        
+
         <!-- Navigation Links -->
-        <div class="collapse navbar-collapse" id="melfordNavbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link active" href="/index.html">
-                        <i class="fas fa-home"></i>Home
+        <div id="navMenu" style="display: flex; align-items: center; gap: 30px;">
+            <ul style="display: flex; list-style: none; margin: 0; padding: 0; gap: 25px; align-items: center;">
+                <li>
+                    <a href="/index.html" style="color: rgba(255,255,255,0.9); text-decoration: none; font-weight: 500; font-size: 15px; display: flex; align-items: center; gap: 8px; padding: 8px 15px; border-radius: 25px; transition: all 0.3s ease;" onmouseover="this.style.background='rgba(255,192,0,0.15)'; this.style.color='#FFC000'" onmouseout="this.style.background='transparent'; this.style.color='rgba(255,255,255,0.9)'">
+                        <i class="fas fa-home" style="font-size: 14px;"></i>Home
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../pages/about.html">
-                        <i class="fas fa-info-circle"></i>About
+                <li>
+                    <a href="../pages/about.html" style="color: rgba(255,255,255,0.9); text-decoration: none; font-weight: 500; font-size: 15px; display: flex; align-items: center; gap: 8px; padding: 8px 15px; border-radius: 25px; transition: all 0.3s ease;" onmouseover="this.style.background='rgba(255,192,0,0.15)'; this.style.color='#FFC000'" onmouseout="this.style.background='transparent'; this.style.color='rgba(255,255,255,0.9)'">
+                        <i class="fas fa-info-circle" style="font-size: 14px;"></i>About
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../pages/services.html">
-                        <i class="fas fa-cogs"></i>Services
+                <li>
+                    <a href="../pages/services.html" style="color: rgba(255,255,255,0.9); text-decoration: none; font-weight: 500; font-size: 15px; display: flex; align-items: center; gap: 8px; padding: 8px 15px; border-radius: 25px; transition: all 0.3s ease;" onmouseover="this.style.background='rgba(255,192,0,0.15)'; this.style.color='#FFC000'" onmouseout="this.style.background='transparent'; this.style.color='rgba(255,255,255,0.9)'">
+                        <i class="fas fa-cogs" style="font-size: 14px;"></i>Services
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../pages/events.html">
-                        <i class="fas fa-calendar-alt"></i>Events
+                <li>
+                    <a href="../pages/events.html" style="color: rgba(255,255,255,0.9); text-decoration: none; font-weight: 500; font-size: 15px; display: flex; align-items: center; gap: 8px; padding: 8px 15px; border-radius: 25px; transition: all 0.3s ease;" onmouseover="this.style.background='rgba(255,192,0,0.15)'; this.style.color='#FFC000'" onmouseout="this.style.background='transparent'; this.style.color='rgba(255,255,255,0.9)'">
+                        <i class="fas fa-calendar-alt" style="font-size: 14px;"></i>Events
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../pages/team.html">
-                        <i class="fas fa-users"></i>Team
+                <li>
+                    <a href="../pages/team.html" style="color: rgba(255,255,255,0.9); text-decoration: none; font-weight: 500; font-size: 15px; display: flex; align-items: center; gap: 8px; padding: 8px 15px; border-radius: 25px; transition: all 0.3s ease;" onmouseover="this.style.background='rgba(255,192,0,0.15)'; this.style.color='#FFC000'" onmouseout="this.style.background='transparent'; this.style.color='rgba(255,255,255,0.9)'">
+                        <i class="fas fa-users" style="font-size: 14px;"></i>Team
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../pages/contact.html">
-                        <i class="fas fa-envelope"></i>Contact
+                <li>
+                    <a href="../pages/contact.html" style="color: rgba(255,255,255,0.9); text-decoration: none; font-weight: 500; font-size: 15px; display: flex; align-items: center; gap: 8px; padding: 8px 15px; border-radius: 25px; transition: all 0.3s ease;" onmouseover="this.style.background='rgba(255,192,0,0.15)'; this.style.color='#FFC000'" onmouseout="this.style.background='transparent'; this.style.color='rgba(255,255,255,0.9)'">
+                        <i class="fas fa-envelope" style="font-size: 14px;"></i>Contact
                     </a>
                 </li>
             </ul>
-            <button class="btn btn-primary ms-3">Book Consultation</button>
+            <button style="background: #FFC000; color: #1a1a1a; border: none; padding: 12px 24px; border-radius: 25px; font-weight: 600; font-size: 14px; cursor: pointer; transition: all 0.3s ease; font-family: 'Poppins', sans-serif;" onmouseover="this.style.background='#FFD700'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='#FFC000'; this.style.transform='translateY(0)'">
+                Book Consultation
+            </button>
         </div>
-    </nav>
+    </div>
+
+    <!-- Mobile Menu (Hidden by default) -->
+    <div id="mobileMenu" style="display: none; background: rgba(30, 90, 150, 0.95); backdrop-filter: blur(10px); margin-top: 15px; border-top: 1px solid rgba(255,255,255,0.1);">
+        <ul style="list-style: none; margin: 0; padding: 20px; display: flex; flex-direction: column; gap: 15px;">
+            <li>
+                <a href="/index.html" style="color: rgba(255,255,255,0.9); text-decoration: none; font-weight: 500; font-size: 16px; display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                    <i class="fas fa-home" style="font-size: 16px; width: 20px;"></i>Home
+                </a>
+            </li>
+            <li>
+                <a href="../pages/about.html" style="color: rgba(255,255,255,0.9); text-decoration: none; font-weight: 500; font-size: 16px; display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                    <i class="fas fa-info-circle" style="font-size: 16px; width: 20px;"></i>About
+                </a>
+            </li>
+            <li>
+                <a href="../pages/services.html" style="color: rgba(255,255,255,0.9); text-decoration: none; font-weight: 500; font-size: 16px; display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                    <i class="fas fa-cogs" style="font-size: 16px; width: 20px;"></i>Services
+                </a>
+            </li>
+            <li>
+                <a href="../pages/events.html" style="color: rgba(255,255,255,0.9); text-decoration: none; font-weight: 500; font-size: 16px; display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                    <i class="fas fa-calendar-alt" style="font-size: 16px; width: 20px;"></i>Events
+                </a>
+            </li>
+            <li>
+                <a href="../pages/team.html" style="color: #FFC000; text-decoration: none; font-weight: 600; font-size: 16px; display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                    <i class="fas fa-users" style="font-size: 16px; width: 20px;"></i>Team
+                </a>
+            </li>
+            <li>
+                <a href="../pages/contact.html" style="color: rgba(255,255,255,0.9); text-decoration: none; font-weight: 500; font-size: 16px; display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                    <i class="fas fa-envelope" style="font-size: 16px; width: 20px;"></i>Contact
+                </a>
+            </li>
+            <li style="margin-top: 10px;">
+                <button style="background: #FFC000; color: #1a1a1a; border: none; padding: 15px 30px; border-radius: 25px; font-weight: 600; font-size: 16px; cursor: pointer; width: 100%; font-family: 'Poppins', sans-serif;">
+                    Book Consultation
+                </button>
+            </li>
+        </ul>
+    </div>
+
+    <!-- JavaScript for Mobile Toggle -->
+    <script>
+        document.getElementById('navToggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const isVisible = mobileMenu.style.display === 'block';
+            mobileMenu.style.display = isVisible ? 'none' : 'block';
+            
+            // Toggle hamburger to X
+            const icon = this.querySelector('i');
+            icon.className = isVisible ? 'fas fa-bars' : 'fas fa-times';
+        });
+
+        // Responsive behavior
+        function handleResize() {
+            const navMenu = document.getElementById('navMenu');
+            const navToggle = document.getElementById('navToggle');
+            const mobileMenu = document.getElementById('mobileMenu');
+            
+            if (window.innerWidth <= 768) {
+                navMenu.style.display = 'none';
+                navToggle.style.display = 'block';
+            } else {
+                navMenu.style.display = 'flex';
+                navToggle.style.display = 'none';
+                mobileMenu.style.display = 'none';
+            }
+        }
+
+        // Initial check and event listener
+        handleResize();
+        window.addEventListener('resize', handleResize);
+    </script>
+
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</nav>

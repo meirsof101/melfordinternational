@@ -4,13 +4,352 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Melford International Team</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Poppins:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/styles/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #007AFF;
+            --primary-yellow: #FFD60A;
+            --white: #FFFFFF;
+            --light-gray: #F5F5F7;
+            --medium-gray: #86868B;
+            --dark-gray: #1D1D1F;
+            --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --hover-shadow: 0 8px 40px rgba(0, 122, 255, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--white);
+            color: var(--dark-gray);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #0056CC 100%);
+            color: var(--white);
+            text-align: center;
+            padding: 120px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><defs><radialGradient id="b" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="white" stop-opacity="0.1"/><stop offset="100%" stop-color="white" stop-opacity="0"/></radialGradient></defs><circle cx="50" cy="10" r="10" fill="url(%23b)"/></svg>') repeat;
+            opacity: 0.3;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .main-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            font-weight: 300;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .team-section {
+            padding: 80px 0;
+            background: var(--light-gray);
+            position: relative;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .team-card {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 0;
+            box-shadow: var(--card-shadow);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .team-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: var(--hover-shadow);
+        }
+
+        .team-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--primary-yellow));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .team-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .image-container {
+            position: relative;
+            height: 280px;
+            background: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            background: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            font-weight: 300;
+            color: var(--medium-gray);
+            border: 2px dashed #D1D1D6;
+        }
+
+        .profile-img::before {
+            content: 'Photo';
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--medium-gray);
+        }
+
+        .executive-bg, .leadership-bg, .management-bg, .operations-bg, .education-bg {
+            display: none;
+        }
+
+        .profile-badge {
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 80px;
+            background: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+            z-index: 2;
+            border: 3px solid var(--white);
+        }
+
+        .initials-badge {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--white);
+            text-transform: uppercase;
+        }
+
+        /* Role-specific badge colors */
+        .team-card[data-role="executive"] .initials-badge {
+            background: var(--primary-blue);
+        }
+
+        .team-card[data-role="leadership"] .initials-badge {
+            background: var(--primary-yellow);
+            color: var(--dark-gray);
+        }
+
+        .team-card[data-role="management"] .initials-badge {
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-yellow));
+        }
+
+        .team-card[data-role="operations"] .initials-badge {
+            background: #0056CC;
+        }
+
+        .team-card[data-role="education"] .initials-badge {
+            background: #FFB000;
+            color: var(--dark-gray);
+        }
+
+        .card-info {
+            padding: 50px 30px 30px;
+            text-align: center;
+            background: var(--white);
+            position: relative;
+            z-index: 1;
+        }
+
+        .name {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--dark-gray);
+            margin-bottom: 8px;
+            letter-spacing: -0.01em;
+        }
+
+        .position {
+            color: var(--medium-gray);
+            font-size: 1rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 0.9rem;
+        }
+
+        /* Role-specific styling */
+        .team-card[data-role="executive"] .name {
+            color: var(--primary-blue);
+        }
+
+        .team-card[data-role="leadership"] .name {
+            color: #0056CC;
+        }
+
+        .team-card[data-role="management"] .name {
+            color: var(--primary-blue);
+        }
+
+        .team-card[data-role="operations"] .name {
+            color: var(--medium-gray);
+        }
+
+        .team-card[data-role="education"] .name {
+            color: #FFB000;
+        }
+
+        /* Animations */
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% { transform: translateX(-50%) scale(1); }
+            50% { transform: translateX(-50%) scale(1.1); }
+            100% { transform: translateX(-50%) scale(1); }
+        }
+
+        .team-card {
+            animation: slideUp 0.6s ease-out forwards;
+            opacity: 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 80px 0 60px;
+            }
+
+            .team-section {
+                padding: 60px 0;
+            }
+
+            .team-grid {
+                grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+                gap: 30px;
+            }
+
+            .image-container {
+                height: 240px;
+            }
+
+            .card-info {
+                padding: 40px 20px 25px;
+            }
+
+            .name {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .team-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .main-title {
+                font-size: 2.5rem;
+            }
+
+            .subtitle {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        .team-card:focus {
+            outline: 3px solid var(--primary-blue);
+            outline-offset: 4px;
+        }
+    </style>
 </head>
 <body>
-<div id="navbar"></div>
-    <div class="gradient-bg"></div>
-    
+    <div id="navbar"></div>
     <header class="hero-section">
         <div class="container">
             <h1 class="main-title">Meet Our Team</h1>
@@ -22,16 +361,11 @@
         <div class="container">
             <div class="team-grid">
                 
-                <div class="team-card" data-role="executive">
-                    <div class="video-container">
-                        <div class="profile-bg executive-bg"></div>
-                        <div class="play-button">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M8 5v14l11-7z" fill="currentColor"/>
-                            </svg>
-                        </div>
+                <div class="team-card" data-role="executive" tabindex="0" role="button" aria-label="Abednego Paul, Director">
+                    <div class="image-container">
+                        <div class="profile-img"></div>
                         <div class="profile-badge">
-                            <div class="badge-image executive-avatar"></div>
+                            <div class="initials-badge">AP</div>
                         </div>
                     </div>
                     <div class="card-info">
@@ -40,16 +374,11 @@
                     </div>
                 </div>
 
-                <div class="team-card" data-role="leadership">
-                    <div class="video-container">
-                        <div class="profile-bg leadership-bg"></div>
-                        <div class="play-button">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M8 5v14l11-7z" fill="currentColor"/>
-                            </svg>
-                        </div>
+                <div class="team-card" data-role="leadership" tabindex="0" role="button" aria-label="Dennis Mewa, Chief Operating Officer">
+                    <div class="image-container">
+                        <div class="profile-img"></div>
                         <div class="profile-badge">
-                            <div class="badge-image leadership-avatar"></div>
+                            <div class="initials-badge">DM</div>
                         </div>
                     </div>
                     <div class="card-info">
@@ -58,16 +387,11 @@
                     </div>
                 </div>
 
-                <div class="team-card" data-role="management">
-                    <div class="video-container">
-                        <div class="profile-bg management-bg"></div>
-                        <div class="play-button">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M8 5v14l11-7z" fill="currentColor"/>
-                            </svg>
-                        </div>
+                <div class="team-card" data-role="management" tabindex="0" role="button" aria-label="Margaret Ndanyi, Branch Manager">
+                    <div class="image-container">
+                        <div class="profile-img"></div>
                         <div class="profile-badge">
-                            <div class="badge-image management-avatar"></div>
+                            <div class="initials-badge">MN</div>
                         </div>
                     </div>
                     <div class="card-info">
@@ -76,16 +400,11 @@
                     </div>
                 </div>
 
-                <div class="team-card" data-role="management">
-                    <div class="video-container">
-                        <div class="profile-bg operations-bg"></div>
-                        <div class="play-button">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M8 5v14l11-7z" fill="currentColor"/>
-                            </svg>
-                        </div>
+                <div class="team-card" data-role="management" tabindex="0" role="button" aria-label="Ancient Muli, Project Manager">
+                    <div class="image-container">
+                        <div class="profile-img"></div>
                         <div class="profile-badge">
-                            <div class="badge-image operations-avatar"></div>
+                            <div class="initials-badge">AM</div>
                         </div>
                     </div>
                     <div class="card-info">
@@ -94,16 +413,11 @@
                     </div>
                 </div>
 
-                <div class="team-card" data-role="operations">
-                    <div class="video-container">
-                        <div class="profile-bg education-bg"></div>
-                        <div class="play-button">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M8 5v14l11-7z" fill="currentColor"/>
-                            </svg>
-                        </div>
+                <div class="team-card" data-role="operations" tabindex="0" role="button" aria-label="Jennifer Makau, Office Administrator">
+                    <div class="image-container">
+                        <div class="profile-img"></div>
                         <div class="profile-badge">
-                            <div class="badge-image education-avatar"></div>
+                            <div class="initials-badge">JM</div>
                         </div>
                     </div>
                     <div class="card-info">
@@ -112,16 +426,11 @@
                     </div>
                 </div>
 
-                <div class="team-card" data-role="education">
-                    <div class="video-container">
-                        <div class="profile-bg executive-bg"></div>
-                        <div class="play-button">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M8 5v14l11-7z" fill="currentColor"/>
-                            </svg>
-                        </div>
+                <div class="team-card" data-role="education" tabindex="0" role="button" aria-label="Christine Mutinda, Senior Counselor">
+                    <div class="image-container">
+                        <div class="profile-img"></div>
                         <div class="profile-badge">
-                            <div class="badge-image executive-avatar"></div>
+                            <div class="initials-badge">CM</div>
                         </div>
                     </div>
                     <div class="card-info">
@@ -130,16 +439,11 @@
                     </div>
                 </div>
 
-                <div class="team-card" data-role="education">
-                    <div class="video-container">
-                        <div class="profile-bg leadership-bg"></div>
-                        <div class="play-button">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M8 5v14l11-7z" fill="currentColor"/>
-                            </svg>
-                        </div>
+                <div class="team-card" data-role="education" tabindex="0" role="button" aria-label="Stephanie Cheruto, Senior Counselor">
+                    <div class="image-container">
+                        <div class="profile-img"></div>
                         <div class="profile-badge">
-                            <div class="badge-image leadership-avatar"></div>
+                            <div class="initials-badge">SC</div>
                         </div>
                     </div>
                     <div class="card-info">
@@ -148,16 +452,11 @@
                     </div>
                 </div>
 
-                <div class="team-card" data-role="education">
-                    <div class="video-container">
-                        <div class="profile-bg management-bg"></div>
-                        <div class="play-button">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M8 5v14l11-7z" fill="currentColor"/>
-                            </svg>
-                        </div>
+                <div class="team-card" data-role="education" tabindex="0" role="button" aria-label="Rebecca Irungu, Professional Trainer">
+                    <div class="image-container">
+                        <div class="profile-img"></div>
                         <div class="profile-badge">
-                            <div class="badge-image management-avatar"></div>
+                            <div class="initials-badge">RI</div>
                         </div>
                     </div>
                     <div class="card-info">
@@ -166,16 +465,11 @@
                     </div>
                 </div>
 
-                <div class="team-card" data-role="education">
-                    <div class="video-container">
-                        <div class="profile-bg operations-bg"></div>
-                        <div class="play-button">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M8 5v14l11-7z" fill="currentColor"/>
-                            </svg>
-                        </div>
+                <div class="team-card" data-role="education" tabindex="0" role="button" aria-label="Trevor Tayari, Professional Trainer">
+                    <div class="image-container">
+                        <div class="profile-img"></div>
                         <div class="profile-badge">
-                            <div class="badge-image operations-avatar"></div>
+                            <div class="initials-badge">TT</div>
                         </div>
                     </div>
                     <div class="card-info">
@@ -184,16 +478,11 @@
                     </div>
                 </div>
 
-                <div class="team-card" data-role="operations">
-                    <div class="video-container">
-                        <div class="profile-bg education-bg"></div>
-                        <div class="play-button">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M8 5v14l11-7z" fill="currentColor"/>
-                            </svg>
-                        </div>
+                <div class="team-card" data-role="operations" tabindex="0" role="button" aria-label="Teresiah Njoki, Customer Care Specialist">
+                    <div class="image-container">
+                        <div class="profile-img"></div>
                         <div class="profile-badge">
-                            <div class="badge-image education-avatar"></div>
+                            <div class="initials-badge">TN</div>
                         </div>
                     </div>
                     <div class="card-info">
@@ -202,16 +491,11 @@
                     </div>
                 </div>
 
-                <div class="team-card" data-role="operations">
-                    <div class="video-container">
-                        <div class="profile-bg executive-bg"></div>
-                        <div class="play-button">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M8 5v14l11-7z" fill="currentColor"/>
-                            </svg>
-                        </div>
+                <div class="team-card" data-role="operations" tabindex="0" role="button" aria-label="Clarice Aguta, Accountant">
+                    <div class="image-container">
+                        <div class="profile-img"></div>
                         <div class="profile-badge">
-                            <div class="badge-image executive-avatar"></div>
+                            <div class="initials-badge">CA</div>
                         </div>
                     </div>
                     <div class="card-info">
@@ -223,41 +507,105 @@
             </div>
         </div>
     </main>
-<div id="footer-placeholder"></div>
+
+    <div id="footer-placeholder"></div>
 
     <script>
-        // Add hover effects and interactions
-        document.querySelectorAll('.team-card').forEach(card => {
+        // Apple-inspired smooth interactions
+        document.querySelectorAll('.team-card').forEach((card, index) => {
+            // Stagger animation on load
+            card.style.animationDelay = `${index * 0.1}s`;
+            
+            // Enhanced hover effects
             card.addEventListener('mouseenter', () => {
-                card.style.transform = 'translateY(-8px) scale(1.02)';
-                const playButton = card.querySelector('.play-button');
-                playButton.style.transform = 'scale(1.1)';
-                playButton.style.opacity = '1';
+                const badge = card.querySelector('.profile-badge');
+                badge.style.transform = 'translateX(-50%) scale(1.1)';
+                badge.style.boxShadow = '0 8px 30px rgba(0, 122, 255, 0.3)';
             });
 
             card.addEventListener('mouseleave', () => {
-                card.style.transform = 'translateY(0) scale(1)';
-                const playButton = card.querySelector('.play-button');
-                playButton.style.transform = 'scale(1)';
-                playButton.style.opacity = '0.8';
+                const badge = card.querySelector('.profile-badge');
+                badge.style.transform = 'translateX(-50%) scale(1)';
+                badge.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.15)';
             });
 
-            // Click animation
+            // Click animation with Apple-like feedback
             card.addEventListener('click', () => {
                 const badge = card.querySelector('.profile-badge');
-                badge.style.animation = 'pulse 0.6s ease-out';
+                badge.style.animation = 'pulse 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                
+                // Add ripple effect
+                const ripple = document.createElement('div');
+                ripple.style.cssText = `
+                    position: absolute;
+                    border-radius: 50%;
+                    background: rgba(0, 122, 255, 0.3);
+                    transform: scale(0);
+                    animation: ripple 0.6s linear;
+                    pointer-events: none;
+                `;
+                
+                const rect = card.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = (rect.width - size) / 2 + 'px';
+                ripple.style.top = (rect.height - size) / 2 + 'px';
+                
+                card.style.position = 'relative';
+                card.appendChild(ripple);
+                
                 setTimeout(() => {
                     badge.style.animation = '';
+                    ripple.remove();
                 }, 600);
+            });
+
+            // Keyboard accessibility
+            card.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    card.click();
+                }
             });
         });
 
-        // Stagger animation on load
-        const cards = document.querySelectorAll('.team-card');
-        cards.forEach((card, index) => {
-            card.style.animationDelay = `${index * 0.1}s`;
+        // Add CSS for ripple animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(2);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.team-card').forEach(card => {
+            observer.observe(card);
         });
+
+        // Smooth scroll behavior
+        if ('scrollBehavior' in document.documentElement.style) {
+            document.documentElement.style.scrollBehavior = 'smooth';
+        }
     </script>
     <script src="../js/loadpartials.js" defer></script>
+
 </body>
 </html>
