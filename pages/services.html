@@ -4,17 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Services - Melford International Group</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-blue: #2563eb;
-            --primary-yellow: #fbbf24;
+            --primary-blue: #1E5A96;
+            --primary-yellow: #F1C40F;
             --white: #ffffff;
-            --light-gray: #f8fafc;
-            --text-gray: #374151;
-            --border-gray: #e5e7eb;
-            --success-green: #059669;
-            --accent-purple: #7c3aed;
+            --dark-gray: #333333;
         }
 
         * {
@@ -26,180 +22,218 @@
         body {
             font-family: 'Poppins', sans-serif;
             line-height: 1.6;
-            color: var(--text-gray);
+            color: var(--dark-gray);
+            overflow-x: hidden;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 2rem;
         }
 
-        /* Header */
-        .header {
-            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-purple) 100%);
-            color: var(--white);
-            padding: 4rem 0;
+        /* Hero Section */
+        .hero-banner {
             position: relative;
-            overflow: hidden;
-        }
-
-        .header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, var(--primary-yellow) 0%, transparent 70%);
-            opacity: 0.1;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-
-        .header-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-        }
-
-        .header h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .header .subtitle {
-            font-size: 1.3rem;
-            font-weight: 400;
-            opacity: 0.9;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* Navigation */
-        .nav {
-            background: var(--white);
-            padding: 1rem 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .nav-content {
+            min-height: 85vh;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-gray) 100%);
             display: flex;
-            justify-content: center;
             align-items: center;
+            color: var(--white);
         }
 
-        .nav-links {
-            display: flex;
-            gap: 3rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-gray);
-            font-weight: 500;
-            transition: all 0.3s ease;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary-blue);
-            background: rgba(37, 99, 235, 0.1);
-        }
-
-        /* Main Content */
-        .main-content {
-            padding: 4rem 0;
-        }
-
-        /* Services Overview */
-        .services-overview {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .services-overview h2 {
-            color: var(--primary-blue);
-            font-size: 2.5rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .services-overview p {
-            font-size: 1.1rem;
-            max-width: 800px;
-            margin: 0 auto;
-            opacity: 0.8;
-        }
-
-        /* Service Categories */
-        .service-categories {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 3rem;
-            margin: 4rem 0;
-        }
-
-        .service-category {
-            background: var(--white);
-            border-radius: 20px;
-            padding: 3rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .service-category::before {
+        .hero-banner::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, var(--primary-blue), var(--primary-yellow));
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 100px,
+                rgba(241, 196, 15, 0.05) 100px,
+                rgba(241, 196, 15, 0.05) 102px
+            );
         }
 
-        .service-category:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        .hero-content {
+            position: relative;
+            z-index: 2;
         }
 
-        .service-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--primary-blue), var(--primary-yellow));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            color: var(--white);
-            margin-bottom: 2rem;
-            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
-        }
-
-        .service-category h3 {
-            color: var(--primary-blue);
-            font-size: 1.8rem;
-            font-weight: 600;
+        .hero-subtitle {
+            font-size: 1rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--primary-yellow);
             margin-bottom: 1rem;
         }
 
-        .service-category p {
+        .hero-title {
+            font-size: clamp(3rem, 6vw, 5.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+            line-height: 1.7;
+        }
+
+        /* Services Section */
+        .services-ecosystem {
+            padding: 8rem 0;
+            background: var(--white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 6rem;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: var(--primary-yellow);
+            color: var(--dark-gray);
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 4vw, 4rem);
+            font-weight: 800;
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .section-description {
+            font-size: 1.1rem;
+            color: var(--dark-gray);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
+            opacity: 0.8;
+        }
+
+        /* Service Grid */
+        .services-constellation {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .service-cluster {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 0;
+            box-shadow: 0 10px 30px rgba(30, 90, 150, 0.1);
+            transition: all 0.3s ease;
+            overflow: hidden;
+            border: 2px solid transparent;
+        }
+
+        .service-cluster:nth-child(1) {
+            grid-column: span 8;
+            grid-row: span 2;
+        }
+
+        .service-cluster:nth-child(2) {
+            grid-column: span 4;
+        }
+
+        .service-cluster:nth-child(3) {
+            grid-column: span 4;
+        }
+
+        .service-cluster:nth-child(4) {
+            grid-column: span 6;
+        }
+
+        .service-cluster:nth-child(5) {
+            grid-column: span 6;
+        }
+
+        .service-cluster:nth-child(6) {
+            grid-column: span 12;
+        }
+
+        .service-cluster:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(30, 90, 150, 0.15);
+            border-color: var(--primary-yellow);
+        }
+
+        .service-content {
+            padding: 3rem;
+            height: 100%;
+        }
+
+        .service-cluster:nth-child(1) .service-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .service-cluster:nth-child(6) .service-content {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+        }
+
+        .service-icon-wrapper {
+            margin-bottom: 2rem;
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--primary-blue);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .service-cluster:hover .service-icon {
+            background: var(--primary-yellow);
+            transform: scale(1.05);
+        }
+
+        .service-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .service-cluster:nth-child(1) .service-title {
+            font-size: 2.2rem;
+        }
+
+        .service-description {
+            color: var(--dark-gray);
             margin-bottom: 2rem;
             line-height: 1.7;
+            opacity: 0.8;
         }
 
         .service-features {
@@ -208,170 +242,224 @@
         }
 
         .service-features li {
-            padding: 0.5rem 0;
+            padding: 0.8rem 0;
             display: flex;
             align-items: center;
-            gap: 0.8rem;
+            gap: 1rem;
+            border-bottom: 1px solid rgba(30, 90, 150, 0.1);
+            transition: all 0.3s ease;
         }
 
-        .service-features li::before {
-            content: '✓';
-            background: var(--success-green);
-            color: var(--white);
+        .service-features li:last-child {
+            border-bottom: none;
+        }
+
+        .service-features li:hover {
+            padding-left: 0.5rem;
+            color: var(--primary-blue);
+        }
+
+        .feature-icon {
             width: 20px;
             height: 20px;
+            background: var(--primary-yellow);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.8rem;
-            font-weight: bold;
+            color: var(--dark-gray);
+            font-size: 0.7rem;
+            font-weight: 700;
+            flex-shrink: 0;
         }
 
         .service-cta {
             background: var(--primary-blue);
             color: var(--white);
-            padding: 1rem 2rem;
             border: none;
-            border-radius: 25px;
-            font-family: 'Poppins', sans-serif;
+            padding: 1rem 2rem;
+            border-radius: 8px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
-            width: 100%;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            font-family: 'Poppins', sans-serif;
         }
 
         .service-cta:hover {
             background: var(--primary-yellow);
-            color: var(--primary-blue);
+            color: var(--dark-gray);
             transform: translateY(-2px);
         }
 
         /* Process Section */
-        .process-section {
-            background: var(--light-gray);
-            padding: 4rem 0;
-            margin: 4rem 0;
+        .process-journey {
+            padding: 8rem 0;
+            background: var(--dark-gray);
+            color: var(--white);
         }
 
-        .process-section h2 {
-            color: var(--primary-blue);
-            font-size: 2.5rem;
-            font-weight: 600;
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .process-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .process-step {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            position: relative;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-        }
-
-        .step-number {
-            position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 40px;
-            height: 40px;
+        .process-timeline .section-badge {
             background: var(--primary-yellow);
-            color: var(--primary-blue);
+            color: var(--dark-gray);
+        }
+
+        .process-timeline .section-title {
+            color: var(--white);
+        }
+
+        .process-timeline .section-description {
+            color: var(--white);
+            opacity: 0.8;
+        }
+
+        .timeline-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3rem;
+            margin-top: 4rem;
+            position: relative;
+        }
+
+        .timeline-connector {
+            position: absolute;
+            top: 40px;
+            left: 12.5%;
+            right: 12.5%;
+            height: 2px;
+            background: var(--primary-yellow);
+        }
+
+        .timeline-step {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 3rem 2rem;
+            border: 1px solid rgba(241, 196, 15, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .timeline-step:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-5px);
+            border-color: var(--primary-yellow);
+        }
+
+        .step-indicator {
+            width: 80px;
+            height: 80px;
+            background: var(--primary-yellow);
+            color: var(--dark-gray);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 1.5rem;
             font-weight: 700;
-            font-size: 1.2rem;
+            margin: 0 auto 2rem;
         }
 
-        .process-step h3 {
-            color: var(--primary-blue);
-            font-size: 1.3rem;
+        .step-title {
+            font-size: 1.4rem;
             font-weight: 600;
-            margin: 1rem 0;
-        }
-
-        /* Statistics Section */
-        .stats-section {
-            padding: 4rem 0;
-            background: var(--primary-blue);
+            margin-bottom: 1rem;
             color: var(--white);
         }
 
-        .stats-grid {
+        .step-description {
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        /* Impact Metrics */
+        .impact-metrics {
+            padding: 6rem 0;
+            background: var(--white);
+        }
+
+        .metrics-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 4rem;
+            margin-top: 4rem;
+        }
+
+        .metric-item {
             text-align: center;
-        }
-
-        .stat-item {
             padding: 2rem;
+            border-radius: 16px;
+            transition: all 0.3s ease;
         }
 
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--primary-yellow);
+        .metric-item:hover {
+            background: rgba(30, 90, 150, 0.05);
+            transform: translateY(-5px);
+        }
+
+        .metric-value {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+            line-height: 1;
+        }
+
+        .metric-label {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--dark-gray);
             margin-bottom: 0.5rem;
         }
 
-        .stat-label {
-            font-size: 1.1rem;
-            font-weight: 500;
+        .metric-description {
+            color: var(--dark-gray);
+            font-size: 0.95rem;
+            opacity: 0.7;
         }
 
-        /* Testimonial Section */
-        .testimonial-section {
-            padding: 4rem 0;
+        /* Testimonials */
+        .testimonial-showcase {
+            padding: 8rem 0;
+            background: rgba(30, 90, 150, 0.05);
         }
 
-        .testimonial-section h2 {
-            color: var(--primary-blue);
-            font-size: 2.5rem;
-            font-weight: 600;
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .testimonial-grid {
+        .testimonial-masonry {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
+            margin-top: 4rem;
         }
 
-        .testimonial-card {
+        .testimonial-block {
             background: var(--white);
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            position: relative;
+            border-radius: 16px;
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(30, 90, 150, 0.1);
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--primary-yellow);
         }
 
-        .testimonial-card::before {
-            content: '"';
-            position: absolute;
-            top: -10px;
-            left: 20px;
-            font-size: 4rem;
-            color: var(--primary-yellow);
-            font-weight: bold;
+        .testimonial-block:nth-child(2n) {
+            border-left-color: var(--primary-blue);
+            margin-top: 2rem;
         }
 
-        .testimonial-text {
-            margin-bottom: 1.5rem;
-            font-style: italic;
+        .testimonial-block:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(30, 90, 150, 0.15);
+        }
+
+        .testimonial-quote {
+            font-size: 1.1rem;
             line-height: 1.7;
+            margin-bottom: 2rem;
+            color: var(--dark-gray);
+            font-style: italic;
+            opacity: 0.9;
         }
 
         .testimonial-author {
@@ -380,436 +468,625 @@
             gap: 1rem;
         }
 
-        .author-avatar {
-            width: 50px;
-            height: 50px;
+        .author-image {
+            width: 60px;
+            height: 60px;
             background: var(--primary-blue);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--white);
-            font-weight: bold;
+            font-weight: 700;
+            font-size: 1.2rem;
         }
 
-        .author-info h4 {
-            color: var(--primary-blue);
+        .author-details h4 {
             font-weight: 600;
+            color: var(--primary-blue);
             margin-bottom: 0.2rem;
         }
 
-        .author-info span {
-            color: var(--text-gray);
+        .author-details span {
+            color: var(--dark-gray);
             font-size: 0.9rem;
+            opacity: 0.7;
         }
 
-        /* CTA Section */
-        .cta-section {
-            background: linear-gradient(135deg, var(--primary-yellow) 0%, var(--primary-blue) 100%);
+        /* Final CTA */
+        .final-cta {
+            padding: 8rem 0;
+            background: var(--primary-blue);
             color: var(--white);
-            padding: 4rem 0;
             text-align: center;
         }
 
-        .cta-section h2 {
-            font-size: 2.5rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
+        .cta-title {
+            font-size: clamp(2.5rem, 4vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
         }
 
-        .cta-section p {
+        .cta-description {
             font-size: 1.2rem;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
             opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .cta-buttons {
+        .cta-actions {
             display: flex;
-            gap: 1rem;
+            gap: 1.5rem;
             justify-content: center;
             flex-wrap: wrap;
         }
 
-        .cta-btn {
-            padding: 1rem 2rem;
+        .cta-button {
+            padding: 1.2rem 3rem;
             border: none;
-            border-radius: 25px;
-            font-family: 'Poppins', sans-serif;
+            border-radius: 8px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
             text-decoration: none;
             display: inline-block;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: 'Poppins', sans-serif;
         }
 
-        .cta-btn.primary {
+        .cta-button.primary {
+            background: var(--primary-yellow);
+            color: var(--dark-gray);
+        }
+
+        .cta-button.primary:hover {
             background: var(--white);
-            color: var(--primary-blue);
+            transform: translateY(-3px);
         }
 
-        .cta-btn.secondary {
+        .cta-button.secondary {
             background: transparent;
             color: var(--white);
             border: 2px solid var(--white);
         }
 
-        .cta-btn:hover {
+        .cta-button.secondary:hover {
+            background: var(--white);
+            color: var(--primary-blue);
             transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-
-        /* Footer */
-        .footer {
-            background: var(--primary-blue);
-            color: var(--white);
-            padding: 3rem 0 2rem;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h3 {
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section ul li {
-            margin-bottom: 0.5rem;
-        }
-
-        .footer-section a {
-            color: var(--white);
-            text-decoration: none;
-            opacity: 0.8;
-            transition: opacity 0.3s ease;
-        }
-
-        .footer-section a:hover {
-            opacity: 1;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.2);
-            opacity: 0.7;
         }
 
         /* Responsive Design */
+        @media (max-width: 1024px) {
+            .services-constellation {
+                grid-template-columns: repeat(8, 1fr);
+            }
+            
+            .service-cluster:nth-child(1) {
+                grid-column: span 8;
+            }
+            
+            .service-cluster:nth-child(2),
+            .service-cluster:nth-child(3) {
+                grid-column: span 4;
+            }
+            
+            .service-cluster:nth-child(4),
+            .service-cluster:nth-child(5) {
+                grid-column: span 8;
+            }
+        }
+
         @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2.5rem;
+            .container {
+                padding: 0 1rem;
             }
             
-            .nav-links {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 1rem;
-            }
-            
-            .service-categories {
+            .services-constellation {
                 grid-template-columns: 1fr;
             }
             
-            .cta-buttons {
+            .service-cluster {
+                grid-column: span 1 !important;
+            }
+            
+            .service-cluster:nth-child(1) .service-content,
+            .service-cluster:nth-child(6) .service-content {
+                display: block;
+            }
+            
+            .timeline-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .timeline-connector {
+                display: none;
+            }
+            
+            .cta-actions {
                 flex-direction: column;
                 align-items: center;
             }
+            
+            .cta-button {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .services-ecosystem,
+            .process-journey,
+            .impact-metrics,
+            .testimonial-showcase,
+            .final-cta {
+                padding: 4rem 0;
+            }
+        }
+
+        /* Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 <body>
-   <div id="navbar"></div>
+    <div id="navbar"></div>
 
-    <!-- Header -->
-    <header class="header">
+    <!-- Hero Banner -->
+    <section class="hero-banner">
         <div class="container">
-            <div class="header-content">
-                <h1>Our Services</h1>
-                <p class="subtitle">Comprehensive solutions for your global education and career journey</p>
+            <div class="hero-content">
+                <div class="hero-subtitle">Excellence in Education</div>
+                <h1 class="hero-title">Transformative Services</h1>
+                <p class="hero-description">Discover our comprehensive suite of premium services designed to elevate your academic journey and unlock global opportunities through personalized guidance and expert consultation.</p>
             </div>
         </div>
-    </header>
+    </section>
 
-    <!-- Navigation -->
-    <nav class="nav">
+    <!-- Services Section -->
+    <section class="services-ecosystem">
         <div class="container">
-            <div class="nav-content">
-                <ul class="nav-links">
-                    <li><a href="#education">Education Services</a></li>
-                    <li><a href="#career">Career Services</a></li>
-                    <li><a href="#support">Support Services</a></li>
-                    <li><a href="#process">Our Process</a></li>
-                    <li><a href="#contact">Get Started</a></li>
-                </ul>
+            <div class="section-header">
+                <span class="section-badge">Our Expertise</span>
+                <h2 class="section-title">Service Portfolio</h2>
+                <p class="section-description">We've crafted an integrated ecosystem of services that work seamlessly together to ensure your success at every step of your educational and professional journey.</p>
             </div>
-        </div>
-    </nav>
 
-    <!-- Main Content -->
-    <main class="main-content">
-        <div class="container">
-            <!-- Services Overview -->
-            <section class="services-overview">
-                <h2>Empowering Your Global Future</h2>
-                <p>At Melford International Group, we provide end-to-end solutions for students and professionals seeking world-class education and career opportunities. Our comprehensive services are designed to guide you through every step of your international journey.</p>
-            </section>
-
-            <!-- Service Categories -->
-            <section class="service-categories" id="education">
-                <!-- University Admissions -->
-                <div class="service-category">
-                    <div class="service-icon">🎓</div>
-                    <h3>University Admissions</h3>
-                    <p>Navigate the complex world of international university applications with expert guidance and personalized support.</p>
-                    <ul class="service-features">
-                        <li>University selection and matching</li>
-                        <li>Application essay writing assistance</li>
-                        <li>Academic transcript evaluation</li>
-                        <li>Interview preparation and practice</li>
-                        <li>Scholarship application support</li>
-                        <li>Admission deadline management</li>
-                    </ul>
-                    <button class="service-cta">Learn More</button>
-                </div>
-
-                <!-- Career Placement -->
-                <div class="service-category">
-                    <div class="service-icon">💼</div>
-                    <h3>Global Career Placement</h3>
-                    <p>Connect with international employers and secure your dream job with our extensive network and career expertise.</p>
-                    <ul class="service-features">
-                        <li>CV/Resume optimization</li>
-                        <li>LinkedIn profile enhancement</li>
-                        <li>Job search strategy development</li>
-                        <li>Interview coaching and mock sessions</li>
-                        <li>Salary negotiation guidance</li>
-                        <li>Professional networking events</li>
-                    </ul>
-                    <button class="service-cta">Explore Opportunities</button>
-                </div>
-
-                <!-- Visa & Immigration -->
-                <div class="service-category">
-                    <div class="service-icon">📋</div>
-                    <h3>Visa & Immigration Support</h3>
-                    <p>Streamline your visa application process with our comprehensive immigration assistance and documentation support.</p>
-                    <ul class="service-features">
-                        <li>Visa requirement assessment</li>
-                        <li>Document preparation and review</li>
-                        <li>Application form completion</li>
-                        <li>Embassy interview preparation</li>
-                        <li>Travel insurance guidance</li>
-                        <li>Post-arrival support services</li>
-                    </ul>
-                    <button class="service-cta">Get Visa Help</button>
-                </div>
-
-                <!-- Test Preparation -->
-                <div class="service-category">
-                    <div class="service-icon">📚</div>
-                    <h3>Test Preparation</h3>
-                    <p>Achieve your target scores on international standardized tests with our expert tutoring and preparation programs.</p>
-                    <ul class="service-features">
-                        <li>IELTS/TOEFL preparation courses</li>
-                        <li>SAT/ACT tutoring programs</li>
-                        <li>GRE/GMAT intensive training</li>
-                        <li>Practice tests and mock exams</li>
-                        <li>Personalized study plans</li>
-                        <li>Score improvement guarantee</li>
-                    </ul>
-                    <button class="service-cta">Start Preparing</button>
-                </div>
-
-                <!-- Financial Planning -->
-                <div class="service-category">
-                    <div class="service-icon">💰</div>
-                    <h3>Financial Planning & Scholarships</h3>
-                    <p>Make your international education affordable with our financial planning services and scholarship opportunities.</p>
-                    <ul class="service-features">
-                        <li>Education loan guidance</li>
-                        <li>Scholarship database access</li>
-                        <li>Financial aid application help</li>
-                        <li>Budget planning for students</li>
-                        <li>Part-time work permit guidance</li>
-                        <li>Currency exchange assistance</li>
-                    </ul>
-                    <button class="service-cta">Plan Your Finances</button>
-                </div>
-
-                <!-- Cultural Integration -->
-                <div class="service-category">
-                    <div class="service-icon">🌍</div>
-                    <h3>Cultural Integration & Support</h3>
-                    <p>Adapt seamlessly to your new environment with our comprehensive cultural orientation and ongoing support services.</p>
-                    <ul class="service-features">
-                        <li>Pre-departure orientation sessions</li>
-                        <li>Cultural adaptation workshops</li>
-                        <li>Accommodation assistance</li>
-                        <li>Local community connections</li>
-                        <li>24/7 emergency support</li>
-                        <li>Mentorship programs</li>
-                    </ul>
-                    <button class="service-cta">Get Support</button>
-                </div>
-            </section>
-        </div>
-
-        <!-- Process Section -->
-        <section class="process-section" id="process">
-            <div class="container">
-                <h2>Our Proven Process</h2>
-                <div class="process-steps">
-                    <div class="process-step">
-                        <div class="step-number">1</div>
-                        <h3>Initial Consultation</h3>
-                        <p>Free assessment of your goals, qualifications, and preferred destinations to create a personalized roadmap.</p>
-                    </div>
-                    <div class="process-step">
-                        <div class="step-number">2</div>
-                        <h3>Strategy Development</h3>
-                        <p>Customized action plan with timelines, requirements, and step-by-step guidance for your success.</p>
-                    </div>
-                    <div class="process-step">
-                        <div class="step-number">3</div>
-                        <h3>Application Support</h3>
-                        <p>Comprehensive assistance with applications, documentation, and test preparation to maximize your chances.</p>
-                    </div>
-                    <div class="process-step">
-                        <div class="step-number">4</div>
-                        <h3>Ongoing Guidance</h3>
-                        <p>Continuous support throughout your journey, from acceptance to arrival and beyond.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Statistics -->
-        <section class="stats-section">
-            <div class="container">
-                <div class="stats-grid">
-                    <div class="stat-item">
-                        <div class="stat-number">5,000+</div>
-                        <div class="stat-label">Students Successfully Placed</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">200+</div>
-                        <div class="stat-label">Partner Universities</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">35</div>
-                        <div class="stat-label">Countries Worldwide</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">98%</div>
-                        <div class="stat-label">Success Rate</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">15+</div>
-                        <div class="stat-label">Years of Experience</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">24/7</div>
-                        <div class="stat-label">Support Available</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Testimonials -->
-        <section class="testimonial-section">
-            <div class="container">
-                <h2>What Our Clients Say</h2>
-                <div class="testimonial-grid">
-                    <div class="testimonial-card">
-                        <p class="testimonial-text">Melford International Group made my dream of studying at Oxford a reality. Their expert guidance and personalized support were invaluable throughout the entire application process.</p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">AM</div>
-                            <div class="author-info">
-                                <h4>Amara Mbugua</h4>
-                                <span>Oxford University, UK</span>
+            <div class="services-constellation">
+                <!-- Premier University Admissions -->
+                <div class="service-cluster fade-in">
+                    <div class="service-content">
+                        <div>
+                            <div class="service-icon-wrapper">
+                                <div class="service-icon">🎓</div>
                             </div>
+                            <h3 class="service-title">University Admissions Excellence</h3>
+                            <p class="service-description">Navigate the complex landscape of international university applications with our strategic approach, personalized guidance, and proven methodologies that consistently deliver exceptional results.</p>
+                            <button class="service-cta">Explore Admissions</button>
+                        </div>
+                        <div>
+                            <ul class="service-features">
+                                <li><div class="feature-icon">✓</div>Strategic university selection & matching</li>
+                                <li><div class="feature-icon">✓</div>Personal statement development</li>
+                                <li><div class="feature-icon">✓</div>Academic portfolio optimization</li>
+                                <li><div class="feature-icon">✓</div>Interview preparation & coaching</li>
+                                <li><div class="feature-icon">✓</div>Scholarship identification & application</li>
+                                <li><div class="feature-icon">✓</div>Deadline management & tracking</li>
+                            </ul>
                         </div>
                     </div>
-                    <div class="testimonial-card">
-                        <p class="testimonial-text">Thanks to Melford's career placement services, I landed my dream job at Google's London office. Their interview preparation and networking events were game-changers.</p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">DK</div>
-                            <div class="author-info">
-                                <h4>David Kiprotich</h4>
-                                <span>Software Engineer, Google</span>
-                            </div>
+                </div>
+
+                <!-- Global Career Placement -->
+                <div class="service-cluster fade-in">
+                    <div class="service-content">
+                        <div class="service-icon-wrapper">
+                            <div class="service-icon">💼</div>
                         </div>
+                        <h3 class="service-title">Career Acceleration</h3>
+                        <p class="service-description">Connect with leading global employers through our extensive network and career development expertise.</p>
+                        <ul class="service-features">
+                            <li><div class="feature-icon">✓</div>Professional branding strategy</li>
+                            <li><div class="feature-icon">✓</div>Executive interview coaching</li>
+                            <li><div class="feature-icon">✓</div>Salary negotiation mastery</li>
+                        </ul>
+                        <button class="service-cta">Launch Career</button>
                     </div>
-                    <div class="testimonial-card">
-                        <p class="testimonial-text">The visa support and cultural integration services were exceptional. Melford helped me navigate every challenge and settle comfortably in Toronto.</p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">GW</div>
-                            <div class="author-info">
-                                <h4>Grace Wanjiku</h4>
-                                <span>University of Toronto, Canada</span>
+                </div>
+
+                <!-- Visa & Immigration Mastery -->
+                <div class="service-cluster fade-in">
+                    <div class="service-content">
+                        <div class="service-icon-wrapper">
+                            <div class="service-icon">📋</div>
+                        </div>
+                        <h3 class="service-title">Immigration Solutions</h3>
+                        <p class="service-description">Streamline your visa journey with our comprehensive immigration expertise and documentation mastery.</p>
+                        <ul class="service-features">
+                            <li><div class="feature-icon">✓</div>Visa strategy development</li>
+                            <li><div class="feature-icon">✓</div>Document authentication</li>
+                            <li><div class="feature-icon">✓</div>Embassy liaison services</li>
+                        </ul>
+                        <button class="service-cta">Get Visa Support</button>
+                    </div>
+                </div>
+
+                <!-- Test Excellence Programs -->
+                <div class="service-cluster fade-in">
+                    <div class="service-content">
+                        <div class="service-icon-wrapper">
+                            <div class="service-icon">📚</div>
+                        </div>
+                        <h3 class="service-title">Test Mastery Programs</h3>
+                        <p class="service-description">Achieve exceptional scores on international standardized tests through our intensive preparation programs and personalized coaching methodologies.</p>
+                        <ul class="service-features">
+                            <li><div class="feature-icon">✓</div>IELTS/TOEFL intensive training</li>
+                            <li><div class="feature-icon">✓</div>SAT/ACT optimization courses</li>
+                            <li><div class="feature-icon">✓</div>GRE/GMAT mastery programs</li>
+                            <li><div class="feature-icon">✓</div>Personalized study strategies</li>
+                        </ul>
+                        <button class="service-cta">Master Tests</button>
+                    </div>
+                </div>
+
+                <!-- Financial Strategy -->
+                <div class="service-cluster fade-in">
+                    <div class="service-content">
+                        <div class="service-icon-wrapper">
+                            <div class="service-icon">💰</div>
+                        </div>
+                        <h3 class="service-title">Financial Strategy</h3>
+                        <p class="service-description">Transform your educational investment into affordable reality through strategic financial planning and exclusive scholarship opportunities.</p>
+                        <ul class="service-features">
+                            <li><div class="feature-icon">✓</div>Education investment planning</li>
+                            <li><div class="feature-icon">✓</div>Scholarship optimization</li>
+                            <li><div class="feature-icon">✓</div>Financial aid maximization</li>
+                            <li><div class="feature-icon">✓</div>Budget optimization strategies</li>
+                        </ul>
+                        <button class="service-cta">Plan Finances</button>
+                    </div>
+                </div>
+
+                <!-- Cultural Integration & Lifestyle -->
+                <div class="service-cluster fade-in">
+                    <div class="service-content">
+                        <div>
+                            <div class="service-icon-wrapper">
+                                <div class="service-icon">🌍</div>
                             </div>
+                            <h3 class="service-title">Cultural Integration & Lifestyle Optimization</h3>
+                            <p class="service-description">Seamlessly transition into your new environment with comprehensive cultural orientation and ongoing lifestyle support services.</p>
+                            <button class="service-cta">Integrate Successfully</button>
+                        </div>
+                        <div>
+                            <ul class="service-features">
+                                <li><div class="feature-icon">✓</div>Pre-departure cultural immersion</li>
+                                <li><div class="feature-icon">✓</div>Accommodation concierge services</li>
+                                <li><div class="feature-icon">✓</div>Local community networking</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul class="service-features">
+                                <li><div class="feature-icon">✓</div>24/7 emergency support network</li>
+                                <li><div class="feature-icon">✓</div>Professional mentorship programs</li>
+                                <li><div class="feature-icon">✓</div>Lifestyle adaptation coaching</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- CTA Section -->
-        <section class="cta-section" id="contact">
-            <div class="container">
-                <h2>Ready to Start Your Journey?</h2>
-                <p>Take the first step towards your global education and career goals with Melford International Group</p>
-                <div class="cta-buttons">
-                    <a href="#" class="cta-btn primary">Book Free Consultation</a>
-                    <a href="#" class="cta-btn secondary">Download Service Guide</a>
+    <!-- Process Journey -->
+    <section class="process-journey">
+        <div class="container">
+            <div class="process-timeline">
+                <div class="section-header">
+                    <span class="section-badge">Our Process</span>
+                    <h2 class="section-title">Journey Architecture</h2>
+                    <p class="section-description">Our systematic approach ensures precision, excellence, and transformative outcomes through every phase of your educational advancement.</p>
+                </div>
+
+                <div class="timeline-container">
+                    <div class="timeline-connector"></div>
+                    
+                    <div class="timeline-step fade-in">
+                        <div class="step-indicator">01</div>
+                        <h3 class="step-title">Strategic Assessment</h3>
+                        <p class="step-description">Comprehensive evaluation of your academic profile, career aspirations, and personal preferences to craft a tailored roadmap.</p>
+                    </div>
+
+                    <div class="timeline-step fade-in">
+                        <div class="step-indicator">02</div>
+                        <h3 class="step-title">Blueprint Development</h3>
+                        <p class="step-description">Creation of your personalized success strategy with detailed timelines, milestones, and optimization tactics.</p>
+                    </div>
+
+                    <div class="timeline-step fade-in">
+                        <div class="step-indicator">03</div>
+                        <h3 class="step-title">Excellence Execution</h3>
+                        <p class="step-description">Implementation of your strategy with expert guidance, document preparation, and application optimization.</p>
+                    </div>
+
+                    <div class="timeline-step fade-in">
+                        <div class="step-indicator">04</div>
+                        <h3 class="step-title">Continuous Partnership</h3>
+                        <p class="step-description">Ongoing support and guidance throughout your journey, from acceptance through successful integration.</p>
+                    </div>
                 </div>
             </div>
-        </section>
-    </main>
-<div id="footer-placeholder"></div>
+        </div>
+    </section>
+
+    <!-- Impact Metrics -->
+    <section class="impact-metrics">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Our Impact</span>
+                <h2 class="section-title">Measurable Excellence</h2>
+                <p class="section-description">Our commitment to excellence is reflected in the transformative outcomes we deliver for students worldwide.</p>
+            </div>
+
+            <div class="metrics-grid">
+                <div class="metric-item fade-in">
+                    <div class="metric-value">8,500+</div>
+                    <div class="metric-label">Success Stories</div>
+                    <div class="metric-description">Students successfully placed in top universities worldwide</div>
+                </div>
+                <div class="metric-item fade-in">
+                    <div class="metric-value">350+</div>
+                    <div class="metric-label">Partner Institutions</div>
+                    <div class="metric-description">Elite universities and colleges across 45+ countries</div>
+                </div>
+                <div class="metric-item fade-in">
+                    <div class="metric-value">97.8%</div>
+                    <div class="metric-label">Success Rate</div>
+                    <div class="metric-description">University acceptance rate across all applications</div>
+                </div>
+                <div class="metric-item fade-in">
+                    <div class="metric-value">$127M+</div>
+                    <div class="metric-label">Scholarships Secured</div>
+                    <div class="metric-description">Total value of scholarships obtained for students</div>
+                </div>
+                <div class="metric-item fade-in">
+                    <div class="metric-value">18+</div>
+                    <div class="metric-label">Years of Excellence</div>
+                    <div class="metric-description">Proven track record of transformative outcomes</div>
+                </div>
+                <div class="metric-item fade-in">
+                    <div class="metric-value">24/7</div>
+                    <div class="metric-label">Global Support</div>
+                    <div class="metric-description">Round-the-clock assistance and guidance</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonial-showcase">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Client Success</span>
+                <h2 class="section-title">Transformation Stories</h2>
+                <p class="section-description">Discover how our comprehensive approach has transformed the educational journeys of students from around the world.</p>
+            </div>
+
+            <div class="testimonial-masonry">
+                <div class="testimonial-block fade-in">
+                    <p class="testimonial-quote">"Melford International didn't just help me get into Harvard—they transformed my entire approach to academic excellence. Their strategic guidance and unwavering support made the impossible feel achievable. The personalized attention to detail in every aspect of my application was extraordinary."</p>
+                    <div class="testimonial-author">
+                        <div class="author-image">AM</div>
+                        <div class="author-details">
+                            <h4>Amelia Mwangi</h4>
+                            <span>Harvard Medical School, USA</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-block fade-in">
+                    <p class="testimonial-quote">"The career placement services exceeded every expectation. From optimizing my LinkedIn profile to negotiating my salary at Goldman Sachs, their expertise opened doors I never knew existed. The networking events alone were worth the investment."</p>
+                    <div class="testimonial-author">
+                        <div class="author-image">DK</div>
+                        <div class="author-details">
+                            <h4>Daniel Kiprop</h4>
+                            <span>Investment Analyst, Goldman Sachs</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-block fade-in">
+                    <p class="testimonial-quote">"What sets Melford apart is their holistic approach. They didn't just handle my visa application—they prepared me for cultural integration, helped secure accommodation, and provided ongoing support throughout my first year. It's like having a dedicated support system in a foreign country."</p>
+                    <div class="testimonial-author">
+                        <div class="author-image">SK</div>
+                        <div class="author-details">
+                            <h4>Sarah Kamau</h4>
+                            <span>Oxford University, UK</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-block fade-in">
+                    <p class="testimonial-quote">"The test preparation program was a game-changer. My GMAT score improved by 180 points, which opened doors to top MBA programs I never thought possible. Their personalized study strategy and continuous feedback system made all the difference."</p>
+                    <div class="testimonial-author">
+                        <div class="author-image">JM</div>
+                        <div class="author-details">
+                            <h4>James Mutua</h4>
+                            <span>Stanford Graduate School of Business</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-block fade-in">
+                    <p class="testimonial-quote">"Securing a full scholarship seemed impossible until Melford's financial planning team got involved. They identified opportunities I had never heard of and guided me through complex application processes. Their expertise literally paid for my entire education."</p>
+                    <div class="testimonial-author">
+                        <div class="author-image">LN</div>
+                        <div class="author-details">
+                            <h4>Linda Njeri</h4>
+                            <span>MIT, Full Scholarship Recipient</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-block fade-in">
+                    <p class="testimonial-quote">"The cultural integration program was invaluable. Moving to Canada felt overwhelming, but their pre-departure sessions, local connections, and ongoing mentorship made the transition seamless. I felt prepared and confident from day one."</p>
+                    <div class="testimonial-author">
+                        <div class="author-image">PO</div>
+                        <div class="author-details">
+                            <h4>Peter Ochieng</h4>
+                            <span>University of Toronto, Canada</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Transform Your Future Today</h2>
+                <p class="cta-description">Join thousands of successful students who have transformed their lives through our comprehensive educational services and expert guidance.</p>
+                <div class="cta-actions">
+                    <a href="#" class="cta-button primary">Begin Your Journey</a>
+                    <a href="#" class="cta-button secondary">Download Portfolio</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
     <script>
-        // Service CTA buttons
-        document.querySelectorAll('.service-cta').forEach(btn => {
+        // Service interactions
+        document.querySelectorAll('.service-cta').forEach((btn, index) => {
             btn.addEventListener('click', function() {
-                const serviceName = this.closest('.service-category').querySelector('h3').textContent;
-                alert(`Thank you for your interest in ${serviceName}! Our team will contact you shortly to discuss your needs.`);
+                const serviceTitle = this.closest('.service-cluster').querySelector('.service-title').textContent;
+                
+                // Create notification
+                const notification = document.createElement('div');
+                notification.style.cssText = `
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    background: var(--primary-blue);
+                    color: var(--white);
+                    padding: 1rem 2rem;
+                    border-radius: 8px;
+                    box-shadow: 0 10px 30px rgba(30, 90, 150, 0.3);
+                    z-index: 10000;
+                    font-weight: 600;
+                    transform: translateX(400px);
+                    transition: transform 0.5s ease;
+                    border-left: 4px solid var(--primary-yellow);
+                `;
+                notification.textContent = `Connecting you with our ${serviceTitle} specialists...`;
+                
+                document.body.appendChild(notification);
+                
+                setTimeout(() => {
+                    notification.style.transform = 'translateX(0)';
+                }, 100);
+                
+                setTimeout(() => {
+                    notification.style.transform = 'translateX(400px)';
+                    setTimeout(() => notification.remove(), 500);
+                }, 3000);
             });
         });
 
-        // CTA buttons
-        document.querySelectorAll('.cta-btn').forEach(btn => {
+        // CTA interactions
+        document.querySelectorAll('.cta-button').forEach(btn => {
             btn.addEventListener('click', function(e) {
                 e.preventDefault();
-                if (this.textContent.includes('Consultation')) {
-                    alert('Booking system would open here. Thank you for choosing Melford International Group!');
+                
+                if (this.textContent.includes('Journey')) {
+                    // Modal for consultation booking
+                    const overlay = document.createElement('div');
+                    overlay.style.cssText = `
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        background: rgba(51, 51, 51, 0.9);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        z-index: 10000;
+                    `;
+                    
+                    const modal = document.createElement('div');
+                    modal.style.cssText = `
+                        background: var(--white);
+                        padding: 3rem;
+                        border-radius: 16px;
+                        text-align: center;
+                        max-width: 500px;
+                        box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+                        transform: scale(0.8);
+                        transition: transform 0.3s ease;
+                        border-top: 4px solid var(--primary-yellow);
+                    `;
+                    modal.innerHTML = `
+                        <h3 style="font-size: 1.8rem; font-weight: 700; color: var(--primary-blue); margin-bottom: 1rem; font-family: 'Poppins', sans-serif;">Ready to Begin?</h3>
+                        <p style="color: var(--dark-gray); margin-bottom: 2rem; line-height: 1.6;">Our education specialists will contact you within 24 hours to schedule your personalized consultation.</p>
+                        <button onclick="this.parentElement.parentElement.remove()" style="background: var(--primary-blue); color: var(--white); border: none; padding: 1rem 2rem; border-radius: 8px; font-weight: 600; cursor: pointer; font-family: 'Poppins', sans-serif; transition: all 0.3s ease;" onmouseover="this.style.background='var(--primary-yellow)'; this.style.color='var(--dark-gray)'" onmouseout="this.style.background='var(--primary-blue)'; this.style.color='var(--white)'">Perfect! I'm Ready</button>
+                    `;
+                    
+                    overlay.appendChild(modal);
+                    document.body.appendChild(overlay);
+                    
+                    setTimeout(() => {
+                        modal.style.transform = 'scale(1)';
+                    }, 100);
                 } else {
-                    alert('Download would start here. Service guide contains detailed information about all our offerings.');
+                    // Portfolio download notification
+                    const notification = document.createElement('div');
+                    notification.style.cssText = `
+                        position: fixed;
+                        top: 20px;
+                        right: 20px;
+                        background: var(--primary-yellow);
+                        color: var(--dark-gray);
+                        padding: 1rem 2rem;
+                        border-radius: 8px;
+                        box-shadow: 0 10px 30px rgba(241, 196, 15, 0.3);
+                        z-index: 10000;
+                        font-weight: 600;
+                        transform: translateX(400px);
+                        transition: transform 0.5s ease;
+                    `;
+                    notification.textContent = 'Premium Service Portfolio download initiated. Check your downloads folder.';
+                    
+                    document.body.appendChild(notification);
+                    
+                    setTimeout(() => {
+                        notification.style.transform = 'translateX(0)';
+                    }, 100);
+                    
+                    setTimeout(() => {
+                        notification.style.transform = 'translateX(400px)';
+                        setTimeout(() => notification.remove(), 500);
+                    }, 4000);
                 }
             });
         });
 
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href').substring(1);
-                const targetElement = document.getElementById(targetId);
-                if (targetElement) {
-                    targetElement.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-        });
-
-        // Add scroll animation for service cards
+        // Scroll animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -818,21 +1095,77 @@
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                    entry.target.classList.add('visible');
                 }
             });
         }, observerOptions);
 
-        // Observe service cards for animation
-        document.querySelectorAll('.service-category').forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(30px)';
-            card.style.transition = 'all 0.6s ease';
-            observer.observe(card);
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Staggered animation for service clusters
+        document.querySelectorAll('.service-cluster').forEach((cluster, index) => {
+            cluster.style.transitionDelay = `${index * 0.1}s`;
+        });
+
+        // Counter animation for metrics
+        const animateCounters = (entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target.querySelector('.metric-value');
+                    const target = counter.textContent;
+                    const isNumber = !isNaN(parseFloat(target));
+                    
+                    if (isNumber) {
+                        const finalValue = parseFloat(target.replace(/[^\d.]/g, ''));
+                        const suffix = target.replace(/[\d.,]/g, '');
+                        let current = 0;
+                        const increment = finalValue / 50;
+                        
+                        const timer = setInterval(() => {
+                            current += increment;
+                            if (current >= finalValue) {
+                                counter.textContent = target;
+                                clearInterval(timer);
+                            } else {
+                                counter.textContent = Math.floor(current) + suffix;
+                            }
+                        }, 40);
+                    }
+                    
+                    counterObserver.unobserve(entry.target);
+                }
+            });
+        };
+
+        const counterObserver = new IntersectionObserver(animateCounters, { threshold: 0.5 });
+        document.querySelectorAll('.metric-item').forEach(item => {
+            counterObserver.observe(item);
+        });
+
+        // Smooth page load
+        document.addEventListener('DOMContentLoaded', () => {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease';
+            
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+
+        // Enhanced hover effects for service clusters
+        document.querySelectorAll('.service-cluster').forEach(cluster => {
+            cluster.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px) scale(1.02)';
+            });
+            
+            cluster.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
         });
     </script>
-        <script src="../js/loadpartials.js" defer></script>
-
+    <script src="../js/loadpartials.js" defer></script>
 </body>
 </html>
