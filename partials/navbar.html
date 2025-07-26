@@ -1,4 +1,4 @@
-<nav style="background: var(--primary-blue); padding: 15px 0; box-shadow: 0 2px 20px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; font-family: 'Poppins', sans-serif;">
+<nav class="navbar" style="background: var(--primary-blue); padding: 15px 0; box-shadow: 0 2px 20px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; font-family: 'Poppins', sans-serif;">
     <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; align-items: center; justify-content: space-between;">
         <!-- Brand Logo -->
         <a href="./index.html" style="text-decoration: none; display: flex; align-items: center; gap: 12px;">
@@ -9,8 +9,8 @@
             </div>
         </a>
 
-        <!-- Mobile Toggle Button -->
-        <button id="navToggle" style="display: none; background: none; border: none; color: white; font-size: 24px; cursor: pointer;">
+        <!-- Mobile Toggle Button - Remove inline display:none -->
+        <button id="navToggle" style="background: none; border: none; color: white; font-size: 24px; cursor: pointer;">
             <i class="fas fa-bars"></i>
         </button>
 
@@ -48,9 +48,6 @@
                     </a>
                 </li>
             </ul>
-            <!-- <button style="background: #FFC000; color: #1a1a1a; border: none; padding: 12px 24px; border-radius: 25px; font-weight: 600; font-size: 14px; cursor: pointer; transition: all 0.3s ease; font-family: 'Poppins', sans-serif;" onmouseover="this.style.background='#FFD700'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='#FFC000'; this.style.transform='translateY(0)'">
-                Book Consultation
-            </button> -->
         </div>
     </div>
 
@@ -95,37 +92,65 @@
         </ul>
     </div>
 
+    <!-- Internal CSS for better control -->
+    <style>
+        /* Default state - hamburger hidden, menu visible */
+        #navToggle {
+            display: none;
+        }
+        
+        #navMenu {
+            display: flex;
+        }
+        
+        /* Mobile styles */
+        @media (max-width: 768px) {
+            #navToggle {
+                display: block !important;
+            }
+            
+            #navMenu {
+                display: none !important;
+            }
+        }
+    </style>
+
     <!-- JavaScript for Mobile Toggle -->
     <script>
-        document.getElementById('navToggle').addEventListener('click', function() {
-            const mobileMenu = document.getElementById('mobileMenu');
-            const isVisible = mobileMenu.style.display === 'block';
-            mobileMenu.style.display = isVisible ? 'none' : 'block';
-            
-            // Toggle hamburger to X
-            const icon = this.querySelector('i');
-            icon.className = isVisible ? 'fas fa-bars' : 'fas fa-times';
-        });
-
-        // Responsive behavior
-        function handleResize() {
-            const navMenu = document.getElementById('navMenu');
+        // Wait for DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
             const navToggle = document.getElementById('navToggle');
             const mobileMenu = document.getElementById('mobileMenu');
             
-            if (window.innerWidth <= 768) {
-                navMenu.style.display = 'none';
-                navToggle.style.display = 'block';
-            } else {
-                navMenu.style.display = 'flex';
-                navToggle.style.display = 'none';
-                mobileMenu.style.display = 'none';
-            }
-        }
+            // Toggle mobile menu
+            navToggle.addEventListener('click', function() {
+                const isVisible = mobileMenu.style.display === 'block';
+                mobileMenu.style.display = isVisible ? 'none' : 'block';
+                
+                // Toggle hamburger to X
+                const icon = this.querySelector('i');
+                icon.className = isVisible ? 'fas fa-bars' : 'fas fa-times';
+            });
 
-        // Initial check and event listener
-        handleResize();
-        window.addEventListener('resize', handleResize);
+            // Close mobile menu when clicking on links
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenu.style.display = 'none';
+                    const icon = navToggle.querySelector('i');
+                    icon.className = 'fas fa-bars';
+                });
+            });
+
+            // Handle window resize
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768) {
+                    mobileMenu.style.display = 'none';
+                    const icon = navToggle.querySelector('i');
+                    icon.className = 'fas fa-bars';
+                }
+            });
+        });
     </script>
 
     <!-- Font Awesome CDN -->
