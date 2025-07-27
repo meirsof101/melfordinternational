@@ -194,9 +194,15 @@
                         <!-- Alert Messages -->
                         <div id="alert-container"></div>
                         
-                        <form id="contactForm" class="animate-on-scroll">
+                        <!-- Updated form for Netlify -->
+                        <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" id="contactForm" class="animate-on-scroll">
+                            <!-- Netlify form name -->
+                            <input type="hidden" name="form-name" value="contact" />
+                            
                             <!-- Honeypot field for spam protection -->
-                            <input type="text" name="website" style="display: none;" tabindex="-1" autocomplete="off">
+                            <p style="display: none;">
+                                <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+                            </p>
                             
                             <div class="row">
                                 <div class="col-md-6 mb-3">
@@ -375,7 +381,6 @@
         // Validate form client-side
         function validateForm(formData) {
             let isValid = true;
-            const errors = [];
             
             // First name validation
             if (!formData.get('first_name').trim()) {
@@ -451,7 +456,7 @@
             return isValid;
         }
         
-        // Form enhancement and submission handling
+        // Form enhancement and submission handling for Netlify
         document.addEventListener('DOMContentLoaded', function() {
             const form = document.getElementById('contactForm');
             const inputs = form.querySelectorAll('input, textarea, select');
@@ -485,10 +490,8 @@
                 }
             });
             
-            // Form submission handling
-            form.addEventListener('submit', async function(e) {
-                e.preventDefault();
-                
+            // Form submission handling for Netlify
+            form.addEventListener('submit', function(e) {
                 // Clear previous alerts
                 document.getElementById('alert-container').innerHTML = '';
                 clearAllErrors();
@@ -497,8 +500,9 @@
                 
                 // Client-side validation
                 if (!validateForm(formData)) {
+                    e.preventDefault(); // Prevent form submission
                     showAlert('danger', 'Please correct the errors below and try again.');
-                    return;
+                    return false;
                 }
                 
                 // Show loading state
@@ -506,47 +510,35 @@
                 submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Sending...';
                 submitBtn.disabled = true;
                 
-                try {
-                    const response = await fetch('../php/contact-handler.php', {
-                        method: 'POST',
-                        body: formData
-                    });
-                    
-                    const result = await response.json();
-                    
-                    if (result.success) {
-                        showAlert('success', result.message);
-                        form.reset();
-                        clearAllErrors();
-                        
-                        // Remove focused classes
-                        inputs.forEach(input => {
-                            input.parentElement.classList.remove('focused');
-                        });
-                        
-                        // Scroll to top of form
-                        form.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                        
-                    } else {
-                        if (result.data && result.data.errors) {
-                            // Show specific field errors
-                            showAlert('danger', 'Please correct the errors below:');
-                            result.data.errors.forEach(error => {
-                                console.log('Server error:', error);
-                            });
-                        } else {
-                            showAlert('danger', result.message || 'An error occurred. Please try again.');
-                        }
-                    }
-                    
-                } catch (error) {
-                    console.error('Form submission error:', error);
-                    showAlert('danger', 'Network error. Please check your connection and try again.');
-                }
+                // Let Netlify handle the actual submission
+                // The form will redirect to a thank you page or show Netlify's default success message
+                // If you want a custom thank you page, add: action="/thank-you.html" to the form tag
                 
-                // Reset button
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
+                // Note: You could also prevent the default and handle with fetch for a better UX:
+                /*
+                e.preventDefault();
+                
+                fetch('/', {
+                    method: 'POST',
+                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                    body: new URLSearchParams(formData).toString()
+                })
+                .then(() => {
+                    showAlert('success', 'Thank you! Your message has been sent successfully. We\'ll get back to you within 24 hours.');
+                    form.reset();
+                    clearAllErrors();
+                    inputs.forEach(input => {
+                        input.parentElement.classList.remove('focused');
+                    });
+                })
+                .catch((error) => {
+                    showAlert('danger', 'There was an error sending your message. Please try again.');
+                })
+                .finally(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                });
+                */
             });
         });
         
