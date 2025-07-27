@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +11,159 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+    <style>
+        .contact-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-image {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            height: 100vh;
+            min-height: 600px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .contact-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="50" cy="10" r="1" fill="%23ffffff" opacity="0.05"/><circle cx="20" cy="80" r="1" fill="%23ffffff" opacity="0.05"/></pattern></defs><rect fill="url(%23grain)" width="100" height="100"/></svg>') repeat;
+            opacity: 0.3;
+        }
+        
+        .contact-content {
+            padding: 60px 40px;
+            background: #fff;
+            height: 100vh;
+            min-height: 600px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+        
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+        
+        .form-floating > .form-control {
+            height: 58px;
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+        
+        .form-floating > .form-control:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+        }
+        
+        .form-floating > label {
+            color: #666;
+        }
+        
+        .form-floating > .form-control:focus ~ label,
+        .form-floating > .form-control:not(:placeholder-shown) ~ label {
+            color: #667eea;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            border-radius: 12px;
+            padding: 15px 30px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+        
+        .alert {
+            border-radius: 12px;
+            border: none;
+            padding: 1rem 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .alert-success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        
+        .alert-danger {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .form-check-input:checked {
+            background-color: #667eea;
+            border-color: #667eea;
+        }
+        
+        .form-check-input:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+        }
+        
+        .spinner-border-sm {
+            width: 1rem;
+            height: 1rem;
+        }
+        
+        .error-text {
+            color: #dc3545;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+        }
+        
+        .form-group {
+            position: relative;
+        }
+        
+        @media (max-width: 991px) {
+            .contact-image {
+                height: 300px;
+                min-height: 300px;
+            }
+            
+            .contact-content {
+                height: auto;
+                min-height: auto;
+                padding: 40px 30px;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -24,6 +175,11 @@
                 <!-- Left Side - Image -->
                 <div class="col-lg-6">
                     <div class="contact-image">
+                        <div class="text-center text-white">
+                            <i class="fas fa-envelope fa-5x mb-4" style="opacity: 0.8;"></i>
+                            <h3 class="mb-3">Get In Touch</h3>
+                            <p class="lead">We'd love to hear from you. Let's start a conversation.</p>
+                        </div>
                     </div>
                 </div>
                 
@@ -35,56 +191,81 @@
                             <p class="section-subtitle">Fill out the form below and we'll get back to you within 24 hours.</p>
                         </div>
                         
-                        <form action="php/contact-handler.php" method="POST" class="animate-on-scroll">
+                        <!-- Alert Messages -->
+                        <div id="alert-container"></div>
+                        
+                        <form id="contactForm" class="animate-on-scroll">
+                            <!-- Honeypot field for spam protection -->
+                            <input type="text" name="website" style="display: none;" tabindex="-1" autocomplete="off">
+                            
                             <div class="row">
                                 <div class="col-md-6 mb-3">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control" id="firstName" name="first_name" placeholder="First Name" required>
-                                        <label for="firstName">First Name</label>
+                                    <div class="form-group">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control" id="firstName" name="first_name" placeholder="First Name" required>
+                                            <label for="firstName">First Name</label>
+                                        </div>
+                                        <div class="error-text" id="firstName-error"></div>
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control" id="lastName" name="last_name" placeholder="Last Name" required>
-                                        <label for="lastName">Last Name</label>
+                                    <div class="form-group">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control" id="lastName" name="last_name" placeholder="Last Name" required>
+                                            <label for="lastName">Last Name</label>
+                                        </div>
+                                        <div class="error-text" id="lastName-error"></div>
                                     </div>
                                 </div>
                             </div>
                             
                             <div class="row">
                                 <div class="col-md-6 mb-3">
-                                    <div class="form-floating">
-                                        <input type="email" class="form-control" id="email" name="email" placeholder="Email Address" required>
-                                        <label for="email">Email Address</label>
+                                    <div class="form-group">
+                                        <div class="form-floating">
+                                            <input type="email" class="form-control" id="email" name="email" placeholder="Email Address" required>
+                                            <label for="email">Email Address</label>
+                                        </div>
+                                        <div class="error-text" id="email-error"></div>
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <div class="form-floating">
-                                        <input type="tel" class="form-control" id="phone" name="phone" placeholder="Phone Number">
-                                        <label for="phone">Phone Number</label>
+                                    <div class="form-group">
+                                        <div class="form-floating">
+                                            <input type="tel" class="form-control" id="phone" name="phone" placeholder="Phone Number">
+                                            <label for="phone">Phone Number (Optional)</label>
+                                        </div>
+                                        <div class="error-text" id="phone-error"></div>
                                     </div>
                                 </div>
                             </div>
                             
                             <div class="mb-3">
-                                <div class="form-floating">
-                                    <select class="form-control" id="subject" name="subject" required>
-                                        <option value="">Choose a subject</option>
-                                        <option value="General Inquiry">General Inquiry</option>
-                                        <option value="Service Request">Service Request</option>
-                                        <option value="Technical Support">Technical Support</option>
-                                        <option value="Partnership">University Choice</option>
-                                        <option value="Complaint">Complaint</option>
-                                        <option value="Other">Other</option>
-                                    </select>
-                                    <label for="subject">Subject</label>
+                                <div class="form-group">
+                                    <div class="form-floating">
+                                        <select class="form-control" id="subject" name="subject" required>
+                                            <option value="">Choose a subject</option>
+                                            <option value="General Inquiry">General Inquiry</option>
+                                            <option value="Service Request">Service Request</option>
+                                            <option value="Technical Support">Technical Support</option>
+                                            <option value="University Choice">University Choice</option>
+                                            <option value="Complaint">Complaint</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                        <label for="subject">Subject</label>
+                                    </div>
+                                    <div class="error-text" id="subject-error"></div>
                                 </div>
                             </div>
                             
                             <div class="mb-4">
-                                <div class="form-floating">
-                                    <textarea class="form-control" id="message" name="message" placeholder="Your Message" style="height: 120px" required></textarea>
-                                    <label for="message">Your Message</label>
+                                <div class="form-group">
+                                    <div class="form-floating">
+                                        <textarea class="form-control" id="message" name="message" placeholder="Your Message" style="height: 120px" required minlength="10"></textarea>
+                                        <label for="message">Your Message</label>
+                                    </div>
+                                    <div class="error-text" id="message-error"></div>
+                                    <small class="text-muted">Minimum 10 characters required</small>
                                 </div>
                             </div>
                             
@@ -95,9 +276,10 @@
                                         I agree to the <a href="#" style="color: #667eea;">Privacy Policy</a> and <a href="#" style="color: #667eea;">Terms of Service</a>
                                     </label>
                                 </div>
+                                <div class="error-text" id="privacy-error"></div>
                             </div>
                             
-                            <button type="submit" class="btn btn-primary w-100">
+                            <button type="submit" class="btn btn-primary w-100" id="submitBtn">
                                 <i class="fas fa-paper-plane me-2"></i>Send Message
                             </button>
                         </form>
@@ -128,10 +310,152 @@
         window.addEventListener('scroll', animateOnScroll);
         animateOnScroll(); // Run on page load
         
-        // Form validation and enhancement
+        // Show alert function
+        function showAlert(type, message) {
+            const alertContainer = document.getElementById('alert-container');
+            const alertHtml = `
+                <div class="alert alert-${type} alert-dismissible fade show" role="alert">
+                    <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-triangle'} me-2"></i>
+                    ${message}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            `;
+            alertContainer.innerHTML = alertHtml;
+            
+            // Auto-dismiss success alerts after 5 seconds
+            if (type === 'success') {
+                setTimeout(() => {
+                    const alert = alertContainer.querySelector('.alert');
+                    if (alert) {
+                        const bsAlert = new bootstrap.Alert(alert);
+                        bsAlert.close();
+                    }
+                }, 5000);
+            }
+            
+            // Scroll to alert
+            alertContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+        
+        // Clear field errors
+        function clearFieldError(fieldName) {
+            const errorElement = document.getElementById(`${fieldName}-error`);
+            const inputElement = document.getElementById(fieldName) || document.querySelector(`[name="${fieldName}"]`);
+            
+            if (errorElement) errorElement.textContent = '';
+            if (inputElement) {
+                inputElement.classList.remove('is-invalid');
+                inputElement.classList.add('is-valid');
+            }
+        }
+        
+        // Show field error
+        function showFieldError(fieldName, message) {
+            const errorElement = document.getElementById(`${fieldName}-error`);
+            const inputElement = document.getElementById(fieldName) || document.querySelector(`[name="${fieldName}"]`);
+            
+            if (errorElement) errorElement.textContent = message;
+            if (inputElement) {
+                inputElement.classList.remove('is-valid');
+                inputElement.classList.add('is-invalid');
+            }
+        }
+        
+        // Clear all errors
+        function clearAllErrors() {
+            const errorElements = document.querySelectorAll('.error-text');
+            const inputElements = document.querySelectorAll('.form-control, .form-check-input');
+            
+            errorElements.forEach(el => el.textContent = '');
+            inputElements.forEach(el => {
+                el.classList.remove('is-invalid', 'is-valid');
+            });
+        }
+        
+        // Validate form client-side
+        function validateForm(formData) {
+            let isValid = true;
+            const errors = [];
+            
+            // First name validation
+            if (!formData.get('first_name').trim()) {
+                showFieldError('firstName', 'First name is required');
+                isValid = false;
+            } else {
+                clearFieldError('firstName');
+            }
+            
+            // Last name validation
+            if (!formData.get('last_name').trim()) {
+                showFieldError('lastName', 'Last name is required');
+                isValid = false;
+            } else {
+                clearFieldError('lastName');
+            }
+            
+            // Email validation
+            const email = formData.get('email').trim();
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!email) {
+                showFieldError('email', 'Email is required');
+                isValid = false;
+            } else if (!emailRegex.test(email)) {
+                showFieldError('email', 'Please enter a valid email address');
+                isValid = false;
+            } else {
+                clearFieldError('email');
+            }
+            
+            // Phone validation (optional but if provided, must be valid)
+            const phone = formData.get('phone').trim();
+            if (phone) {
+                const phoneRegex = /^[\d\s\-\+\(\)]{10,}$/;
+                if (!phoneRegex.test(phone)) {
+                    showFieldError('phone', 'Please enter a valid phone number');
+                    isValid = false;
+                } else {
+                    clearFieldError('phone');
+                }
+            } else {
+                clearFieldError('phone');
+            }
+            
+            // Subject validation
+            if (!formData.get('subject')) {
+                showFieldError('subject', 'Please select a subject');
+                isValid = false;
+            } else {
+                clearFieldError('subject');
+            }
+            
+            // Message validation
+            const message = formData.get('message').trim();
+            if (!message) {
+                showFieldError('message', 'Message is required');
+                isValid = false;
+            } else if (message.length < 10) {
+                showFieldError('message', 'Message must be at least 10 characters long');
+                isValid = false;
+            } else {
+                clearFieldError('message');
+            }
+            
+            // Privacy consent validation
+            if (!formData.get('privacy_consent')) {
+                showFieldError('privacy', 'You must agree to the Privacy Policy and Terms of Service');
+                isValid = false;
+            } else {
+                clearFieldError('privacy');
+            }
+            
+            return isValid;
+        }
+        
+        // Form enhancement and submission handling
         document.addEventListener('DOMContentLoaded', function() {
-            const form = document.querySelector('form');
+            const form = document.getElementById('contactForm');
             const inputs = form.querySelectorAll('input, textarea, select');
+            const submitBtn = document.getElementById('submitBtn');
             
             // Add floating label behavior
             inputs.forEach(input => {
@@ -145,6 +469,16 @@
                     }
                 });
                 
+                // Real-time validation
+                input.addEventListener('input', function() {
+                    const fieldName = this.name || this.id;
+                    if (this.classList.contains('is-invalid')) {
+                        // Re-validate this field
+                        const formData = new FormData(form);
+                        validateForm(formData);
+                    }
+                });
+                
                 // Check if input has value on page load
                 if (input.value) {
                     input.parentElement.classList.add('focused');
@@ -152,27 +486,67 @@
             });
             
             // Form submission handling
-            form.addEventListener('submit', function(e) {
+            form.addEventListener('submit', async function(e) {
                 e.preventDefault();
                 
+                // Clear previous alerts
+                document.getElementById('alert-container').innerHTML = '';
+                clearAllErrors();
+                
+                const formData = new FormData(form);
+                
+                // Client-side validation
+                if (!validateForm(formData)) {
+                    showAlert('danger', 'Please correct the errors below and try again.');
+                    return;
+                }
+                
                 // Show loading state
-                const submitBtn = form.querySelector('button[type="submit"]');
                 const originalText = submitBtn.innerHTML;
-                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Sending...';
+                submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Sending...';
                 submitBtn.disabled = true;
                 
-                // Simulate form submission (replace with actual submission)
-                setTimeout(() => {
-                    alert('Thank you for your message! We\'ll get back to you soon.');
-                    form.reset();
-                    submitBtn.innerHTML = originalText;
-                    submitBtn.disabled = false;
-                    
-                    // Remove focused classes
-                    inputs.forEach(input => {
-                        input.parentElement.classList.remove('focused');
+                try {
+                    const response = await fetch('../php/contact-handler.php', {
+                        method: 'POST',
+                        body: formData
                     });
-                }, 2000);
+                    
+                    const result = await response.json();
+                    
+                    if (result.success) {
+                        showAlert('success', result.message);
+                        form.reset();
+                        clearAllErrors();
+                        
+                        // Remove focused classes
+                        inputs.forEach(input => {
+                            input.parentElement.classList.remove('focused');
+                        });
+                        
+                        // Scroll to top of form
+                        form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        
+                    } else {
+                        if (result.data && result.data.errors) {
+                            // Show specific field errors
+                            showAlert('danger', 'Please correct the errors below:');
+                            result.data.errors.forEach(error => {
+                                console.log('Server error:', error);
+                            });
+                        } else {
+                            showAlert('danger', result.message || 'An error occurred. Please try again.');
+                        }
+                    }
+                    
+                } catch (error) {
+                    console.error('Form submission error:', error);
+                    showAlert('danger', 'Network error. Please check your connection and try again.');
+                }
+                
+                // Reset button
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
             });
         });
         
