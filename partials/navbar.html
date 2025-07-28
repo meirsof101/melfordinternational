@@ -1,158 +1,211 @@
-<nav class="navbar" style="background: var(--primary-blue); padding: 15px 0; box-shadow: 0 2px 20px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; font-family: 'Poppins', sans-serif;">
-    <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; align-items: center; justify-content: space-between;">
-        <!-- Brand Logo -->
-        <a href="./index.html" style="text-decoration: none; display: flex; align-items: center; gap: 12px;">
-            <img src="../assets/images/melford3Dlogo.jpg" alt="Melford Logo" style="width: 45px; height: 45px; border-radius: 50%; object-fit: cover;">
-            <div style="display: flex; flex-direction: column; line-height: 1.2;">
-                <span style="color: #f8f9fa; font-weight: 600; font-size: 18px;">Melford</span>
-                <span style="color: #FFC000; font-weight: 600; font-size: 18px;">International</span>
-            </div>
-        </a>
+<style>
+    :root {
+  --primary-blue: #1e40af;
+  --accent-yellow: #FFC000;
+}
 
-        <!-- Mobile Toggle Button - Remove inline display:none -->
-        <button id="navToggle" style="background: none; border: none; color: white; font-size: 24px; cursor: pointer;">
-            <i class="fas fa-bars"></i>
-        </button>
+.navbar {
+  background: var(--primary-blue);
+  padding: 15px 0;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  font-family: 'Poppins', sans-serif;
+}
 
-        <!-- Navigation Links -->
-        <div id="navMenu" style="display: flex; align-items: center; gap: 30px;">
-            <ul style="display: flex; list-style: none; margin: 0; padding: 0; gap: 25px; align-items: center;">
-                <li>
-                    <a href="/index.html" style="color: rgba(255,255,255,0.9); text-decoration: none; font-weight: 500; font-size: 15px; display: flex; align-items: center; gap: 8px; padding: 8px 15px; border-radius: 25px; transition: all 0.3s ease;" onmouseover="this.style.background='rgba(255,192,0,0.15)'; this.style.color='#FFC000'" onmouseout="this.style.background='transparent'; this.style.color='rgba(255,255,255,0.9)'">
-                        <i class="fas fa-home" style="font-size: 14px;"></i>Home
-                    </a>
-                </li>
-                <li>
-                    <a href="../pages/about.html" style="color: rgba(255,255,255,0.9); text-decoration: none; font-weight: 500; font-size: 15px; display: flex; align-items: center; gap: 8px; padding: 8px 15px; border-radius: 25px; transition: all 0.3s ease;" onmouseover="this.style.background='rgba(255,192,0,0.15)'; this.style.color='#FFC000'" onmouseout="this.style.background='transparent'; this.style.color='rgba(255,255,255,0.9)'">
-                        <i class="fas fa-info-circle" style="font-size: 14px;"></i>About
-                    </a>
-                </li>
-                <li>
-                    <a href="../pages/services.html" style="color: rgba(255,255,255,0.9); text-decoration: none; font-weight: 500; font-size: 15px; display: flex; align-items: center; gap: 8px; padding: 8px 15px; border-radius: 25px; transition: all 0.3s ease;" onmouseover="this.style.background='rgba(255,192,0,0.15)'; this.style.color='#FFC000'" onmouseout="this.style.background='transparent'; this.style.color='rgba(255,255,255,0.9)'">
-                        <i class="fas fa-cogs" style="font-size: 14px;"></i>Services
-                    </a>
-                </li>
-                <li>
-                    <a href="../pages/events.html" style="color: rgba(255,255,255,0.9); text-decoration: none; font-weight: 500; font-size: 15px; display: flex; align-items: center; gap: 8px; padding: 8px 15px; border-radius: 25px; transition: all 0.3s ease;" onmouseover="this.style.background='rgba(255,192,0,0.15)'; this.style.color='#FFC000'" onmouseout="this.style.background='transparent'; this.style.color='rgba(255,255,255,0.9)'">
-                        <i class="fas fa-calendar-alt" style="font-size: 14px;"></i>Events
-                    </a>
-                </li>
-                <li>
-                    <a href="../pages/team.html" style="color: rgba(255,255,255,0.9); text-decoration: none; font-weight: 500; font-size: 15px; display: flex; align-items: center; gap: 8px; padding: 8px 15px; border-radius: 25px; transition: all 0.3s ease;" onmouseover="this.style.background='rgba(255,192,0,0.15)'; this.style.color='#FFC000'" onmouseout="this.style.background='transparent'; this.style.color='rgba(255,255,255,0.9)'">
-                        <i class="fas fa-users" style="font-size: 14px;"></i>Team
-                    </a>
-                </li>
-                <li>
-                    <a href="../pages/contact.html" style="color: rgba(255,255,255,0.9); text-decoration: none; font-weight: 500; font-size: 15px; display: flex; align-items: center; gap: 8px; padding: 8px 15px; border-radius: 25px; transition: all 0.3s ease;" onmouseover="this.style.background='rgba(255,192,0,0.15)'; this.style.color='#FFC000'" onmouseout="this.style.background='transparent'; this.style.color='rgba(255,255,255,0.9)'">
-                        <i class="fas fa-envelope" style="font-size: 14px;"></i>Contact
-                    </a>
-                </li>
-            </ul>
-        </div>
+.navbar-container {
+  max-width: 2000px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-logo {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.brand-name {
+  color: #f8f9fa;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.brand-subtitle {
+  color: var(--accent-yellow);
+  font-weight: 600;
+  font-size: 18px;
+}
+.brand-slogan {
+    color: white;
+}
+.nav-toggle {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  display: none;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.nav-list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 25px;
+  align-items: center;
+}
+
+.nav-link {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 15px;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  background: rgba(255, 192, 0, 0.15);
+  color: var(--accent-yellow);
+}
+
+.nav-link i {
+  font-size: 14px;
+}
+
+/* Mobile menu styles */
+.mobile-menu {
+  display: none;
+  background: rgba(30, 90, 150, 0.95);
+  backdrop-filter: blur(10px);
+  margin-top: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobile-list {
+  list-style: none;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.mobile-list a {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobile-list a[href*=\"team\"] {
+  color: var(--accent-yellow);
+  font-weight: 600;
+}
+
+.mobile-list i {
+  font-size: 16px;
+  width: 20px;
+}
+
+.book-btn {
+  background: var(--accent-yellow);
+  color: #1a1a1a;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
+  margin-top: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-menu {
+    display: none;
+  }
+}
+
+</style>
+
+<nav class="navbar">
+  <div class="navbar-container">
+    <a href="./index.html" class="brand">
+      <img src="../assets/images/officiallogo.jpg" alt="Melford Logo" class="brand-logo">
+      <div class="brand-text">
+        <span class="brand-name">Melford</span>
+        <span class="brand-subtitle">International</span>
+        <span class="brand-slogan">Discovers Education</span>
+      </div>
+    </a>
+
+    <button id="navToggle" class="nav-toggle">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="navMenu" class="nav-menu">
+      <ul class="nav-list">
+        <li><a href="/index.html" class="nav-link"><i class="fas fa-home"></i>Home</a></li>
+        <li><a href="../pages/about.html" class="nav-link"><i class="fas fa-info-circle"></i>About</a></li>
+        <li><a href="../pages/services.html" class="nav-link"><i class="fas fa-cogs"></i>Services</a></li>
+        <li><a href="../pages/events.html" class="nav-link"><i class="fas fa-calendar-alt"></i>Events</a></li>
+        <li><a href="../pages/team.html" class="nav-link"><i class="fas fa-users"></i>Team</a></li>
+        <li><a href="../pages/contact.html" class="nav-link"><i class="fas fa-envelope"></i>Contact</a></li>
+      </ul>
     </div>
+  </div>
 
-    <!-- Mobile Menu (Hidden by default) -->
-    <div id="mobileMenu" style="display: none; background: rgba(30, 90, 150, 0.95); backdrop-filter: blur(10px); margin-top: 15px; border-top: 1px solid rgba(255,255,255,0.1);">
-        <ul style="list-style: none; margin: 0; padding: 20px; display: flex; flex-direction: column; gap: 15px;">
-            <li>
-                <a href="/index.html" style="color: rgba(255,255,255,0.9); text-decoration: none; font-weight: 500; font-size: 16px; display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.1);">
-                    <i class="fas fa-home" style="font-size: 16px; width: 20px;"></i>Home
-                </a>
-            </li>
-            <li>
-                <a href="../pages/about.html" style="color: rgba(255,255,255,0.9); text-decoration: none; font-weight: 500; font-size: 16px; display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.1);">
-                    <i class="fas fa-info-circle" style="font-size: 16px; width: 20px;"></i>About
-                </a>
-            </li>
-            <li>
-                <a href="../pages/services.html" style="color: rgba(255,255,255,0.9); text-decoration: none; font-weight: 500; font-size: 16px; display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.1);">
-                    <i class="fas fa-cogs" style="font-size: 16px; width: 20px;"></i>Services
-                </a>
-            </li>
-            <li>
-                <a href="../pages/events.html" style="color: rgba(255,255,255,0.9); text-decoration: none; font-weight: 500; font-size: 16px; display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.1);">
-                    <i class="fas fa-calendar-alt" style="font-size: 16px; width: 20px;"></i>Events
-                </a>
-            </li>
-            <li>
-                <a href="../pages/team.html" style="color: #FFC000; text-decoration: none; font-weight: 600; font-size: 16px; display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.1);">
-                    <i class="fas fa-users" style="font-size: 16px; width: 20px;"></i>Team
-                </a>
-            </li>
-            <li>
-                <a href="../pages/contact.html" style="color: rgba(255,255,255,0.9); text-decoration: none; font-weight: 500; font-size: 16px; display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.1);">
-                    <i class="fas fa-envelope" style="font-size: 16px; width: 20px;"></i>Contact
-                </a>
-            </li>
-            <li style="margin-top: 10px;">
-                <button style="background: #FFC000; color: #1a1a1a; border: none; padding: 15px 30px; border-radius: 25px; font-weight: 600; font-size: 16px; cursor: pointer; width: 100%; font-family: 'Poppins', sans-serif;">
-                    Book Consultation
-                </button>
-            </li>
-        </ul>
-    </div>
-
-    <!-- Internal CSS for better control -->
-    <style>
-        /* Default state - hamburger hidden, menu visible */
-        #navToggle {
-            display: none;
-        }
-        
-        #navMenu {
-            display: flex;
-        }
-        
-        /* Mobile styles */
-        @media (max-width: 768px) {
-            #navToggle {
-                display: block !important;
-            }
-            
-            #navMenu {
-                display: none !important;
-            }
-        }
-    </style>
-
-    <!-- JavaScript for Mobile Toggle -->
-    <script>
-        // Wait for DOM to be fully loaded
-        document.addEventListener('DOMContentLoaded', function() {
-            const navToggle = document.getElementById('navToggle');
-            const mobileMenu = document.getElementById('mobileMenu');
-            
-            // Toggle mobile menu
-            navToggle.addEventListener('click', function() {
-                const isVisible = mobileMenu.style.display === 'block';
-                mobileMenu.style.display = isVisible ? 'none' : 'block';
-                
-                // Toggle hamburger to X
-                const icon = this.querySelector('i');
-                icon.className = isVisible ? 'fas fa-bars' : 'fas fa-times';
-            });
-
-            // Close mobile menu when clicking on links
-            const mobileLinks = mobileMenu.querySelectorAll('a');
-            mobileLinks.forEach(link => {
-                link.addEventListener('click', function() {
-                    mobileMenu.style.display = 'none';
-                    const icon = navToggle.querySelector('i');
-                    icon.className = 'fas fa-bars';
-                });
-            });
-
-            // Handle window resize
-            window.addEventListener('resize', function() {
-                if (window.innerWidth > 768) {
-                    mobileMenu.style.display = 'none';
-                    const icon = navToggle.querySelector('i');
-                    icon.className = 'fas fa-bars';
-                }
-            });
-        });
-    </script>
-
-    <!-- Font Awesome CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <div id="mobileMenu" class="mobile-menu">
+    <ul class="mobile-list">
+      <li><a href="/index.html"><i class="fas fa-home"></i>Home</a></li>
+      <li><a href="../pages/about.html"><i class="fas fa-info-circle"></i>About</a></li>
+      <li><a href="../pages/services.html"><i class="fas fa-cogs"></i>Services</a></li>
+      <li><a href="../pages/events.html"><i class="fas fa-calendar-alt"></i>Events</a></li>
+      <li><a href="../pages/team.html"><i class="fas fa-users"></i>Team</a></li>
+      <li><a href="../pages/contact.html"><i class="fas fa-envelope"></i>Contact</a></li>
+      <li><button class="book-btn">Book Consultation</button></li>
+    </ul>
+  </div>
 </nav>
