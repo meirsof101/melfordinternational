@@ -3,550 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Melford International - Global Education Agency</title>
-    <link rel="icon" href="../assets/images/melfordfavicon.jpg" type="image/x-icon">
+    <title>Document</title>
     <link rel="stylesheet" href="../styles/styles.css">
-    <!-- Bootstrap CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Bootstrap JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-    <!-- Bootstrap Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-    <style>
-        /* Custom About Page Styles */
-        .about-hero {
-            background: linear-gradient(135deg, rgba(0, 119, 182, 0.9), rgba(255, 192, 0, 0.8)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1800&q=80');
-            background-size: cover;
-            background-position: center;
-            padding: 120px 0 80px;
-            color: white;
-        }
-        
-        .mission-vision-section {
-            padding: 80px 0;
-            background-color: #f8f9fa;
-        }
-        
-        .mv-card {
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            height: 100%;
-        }
-        
-        .mv-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-        }
-        
-        .mv-card-header {
-            padding: 30px;
-            text-align: center;
-            color: white;
-        }
-        
-        .mission-header {
-            background: linear-gradient(to right, #0077B6, #00A6FB);
-        }
-        
-        .vision-header {
-            background: linear-gradient(to right, #FFC000, #FFD700);
-        }
-        
-        .values-header {
-            background: linear-gradient(to right, #2A9D8F, #4ECDC4);
-        }
-        
-        .mv-card-body {
-            padding: 30px;
-        }
-        
-        .timeline-section {
-            padding: 80px 0;
-            background: url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1800&q=80') center/cover fixed;
-            position: relative;
-        }
-        
-        .timeline-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-        }
-        
-        .timeline-content {
-            position: relative;
-            z-index: 2;
-            color: white;
-        }
-        
-        .timeline-item {
-            position: relative;
-            padding-left: 30px;
-            margin-bottom: 50px;
-        }
-        
-        .timeline-item:last-child {
-            margin-bottom: 0;
-        }
-        
-        .timeline-item::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 8px;
-            width: 15px;
-            height: 15px;
-            border-radius: 50%;
-            background: #FFC000;
-        }
-        
-        .timeline-item::after {
-            content: "";
-            position: absolute;
-            left: 7px;
-            top: 23px;
-            width: 2px;
-            height: calc(100% + 30px);
-            background: rgba(255, 255, 255, 0.3);
-        }
-        
-        .timeline-item:last-child::after {
-            display: none;
-        }
-        
-        .team-section {
-            padding: 80px 0;
-        }
-        
-        .team-card {
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            transition: all 0.3s ease;
-            margin-bottom: 30px;
-        }
-        
-        .team-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-        }
-        
-        .team-img {
-            height: 250px;
-            object-fit: cover;
-        }
-        
-        .team-social {
-            position: absolute;
-            bottom: -40px;
-            left: 0;
-            right: 0;
-            background: rgba(0, 119, 182, 0.9);
-            padding: 10px 0;
-            transition: all 0.3s ease;
-            opacity: 0;
-        }
-        
-        .team-card:hover .team-social {
-            bottom: 0;
-            opacity: 1;
-        }
-        
-        .team-social a {
-            color: white;
-            margin: 0 10px;
-            font-size: 18px;
-            transition: all 0.3s ease;
-        }
-        
-        .team-social a:hover {
-            color: #FFC000;
-            transform: translateY(-5px);
-        }
-        .values-section {
-            padding: 100px 0;
-            margin-top: 0.5px;
-        }
-        
-        .value-card {
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            height: 100%;
-            transition: all 0.3s ease;
-        }
-        
-        .value-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-        }
-        
-        .value-icon {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background: rgba(0, 119, 182, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            color: #0077B6;
-            font-size: 30px;
-        }
-        
-        .cta-about {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=1800&q=80');
-            background-size: cover;
-            background-position: center;
-            padding: 100px 0;
-            color: white;
-            text-align: center;
-        }
-    </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <div id="navbar"></div>
+<div id="navbar"></div>
+    <!-- About Page -->
+<section>
+    <div class="about-hero">
+        <h1><span class="about-word">About</span> <span class="us-word">Us</span></h1>
+        <p>Melford International Education and Migration is an ultimate centre for abroad studies, 
+            dedicated to guiding students toward academic success and global opportunities. With over a 
+            decade of experience. Melford has been providing high-quality educational services for 
+            students aspiring to study in Australia, Canada, the UK, USA, New Zealand, Ireland, Malaysia, 
+            and Germany. We also offer expert-led IELTS and PTE preparation classes, helping students 
+            confidently meet language requirements and excel in their international education journey.</p>
+    </div>
+</section>
+<!-- Mission Section -->
+<section class="mission-section">
+    <div class="mission-wrapper">
+        <div class="mission-container">
+            <h2>Our Mission</h2>
+            <p>At Melford International, our mission is to empower students to achieve their dreams of studying abroad. We are committed to providing personalized guidance, expert advice, and comprehensive support throughout the entire application process.</p>
+        </div>
+        <div class="what-we-do">
+            <h2>What We Do</h2>
+            <p>We specialize in overseas education services, offering tailored support for students seeking academic opportunities in top global destinations.</p>
+        </div>
+    </div>
+</section>
+<!-- Success Section -->
+<section class="alumni-section">
+    <div class="alumni-container">
+        <div class="alumni-header">
+            <h2>Our Success Stories</h2>
+            <p>Meet our accomplished alumni who have achieved their dreams through Melford's guidance and support</p>
+        </div>
 
-    <!-- Hero Section -->
-    <section class="about-hero">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 mx-auto text-center">
-                    <h1 class="display-3 fw-bold mb-4">About Melford International</h1>
-                    <p class="lead mb-5">Empowering global education journeys since 2005</p>
-                    <div class="d-flex justify-content-center">
-                        <a href="#mission" class="btn btn-light btn-lg me-3 px-4 py-2">Our Mission</a>
-                        <a href="#team" class="btn btn-outline-light btn-lg px-4 py-2">Meet Our Team</a>
-                    </div>
-                </div>
+        <div class="alumni-cards">
+            <div class="alumni-card">
+                <div class="alumni-name">Ahmed Khan</div>
+                <div class="alumni-field">Medical Doctor</div>
+                <div class="alumni-university">University of Toronto, Canada</div>
+                <div class="alumni-quote">Melford made my dream of studying medicine in Canada a reality. Their guidance was invaluable throughout the process.</div>
+            </div>
+
+            <div class="alumni-card">
+                <div class="alumni-name">Sarah Patel</div>
+                <div class="alumni-field">Software Engineer</div>
+                <div class="alumni-university">MIT, USA</div>
+                <div class="alumni-quote">The IELTS preparation and university application support from Melford was exceptional. Now I'm living my dream!</div>
+            </div>
+
+            <div class="alumni-card">
+                <div class="alumni-name">Michael Roberts</div>
+                <div class="alumni-field">Business Analyst</div>
+                <div class="alumni-university">University of Melbourne, Australia</div>
+                <div class="alumni-quote">Thanks to Melford, I successfully transitioned from Dubai to Australia. The support was phenomenal.</div>
+            </div>
+
+            <div class="alumni-card">
+                <div class="alumni-name">Lisa Martinez</div>
+                <div class="alumni-field">Research Scientist</div>
+                <div class="alumni-university">Oxford University, UK</div>
+                <div class="alumni-quote">Melford's expertise in UK applications helped me secure a spot at Oxford. Forever grateful!</div>
+            </div>
+
+            <div class="alumni-card">
+                <div class="alumni-name">Raj Kumar</div>
+                <div class="alumni-field">Data Scientist</div>
+                <div class="alumni-university">University of Auckland, New Zealand</div>
+                <div class="alumni-quote">The personalized approach and attention to detail at Melford made all the difference in my journey.</div>
+            </div>
+
+            <div class="alumni-card">
+                <div class="alumni-name">Emma Johnson</div>
+                <div class="alumni-field">Civil Engineer</div>
+                <div class="alumni-university">Trinity College Dublin, Ireland</div>
+                <div class="alumni-quote">From IELTS prep to visa assistance, Melford handled everything professionally. Highly recommended!</div>
             </div>
         </div>
-    </section>
-
-    <!-- Mission, Vision & Values Section -->
-    <section id="mission" class="mission-vision-section">
-        <div class="container">
-            <div class="row text-center mb-5">
-                <div class="col-lg-8 mx-auto">
-                    <h2 class="section-title">Our Guiding Principles</h2>
-                    <p class="section-subtitle">The foundation of our educational services</p>
-                </div>
-            </div>
-            
-            <div class="row g-5">
-                <div class="col-lg-4">
-                    <div class="mv-card">
-                        <div class="mv-card-header mission-header">
-                            <i class="fas fa-bullseye fa-3x mb-3"></i>
-                            <h3>Our Mission</h3>
-                        </div>
-                        <div class="mv-card-body">
-                            <p>To empower students worldwide by connecting them with quality education opportunities that transform lives and build global citizens.</p>
-                            <p>We strive to break down barriers to international education through personalized guidance, comprehensive support, and strategic partnerships with leading institutions.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4">
-                    <div class="mv-card">
-                        <div class="mv-card-header vision-header">
-                            <i class="fas fa-eye fa-3x mb-3"></i>
-                            <h3>Our Vision</h3>
-                        </div>
-                        <div class="mv-card-body">
-                            <p>To become the most trusted global education partner, recognized for creating life-changing opportunities that transcend borders and cultures.</p>
-                            <p>We envision a world where every student has access to transformative education experiences regardless of their background or location.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4">
-                    <div class="mv-card">
-                        <div class="mv-card-header values-header">
-                            <i class="fas fa-heart fa-3x mb-3"></i>
-                            <h3>Our Values</h3>
-                        </div>
-                        <div class="mv-card-body">
-                            <ul class="list-unstyled">
-                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Student-Centered Approach</li>
-                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Integrity & Transparency</li>
-                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Global Perspective</li>
-                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Excellence in Service</li>
-                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Cultural Sensitivity</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Our Story Timeline -->
-    <section class="timeline-section">
-        <div class="timeline-overlay"></div>
-        <div class="container timeline-content">
-            <div class="row text-center mb-5">
-                <div class="col-lg-8 mx-auto">
-                    <h2 class="section-title">Our Journey</h2>
-                    <p class="section-subtitle">Milestones in our educational mission</p>
-                </div>
-            </div>
-            
-            <div class="row">
-                <div class="col-lg-8 mx-auto">
-                    <div class="timeline-item">
-                        <h3 class="mb-3">2005: Humble Beginnings</h3>
-                        <p>Founded in London by Dr. Evelyn Melford with a vision to bridge educational gaps between countries. Our first office opened with just 3 staff members and a passion for global education.</p>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <h3 class="mb-3">2010: Expansion to Asia</h3>
-                        <p>Established our first regional office in Singapore, marking our expansion into the Asian market. Partnered with 50+ universities across the UK, USA, and Australia.</p>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <h3 class="mb-3">2014: Scholarship Program Launch</h3>
-                        <p>Created the Melford Global Scholars initiative, providing over $2M in scholarships to deserving students from developing countries. Awarded "Education Innovator of the Year" by Global Education Network.</p>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <h3 class="mb-3">2018: Digital Transformation</h3>
-                        <p>Launched our comprehensive online portal, enabling students to access services remotely. Developed AI-powered matching system for university placements.</p>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <h3 class="mb-3">2023: Global Recognition</h3>
-                        <p>Celebrated placing our 15,000th student. Recognized as "Top Education Consultancy" by International Education Awards for three consecutive years.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Our Team Section -->
-    <section id="team" class="team-section">
-        <div class="container">
-            <div class="row text-center mb-5">
-                <div class="col-lg-8 mx-auto">
-                    <h2 class="section-title">Meet Our Leadership</h2>
-                    <p class="section-subtitle">Dedicated professionals guiding your educational journey</p>
-                </div>
-            </div>
-            
-            <div class="row g-4">
-                <div class="col-lg-3 col-md-6">
-                    <div class="team-card">
-                        <div class="position-relative">
-                            <img src="#" alt="Dr. Ambrose Paul" class="img-fluid team-img">
-                            <div class="team-social">
-                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                                <a href="#"><i class="fab fa-twitter"></i></a>
-                                <a href="#"><i class="fas fa-envelope"></i></a>
-                            </div>
-                        </div>
-                        <div class="p-4">
-                            <h5 class="mb-1"> Ambrose Paul</h5>
-                            <p class="text-primary mb-2">Director</p>
-                            <p class="small text-muted">PhD in International Education with 25+ years experience in global academic partnerships.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-3 col-md-6">
-                    <div class="team-card">
-                        <div class="position-relative">
-                            <img src="#" alt="Dennis Mewa" class="img-fluid team-img">
-                            <div class="team-social">
-                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                                <a href="#"><i class="fab fa-twitter"></i></a>
-                                <a href="#"><i class="fas fa-envelope"></i></a>
-                            </div>
-                        </div>
-                        <div class="p-4">
-                            <h5 class="mb-1">Dennis Mewa</h5>
-                            <p class="text-primary mb-2">Chief Operating Officer</p>
-                            <p class="small text-muted">Former university admissions officer with expertise in scholarship programs and visa processes.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-3 col-md-6">
-                    <div class="team-card">
-                        <div class="position-relative">
-                            <img src="#" alt="Margaret Ndanyi" class="img-fluid team-img">
-                            <div class="team-social">
-                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                                <a href="#"><i class="fab fa-twitter"></i></a>
-                                <a href="#"><i class="fas fa-envelope"></i></a>
-                            </div>
-                        </div>
-                        <div class="p-4">
-                            <h5 class="mb-1">Margaret Ndanyi</h5>
-                            <p class="text-primary mb-2">Branch Manager</p>
-                            <p class="small text-muted">15+ years experience in international student support and cultural integration programs.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-3 col-md-6">
-                    <div class="team-card">
-                        <div class="position-relative">
-                            <img src="#" alt="Ancient Muli" class="img-fluid team-img">
-                            <div class="team-social">
-                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                                <a href="#"><i class="fab fa-twitter"></i></a>
-                                <a href="#"><i class="fas fa-envelope"></i></a>
-                            </div>
-                        </div>
-                        <div class="p-4">
-                            <h5 class="mb-1">Ancient Muli</h5>
-                            <p class="text-primary mb-2">Project Manager</p>
-                            <p class="small text-muted">Established 200+ university partnerships across 30 countries with focus on academic excellence.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="text-center mt-5">
-                <button class="btn btn-outline-primary btn-lg">View All Team Members</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Core Values Section -->
-    <section class="values-section">
-        <div class="container">
-            <div class="row text-center mb-5">
-                <div class="col-lg-8 mx-auto">
-                    <h2 class="section-title">Our Core Values</h2>
-                    <p class="section-subtitle">Principles that guide every aspect of our work</p>
-                </div>
-            </div>
-            
-            <div class="row g-4">
-                <div class="col-lg-3 col-md-6">
-                    <div class="value-card">
-                        <div class="value-icon">
-                            <i class="fas fa-user-graduate"></i>
-                        </div>
-                        <h4 class="mb-3">Student-Centric</h4>
-                        <p>Every decision centers on student success. We tailor solutions to individual needs and aspirations.</p>
-                    </div>
-                </div>
-                
-                <div class="col-lg-3 col-md-6">
-                    <div class="value-card">
-                        <div class="value-icon">
-                            <i class="fas fa-handshake"></i>
-                        </div>
-                        <h4 class="mb-3">Integrity</h4>
-                        <p>We maintain transparency and ethical practices in all our services and partnerships.</p>
-                    </div>
-                </div>
-                
-                <div class="col-lg-3 col-md-6">
-                    <div class="value-card">
-                        <div class="value-icon">
-                            <i class="fas fa-globe-americas"></i>
-                        </div>
-                        <h4 class="mb-3">Global Perspective</h4>
-                        <p>We embrace cultural diversity and prepare students for success in a globalized world.</p>
-                    </div>
-                </div>
-                
-                <div class="col-lg-3 col-md-6">
-                    <div class="value-card">
-                        <div class="value-icon">
-                            <i class="fas fa-lightbulb"></i>
-                        </div>
-                        <h4 class="mb-3">Innovation</h4>
-                        <p>We continuously evolve our services to leverage the latest educational technologies.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta-about">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8 text-center">
-                    <h2 class="display-5 fw-bold mb-4">Begin Your Global Education Journey</h2>
-                    <p class="lead mb-5">Join thousands of students who have transformed their futures with Melford International.</p>
-                    <div class="d-flex flex-wrap justify-content-center gap-3">
-                        <a href="../index.html#contact" class="btn btn-primary btn-lg px-4 py-3">Schedule Consultation</a>
-                        <a href="../index.html#services" class="btn btn-outline-light btn-lg px-4 py-3">View Our Services</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <div id="footer-placeholder"></div>
-
-    <!-- Bootstrap JS Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // Simple animation for stats counters
-        const counters = document.querySelectorAll('.stat-number');
-        const speed = 200;
-        
-        counters.forEach(counter => {
-            const updateCount = () => {
-                const target = +counter.innerText.replace(/,/g, '');
-                const count = +counter.innerText;
-                
-                // Animate if the element is in viewport
-                if(count < target) {
-                    counter.innerText = Math.ceil(count + target/speed).toLocaleString();
-                    setTimeout(updateCount, 1);
-                } else {
-                    counter.innerText = target.toLocaleString();
-                }
-            };
-            
-            updateCount();
-        });
-
-        // Navbar scroll effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('.navbar');
-            if(window.scrollY > 50) {
-                navbar.classList.add('shadow-sm');
-                navbar.style.padding = "10px 0";
-            } else {
-                navbar.classList.remove('shadow-sm');
-                navbar.style.padding = "15px 0";
-            }
-        });
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-    </script>
-  <script src="../js/loadpartials.js" defer></script>
+    </div>
+</section>
 </body>
+<div id="footer-placeholder"></div>
+
+<script src="../js/loadpartials.js"></script>
 </html>

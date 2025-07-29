@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enquiry Form</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+
+        .enquiry-form-section {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .form-grid {
+            display: grid;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .grid-3 {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+
+        .grid-2 {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .grid-1 {
+            grid-template-columns: 1fr;
+        }
+
+        .form-group {
+            position: relative;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            background-color: #FF8A47;
+            color: white;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        input::placeholder, select option:first-child {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        input:focus, select:focus, textarea:focus {
+            background-color: #E67A3C;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255, 138, 71, 0.3);
+        }
+
+        select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 5"><path fill="white" d="M2 0L0 2h4zm0 5L0 3h4z"/></svg>');
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+            background-size: 12px;
+            padding-right: 40px;
+        }
+
+        select option {
+            background-color: white;
+            color: #333;
+        }
+
+        .date-input {
+            position: relative;
+        }
+
+        .date-input::after {
+            content: '📅';
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+            font-size: 16px;
+        }
+
+        .large-textarea {
+            height: 100px;
+            resize: vertical;
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin: 20px 0;
+            font-size: 14px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .checkbox-container input[type="checkbox"] {
+            width: auto;
+            min-width: 20px;
+            height: 20px;
+            margin-top: 2px;
+            background-color: white;
+            border: 2px solid #FF8A47;
+        }
+
+        .checkbox-container input[type="checkbox"]:checked {
+            background-color: #FF8A47;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #FF8A47, #E67A3C);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 20px;
+        }
+
+        .submit-btn:hover {
+            background: linear-gradient(135deg, #E67A3C, #D16B2A);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 138, 71, 0.4);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .grid-3, .grid-2 {
+                grid-template-columns: 1fr;
+            }
+            
+            .enquiry-form-section {
+                padding: 20px;
+                margin: 10px;
+            }
+        }
+
+        /* Custom styling for date input */
+        input[type="date"] {
+            position: relative;
+        }
+
+        input[type="date"]::-webkit-calendar-picker-indicator {
+            color: white;
+            opacity: 1;
+            background: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <section class="enquiry-form-section">
+        <h2>Enquiry Form</h2>
+        <form class="enquiry-form" action="#" method="post">
+            <!-- Personal Information Row 1 -->
+            <div class="form-grid grid-3">
+                <div class="form-group">
+                    <input type="text" name="first_name" placeholder="First Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="last_name" placeholder="Last Name" required>
+                </div>
+                <div class="form-group date-input">
+                    <input type="date" name="date" value="2025-07-02" required>
+                </div>
+            </div>
+
+            <!-- Personal Information Row 2 -->
+            <div class="form-grid grid-3">
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" name="phone" placeholder="Phone" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="nationality" placeholder="Nationality" required>
+                </div>
+            </div>
+
+            <!-- Current School -->
+            <div class="form-grid grid-1">
+                <div class="form-group">
+                    <input type="text" name="current_school" placeholder="Your Current School" required>
+                </div>
+            </div>
+
+            <!-- Parent Information -->
+            <div class="form-grid grid-2">
+                <div class="form-group">
+                    <input type="email" name="parent_email" placeholder="Parent's Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" name="parent_phone" placeholder="Parent's Phone" required>
+                </div>
+            </div>
+
+            <!-- Education Details and Level -->
+            <div class="form-grid grid-2">
+                <div class="form-group">
+                    <textarea name="education_details" style="color: var(--primary-blue);" placeholder="Enter your education details here, KCSE, O Level, A Level, IB" class="large-textarea" required></textarea>
+                </div>
+                <div class="form-group">
+                    <select name="level_of_study" required>
+                        <option value="">Level of Study</option>
+                        <option value="certificate">Certificate</option>
+                        <option value="diploma">Diploma</option>
+                        <option value="undergraduate">Undergraduate</option>
+                        <option value="postgraduate">Postgraduate</option>
+                        <option value="masters">Masters</option>
+                        <option value="phd">PhD</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Preferred Country -->
+            <div class="form-grid grid-1">
+                <div class="form-group">
+                    <select name="preferred_country" required>
+                        <option value="">Preferred Country</option>
+                        <option value="uk">United Kingdom</option>
+                        <option value="usa">United States</option>
+                        <option value="canada">Canada</option>
+                        <option value="australia">Australia</option>
+                        <option value="germany">Germany</option>
+                        <option value="france">France</option>
+                        <option value="netherlands">Netherlands</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Course, Institution, Year -->
+            <div class="form-grid grid-3">
+                <div class="form-group">
+                    <input type="text" name="preferred_course" placeholder="Preferred Course" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="preferred_institution" placeholder="Preferred Institution">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="year_of_entry" placeholder="Year of Entry" required>
+                </div>
+            </div>
+
+            <!-- Consent Checkbox -->
+            <div class="checkbox-container">
+                <input type="checkbox" id="consent" name="consent" required>
+                <label for="consent">
+                    I authorise the University to accept requests including the following from Uniserv on my behalf; acceptance and offer letters pertaining to my studies, enrolment, withdrawal of application, deferral, academic progress, academic standing, academic activities and other information related to my academic progress.
+                </label>
+            </div>
+
+            <button type="submit" class="submit-btn">Submit Enquiry</button>
+        </form>
+    </section>
+</body>
+</html>

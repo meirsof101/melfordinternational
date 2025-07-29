@@ -2,24 +2,27 @@
     :root {
   --primary-blue: #1e40af;
   --accent-yellow: #FFC000;
+  --white: #ffffff;
 }
 
 .navbar {
-  background: var(--primary-blue);
+  background: var(--white);
   padding: 15px 0;
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
   z-index: 1000;
   font-family: 'Poppins', sans-serif;
+  height: 80px;
 }
 
 .navbar-container {
   max-width: 2000px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding:  20px;
   display: flex;
   align-items: center;
+  height: 20px;
   justify-content: space-between;
 }
 
@@ -31,9 +34,8 @@
 }
 
 .brand-logo {
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
+  width: 400px;
+  height: 67px;
   object-fit: cover;
 }
 
@@ -44,7 +46,7 @@
 }
 
 .brand-name {
-  color: #f8f9fa;
+  color: #1e40af;
   font-weight: 600;
   font-size: 18px;
 }
@@ -55,7 +57,7 @@
   font-size: 18px;
 }
 .brand-slogan {
-    color: white;
+    color: #1e40af;
 }
 .nav-toggle {
   background: none;
@@ -82,7 +84,7 @@
 }
 
 .nav-link {
-  color: rgba(255, 255, 255, 0.9);
+  color: #1e40af;
   text-decoration: none;
   font-weight: 500;
   font-size: 15px;
@@ -143,20 +145,6 @@
   width: 20px;
 }
 
-.book-btn {
-  background: var(--accent-yellow);
-  color: #1a1a1a;
-  border: none;
-  padding: 15px 30px;
-  border-radius: 25px;
-  font-weight: 600;
-  font-size: 16px;
-  cursor: pointer;
-  width: 100%;
-  font-family: 'Poppins', sans-serif;
-  margin-top: 10px;
-}
-
 /* Responsive */
 @media (max-width: 768px) {
   .nav-toggle {
@@ -172,13 +160,8 @@
 
 <nav class="navbar">
   <div class="navbar-container">
-    <a href="./index.html" class="brand">
-      <img src="../assets/images/officiallogo.jpg" alt="Melford Logo" class="brand-logo">
-      <div class="brand-text">
-        <span class="brand-name">Melford</span>
-        <span class="brand-subtitle">International</span>
-        <span class="brand-slogan">Discovers Education</span>
-      </div>
+    <a href="/index.html" class="brand">
+      <img src="../assets/images/logo3.jpg" alt="Melford Logo" class="brand-logo">
     </a>
 
     <button id="navToggle" class="nav-toggle">
@@ -187,12 +170,12 @@
 
     <div id="navMenu" class="nav-menu">
       <ul class="nav-list">
-        <li><a href="/index.html" class="nav-link"><i class="fas fa-home"></i>Home</a></li>
-        <li><a href="../pages/about.html" class="nav-link"><i class="fas fa-info-circle"></i>About</a></li>
-        <li><a href="../pages/services.html" class="nav-link"><i class="fas fa-cogs"></i>Services</a></li>
-        <li><a href="../pages/events.html" class="nav-link"><i class="fas fa-calendar-alt"></i>Events</a></li>
-        <li><a href="../pages/team.html" class="nav-link"><i class="fas fa-users"></i>Team</a></li>
-        <li><a href="../pages/contact.html" class="nav-link"><i class="fas fa-envelope"></i>Contact</a></li>
+        <li><a href="/index.html" class="nav-link">Home</a></li>
+        <li><a href="../pages/about.html" class="nav-link">About</a></li>
+        <li><a href="../pages/services.html" class="nav-link">Services</a></li>
+        <li><a href="../pages/events.html" class="nav-link">Events</a></li>
+        <li><a href="../pages/team.html" class="nav-link">Team</a></li>
+        <li><a href="../pages/contact.html" class="nav-link">Contact</a></li>
       </ul>
     </div>
   </div>
