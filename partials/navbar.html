@@ -1,8 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar - Melford International</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body style="margin: 0; font-family: 'Poppins', sans-serif;">
+
 <style>
-    :root {
+:root {
   --primary-blue: #1e40af;
   --accent-yellow: #FFC000;
   --white: #ffffff;
+  --light-gray: #f8f9fa;
+  --dark-gray: #2d2d2d;
 }
 
 .navbar {
@@ -13,17 +26,19 @@
   top: 0;
   z-index: 1000;
   font-family: 'Poppins', sans-serif;
-  height: 80px;
+  min-height: 80px;
+  transition: all 0.3s ease;
 }
 
 .navbar-container {
-  max-width: 2000px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding:  20px;
+  padding: 0 20px;
   display: flex;
   align-items: center;
-  height: 20px;
   justify-content: space-between;
+  height: 100%;
+  min-height: 50px;
 }
 
 .brand {
@@ -31,12 +46,14 @@
   display: flex;
   align-items: center;
   gap: 12px;
+  z-index: 1001;
 }
 
 .brand-logo {
   width: 400px;
   height: 67px;
   object-fit: cover;
+  transition: all 0.3s ease;
 }
 
 .brand-text {
@@ -46,26 +63,46 @@
 }
 
 .brand-name {
-  color: #1e40af;
+  color: var(--primary-blue);
   font-weight: 600;
-  font-size: 18px;
+  font-size: clamp(16px, 2.5vw, 18px);
+  margin: 0;
 }
 
 .brand-subtitle {
   color: var(--accent-yellow);
   font-weight: 600;
-  font-size: 18px;
+  font-size: clamp(14px, 2.2vw, 18px);
+  margin: 0;
 }
+
 .brand-slogan {
-    color: #1e40af;
+  color: var(--primary-blue);
+  font-size: clamp(12px, 2vw, 14px);
+  margin: 0;
 }
+
 .nav-toggle {
   background: none;
   border: none;
-  color: white;
+  color: var(--primary-blue);
   font-size: 24px;
   cursor: pointer;
   display: none;
+  padding: 8px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  z-index: 1001;
+}
+
+.nav-toggle:hover {
+  background: rgba(30, 64, 175, 0.1);
+  color: var(--accent-yellow);
+}
+
+.nav-toggle.active {
+  color: var(--accent-yellow);
+  background: rgba(255, 192, 0, 0.15);
 }
 
 .nav-menu {
@@ -84,7 +121,7 @@
 }
 
 .nav-link {
-  color: #1e40af;
+  color: var(--primary-blue);
   text-decoration: none;
   font-weight: 500;
   font-size: 15px;
@@ -94,11 +131,19 @@
   padding: 8px 15px;
   border-radius: 25px;
   transition: all 0.3s ease;
+  white-space: nowrap;
 }
 
 .nav-link:hover {
   background: rgba(255, 192, 0, 0.15);
   color: var(--accent-yellow);
+  transform: translateY(-1px);
+}
+
+.nav-link.active {
+  background: var(--accent-yellow);
+  color: var(--primary-blue);
+  font-weight: 600;
 }
 
 .nav-link i {
@@ -108,54 +153,328 @@
 /* Mobile menu styles */
 .mobile-menu {
   display: none;
-  background: rgba(30, 90, 150, 0.95);
-  backdrop-filter: blur(10px);
-  margin-top: 15px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(30, 64, 175, 0.98);
+  backdrop-filter: blur(15px);
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mobile-menu.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-menu-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 20px;
+  text-align: center;
 }
 
 .mobile-list {
   list-style: none;
   margin: 0;
-  padding: 20px;
+  padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 20px;
+  width: 100%;
+  max-width: 300px;
 }
+
+.mobile-list li {
+  transform: translateY(30px);
+  opacity: 0;
+  transition: all 0.6s ease;
+}
+
+.mobile-menu.active .mobile-list li {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.mobile-list li:nth-child(1) { transition-delay: 0.1s; }
+.mobile-list li:nth-child(2) { transition-delay: 0.2s; }
+.mobile-list li:nth-child(3) { transition-delay: 0.3s; }
+.mobile-list li:nth-child(4) { transition-delay: 0.4s; }
+.mobile-list li:nth-child(5) { transition-delay: 0.5s; }
+.mobile-list li:nth-child(6) { transition-delay: 0.6s; }
 
 .mobile-list a {
   color: rgba(255, 255, 255, 0.9);
   text-decoration: none;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 18px;
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 12px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  justify-content: center;
+  gap: 15px;
+  padding: 15px 20px;
+  border-radius: 50px;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
 }
 
-.mobile-list a[href*=\"team\"] {
-  color: var(--accent-yellow);
-  font-weight: 600;
+.mobile-list a:hover,
+.mobile-list a.active {
+  color: var(--primary-blue);
+  background: var(--accent-yellow);
+  border-color: var(--accent-yellow);
+  transform: scale(1.05);
 }
 
 .mobile-list i {
-  font-size: 16px;
-  width: 20px;
+  font-size: 18px;
+  width: 24px;
+  text-align: center;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
+.book-btn {
+  background: var(--accent-yellow);
+  color: var(--primary-blue);
+  border: none;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.book-btn:hover {
+  background: var(--primary-blue);
+  color: var(--accent-yellow);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(30, 64, 175, 0.3);
+}
+
+/* Responsive breakpoints */
+
+/* Extra Small devices (phones, 320px - 575px) */
+@media (max-width: 575px) {
+  .navbar {
+    padding: 10px 0;
+    min-height: 70px;
+  }
+  
+  .navbar-container {
+    padding: 0 15px;
+  }
+  
+  .brand-logo {
+    width: 200px;
+    height: 34px;
+  }
+  
+  .brand-text {
+    display: none;
+  }
+  
+  .nav-toggle {
+    display: block;
+    font-size: 20px;
+  }
+  
+  .nav-menu {
+    display: none;
+  }
+  
+  .mobile-list a {
+    font-size: 16px;
+    padding: 12px 15px;
+  }
+}
+
+/* Small devices (landscape phones, 576px - 767px) */
+@media (min-width: 576px) and (max-width: 767px) {
+  .navbar {
+    min-height: 75px;
+  }
+  
+  .brand-logo {
+    width: 250px;
+    height: 42px;
+  }
+  
   .nav-toggle {
     display: block;
   }
-
+  
   .nav-menu {
     display: none;
   }
 }
 
+/* Medium devices (tablets, 768px - 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+  .navbar-container {
+    padding: 0 25px;
+  }
+  
+  .brand-logo {
+    width: 300px;
+    height: 50px;
+  }
+  
+  .nav-toggle {
+    display: block;
+  }
+  
+  .nav-menu {
+    display: none;
+  }
+  
+  .mobile-menu-content {
+    padding: 40px;
+  }
+  
+  .mobile-list {
+    max-width: 400px;
+  }
+  
+  .mobile-list a {
+    font-size: 20px;
+    padding: 18px 25px;
+  }
+}
+
+/* Large devices (desktops, 992px - 1199px) */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .navbar-container {
+    padding: 0 30px;
+  }
+  
+  .brand-logo {
+    width: 350px;
+    height: 58px;
+  }
+  
+  .nav-list {
+    gap: 20px;
+  }
+  
+  .nav-link {
+    font-size: 14px;
+    padding: 6px 12px;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .navbar-container {
+    padding: 0 40px;
+  }
+  
+  .brand-logo {
+    width: 400px;
+    height: 67px;
+  }
+  
+  .nav-list {
+    gap: 25px;
+  }
+}
+
+/* Ultra wide screens (1400px and up) */
+@media (min-width: 1400px) {
+  .navbar-container {
+    max-width: 1600px;
+    padding: 0 50px;
+  }
+  
+  .nav-list {
+    gap: 30px;
+  }
+  
+  .nav-link {
+    font-size: 16px;
+    padding: 10px 18px;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .nav-link {
+    padding: 12px 18px;
+    font-size: 16px;
+  }
+  
+  .nav-toggle {
+    padding: 12px;
+    font-size: 22px;
+  }
+  
+  .mobile-list a {
+    padding: 18px 25px;
+    font-size: 18px;
+  }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .brand-logo {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* Landscape orientation adjustments */
+@media (orientation: landscape) and (max-height: 500px) {
+  .mobile-menu-content {
+    justify-content: flex-start;
+    padding-top: 80px;
+    overflow-y: auto;
+  }
+  
+  .mobile-list {
+    gap: 15px;
+  }
+  
+  .mobile-list a {
+    padding: 12px 20px;
+    font-size: 16px;
+  }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Print styles */
+@media print {
+  .navbar {
+    position: static;
+    box-shadow: none;
+    border-bottom: 1px solid #000;
+  }
+  
+  .nav-toggle,
+  .mobile-menu {
+    display: none !important;
+  }
+}
 </style>
 
 <nav class="navbar">
@@ -164,31 +483,87 @@
       <img src="../assets/images/logo3.jpg" alt="Melford Logo" class="brand-logo">
     </a>
 
-    <button id="navToggle" class="nav-toggle">
+    <button id="navToggle" class="nav-toggle" aria-label="Toggle navigation menu">
       <i class="fas fa-bars"></i>
     </button>
 
     <div id="navMenu" class="nav-menu">
       <ul class="nav-list">
-        <li><a href="/index.html" class="nav-link">Home</a></li>
-        <li><a href="../pages/about.html" class="nav-link">About</a></li>
-        <li><a href="../pages/services.html" class="nav-link">Services</a></li>
-        <!-- <li><a href="../pages/events.html" class="nav-link">Events</a></li> -->
-        <!-- <li><a href="../pages/team.html" class="nav-link">Team</a></li> -->
-        <li><a href="../pages/contact.html" class="nav-link">Contact</a></li>
+        <li><a href="/index.html" class="nav-link"><i class="fas fa-home"></i>Home</a></li>
+        <li><a href="../pages/about.html" class="nav-link"><i class="fas fa-info-circle"></i>About</a></li>
+        <li><a href="../pages/services.html" class="nav-link"><i class="fas fa-cogs"></i>Services</a></li>
+        <li><a href="../pages/contact.html" class="nav-link"><i class="fas fa-envelope"></i>Contact</a></li>
+        <li><a href="../pages/enquire.html" class="book-btn"><i class="fas fa-calendar-check"></i>Make an Enquiry</a></li>
       </ul>
     </div>
   </div>
 
   <div id="mobileMenu" class="mobile-menu">
-    <ul class="mobile-list">
-      <li><a href="/index.html"><i class="fas fa-home"></i>Home</a></li>
-      <li><a href="../pages/about.html"><i class="fas fa-info-circle"></i>About</a></li>
-      <li><a href="../pages/services.html"><i class="fas fa-cogs"></i>Services</a></li>
-      <li><a href="../pages/events.html"><i class="fas fa-calendar-alt"></i>Events</a></li>
-      <li><a href="../pages/team.html"><i class="fas fa-users"></i>Team</a></li>
-      <li><a href="../pages/contact.html"><i class="fas fa-envelope"></i>Contact</a></li>
-      <li><button class="book-btn">Book Consultation</button></li>
-    </ul>
+    <div class="mobile-menu-content">
+      <ul class="mobile-list">
+        <li><a href="/index.html"><i class="fas fa-home"></i>Home</a></li>
+        <li><a href="../pages/about.html"><i class="fas fa-info-circle"></i>About</a></li>
+        <li><a href="../pages/services.html"><i class="fas fa-cogs"></i>Services</a></li>
+        <li><a href="../pages/events.html"><i class="fas fa-calendar-alt"></i>Events</a></li>
+        <li><a href="../pages/team.html"><i class="fas fa-users"></i>Team</a></li>
+        <li><a href="../pages/contact.html"><i class="fas fa-envelope"></i>Contact</a></li>
+        <li><a href="../pages/enquire.html" class="book-btn"><i class="fas fa-calendar-check"></i>Make an Enquiry</a></li>
+      </ul>
+    </div>
   </div>
 </nav>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const navToggle = document.getElementById('navToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const navLinks = document.querySelectorAll('.mobile-list a');
+
+  // Toggle mobile menu
+  navToggle.addEventListener('click', function() {
+    navToggle.classList.toggle('active');
+    mobileMenu.classList.toggle('active');
+    document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+  });
+
+  // Close mobile menu when clicking on a link
+  navLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      navToggle.classList.remove('active');
+      mobileMenu.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // Close mobile menu when clicking outside
+  mobileMenu.addEventListener('click', function(e) {
+    if (e.target === mobileMenu) {
+      navToggle.classList.remove('active');
+      mobileMenu.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  });
+
+  // Handle escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+      navToggle.classList.remove('active');
+      mobileMenu.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  });
+
+  // Highlight active page
+  const currentPage = window.location.pathname;
+  const allNavLinks = document.querySelectorAll('.nav-link, .mobile-list a');
+  
+  allNavLinks.forEach(link => {
+    if (link.getAttribute('href') === currentPage || 
+        (currentPage === '/' && link.getAttribute('href') === '/index.html')) {
+      link.classList.add('active');
+    }
+  });
+});
+</script>
+
+</body>
+</html>
