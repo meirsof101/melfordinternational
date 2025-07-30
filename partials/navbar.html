@@ -7,11 +7,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body style="margin: 0; font-family: 'Poppins', sans-serif;">
+<body style="margin: 0; font-family: 'Poppins', sans-serif; background-color: #f5f7fa;">
 
 <style>
 :root {
-  --primary-blue: #1e40af;
+  --primary-blue: #1e7fb8;
   --accent-yellow: #FFC000;
   --white: #ffffff;
   --light-gray: #f8f9fa;
@@ -19,15 +19,15 @@
 }
 
 .navbar {
-  background: var(--white);
-  padding: 15px 0;
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  background: var(--primary-blue);
+  padding: 0;
   position: sticky;
   top: 0;
   z-index: 1000;
   font-family: 'Poppins', sans-serif;
-  min-height: 80px;
+  height: 70px;
   transition: all 0.3s ease;
+  border-bottom: 2px solid var(--white);
 }
 
 .navbar-container {
@@ -38,7 +38,6 @@
   align-items: center;
   justify-content: space-between;
   height: 100%;
-  min-height: 50px;
 }
 
 .brand {
@@ -49,13 +48,6 @@
   z-index: 1001;
 }
 
-.brand-logo {
-  width: 400px;
-  height: 67px;
-  object-fit: cover;
-  transition: all 0.3s ease;
-}
-
 .brand-text {
   display: flex;
   flex-direction: column;
@@ -63,52 +55,76 @@
 }
 
 .brand-name {
-  color: var(--primary-blue);
-  font-weight: 600;
-  font-size: clamp(16px, 2.5vw, 18px);
+  color: var(--accent-yellow);
+  font-weight: 1000;
+  font-size: 35px;
   margin: 0;
+  letter-spacing: -0.5px;
 }
 
 .brand-subtitle {
-  color: var(--accent-yellow);
-  font-weight: 600;
-  font-size: clamp(14px, 2.2vw, 18px);
+  color: var(--white);
+  font-weight: 400;
+  font-size: 12px;
   margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: -2px;
 }
 
 .brand-slogan {
-  color: var(--primary-blue);
-  font-size: clamp(12px, 2vw, 14px);
+  color: var(--white);
+  font-weight: 300;
+  font-size: 12px;
   margin: 0;
+  letter-spacing: 1px;
+}
+
+.brand-cap {
+  position: relative;
+  display: inline-block;
+  font-weight: 1000;
+}
+
+.brand-cap::before {
+  content: "🎓"; /* Unicode graduation cap emoji */
+  position: absolute;
+  top: -18px; /* Adjust vertically */
+  left: -4px; /* Adjust horizontally */
+  font-size: 14px;
+  color: var(--accent-yellow); /* match your brand */
+  transform: rotate(-10deg);
 }
 
 .nav-toggle {
   background: none;
-  border: none;
-  color: var(--primary-blue);
-  font-size: 24px;
+  border: 2px solid var(--white);
+  color: var(--white);
+  font-size: 20px;
   cursor: pointer;
   display: none;
-  padding: 8px;
+  padding: 8px 12px;
   border-radius: 4px;
   transition: all 0.3s ease;
   z-index: 1001;
 }
 
 .nav-toggle:hover {
-  background: rgba(30, 64, 175, 0.1);
-  color: var(--accent-yellow);
+  background: var(--white);
+  color: var(--primary-blue);
 }
 
 .nav-toggle.active {
-  color: var(--accent-yellow);
-  background: rgba(255, 192, 0, 0.15);
+  background: var(--accent-yellow);
+  color: var(--primary-blue);
+  border-color: var(--accent-yellow);
 }
 
 .nav-menu {
   display: flex;
-  align-items: center;
-  gap: 30px;
+  align-items: flex-end;
+  height: 100%;
+  padding-bottom: 5px;
 }
 
 .nav-list {
@@ -116,69 +132,129 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: 25px;
-  align-items: center;
+  gap: 0;
+  align-items: flex-end;
+  height: 100%;
 }
 
 .nav-link {
-  color: var(--primary-blue);
+  color: var(--white);
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 15px;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   gap: 8px;
-  padding: 8px 15px;
-  border-radius: 25px;
+  padding: 0 20px 10px 20px;
+  height: 60px;
   transition: all 0.3s ease;
   white-space: nowrap;
+  border-bottom: 3px solid transparent;
 }
 
 .nav-link:hover {
-  background: rgba(255, 192, 0, 0.15);
+  background: rgba(255, 255, 255, 0.1);
   color: var(--accent-yellow);
-  transform: translateY(-1px);
 }
 
 .nav-link.active {
-  background: var(--accent-yellow);
-  color: var(--primary-blue);
-  font-weight: 600;
+  background: rgba(255, 192, 0, 0.1);
+  color: var(--accent-yellow);
+  border-bottom-color: var(--accent-yellow);
+  font-weight: 500;
 }
 
 .nav-link i {
   font-size: 14px;
+  display: none;
+}
+
+/* Dropdown styles */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: var(--white);
+  min-width: 250px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  border-radius: 0 0 8px 8px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  z-index: 1000;
+  border-top: 3px solid var(--accent-yellow);
+}
+
+.dropdown:hover .dropdown-content {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 12px 20px;
+  color: var(--dark-gray);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 400;
+  transition: all 0.3s ease;
+  border-bottom: 1px solid #eee;
+}
+
+.dropdown-content a:last-child {
+  border-bottom: none;
+  border-radius: 0 0 8px 8px;
+}
+
+.dropdown-content a:hover {
+  background: var(--primary-blue);
+  color: var(--white);
+  padding-left: 25px;
+}
+
+/* Dropdown indicators */
+.dropdown > .nav-link::after {
+  content: '▼';
+  font-size: 10px;
+  margin-left: 6px;
+  transition: transform 0.3s ease;
+}
+
+.dropdown:hover > .nav-link::after {
+  transform: rotate(180deg);
 }
 
 /* Mobile menu styles */
 .mobile-menu {
   display: none;
   position: fixed;
-  top: 0;
+  top: 70px;
   left: 0;
   width: 100%;
-  height: 100vh;
-  background: rgba(30, 64, 175, 0.98);
-  backdrop-filter: blur(15px);
-  z-index: 1000;
+  background: var(--primary-blue);
+  z-index: 999;
   opacity: 0;
   visibility: hidden;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s ease;
+  max-height: 0;
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .mobile-menu.active {
   opacity: 1;
   visibility: visible;
+  max-height: calc(100vh - 70px);
 }
 
 .mobile-menu-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  padding: 20px;
-  text-align: center;
+  padding: 0;
 }
 
 .mobile-list {
@@ -187,57 +263,33 @@
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  width: 100%;
-  max-width: 300px;
 }
 
 .mobile-list li {
-  transform: translateY(30px);
-  opacity: 0;
-  transition: all 0.6s ease;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
-
-.mobile-menu.active .mobile-list li {
-  transform: translateY(0);
-  opacity: 1;
-}
-
-.mobile-list li:nth-child(1) { transition-delay: 0.1s; }
-.mobile-list li:nth-child(2) { transition-delay: 0.2s; }
-.mobile-list li:nth-child(3) { transition-delay: 0.3s; }
-.mobile-list li:nth-child(4) { transition-delay: 0.4s; }
-.mobile-list li:nth-child(5) { transition-delay: 0.5s; }
-.mobile-list li:nth-child(6) { transition-delay: 0.6s; }
 
 .mobile-list a {
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--white);
   text-decoration: none;
-  font-weight: 500;
-  font-size: 18px;
+  font-weight: 400;
+  font-size: 16px;
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 15px;
   padding: 15px 20px;
-  border-radius: 50px;
-  border: 2px solid transparent;
   transition: all 0.3s ease;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
 }
 
 .mobile-list a:hover,
 .mobile-list a.active {
-  color: var(--primary-blue);
-  background: var(--accent-yellow);
-  border-color: var(--accent-yellow);
-  transform: scale(1.05);
+  background: rgba(255, 192, 0, 0.1);
+  color: var(--accent-yellow);
 }
 
 .mobile-list i {
-  font-size: 18px;
-  width: 24px;
+  font-size: 16px;
+  width: 20px;
   text-align: center;
 }
 
@@ -245,80 +297,70 @@
   background: var(--accent-yellow);
   color: var(--primary-blue);
   border: none;
-  padding: 12px 24px;
-  border-radius: 25px;
-  font-weight: 600;
-  font-size: 14px;
+  padding: 0 20px 10px 20px;
+  height: 60px;
+  font-weight: 500;
+  font-size: 15px;
   cursor: pointer;
   transition: all 0.3s ease;
   text-decoration: none;
   display: inline-flex;
-  align-items: center;
+  align-items: flex-end;
   gap: 8px;
   white-space: nowrap;
+  border-bottom: 3px solid transparent;
 }
 
 .book-btn:hover {
-  background: var(--primary-blue);
-  color: var(--accent-yellow);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(30, 64, 175, 0.3);
+  background: #e6ac00;
+  border-bottom-color: var(--white);
 }
 
+.book-btn i {
+  font-size: 14px;
+  display: none;
+}
 /* Responsive breakpoints */
 
 /* Extra Small devices (phones, 320px - 575px) */
 @media (max-width: 575px) {
-  .navbar {
-    padding: 10px 0;
-    min-height: 70px;
-  }
-  
   .navbar-container {
     padding: 0 15px;
   }
   
-  .brand-logo {
-    width: 200px;
-    height: 34px;
+  .brand-name {
+    font-size: 20px;
   }
   
-  .brand-text {
-    display: none;
+  .brand-subtitle {
+    font-size: 9px;
   }
   
   .nav-toggle {
     display: block;
-    font-size: 20px;
   }
   
   .nav-menu {
     display: none;
   }
   
-  .mobile-list a {
-    font-size: 16px;
-    padding: 12px 15px;
+  .mobile-menu {
+    display: block;
   }
 }
 
 /* Small devices (landscape phones, 576px - 767px) */
 @media (min-width: 576px) and (max-width: 767px) {
-  .navbar {
-    min-height: 75px;
-  }
-  
-  .brand-logo {
-    width: 250px;
-    height: 42px;
-  }
-  
   .nav-toggle {
     display: block;
   }
   
   .nav-menu {
     display: none;
+  }
+  
+  .mobile-menu {
+    display: block;
   }
 }
 
@@ -328,30 +370,14 @@
     padding: 0 25px;
   }
   
-  .brand-logo {
-    width: 300px;
-    height: 50px;
+  .nav-link {
+    padding: 0 15px 10px 15px;
+    font-size: 14px;
   }
   
-  .nav-toggle {
-    display: block;
-  }
-  
-  .nav-menu {
-    display: none;
-  }
-  
-  .mobile-menu-content {
-    padding: 40px;
-  }
-  
-  .mobile-list {
-    max-width: 400px;
-  }
-  
-  .mobile-list a {
-    font-size: 20px;
-    padding: 18px 25px;
+  .book-btn {
+    padding: 0 15px 10px 15px;
+    font-size: 14px;
   }
 }
 
@@ -361,18 +387,12 @@
     padding: 0 30px;
   }
   
-  .brand-logo {
-    width: 350px;
-    height: 58px;
-  }
-  
-  .nav-list {
-    gap: 20px;
-  }
-  
   .nav-link {
-    font-size: 14px;
-    padding: 6px 12px;
+    padding: 0 18px 10px 18px;
+  }
+  
+  .book-btn {
+    padding: 0 18px 10px 18px;
   }
 }
 
@@ -380,15 +400,6 @@
 @media (min-width: 1200px) {
   .navbar-container {
     padding: 0 40px;
-  }
-  
-  .brand-logo {
-    width: 400px;
-    height: 67px;
-  }
-  
-  .nav-list {
-    gap: 25px;
   }
 }
 
@@ -398,58 +409,16 @@
     max-width: 1600px;
     padding: 0 50px;
   }
-  
-  .nav-list {
-    gap: 30px;
-  }
-  
-  .nav-link {
-    font-size: 16px;
-    padding: 10px 18px;
-  }
 }
 
 /* Touch device optimizations */
 @media (hover: none) and (pointer: coarse) {
   .nav-link {
-    padding: 12px 18px;
-    font-size: 16px;
-  }
-  
-  .nav-toggle {
-    padding: 12px;
-    font-size: 22px;
+    padding: 0 15px 10px 15px;
   }
   
   .mobile-list a {
-    padding: 18px 25px;
-    font-size: 18px;
-  }
-}
-
-/* High DPI displays */
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-  .brand-logo {
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: crisp-edges;
-  }
-}
-
-/* Landscape orientation adjustments */
-@media (orientation: landscape) and (max-height: 500px) {
-  .mobile-menu-content {
-    justify-content: flex-start;
-    padding-top: 80px;
-    overflow-y: auto;
-  }
-  
-  .mobile-list {
-    gap: 15px;
-  }
-  
-  .mobile-list a {
-    padding: 12px 20px;
-    font-size: 16px;
+    padding: 18px 20px;
   }
 }
 
@@ -466,21 +435,32 @@
 @media print {
   .navbar {
     position: static;
-    box-shadow: none;
-    border-bottom: 1px solid #000;
+    background: white;
+    color: black;
   }
   
   .nav-toggle,
   .mobile-menu {
     display: none !important;
   }
+  
+  .brand-name,
+  .nav-link {
+    color: black !important;
+  }
 }
 </style>
 
 <nav class="navbar">
   <div class="navbar-container">
-    <a href="/index.html" class="brand">
-      <img src="../assets/images/logo3.jpg" alt="Melford Logo" class="brand-logo">
+       <a href="/index.html" class="brand">
+      <div class="brand-text">
+        <div class="brand-name">
+          <span class="brand-cap">M</span>ELFORD
+        </div>
+        <div class="brand-subtitle">INTERNATIONAL</div>
+        <div class="brand-slogan">Your Global Education Partner</div>
+      </div>
     </a>
 
     <button id="navToggle" class="nav-toggle" aria-label="Toggle navigation menu">
@@ -489,11 +469,37 @@
 
     <div id="navMenu" class="nav-menu">
       <ul class="nav-list">
-        <li><a href="/index.html" class="nav-link"><i class="fas fa-home"></i>Home</a></li>
-        <li><a href="../pages/about.html" class="nav-link"><i class="fas fa-info-circle"></i>About</a></li>
-        <li><a href="../pages/services.html" class="nav-link"><i class="fas fa-cogs"></i>Services</a></li>
-        <li><a href="../pages/contact.html" class="nav-link"><i class="fas fa-envelope"></i>Contact</a></li>
-        <li><a href="../pages/enquire.html" class="book-btn"><i class="fas fa-calendar-check"></i>Make an Enquiry</a></li>
+        <li><a href="/index.html" class="nav-link">Home</a></li>
+        <li><a href="../pages/about.html" class="nav-link">About Us</a></li>
+        <li class="dropdown">
+          <a href="../pages/services.html" class="nav-link">Our Services</a>
+          <div class="dropdown-content">
+            <a href="../pages/university-application.html">University Applications</a>
+            <a href="../pages/visa-assistance.html">Visa Assistance</a>
+            <a href="../pages/scholarship-guidance.html">Scholarship Guidance</a>
+            <a href="../pages/pre-departure.html">Pre-Departure Briefing</a>
+            <a href="../pages/accommodation.html">Accommodation Support</a>
+            <a href="../pages/career-counseling.html">Career Counseling</a>
+          </div>
+        </li>
+        <li class="dropdown">
+          <a href="../pages/destinations.html" class="nav-link">Destinations</a>
+          <div class="dropdown-content">
+            <a href="../pages/usa.html">United States</a>
+            <a href="../pages/uk.html">United Kingdom</a>
+            <a href="../pages/canada.html">Canada</a>
+            <a href="../pages/australia.html">Australia</a>
+            <a href="../pages/germany.html">Germany</a>
+            <a href="../pages/france.html">France</a>
+            <a href="../pages/netherlands.html">Netherlands</a>
+            <a href="../pages/new-zealand.html">New Zealand</a>
+          </div>
+        </li>
+        <li><a href="../pages/events.html" class="nav-link">Events</a></li>
+        <li><a href="../pages/faqs.html" class="nav-link">FAQs</a></li>
+        <li><a href="../pages/news.html" class="nav-link">News</a></li>
+        <li><a href="../pages/english-test.html" class="nav-link">English Test</a></li>
+        <li><a href="../pages/contact.html" class="book-btn">Contact Us</a></li>
       </ul>
     </div>
   </div>
@@ -502,12 +508,14 @@
     <div class="mobile-menu-content">
       <ul class="mobile-list">
         <li><a href="/index.html"><i class="fas fa-home"></i>Home</a></li>
-        <li><a href="../pages/about.html"><i class="fas fa-info-circle"></i>About</a></li>
-        <li><a href="../pages/services.html"><i class="fas fa-cogs"></i>Services</a></li>
+        <li><a href="../pages/about.html"><i class="fas fa-info-circle"></i>About Us</a></li>
+        <li><a href="../pages/services.html"><i class="fas fa-cogs"></i>Our Services</a></li>
+        <li><a href="../pages/destinations.html"><i class="fas fa-map-marker-alt"></i>Destinations</a></li>
         <li><a href="../pages/events.html"><i class="fas fa-calendar-alt"></i>Events</a></li>
-        <li><a href="../pages/team.html"><i class="fas fa-users"></i>Team</a></li>
-        <li><a href="../pages/contact.html"><i class="fas fa-envelope"></i>Contact</a></li>
-        <li><a href="../pages/enquire.html" class="book-btn"><i class="fas fa-calendar-check"></i>Make an Enquiry</a></li>
+        <li><a href="../pages/faqs.html"><i class="fas fa-question-circle"></i>FAQs</a></li>
+        <li><a href="../pages/news.html"><i class="fas fa-newspaper"></i>News</a></li>
+        <li><a href="../pages/english-test.html"><i class="fas fa-spell-check"></i>English Test</a></li>
+        <li><a href="../pages/contact.html" class="book-btn"><i class="fas fa-envelope"></i>Contact Us</a></li>
       </ul>
     </div>
   </div>

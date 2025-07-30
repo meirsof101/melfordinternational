@@ -6,54 +6,198 @@
     <title>Services - Melford International Group</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../styles/styles.css">
+    <style>
+        /* Services Page Specific Styles */
+        .services-page-hero {
+            background: var(--primary-blue);
+            min-height: 100vh;
+            padding: 80px 0 60px;
+            color: white;
+        }
+
+        .services-page-hero .hero-content {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .services-page-hero .hero-subtitle {
+            font-size: 16px;
+            font-weight: 400;
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+
+        .services-page-hero .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 0;
+        }
+
+        .services-page-hero .highlight-word {
+            color: #FFD700;
+        }
+
+        /* Services Grid */
+        .services-page-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .services-page-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: left;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .services-page-card:hover {
+            transform: translateY(-5px);
+            border-color: #FFD700;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .services-page-card .service-icon {
+            width: 70px;
+            height: 70px;
+            background: #FFD700;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            font-size: 32px;
+            color: #1e3c72;
+        }
+
+        .services-page-card .service-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .services-page-card .service-desc {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .services-page-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .services-page-hero {
+                padding: 60px 0 40px;
+            }
+
+            .services-page-hero .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .services-page-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .services-page-card {
+                padding: 30px 25px;
+            }
+
+            .services-page-card .service-title {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .services-page-hero .hero-title {
+                font-size: 2rem;
+            }
+
+            .services-page-card {
+                padding: 25px 20px;
+            }
+
+            .services-page-card .service-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 28px;
+            }
+        }
+
+        /* Animation styles */
+        .services-page-card {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .services-page-card.animate {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.6s ease;
+        }
+    </style>
 </head>
 <body>
     <div id="navbar"></div>
 
-    <!-- Hero Banner -->
-    <section class="hero-banner">
+    <!-- Services Hero Section with Cards -->
+    <section class="services-page-hero">
         <div class="container">
             <div class="hero-content">
                 <div class="hero-subtitle">Excellence in Education</div>
-                    <span><h1 class="hero-title"><span class="highlight-word">Our</span> Services</h1></span>
+                <h1 class="hero-title"><span class="highlight-word">Our</span> Services/Products</h1>
             </div>
-        </div>
-    </section>
 
-    <!-- Services Section -->
-    <section class="services-wrapper">
-        <div class="container">
-            <p class="services-title">Your trusted partner in global education, migration support, and language training — empowering your journey from aspiration to achievement.</p>
-
-            <div class="services-grid">
-                <div class="service-box">
-                    <h3 class="service-heading">Education & Career Counselling</h3>
-                    <p class="service-description">Explore top study destinations, compare costs and offerings, and receive personalized university recommendations tailored to your goals.</p>
+            <div class="services-page-grid">
+                <div class="services-page-card">
+                    <div class="service-icon">💬</div>
+                    <h3 class="service-title">Education & Career Counselling</h3>
+                    <p class="service-desc">Explore top study destinations, compare costs and offerings, and receive personalized university recommendations tailored to your goals.</p>
                 </div>
 
-                <div class="service-box">
-                    <h3 class="service-heading">English Proficiency Training (IELTS & PTE)</h3>
-                    <p class="service-description">Intensive preparation for all exam components, plus full exam registration support, mock testing, and expert feedback for top scores.</p>
+                <div class="services-page-card">
+                    <div class="service-icon">📝</div>
+                    <h3 class="service-title">English Proficiency Training (IELTS & PTE)</h3>
+                    <p class="service-desc">Intensive preparation for all exam components, plus full exam registration support, mock testing, and expert feedback for top scores.</p>
                 </div>
 
-                <div class="service-box">
-                    <h3 class="service-heading">University / College Placement</h3>
-                    <p class="service-description">End-to-end support: from crafting applications and personal statements to deadline tracking, submission, and placement in the best-fit programs.</p>
+                <div class="services-page-card">
+                    <div class="service-icon">🎓</div>
+                    <h3 class="service-title">University/College Placement</h3>
+                    <p class="service-desc">End-to-end support: from crafting applications and personal statements to deadline tracking, submission, and placement in the best-fit programs.</p>
                 </div>
 
-                <div class="service-box">
-                    <h3 class="service-heading">Migration & Visa Processing</h3>
-                    <p class="service-description">Full assistance with documentation, lodging visa applications, embassy interview prep, and both pre- and post-departure guidance for a smooth transition abroad.</p>
+                <div class="services-page-card">
+                    <div class="service-icon">📋</div>
+                    <h3 class="service-title">Migration & Visa Processing</h3>
+                    <p class="service-desc">Full assistance with documentation, lodging visa applications, embassy interview prep, and both pre- and post-departure guidance for a smooth transition abroad.</p>
                 </div>
 
-                <div class="service-box">
-                    <h3 class="service-heading">Pre-Departure & Post-Departure Services</h3>
-                    <p class="service-description">We provide full support in terms of airport pickups, accommodation arrangements, and on-ground support to ensure a smooth and comfortable transition to your new academic life abroad.</p>
+                <div class="services-page-card">
+                    <div class="service-icon">✈️</div>
+                    <h3 class="service-title">Pre-departure and post-departure services</h3>
+                    <p class="service-desc">We provide full support in terms of airport pickups, accommodation arrangements, and on-ground support to ensure a smooth and comfortable transition to your new academic life abroad.</p>
                 </div>
 
-                <div class="service-box">
-                    <h3 class="service-heading">German Language Classes (A1 – B2)</h3>
-                    <p class="service-description">We offer structured German courses from beginner A1 to B2 levels. Whether you are starting from scratch or looking to improve your skills with flexible schedules.</p>
+                <div class="services-page-card">
+                    <div class="service-icon">🗣️</div>
+                    <h3 class="service-title">German Language Classes (A1 – B2)</h3>
+                    <p class="service-desc">We offer structured German courses from beginner A1 to B2 levels. Whether you are starting from scratch or looking to improve your skills with flexible schedules.</p>
                 </div>
             </div>
         </div>
@@ -62,40 +206,6 @@
     <div id="footer-placeholder"></div>
 
     <script>
-        // Enhanced hover effects for service boxes
-        document.querySelectorAll('.service-box').forEach(box => {
-            box.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-10px) scale(1.02)';
-            });
-            
-            box.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
-        });
-
-        // Scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Initialize service boxes for animation
-        document.querySelectorAll('.service-box').forEach((box, index) => {
-            box.style.opacity = '0';
-            box.style.transform = 'translateY(30px)';
-            box.style.transition = `all 0.6s ease ${index * 0.1}s`;
-            observer.observe(box);
-        });
-
         // Smooth page load
         document.addEventListener('DOMContentLoaded', () => {
             document.body.style.opacity = '0';
@@ -104,6 +214,25 @@
             setTimeout(() => {
                 document.body.style.opacity = '1';
             }, 100);
+
+            // Animate service cards on load
+            const cards = document.querySelectorAll('.services-page-card');
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.classList.add('animate');
+                }, index * 100);
+            });
+        });
+
+        // Enhanced hover effects
+        document.querySelectorAll('.services-page-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
         });
     </script>
     <script src="../js/loadpartials.js" defer></script>
