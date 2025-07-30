@@ -30,16 +30,12 @@
         }
 
         .footer {
-            background-image: url(../assets/images/building2.jpg);
-            background-size: cover;
-            background-position: center center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            color: var(--primary-blue);
-            font-family: 'Poppins', sans-serif;
             position: relative;
             overflow: hidden;
+            font-family: 'Poppins', sans-serif;
+            min-height: auto;
         }
+
 
         .footer::before {
             content: '';
@@ -47,23 +43,29 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--accent-gold) 0%, #ffed4a 50%, var(--accent-gold) 100%);
+            bottom: 0;
+            background-image: url(../assets/images/dubai.jpg);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            /* filter: blur(-10px); Adjust blur level here */
+            z-index: 0;
         }
 
         .footer-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 40px 20px 0;
+            padding: 30px 20px 0;
             position: relative;
             z-index: 2;
+            height: 100%;
         }
 
         .footer-main {
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 40px;
-            padding: 30px 0;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 30px;
+            padding: 20px 0;
             border-top: 1px solid var(--border-color);
             border-bottom: 1px solid var(--border-color);
         }
@@ -107,7 +109,7 @@
 
         .company-info p {
             font-size: 14px;
-            color: var(--text-light);
+            color: var(--text-white);
             margin: 0 0 20px 0;
             line-height: 1.5;
         }
@@ -129,7 +131,7 @@
             text-decoration: none;
             transition: all 0.3s ease;
             color: #2d2d2d;
-            font-size: 16px;
+            font-size: 24px;
         }
 
         .social-link:hover {
@@ -156,25 +158,25 @@
             justify-content: center;
             flex-shrink: 0;
             color: #2d2d2d;
-            font-size: 16px;
+            font-size: 24px;
         }
 
         .contact-details h4 {
             font-weight: 600;
             margin: 0 0 5px 0;
-            font-size: 16px;
+            font-size: 24px;
             color: var(--text-white);
         }
 
         .contact-details p {
-            color: var(--text-light);
+            color: white;
             margin: 0;
             line-height: 1.4;
             font-size: 14px;
         }
 
         .contact-details a {
-            color: var(--text-light);
+            color: white;
             text-decoration: none;
             transition: color 0.3s ease;
         }
@@ -194,7 +196,7 @@
 
         .footer-title {
             font-weight: 600;
-            margin-bottom: 20px;
+            margin: 0 0 20px 0;
             color: var(--text-white);
             font-size: 18px;
         }
@@ -202,7 +204,7 @@
         .footer-nav {
             list-style: none;
             padding: 0;
-            margin: 0;
+            margin: 0 0 -10px 0 ;
         }
 
         .footer-nav li {
@@ -247,53 +249,13 @@
             margin: 0;
         }
 
-        .language-bar {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            text-align: center;
-            padding: 15px 0;
-            border-top: 1px solid #dee2e6;
-        }
-
-        .language-link {
-            text-decoration: none;
-            color: #333;
-            margin: 0 15px;
-            display: inline-flex;
-            align-items: center;
-            font-size: 14px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            padding: 8px 12px;
-            border-radius: 20px;
-        }
-
-        .language-link:hover {
-            color: #007bff;
-            background: rgba(0, 123, 255, 0.1);
-            transform: translateY(-1px);
-        }
-
-        .flag {
-            width: 20px;
-            height: 15px;
-            margin-right: 8px;
-            border-radius: 2px;
-            border: 1px solid #ddd;
-        }
-
-        .flag-uk {
-            background: linear-gradient(to bottom, #012169 33%, #fff 33%, #fff 66%, #c8102e 66%);
-        }
-
-        .flag-fr {
-            background: linear-gradient(to right, #002654 33%, #fff 33%, #fff 66%, #ce1126 66%);
-        }
 
         /* Media Queries */
         @media (max-width: 1024px) {
             .footer-main {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: 2fr 1fr;
                 gap: 30px;
+                padding-bottom: 40px;
             }
 
             .footer-section {
@@ -307,17 +269,12 @@
                 border-right: 1px solid var(--border-color);
                 padding-right: 20px;
             }
-
-            .footer-section:nth-child(3),
-            .footer-section:nth-child(4) {
-                border-bottom: none;
-                padding-bottom: 0;
-            }
         }
 
         @media (max-width: 768px) {
             .footer-container {
                 padding: 30px 15px 0;
+                padding-bottom: 40px;
             }
 
             .footer-main {
@@ -370,6 +327,7 @@
         @media (max-width: 480px) {
             .footer-container {
                 padding: 20px 10px 0;
+                padding-bottom: 300px;
             }
 
             .footer-main {
@@ -457,10 +415,7 @@
                 text-align: center;
             }
 
-            .language-link {
-                font-size: 13px;
-                padding: 6px 10px;
-            }
+
         }
     </style>
 </head>
@@ -472,7 +427,9 @@
                 <!-- Contact Info Section -->
                 <section class="footer-section">
                     <header class="company-header">
-                        <div class="company-logo">M</div>
+                        <span><div class="company-logo">
+                            <img url='../assets/images/logo2.jpg'>
+                        </div></span>
                         <div class="company-info">
                             <h3>Melford International</h3>
                             <p>Your gateway to global education excellence. We connect ambitious students with world-class universities worldwide.</p>
@@ -542,7 +499,6 @@
                         <ul class="footer-nav">
                             <li><a href="#home">Home</a></li>
                             <li><a href="#services">Our Services</a></li>
-                            <li><a href="#universities">Universities</a></li>
                             <li><a href="#testimonials">Success Stories</a></li>
                             <li><a href="#contact">Contact Us</a></li>
                         </ul>
@@ -554,25 +510,15 @@
                     <h5 class="footer-title">Study Destinations</h5>
                     <nav>
                         <ul class="footer-nav">
+                            <li><a href="#">Study in Malaysia</a></li>
+                            <li><a href="#">Study in New Zealand</a></li>
+                            <li><a href="#">Study in Ireland</a></li>
+                            <li><a href="#">Study in Germany</a></li>
                             <li><a href="#">Study in USA</a></li>
                             <li><a href="#">Study in UK</a></li>
                             <li><a href="#">Study in Canada</a></li>
                             <li><a href="#">Study in Australia</a></li>
                             <li><a href="#">Study in Germany</a></li>
-                        </ul>
-                    </nav>
-                </section>
-
-                <!-- Support Links Section -->
-                <section class="footer-section">
-                    <h5 class="footer-title">Support</h5>
-                    <nav>
-                        <ul class="footer-nav">
-                            <li><a href="#faq">FAQ</a></li>
-                            <li><a href="#terms">Terms and Conditions</a></li>
-                            <li><a href="#privacy">Privacy Policy</a></li>
-                            <li><a href="#help">Help Center</a></li>
-                            <li><a href="#docs">Documentation</a></li>
                         </ul>
                     </nav>
                 </section>
@@ -582,18 +528,6 @@
             <div class="copyright">
                 <p>Copyright © 2025 • Melford International. All rights reserved.</p>
             </div>
-        </div>
-
-        <!-- Language Bar -->
-        <div class="language-bar">
-            <a href="#" class="language-link">
-                <span class="flag flag-uk"></span>
-                English
-            </a>
-            <a href="#" class="language-link">
-                <span class="flag flag-fr"></span>
-                Français (French)
-            </a>
         </div>
     </footer>
 </body>

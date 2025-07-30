@@ -9,9 +9,9 @@
     <style>
         /* Services Page Specific Styles */
         .services-page-hero {
-            background: var(--primary-blue);
+            background-color: #1e7fb8;
             min-height: 100vh;
-            padding: 80px 0 60px;
+            padding: 30px 0 60px;
             color: white;
         }
 
@@ -48,15 +48,25 @@
         }
 
         .services-page-card {
-            background: rgba(255, 255, 255, 0.1);
+            background: #07679e;
             backdrop-filter: blur(10px);
             border: 2px solid rgba(255, 255, 255, 0.2);
             border-radius: 20px;
-            padding: 40px 30px;
+            padding: 30px 30px;
             text-align: left;
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+        }
+        .service-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .service-header .service-title {
+            margin-bottom: 0;
         }
 
         .services-page-card:hover {
@@ -68,13 +78,11 @@
         .services-page-card .service-icon {
             width: 70px;
             height: 70px;
-            background: #FFD700;
             border-radius: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 25px;
-            font-size: 32px;
+             font-size: 50px;
             color: #1e3c72;
         }
 
@@ -159,44 +167,55 @@
     <section class="services-page-hero">
         <div class="container">
             <div class="hero-content">
-                <div class="hero-subtitle">Excellence in Education</div>
-                <h1 class="hero-title"><span class="highlight-word">Our</span> Services/Products</h1>
+                <h1 class="hero-title"><span class="highlight-word">Our</span> Services</h1>
             </div>
 
             <div class="services-page-grid">
                 <div class="services-page-card">
-                    <div class="service-icon">💬</div>
-                    <h3 class="service-title">Education & Career Counselling</h3>
+                    <div class="service-header">
+                        <div class="service-icon">💬</div>
+                        <h3 class="service-title">Education & Career Counselling</h3>
+                    </div>
                     <p class="service-desc">Explore top study destinations, compare costs and offerings, and receive personalized university recommendations tailored to your goals.</p>
                 </div>
 
                 <div class="services-page-card">
-                    <div class="service-icon">📝</div>
-                    <h3 class="service-title">English Proficiency Training (IELTS & PTE)</h3>
+                    <div class="service-header">
+                        <div class="service-icon">📝</div>
+                        <h3 class="service-title">English Proficiency Training (IELTS & PTE)</h3>
+                    </div>
                     <p class="service-desc">Intensive preparation for all exam components, plus full exam registration support, mock testing, and expert feedback for top scores.</p>
                 </div>
 
                 <div class="services-page-card">
-                    <div class="service-icon">🎓</div>
-                    <h3 class="service-title">University/College Placement</h3>
+                    <div class="service-header">
+                        <div class="service-icon">🎓</div>
+                        <h3 class="service-title">University/College Placement</h3>
+                    </div>
                     <p class="service-desc">End-to-end support: from crafting applications and personal statements to deadline tracking, submission, and placement in the best-fit programs.</p>
                 </div>
 
                 <div class="services-page-card">
-                    <div class="service-icon">📋</div>
-                    <h3 class="service-title">Migration & Visa Processing</h3>
+                    <div class="service-header">
+                        <div class="service-icon">📋</div>
+                        <h3 class="service-title">Migration & Visa Processing</h3>
+                    </div>
                     <p class="service-desc">Full assistance with documentation, lodging visa applications, embassy interview prep, and both pre- and post-departure guidance for a smooth transition abroad.</p>
                 </div>
 
                 <div class="services-page-card">
-                    <div class="service-icon">✈️</div>
-                    <h3 class="service-title">Pre-departure and post-departure services</h3>
+                    <div class="service-header">
+                        <div class="service-icon">✈️</div>
+                        <h3 class="service-title">Pre and Post-departure Services</h3>
+                    </div>
                     <p class="service-desc">We provide full support in terms of airport pickups, accommodation arrangements, and on-ground support to ensure a smooth and comfortable transition to your new academic life abroad.</p>
                 </div>
 
                 <div class="services-page-card">
-                    <div class="service-icon">🗣️</div>
-                    <h3 class="service-title">German Language Classes (A1 – B2)</h3>
+                    <div class="service-header">
+                        <div class="service-icon">🗣️</div>
+                        <h3 class="service-title">German Language Classes (A1 – B2)</h3>
+                    </div>
                     <p class="service-desc">We offer structured German courses from beginner A1 to B2 levels. Whether you are starting from scratch or looking to improve your skills with flexible schedules.</p>
                 </div>
             </div>
