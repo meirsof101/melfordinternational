@@ -40,60 +40,19 @@
   height: 100%;
 }
 
-.brand {
-  text-decoration: none;
+.brand-logo-square {
+  width: 250px;           /* square width */
+  height: 70px;          /* square height */
+  border-radius: 12px;   /* optional: rounded corners */
   display: flex;
-  align-items: center;
-  gap: 12px;
-  z-index: 1001;
+  padding: 3px;
+
 }
 
-.brand-text {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.2;
-}
-
-.brand-name {
-  color: var(--accent-yellow);
-  font-weight: 1000;
-  font-size: 35px;
-  margin: 0;
-  letter-spacing: -0.5px;
-}
-
-.brand-subtitle {
-  color: var(--white);
-  font-weight: 400;
-  font-size: 12px;
-  margin: 0;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-top: -2px;
-}
-
-.brand-slogan {
-  color: var(--white);
-  font-weight: 300;
-  font-size: 12px;
-  margin: 0;
-  letter-spacing: 1px;
-}
-
-.brand-cap {
-  position: relative;
-  display: inline-block;
-  font-weight: 1000;
-}
-
-.brand-cap::before {
-  content: "🎓"; /* Unicode graduation cap emoji */
-  position: absolute;
-  top: -18px; /* Adjust vertically */
-  left: -4px; /* Adjust horizontally */
-  font-size: 14px;
-  color: var(--accent-yellow); /* match your brand */
-  transform: rotate(-10deg);
+.brand-logo-square img {
+  max-width: 100%;
+  max-height: 70px;
+  object-fit: fill;
 }
 
 .nav-toggle {
@@ -232,7 +191,6 @@
 
 /* Mobile menu styles */
 .mobile-menu {
-  display: none;
   position: fixed;
   top: 70px;
   left: 0;
@@ -454,15 +412,10 @@
 <nav class="navbar">
   <div class="navbar-container">
        <a href="/index.html" class="brand">
-      <div class="brand-text">
-        <div class="brand-name">
-          <span class="brand-cap">M</span>ELFORD
+        <div class="brand-logo-square">
+          <img src="/assets/images/officiallogo.jpg" alt="Melford International Logo">
         </div>
-        <div class="brand-subtitle">INTERNATIONAL</div>
-        <div class="brand-slogan">Your Global Education Partner</div>
-      </div>
-    </a>
-
+      </a>
     <button id="navToggle" class="nav-toggle" aria-label="Toggle navigation menu">
       <i class="fas fa-bars"></i>
     </button>
@@ -496,9 +449,6 @@
           </div>
         </li>
         <li><a href="../pages/events.html" class="nav-link">Events</a></li>
-        <!-- <li><a href="../pages/faqs.html" class="nav-link">FAQs</a></li>
-        <li><a href="../pages/news.html" class="nav-link">News</a></li>
-        <li><a href="../pages/english-test.html" class="nav-link">English Test</a></li> -->
         <li><a href="../pages/contact.html" class="book-btn">Contact Us</a></li>
       </ul>
     </div>

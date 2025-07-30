@@ -1,100 +1,1038 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Melford International</title>
-    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
-    <link rel="stylesheet" href="../styles/styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@latest/css/flag-icons.min.css">
+
+  <title>Home</title>
+  <style>
+    /* Base styles */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins' sans-serif;
+    }
+
+    .home-hero {
+      background-color: #1e7fb8;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .container {
+      position: relative;
+      overflow: hidden;
+      background-color: #f5f5f5;
+      padding: 150px;
+      border-radius: 12px;
+      width: 100%;
+      max-width: 1200px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      z-index: 2;
+      min-height: 600px;
+    }
+
+    /* Sliding background images */
+    .bg-slider {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 300%; /* 3 images side by side */
+      height: 100%;
+      display: flex;
+      animation: slideRight 15s infinite;
+      z-index: -1;
+    }
+
+    .bg-slide {
+      width: 33.333%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    /* Background images - using placeholder gradients for demo */
+    .bg-slide:nth-child(1) {
+      background-image: url(/assets/images/lib1.jpg);
+    }
+
+    .bg-slide:nth-child(2) {
+      background-image: url(/assets/images/lib2.jpg);
+    }
+
+    .bg-slide:nth-child(3) {     
+      background-image: url(/assets/images/uni.jpg);
+    }
+
+    @keyframes slideRight {
+      0%, 30% {
+        transform: translateX(0);
+      }
+      35%, 65% {
+        transform: translateX(-33.333%);
+      }
+      70%, 100% {
+        transform: translateX(-66.666%);
+      }
+    }
+
+    .hero-content {
+      position: relative;
+      text-align: right;
+      color: white;
+      z-index: 1;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 2rem;
+      border-radius: 8px;
+      min-height: 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    /* Content slides */
+    .content-slide {
+      opacity: 0;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      transform: translateY(-50%);
+      transition: opacity 0.8s ease;
+      padding: 0 2rem;
+    }
+
+    .content-slide:nth-child(1) {
+      animation: showContent1 30s infinite;
+    }
+
+    .content-slide:nth-child(2) {
+      animation: showContent2 30s infinite;
+    }
+
+    .content-slide:nth-child(3) {
+      animation: showContent3 30s infinite;
+    }
+
+    @keyframes showContent1 {
+      0%, 30% { opacity: 1; }
+      35%, 100% { opacity: 0; }
+    }
+
+    @keyframes showContent2 {
+      0%, 30% { opacity: 0; }
+      35%, 65% { opacity: 1; }
+      70%, 100% { opacity: 0; }
+    }
+
+    @keyframes showContent3 {
+      0%, 65% { opacity: 0; }
+      70%, 100% { opacity: 1; }
+    }
+
+    .hero-title {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+      line-height: 1.1;
+      font-weight: 700;
+    }
+
+    .hero-subtitle {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+      font-weight: 400;
+    }
+
+    .hero-description {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+      max-width: 600px;
+      margin-left: auto;
+    }
+
+    .container-wrapper {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .flag-container {
+      position: absolute;
+      bottom: -70px;
+      background-color: #ddab16;
+      padding: 16px 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      width: calc(100% - 120px); /* Give 60px space on each side */
+      max-width: 1000px; /* Limit maximum width */
+      text-align: center;
+      z-index: 3;
+      box-sizing: border-box;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .flag-container h3 {
+      margin: 0 0 12px;
+      color: white;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    .flag-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;  
+      padding: 0;
+      margin: 0;
+    }
+
+    .flag-row .fi {
+      font-size: 65px;      
+      line-height: 1;
+      margin: 0;
+      padding: 0;
+      transition: transform 0.2s ease;
+      flex: 0 0 auto;
+      cursor: pointer;       
+    }
+
+    .flag-row .fi:hover {
+      transform: scale(1.08);
+    }
+
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .cta-button {
+      padding: 12px 24px;
+      background-color: #1e7fb8;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      color: white;
+      transition: all 0.3s ease;
+      display: inline-block;
+      text-align: center;
+      min-width: 150px;
+    }
+
+    .cta-button.secondary {
+      background-color: #FFC000;
+      border: 2px solid white;
+      color: white;
+    }
+
+    .cta-button:hover {
+      background-color: #005f99;
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .cta-button.secondary:hover {
+      background-color: #1e7fb8;
+      color: white;
+      border-color: #1e7fb8;
+    }
+
+    /* Enhanced Media Queries */
+
+    /* Extra Large Screens */
+    @media (min-width: 1400px) {
+      .container {
+        padding: 180px 120px;
+      }
+      
+      .hero-title {
+        font-size: 4.5rem;
+      }
+      
+      .hero-subtitle {
+        font-size: 1.7rem;
+      }
+      
+      .flag-row .fi {
+        font-size: 85px;
+      }
+      
+      .flag-container {
+        width: calc(100% - 200px); /* More space on larger screens */
+        padding: 16px 50px;
+      }
+    }
+
+    /* Large Screens */
+    @media (max-width: 1399px) and (min-width: 1200px) {
+      .container {
+        width: 95%;
+        padding: 120px 80px;
+      }
+      
+      .hero-title {
+        font-size: 3.8rem;
+      }
+      
+      .flag-container {
+        width: calc(100% - 160px);
+        padding: 16px 45px;
+      }
+    }
+
+    /* Medium-Large Screens */
+    @media (max-width: 1199px) and (min-width: 992px) {
+      .container {
+        width: 90%;
+        padding: 80px 60px;
+        min-height: 450px;
+      }
+      
+      .hero-title {
+        font-size: 3.5rem;
+      }
+      
+      .hero-subtitle {
+        font-size: 1.4rem;
+      }
+      
+      .flag-container {
+        width: calc(100% - 120px);
+        bottom: -60px;
+        padding: 16px 35px;
+      }
+      
+      .flag-row .fi {
+        font-size: 65px;
+        gap: 12px;
+      }
+    }
+
+    /* Medium Screens (Tablets) */
+    @media (max-width: 991px) and (min-width: 768px) {
+      .home-hero {
+        padding: 15px;
+      }
+      
+      .container {
+        width: 95%;
+        padding: 60px 40px;
+        min-height: 400px;
+      }
+      
+      .hero-content {
+        text-align: center;
+        padding: 1.5rem;
+      }
+      
+      .hero-title {
+        font-size: 3rem;
+        margin-bottom: 0.8rem;
+      }
+      
+      .hero-subtitle {
+        font-size: 1.3rem;
+      }
+      
+      .hero-description {
+        font-size: 0.95rem;
+        margin-left: 0;
+        max-width: 100%;
+      }
+      
+      .flag-row .fi {
+        font-size: 60px;
+      }
+      
+      .flag-container {
+        width: calc(100% - 80px);
+        bottom: -55px;
+        padding: 14px 25px;
+      }
+      
+      .flag-container h3 {
+        font-size: 1.3rem;
+      }
+      
+      .content-slide {
+        padding: 0 1.5rem;
+      }
+
+      /* Pause animations on tablets for better performance */
+      .bg-slider {
+        animation-duration: 20s;
+      }
+    }
+
+    /* Small-Medium Screens */
+    @media (max-width: 767px) and (min-width: 576px) {
+      .home-hero {
+        padding: 10px;
+        min-height: 100vh;
+      }
+      
+      .container {
+        width: 98%;
+        padding: 40px 30px;
+        min-height: 380px;
+        border-radius: 10px;
+      }
+      
+      .hero-content {
+        text-align: center;
+        padding: 1.2rem;
+        min-height: 250px;
+      }
+      
+      .hero-title {
+        font-size: 2.5rem;
+        margin-bottom: 0.7rem;
+        line-height: 1.2;
+      }
+      
+      .hero-subtitle {
+        font-size: 1.2rem;
+        margin-bottom: 0.8rem;
+      }
+      
+      .hero-description {
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.5;
+      }
+      
+      .flag-row {
+        gap: 10px;
+      }
+      
+      .flag-row .fi {
+        font-size: 50px;
+      }
+      
+      .flag-container {
+        width: calc(100% - 40px);
+        bottom: -50px;
+        padding: 12px 20px;
+      }
+      
+      .flag-container h3 {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+      }
+      
+      .cta-buttons {
+        justify-content: center;
+        gap: 0.8rem;
+      }
+      
+      .cta-button {
+        padding: 10px 20px;
+        min-width: 140px;
+        font-size: 0.95rem;
+      }
+      
+      .content-slide {
+        padding: 0 1.2rem;
+      }
+    }
+
+    /* Small Screens (Mobile) */
+    @media (max-width: 575px) {
+      .home-hero {
+        padding: 5px;
+        min-height: 100vh;
+      }
+      
+      .container {
+        width: 100%;
+        padding: 30px 20px;
+        border-radius: 8px;
+        min-height: 350px;
+        margin: 0;
+      }
+      
+      .hero-content {
+        padding: 1rem;
+        min-height: 200px;
+      }
+      
+      .hero-title {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+        line-height: 1.1;
+      }
+      
+      .hero-subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 0.7rem;
+      }
+      
+      .hero-description {
+        font-size: 0.85rem;
+        margin-bottom: 1.2rem;
+        line-height: 1.4;
+      }
+      
+      .flag-row {
+        gap: 8px;
+      }
+      
+      .flag-row .fi {
+        font-size: 40px;
+      }
+      
+      .flag-container {
+        width: calc(100% - 20px);
+        bottom: -40px;
+        padding: 10px 15px;
+      }
+      
+      .flag-container h3 {
+        font-size: 1.1rem;
+        margin-bottom: 8px;
+      }
+      
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.6rem;
+      }
+      
+      .cta-button {
+        width: 180px;
+        padding: 10px 16px;
+        font-size: 0.9rem;
+      }
+      
+      .content-slide {
+        padding: 0 1rem;
+      }
+
+      /* Reduce animation complexity on mobile */
+      .bg-slider {
+        animation-duration: 25s;
+      }
+    }
+
+    /* Extra Small Screens */
+    @media (max-width: 479px) {
+      .container {
+        padding: 25px 15px;
+        min-height: 320px;
+      }
+      
+      .hero-content {
+        padding: 0.8rem;
+      }
+      
+      .hero-title {
+        font-size: 1.8rem;
+        margin-bottom: 0.4rem;
+      }
+      
+      .hero-subtitle {
+        font-size: 1rem;
+      }
+      
+      .hero-description {
+        font-size: 0.8rem;
+        margin-bottom: 1rem;
+      }
+      
+      .flag-row .fi {
+        font-size: 35px;
+      }
+      
+      .flag-container {
+        bottom: -35px;
+        padding: 8px 12px;
+        width: calc(100% - 10px);
+      }
+      
+      .flag-container h3 {
+        font-size: 1rem;
+      }
+      
+      .cta-button {
+        width: 160px;
+        padding: 8px 14px;
+        font-size: 0.85rem;
+      }
+      
+      .content-slide {
+        padding: 0 0.8rem;
+      }
+    }
+
+    /* Ultra Small Screens */
+    @media (max-width: 359px) {
+      .hero-title {
+        font-size: 1.6rem;
+      }
+      
+      .hero-subtitle {
+        font-size: 0.95rem;
+      }
+      
+      .hero-description {
+        font-size: 0.75rem;
+      }
+      
+      .flag-row .fi {
+        font-size: 30px;
+      }
+      
+      .cta-button {
+        width: 140px;
+        font-size: 0.8rem;
+      }
+    }
+
+    /* Landscape orientation adjustments for mobile */
+    @media (max-height: 500px) and (orientation: landscape) {
+      .home-hero {
+        min-height: auto;
+        padding: 10px;
+      }
+      
+      .container {
+        min-height: 300px;
+        padding: 20px;
+      }
+      
+      .hero-content {
+        min-height: 180px;
+      }
+      
+      .hero-title {
+        font-size: 1.8rem;
+        margin-bottom: 0.3rem;
+      }
+      
+      .hero-subtitle {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+      }
+      
+      .hero-description {
+        font-size: 0.8rem;
+        margin-bottom: 0.8rem;
+      }
+      
+      .flag-container {
+        bottom: -30px;
+        padding: 6px 10px;
+      }
+      
+      .flag-row .fi {
+        font-size: 25px;
+      }
+    }
+
+    /* High resolution/retina displays */
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+      .hero-title,
+      .hero-subtitle,
+      .hero-description {
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+    }
+
+    /* Reduced motion preference */
+    @media (prefers-reduced-motion: reduce) {
+      .bg-slider {
+        animation: none;
+      }
+      
+      .content-slide:nth-child(1) {
+        opacity: 1;
+        animation: none;
+      }
+      
+      .content-slide:nth-child(2),
+      .content-slide:nth-child(3) {
+        display: none;
+      }
+      
+      .cta-button:hover {
+        transform: none;
+      }
+      
+      .flag-row .fi:hover {
+        transform: none;
+      }
+    }
+
+    /* Print styles */
+    @media print {
+      .home-hero {
+        background: white;
+        color: black;
+      }
+      
+      .hero-content {
+        background: none;
+        color: black;
+      }
+      
+      .bg-slider {
+        display: none;
+      }
+      
+      .flag-container {
+        position: relative;
+        bottom: auto;
+        margin-top: 20px;
+      }
+    }
+  </style>
 </head>
 <body>
-<div id="navbar"></div>
-    <!-- Hero Section -->
-<section class="hero-section">
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <h1>Melford International</h1>
-    <p>Your Trusted Partner in Global Education</p>
-    <a href="#contact" class="cta-button">Get Started</a>
-    <a href="/pages/enquire.html" class="cta-button">Enquire</a>
-    </div>
-</section>
-<!-- About -->
-<section>
-  <div class="about-container">
-    <!-- Left: Image -->
-    <div class="about-image">
-      <img src="../assets/images/building2.jpg" alt="Student Abroad" />
-    </div>
+  <div id="navbar"></div>
 
-    <!-- Right: About + Mission stacked -->
-    <div class="about-mission-column">
-      <div class="about-text">
-        <h2>About Us</h2>
-        <p>
-         Melford International Education and Migration is a premier institution specializing in overseas education services. With over a decade of industry experience, we deliver tailored guidance to students pursuing academic opportunities abroad. Our expertise spans key destinations including Australia, Canada, the UK, USA, New Zealand, Ireland, Malaysia, and Germany. We also offer professionally delivered IELTS and PTE preparation programs to ensure students meet global language proficiency standards and excel in their international studies.
-        </p>
+  <section class="home-hero">
+    <div class="container-wrapper">
+      <div class="container">
+        <!-- Sliding background images -->
+        <div class="bg-slider">
+          <div class="bg-slide"></div>
+          <div class="bg-slide"></div>
+          <div class="bg-slide"></div>
+        </div>
+        
+        <div class="hero-content">
+          <!-- Content for Image 1 (Your original library image) -->
+          <div class="content-slide">
+            <h1 class="hero-title">Your Gateway to Global Education</h1>
+            <h2 class="hero-subtitle">Melford International Education and Migration</h2>
+            <p class="hero-description">
+              Your ultimate centre for abroad studies, dedicated to guiding students
+              toward academic success and global opportunities...
+            </p>
+            <div class="cta-buttons">
+              <a href="#enquire" class="cta-button secondary">Enquire Now</a>
+            </div>
+          </div>
+          
+          <!-- Content for Image 2 (University campus) -->
+          <div class="content-slide">
+            <h1 class="hero-title">World-Class Universities Await</h1>
+            <h2 class="hero-subtitle">Premium Campus Life & Academic Excellence</h2>
+            <p class="hero-description">
+              Experience top-tier education in stunning campuses worldwide. From Ivy League
+              institutions to prestigious universities across Australia, Canada, and the UK...
+            </p>
+            <div class="cta-buttons">
+              <a href="#universities" class="cta-button secondary">View Universities</a>
+            </div>
+          </div>
+          
+          <!-- Content for Image 3 (Students studying) -->
+          <div class="content-slide">
+            <h1 class="hero-title">Join Our Success Community</h1>
+            <h2 class="hero-subtitle">95% Success Rate & Growing</h2>
+            <p class="hero-description">
+              Connect with thousands of successful students who achieved their dreams through
+              our expert guidance. Personalized support from application to graduation...
+            </p>
+            <div class="cta-buttons">
+              <a href="#testimonials" class="cta-button secondary">Success Stories</a>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="mission-text">
-        <h2>Our Mission</h2>
-        <p>
-            To help students discover life-changing academic opportunities across the globe by providing trusted guidance, personalized support, and expert services every step of the way.
-        </p>
+
+      <div class="flag-container">
+        <h3>Your Study Destination Awaits</h3>
+        <div class="flag-row">
+          <span class="fi fi-au" title="Australia"></span>
+          <span class="fi fi-ca" title="Canada"></span>
+          <span class="fi fi-gb" title="United Kingdom"></span>
+          <span class="fi fi-us" title="United States"></span>
+          <span class="fi fi-nz" title="New Zealand"></span>
+          <span class="fi fi-ie" title="Ireland"></span>
+          <span class="fi fi-my" title="Malaysia"></span>
+          <span class="fi fi-de" title="Germany"></span>
+          <span class="fi fi-ae" title="United Arab Emirates (Dubai)"></span>
+        </div>
       </div>
     </div>
-  </div>
-</section>
-<!-- Our Core Values -->
-<section class="core-values-section">
-  <div class="values-container">
-    <h2 class="section-title">Our Core Values</h2>
-    <p style="text-align: center; font-size: 1.1rem; color :black; margin-bottom: 40px;">
-      At Melford, we stand by our core values, which define who we are and how we serve
-    </p>
+  </section>
+<section class="home-services" style="
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 10px;
+    font-family: 'Poppins' sans-serif;
+">
+    <h2 style="
+        text-align: center;
+        font-size: 2.5rem;
+        color: #1e7fb8;
+        margin-bottom: 50px;
+        font-weight: 700;
+        position: relative;
+    ">
+        Our Services
+        <span style="
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: #ffa500;
+            margin: 15px auto 0;
+            border-radius: 2px;
+        "></span>
+    </h2>
     
-    <div class="values-grid">
-      <div class="value-card orange">
-        <div class="value-icon">🛡️</div>
-        <h3 class="value-title">Integrity</h3>
-        <p class="value-description">We act honestly and ethically in everything we do.</p>
-      </div>
-      
-      <div class="value-card blue">
-        <div class="value-icon">⚡</div>
-        <h3 class="value-title">Dependability</h3>
-        <p class="value-description">We are committed to being a consistent, reliable partner for students and families.</p>
-      </div>
-      
-      <div class="value-card orange">
-        <div class="value-icon">🤝</div>
-        <h3 class="value-title">Trustworthiness</h3>
-        <p class="value-description">We build lasting relationships through transparency and responsibility.</p>
-      </div>
-      
-      <div class="value-card blue">
-        <div class="value-icon">⭐</div>
-        <h3 class="value-title">Excellence</h3>
-        <p class="value-description">We strive for the highest standards in guidance, preparation, and service.</p>
-      </div>
-      
-      <div class="value-card orange">
-        <div class="value-icon">💪</div>
-        <h3 class="value-title">Support</h3>
-        <p class="value-description">From first consultation to post-arrival care, we support students every step of the way.</p>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- Enquiry placeholder -->
-<section class="enquiry-section">
-  <div class="enquiry-container">
-    <h2>Have Questions?</h2>
-    <p>Contact us for personalized guidance and support.</p>
-    <a href="../pages/contact.html" class="cta-button">Get in Touch</a>
-  </div>
-</section>
-</body>
-    <div id="footer-placeholder"></div>
-    <script src="../js/loadpartials.js" defer></script>
+    <div style="
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 20px;
+        margin-top: 30px;
+    ">
+        <!-- Education & Career Counselling -->
+        <div style="
+            background: linear-gradient(135deg, #1e7fb8 0%, #2691d9 100%);
+            border-radius: 60px 0px 60px 0px;
+            padding: 0px 20px;
+            color: white;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(30, 127, 184, 0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        " onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 25px 50px rgba(30, 127, 184, 0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 15px 35px rgba(30, 127, 184, 0.2)'">
+            <div style="
+                width: 80px;
+                height: 80px;
+                background: #ffa500;
+                border-radius: 50%;
+                margin: 0 auto 25px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 2rem;
+            ">💬</div>
+            <h3 style="
+                font-size: 1.5rem;
+                margin-bottom: 20px;
+                font-weight: 600;
+            ">Education & Career Counselling</h3>
+            <p style="
+                line-height: 1.6;
+                opacity: 0.95;
+                font-size: 1rem;
+            ">Explore top study destinations, compare costs and offerings, and receive personalized university recommendations tailored to your goals.</p>
+        </div>
 
+        <!-- English Proficiency Training -->
+        <div style="
+            background: linear-gradient(135deg, #1e7fb8 0%, #2691d9 100%);
+            border-radius: 60px 0px 60px 0px;
+            padding: 40px 30px;
+            color: white;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(30, 127, 184, 0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        " onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 25px 50px rgba(30, 127, 184, 0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 15px 35px rgba(30, 127, 184, 0.2)'">
+            <div style="
+                width: 80px;
+                height: 80px;
+                background: #ffa500;
+                border-radius: 50%;
+                margin: 0 auto 25px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 2rem;
+            ">📝</div>
+            <h3 style="
+                font-size: 1.5rem;
+                margin-bottom: 20px;
+                font-weight: 600;
+            ">English Proficiency Training (IELTS & PTE)</h3>
+            <p style="
+                line-height: 1.6;
+                opacity: 0.95;
+                font-size: 1rem;
+            ">Intensive preparation for all exam components, plus full exam registration support, mock testing, and expert feedback for top scores.</p>
+        </div>
+
+        <!-- University/College Placement -->
+        <div style="
+            background: linear-gradient(135deg, #1e7fb8 0%, #2691d9 100%);
+            border-radius: 60px 0px 60px 0px;
+            padding: 40px 30px;
+            color: white;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(30, 127, 184, 0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        " onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 25px 50px rgba(30, 127, 184, 0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 15px 35px rgba(30, 127, 184, 0.2)'">
+            <div style="
+                width: 80px;
+                height: 80px;
+                background: #ffa500;
+                border-radius: 50%;
+                margin: 0 auto 25px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 2rem;
+            ">🎓</div>
+            <h3 style="
+                font-size: 1.5rem;
+                margin-bottom: 20px;
+                font-weight: 600;
+            ">University/College Placement</h3>
+            <p style="
+                line-height: 1.6;
+                opacity: 0.95;
+                font-size: 1rem;
+            ">End-to-end support: from crafting applications and personal statements to deadline tracking, submission, and placement in the best-fit programs.</p>
+        </div>
+
+        <!-- Migration & Visa Processing -->
+        <div style="
+            background: linear-gradient(135deg, #1e7fb8 0%, #2691d9 100%);
+            border-radius: 60px 0px 60px 0px;
+            padding: 40px 30px;
+            color: white;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(30, 127, 184, 0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        " onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 25px 50px rgba(30, 127, 184, 0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 15px 35px rgba(30, 127, 184, 0.2)'">
+            <div style="
+                width: 80px;
+                height: 80px;
+                background: #ffa500;
+                border-radius: 50%;
+                margin: 0 auto 25px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 2rem;
+            ">📋</div>
+            <h3 style="
+                font-size: 1.5rem;
+                margin-bottom: 20px;
+                font-weight: 600;
+            ">Migration & Visa Processing</h3>
+            <p style="
+                line-height: 1.6;
+                opacity: 0.95;
+                font-size: 1rem;
+            ">Full assistance with documentation, lodging visa applications, embassy interview prep, and both pre- and post-departure guidance for a smooth transition abroad.</p>
+        </div>
+
+        <!-- Pre-departure and Post-departure Services -->
+        <div style="
+            background: linear-gradient(135deg, #1e7fb8 0%, #2691d9 100%);
+            border-radius: 60px 0px 60px 0px;
+            padding: 40px 30px;
+            color: white;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(30, 127, 184, 0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        " onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 25px 50px rgba(30, 127, 184, 0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 15px 35px rgba(30, 127, 184, 0.2)'">
+            <div style="
+                width: 80px;
+                height: 80px;
+                background: #ffa500;
+                border-radius: 50%;
+                margin: 0 auto 25px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 2rem;
+            ">✈️</div>
+            <h3 style="
+                font-size: 1.5rem;
+                margin-bottom: 20px;
+                font-weight: 600;
+            ">Pre-departure & Post-departure Services</h3>
+            <p style="
+                line-height: 1.6;
+                opacity: 0.95;
+                font-size: 1rem;
+            ">We provide full support in terms of airport pickups, accommodation arrangements, and on-ground support to ensure a smooth and comfortable transition to your new academic life abroad.</p>
+        </div>
+
+        <!-- German Language Classes -->
+        <div style="
+            background: linear-gradient(135deg, #1e7fb8 0%, #2691d9 100%);
+            border-radius: 60px 0px 60px 0px;
+            padding: 40px 30px;
+            color: white;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(30, 127, 184, 0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        " onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 25px 50px rgba(30, 127, 184, 0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 15px 35px rgba(30, 127, 184, 0.2)'">
+            <div style="
+                width: 80px;
+                height: 80px;
+                background: #ffa500;
+                border-radius: 50%;
+                margin: 0 auto 25px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 2rem;
+            ">🗣️</div>
+            <h3 style="
+                font-size: 1.5rem;
+                margin-bottom: 20px;
+                font-weight: 600;
+            ">German Language Classes (A1 – B2)</h3>
+            <p style="
+                line-height: 1.6;
+                opacity: 0.95;
+                font-size: 1rem;
+            ">We offer structured German courses from beginner A1 to B2 levels. Whether you are starting from scratch or looking to improve your skills with flexible schedules.</p>
+        </div>
+    </div>
+</section>
+
+
+  <div id="footer-placeholder"></div>
+  <script src="/js/loadpartials.js" defer></script>
+</body>
 </html>
