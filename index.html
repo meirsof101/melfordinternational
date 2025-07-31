@@ -321,14 +321,228 @@
         </div>
     </div>
 </section>
-<section>
-  <div class="home-nav">
-    Join
+ <section class="melford-testimonials-section">
+        <div class="melford-testimonials-container">
+            <div class="melford-testimonials-header">
+                <h2 class="melford-testimonials-title">Client Testimonials</h2>
+                <a href="#" class="melford-google-review-btn">
+                    <span>Review us on</span>
+                    <span class="melford-google-logo">
+                        <span class="g-blue">G</span><span class="g-red">o</span><span class="g-yellow">o</span><span class="g-blue">g</span><span class="g-green">l</span><span class="g-red">e</span>
+                    </span>
+                </a>
+            </div>
+
+            <div class="melford-testimonials-grid" id="melfordTestimonialsGrid">
+                <div class="melford-testimonial-card">
+                    <div class="melford-testimonial-header">
+                        <div class="melford-client-avatar" style="background-color: #8b7355;">DH</div>
+                        <div class="melford-client-info">
+                            <h3>Dennis Huria</h3>
+                            <div class="melford-rating-container">
+                                <div class="melford-rating-stars">
+                                    <span class="melford-star">★</span>
+                                    <span class="melford-star">★</span>
+                                    <span class="melford-star">★</span>
+                                    <span class="melford-star">★</span>
+                                    <span class="melford-star">★</span>
+                                </div>
+                                <span class="melford-rating-time">a month ago</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="melford-testimonial-text">
+                        I'm beyond grateful to Melford International for their incredible support throughout my study abroad journey. Special thanks to our dedicated team, who guided me through every step of the application process... <a href="#" class="melford-testimonial-more">More</a>
+                    </p>
+                </div>
+
+                <div class="melford-testimonial-card">
+                    <div class="melford-testimonial-header">
+                        <div class="melford-client-avatar" style="background-color: #ff7b39;">NC</div>
+                        <div class="melford-client-info">
+                            <h3>Noelyn Chepchumba</h3>
+                            <div class="melford-rating-container">
+                                <div class="melford-rating-stars">
+                                    <span class="melford-star">★</span>
+                                    <span class="melford-star">★</span>
+                                    <span class="melford-star">★</span>
+                                    <span class="melford-star">★</span>
+                                    <span class="melford-star">★</span>
+                                </div>
+                                <span class="melford-rating-time">2 months ago</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="melford-testimonial-text">
+                        I highly recommend Melford International Nairobi branch and specifically our consultant for her commitment to helping me make my application to Australia successful. The service was exceptional... <a href="#" class="melford-testimonial-more">More</a>
+                    </p>
+                </div>
+
+                <div class="melford-testimonial-card">
+                    <div class="melford-testimonial-header">
+                        <div class="melford-client-avatar" style="background-color: #5a6cb8;">JK</div>
+                        <div class="melford-client-info">
+                            <h3>Jesse King'ori</h3>
+                            <div class="melford-rating-container">
+                                <div class="melford-rating-stars">
+                                    <span class="melford-star">★</span>
+                                    <span class="melford-star">★</span>
+                                    <span class="melford-star">★</span>
+                                    <span class="melford-star">★</span>
+                                    <span class="melford-star">★</span>
+                                </div>
+                                <span class="melford-rating-time">3 months ago</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="melford-testimonial-text">
+                        The team at Melford International has been very professional, keeping me informed throughout the whole process and being thorough with the documentation. I would definitely recommend their services... <a href="#" class="melford-testimonial-more">More</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="melford-pagination-dots">
+                <div class="melford-pagination-dot active" data-slide="0"></div>
+                <div class="melford-pagination-dot" data-slide="1"></div>
+                <div class="melford-pagination-dot" data-slide="2"></div>
+                <div class="melford-pagination-dot" data-slide="3"></div>
+                <div class="melford-pagination-dot" data-slide="4"></div>
+            </div>
+
+            <div class="melford-google-powered">
+                <span>powered by</span>
+                <span class="melford-google-powered-logo">
+                    <span class="g-blue">G</span><span class="g-red">o</span><span class="g-yellow">o</span><span class="g-blue">g</span><span class="g-green">l</span><span class="g-red">e</span>
+                </span>
+            </div>
+        </div>
+    </section>
+<section class="melford-enquiry-section">
+  <div class="melford-enquiry-content">
+    <div class="melford-enquiry-card">
+      <h2 class="melford-enquiry-title">Ready to Start?</h2>
+      <p class="melford-enquiry-subtitle">
+        Take the first step towards your international education journey. Let us guide you every step of the way.
+      </p>
+
+      <a href="/enquiry" class="melford-enquiry-btn">
+        Make an Enquiry
+      </a>
+    </div>
   </div>
 </section>
 
-
   <div id="footer-placeholder"></div>
+      <script>
+        // Pagination functionality
+        const dots = document.querySelectorAll('.melford-pagination-dot');
+        const testimonialSets = [
+            [
+                {
+                    name: "Dennis Huria",
+                    initials: "DH",
+                    color: "#8b7355",
+                    rating: 5,
+                    time: "a month ago",
+                    text: "I'm beyond grateful to Melford International for their incredible support throughout my study abroad journey. Special thanks to our dedicated team, who guided me through every step of the application process..."
+                },
+                {
+                    name: "Noelyn Chepchumba", 
+                    initials: "NC",
+                    color: "#ff7b39",
+                    rating: 5,
+                    time: "2 months ago",
+                    text: "I highly recommend Melford International Nairobi branch and specifically our consultant for her commitment to helping me make my application to Australia successful. The service was exceptional..."
+                },
+                {
+                    name: "Jesse King'ori",
+                    initials: "JK", 
+                    color: "#5a6cb8",
+                    rating: 5,
+                    time: "3 months ago",
+                    text: "The team at Melford International has been very professional, keeping me informed throughout the whole process and being thorough with the documentation. I would definitely recommend their services..."
+                }
+            ],
+            [
+                {
+                    name: "Sarah Mitchell",
+                    initials: "SM",
+                    color: "#e91e63",
+                    rating: 5,
+                    time: "4 months ago",
+                    text: "Melford International made my dream of studying in Canada a reality. Their team was incredibly knowledgeable about visa requirements and university applications. Couldn't have done it without them..."
+                },
+                {
+                    name: "Michael Chen",
+                    initials: "MC",
+                    color: "#2196f3",
+                    rating: 5,
+                    time: "5 months ago",
+                    text: "Outstanding service from Melford International! They handled my UK visa application with such professionalism and attention to detail. Every question was answered promptly and thoroughly..."
+                },
+                {
+                    name: "Priya Sharma",
+                    initials: "PS",
+                    color: "#9c27b0",
+                    rating: 5,
+                    time: "6 months ago",
+                    text: "I was impressed by Melford International's comprehensive approach to educational consulting. They not only helped with my applications but also provided valuable guidance on course selection..."
+                }
+            ]
+        ];
+
+        let currentSet = 0;
+
+        function updateTestimonials(setIndex) {
+            const grid = document.getElementById('melfordTestimonialsGrid');
+            const testimonials = testimonialSets[setIndex % testimonialSets.length];
+            
+            grid.innerHTML = '';
+            
+            testimonials.forEach(testimonial => {
+                const stars = '★'.repeat(testimonial.rating);
+                const card = document.createElement('div');
+                card.className = 'melford-testimonial-card';
+                card.innerHTML = `
+                    <div class="melford-testimonial-header">
+                        <div class="melford-client-avatar" style="background-color: ${testimonial.color};">${testimonial.initials}</div>
+                        <div class="melford-client-info">
+                            <h3>${testimonial.name}</h3>
+                            <div class="melford-rating-container">
+                                <div class="melford-rating-stars">
+                                    ${stars.split('').map(star => `<span class="melford-star">${star}</span>`).join('')}
+                                </div>
+                                <span class="melford-rating-time">${testimonial.time}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="melford-testimonial-text">
+                        ${testimonial.text} <a href="#" class="melford-testimonial-more">More</a>
+                    </p>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                dots.forEach(d => d.classList.remove('active'));
+                dot.classList.add('active');
+                currentSet = index;
+                if (index < testimonialSets.length) {
+                    updateTestimonials(index);
+                }
+            });
+        });
+
+        // Auto-rotate testimonials
+        setInterval(() => {
+            currentSet = (currentSet + 1) % testimonialSets.length;
+            dots.forEach(d => d.classList.remove('active'));
+            dots[currentSet].classList.add('active');
+            updateTestimonials(currentSet);
+        }, 5000);
+    </script>
   <script src="/js/loadpartials.js" defer></script>
 </body>
 </html>

@@ -651,6 +651,7 @@ body {
   min-height: auto;
   display: flex;
   justify-content: center;
+  font-family: 'Jost';
 }
 
 /* Content slides */
@@ -698,15 +699,7 @@ body {
   margin-bottom: 1rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
   line-height: 1.1;
-  font-weight: 700;
-}
-
-.hero-subtitle {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
-  font-weight: 400;
-  text-align: left;
+  font-weight: 100;
 }
 
 .hero-description {
@@ -1323,6 +1316,260 @@ body {
         margin-top: 20px;
       }
     }
+    
+        .melford-testimonials-section {
+            padding: 3px;
+            background-color: #f0f2f1;
+            min-height: auto;
+        }
+
+        .melford-testimonials-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .melford-testimonials-header {
+            text-align: left;
+            margin-bottom: 60px;
+        }
+
+        .melford-testimonials-title {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .melford-google-review-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: #e8f4f8;
+            color: #2c5aa0;
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            border: 2px solid #d0e7f0;
+            transition: all 0.3s ease;
+        }
+
+        .melford-google-review-btn:hover {
+            background-color: #d0e7f0;
+            transform: translateY(-2px);
+        }
+
+        .melford-google-logo {
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .melford-testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .melford-testimonial-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 1px solid #e0e0e0;
+        }
+
+        .melford-testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .melford-testimonial-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .melford-client-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .melford-client-info h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .melford-rating-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .melford-rating-stars {
+            display: flex;
+            gap: 2px;
+        }
+
+        .melford-star {
+            color: #ffc107;
+            font-size: 1rem;
+        }
+
+        .melford-rating-time {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .melford-testimonial-text {
+            color: #555;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .melford-testimonial-more {
+            color: #ff6b35;
+            font-weight: 500;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .melford-testimonial-more:hover {
+            text-decoration: underline;
+        }
+
+        .melford-pagination-dots {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .melford-pagination-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: 2px solid #ddd;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .melford-pagination-dot.active {
+            background-color: #ffc107;
+            border-color: #ffc107;
+        }
+
+        .melford-pagination-dot:hover {
+            border-color: #ffc107;
+        }
+
+        .melford-google-powered {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .melford-google-powered-logo {
+            font-weight: bold;
+        }
+
+        .melford-google-powered-logo .g-blue { color: #4285f4; }
+        .melford-google-powered-logo .g-red { color: #ea4335; }
+        .melford-google-powered-logo .g-yellow { color: #fbbc05; }
+        .melford-google-powered-logo .g-green { color: #34a853; }
+
+        @media (max-width: 768px) {
+            .melford-testimonials-title {
+                font-size: 2.2rem;
+            }
+
+            .melford-testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .melford-testimonial-card {
+                padding: 20px;
+            }
+        }
+
+.melford-enquiry-section {
+  background: linear-gradient(135deg, #41abe9, #2b8ac9);
+  color: white;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.melford-enquiry-content {
+  display: flex;
+  justify-content: center;
+}
+
+.melford-enquiry-card {
+  max-width: 800px;
+  width: 100%;
+}
+
+.melford-enquiry-title {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.melford-enquiry-subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.melford-enquiry-btn {
+  display: inline-block;
+  background-color: #ffffff;
+  color: #2b8ac9;
+  padding: 7px 28px;
+  font-weight: bold;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.melford-enquiry-btn:hover {
+  background-color: var(--primary-yellow);
+  transform: translateY(-2px);
+}
+
+.melford-enquiry-features {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+.melford-enquiry-feature {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.melford-enquiry-feature-icon {
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
 /* About Page */
 .about-hero {
   position: relative;
@@ -1333,7 +1580,6 @@ body {
   align-items: center;
   text-align: center;
   overflow: hidden;
-  font-family: 'Poppins', sans-serif;
   background: linear-gradient(to right, #1e40af, #ffffff);
   height: 70vh; /* Full viewport height */
 }
