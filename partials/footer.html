@@ -47,7 +47,6 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            /* filter: blur(-10px); Adjust blur level here */
             z-index: 0;
         }
 
@@ -120,21 +119,20 @@
         .social-link {
             width: 40px;
             height: 40px;
-            background: var(--accent-gold);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             text-decoration: none;
             transition: all 0.3s ease;
-            color: #2d2d2d;
+            color: #2c5aa0;
             font-size: 24px;
         }
 
         .social-link:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            background: #ffed4a;
+            background: #f5f4ee;
         }
 
         .contact-info {
@@ -143,19 +141,6 @@
             margin-bottom: 20px;
             gap: 15px;
             font-style: normal;
-        }
-
-        .contact-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--accent-gold);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            color: #2d2d2d;
-            font-size: 24px;
         }
 
         .contact-details h4 {
@@ -324,7 +309,7 @@
         @media (max-width: 480px) {
             .footer-container {
                 padding: 20px 10px 0;
-                padding-bottom: 300px;
+                padding-bottom: 40px;
             }
 
             .footer-main {
@@ -341,7 +326,11 @@
                 height: 40px;
                 font-size: 16px;
             }
-
+            .contact-info {
+                flex-direction: column;
+                align-items: flex-start;
+                text-align: left;
+            }
             .company-info h3 {
                 font-size: 18px;
             }
@@ -424,9 +413,6 @@
                 <!-- Contact Info Section -->
                 <section class="footer-section">
                     <header class="company-header">
-                        <span><div class="company-logo">
-                            <img url='../assets/images/officiallogo.jpg.jpg'>
-                        </div></span>
                         <div class="company-info">
                             <h3>Melford International</h3>
                             <p>Your gateway to global education excellence. We connect ambitious students with world-class universities worldwide.</p>
@@ -453,9 +439,6 @@
                     </div>
                     
                     <address class="contact-info">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
                         <div class="contact-details">
                             <h4>Headquarters</h4>
                             <p>Loita Street Behind Chester House,<br>ABSA Towers Nairobi Kenya</p>
@@ -464,9 +447,6 @@
 
                     <div class="contact-row">
                         <div class="contact-info contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-phone"></i>
-                            </div>
                             <div class="contact-details">
                                 <h4>Phone</h4>
                                 <p>
@@ -476,9 +456,6 @@
                         </div>
                         
                         <div class="contact-info contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
                             <div class="contact-details">
                                 <h4>Email</h4>
                                 <p>
@@ -511,7 +488,6 @@
                             <li><a href="#">Study in New Zealand</a></li>
                             <li><a href="#">Study in Ireland</a></li>
                             <li><a href="#">Study in Germany</a></li>
-                            <li><a href="#">Study in USA</a></li>
                             <li><a href="#">Study in UK</a></li>
                             <li><a href="#">Study in Canada</a></li>
                             <li><a href="#">Study in Australia</a></li>

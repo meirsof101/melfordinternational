@@ -7,19 +7,21 @@
     <link rel="stylesheet" href="../styles/styles.css">
 </head>
 <body>
+<div id="topbar-placeholder"></div>
 <div id="navbar"></div>
-    <!-- About Page -->
+<!-- About Page -->
 <section>
     <div class="about-hero">
         <h1><span class="about-word">About</span> <span class="us-word">Us</span></h1>
         <p>Melford International Education and Migration is an ultimate centre for abroad studies, 
-            dedicated to guiding students toward academic success and global opportunities. With over a 
-            decade of experience. Melford has been providing high-quality educational services for 
-            students aspiring to study in Australia, Canada, the UK, USA, New Zealand, Ireland, Malaysia, 
-            and Germany. We also offer expert-led IELTS and PTE preparation classes, helping students 
-            confidently meet language requirements and excel in their international education journey.</p>
+           dedicated to guiding students toward academic success and global opportunities. With over a 
+           decade of experience. Melford has been providing high-quality educational services for 
+           students aspiring to study in Australia, Canada, the UK, USA, New Zealand, Ireland, Malaysia, 
+           and Germany. We also offer expert-led IELTS and PTE preparation classes, helping students 
+           confidently meet language requirements and excel in their international education journey.</p>
     </div>
 </section>
+
 <!-- Mission Section -->
 <section class="mission-section">
     <div class="mission-wrapper">
@@ -33,59 +35,310 @@
         </div>
     </div>
 </section>
-<!-- Success Section -->
-<section class="alumni-section">
-    <div class="alumni-container">
-        <div class="alumni-header">
-            <h2>Our Success Stories</h2>
-            <p>Meet our accomplished alumni who have achieved their dreams through Melford's guidance and support</p>
-        </div>
 
-        <div class="alumni-cards">
-            <div class="alumni-card">
-                <div class="alumni-name">Ahmed Khan</div>
-                <div class="alumni-field">Medical Doctor</div>
-                <div class="alumni-university">University of Toronto, Canada</div>
-                <div class="alumni-quote">Melford made my dream of studying medicine in Canada a reality. Their guidance was invaluable throughout the process.</div>
-            </div>
-
-            <div class="alumni-card">
-                <div class="alumni-name">Sarah Patel</div>
-                <div class="alumni-field">Software Engineer</div>
-                <div class="alumni-university">MIT, USA</div>
-                <div class="alumni-quote">The IELTS preparation and university application support from Melford was exceptional. Now I'm living my dream!</div>
-            </div>
-
-            <div class="alumni-card">
-                <div class="alumni-name">Michael Roberts</div>
-                <div class="alumni-field">Business Analyst</div>
-                <div class="alumni-university">University of Melbourne, Australia</div>
-                <div class="alumni-quote">Thanks to Melford, I successfully transitioned from Dubai to Australia. The support was phenomenal.</div>
-            </div>
-
-            <div class="alumni-card">
-                <div class="alumni-name">Lisa Martinez</div>
-                <div class="alumni-field">Research Scientist</div>
-                <div class="alumni-university">Oxford University, UK</div>
-                <div class="alumni-quote">Melford's expertise in UK applications helped me secure a spot at Oxford. Forever grateful!</div>
-            </div>
-
-            <div class="alumni-card">
-                <div class="alumni-name">Raj Kumar</div>
-                <div class="alumni-field">Data Scientist</div>
-                <div class="alumni-university">University of Auckland, New Zealand</div>
-                <div class="alumni-quote">The personalized approach and attention to detail at Melford made all the difference in my journey.</div>
-            </div>
-
-            <div class="alumni-card">
-                <div class="alumni-name">Emma Johnson</div>
-                <div class="alumni-field">Civil Engineer</div>
-                <div class="alumni-university">Trinity College Dublin, Ireland</div>
-                <div class="alumni-quote">From IELTS prep to visa assistance, Melford handled everything professionally. Highly recommended!</div>
-            </div>
-        </div>
+<section class="core-values">
+  <h2>Our Core Values</h2>
+  <p>Our values are the foundation of how we operate, serve, and succeed:</p>
+  
+  <div class="values-grid">
+    <div class="value-item">
+      <h3>Integrity</h3>
+      <p>We act honestly and ethically in everything we do.</p>
     </div>
+    
+    <div class="value-item">
+      <h3>Dependability</h3>
+      <p>We are committed to being a consistent, reliable partner for students and families.</p>
+    </div>
+    
+    <div class="value-item">
+      <h3>Trustworthiness</h3>
+      <p>We build lasting relationships through transparency and responsibility.</p>
+    </div>
+    
+    <div class="value-item">
+      <h3>Excellence</h3>
+      <p>We strive for the highest standards in guidance, preparation, and service.</p>
+    </div>
+    
+    <div class="value-item">
+      <h3>Support</h3>
+      <p>From first consultation to post-arrival care, we support students every step of the way.</p>
+    </div>
+  </div>
 </section>
+
+<section class="why-choose">
+  <h2>Why Choose Melford?</h2>
+  <ul class="benefits-list">
+    <li>Over 10 years of experience in international education consultancy</li>
+    <li>Expert counseling tailored to your academic goals and budget</li>
+    <li>Proven visa application support with high success rates</li>
+    <li>Professional IELTS and PTE training for exam success</li>
+    <li>Ongoing support even after arrival abroad</li>
+  </ul>
+</section>
+
+<style>
+/* About Page */
+.about-hero {
+  position: relative;
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  background: linear-gradient(to right, #1e7fb8, #ffffff);
+  height: 70vh; /* Full viewport height */
+}
+
+/* Geometric background elements */
+.about-hero::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 300px;
+  height: 100px;
+  background: rgba(255, 255, 255, 0.1);
+  transform: rotate(45deg);
+  border-radius: 20px;
+}
+
+.about-hero::after {
+  content: '';
+  position: absolute;
+  bottom: -100px;
+  left: -100px;
+  width: 400px;
+  height: 400px;
+  background: rgba(255, 255, 255, 0.08);
+  transform: rotate(30deg);
+  border-radius: 30px;
+}
+
+/* Additional geometric shapes */
+.about-hero:hover::before {
+  animation: float 6s ease-in-out infinite;
+}
+
+.about-hero:hover::after {
+  animation: float 8s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+  0%, 100% { transform: rotate(45deg) translateY(0px); }
+  50% { transform: rotate(45deg) translateY(-20px); }
+}
+
+/* Main heading */
+.about-hero h1 {
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 600;
+  margin: 40px 0 30px 0;
+  background-clip: text;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  letter-spacing: -2px;
+  line-height: 1.1;
+  position: relative;
+  z-index: 2;
+  color: inherit; /* inherit color from spans */
+}
+
+/* Color each word separately */
+.about-hero h1 .about-word {
+  color: #f59e0b; /* amber/yellow */
+}
+
+.about-hero h1 .us-word {
+  color: #1e7fb8; /* blue */
+}
+
+/* Paragraph styling */
+.about-hero p {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  line-height: 1.6;
+  color: #333;
+  max-width: 900px;
+  margin: 0 auto;
+  font-weight: 400;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* Mission Section */
+.mission-section {
+  padding: 80px 20px;
+  background: #ffffff;
+  font-family: 'Jost';
+}
+
+.mission-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.mission-container, .what-we-do {
+  background: #f9f9f9;
+  padding: 40px 30px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  height: 300px; /* Fixed height for uniformity */
+}
+
+.mission-container::before, .what-we-do::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+}
+
+.mission-container h2, .what-we-do h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1e7fb8;
+  margin-bottom: 5px;
+}
+
+.mission-container p, .what-we-do p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #555;
+}
+.core-values {
+  padding: 8px 20px;
+  background: #ffffff;
+  font-family: 'Jost';
+}
+
+.core-values h2 {
+  color: #1e7fb8;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-weight: 700;
+}
+
+.core-values > p {
+  text-align: center;
+  color: #555;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.value-item {
+  background: #f9f9f9;
+  padding: 2rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.value-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1);
+}
+
+.value-item h3 {
+  color: #1e7fb8;
+  font-size: 1.3rem;
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+}
+
+.value-item p {
+  color: #555;
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+.why-choose {
+  background: linear-gradient(to right, #1e7fb8, #ffffff);
+  color: #333;
+  padding: 10px 20px;
+  font-family: 'Jost';
+}
+
+.why-choose h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #1e7fb8;
+  font-weight: 700;
+}
+
+.benefits-list {
+  list-style: none;
+  padding: 0;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.benefits-list li {
+  background: rgba(255, 255, 255, 0.9);
+  margin-bottom: 1rem;
+  padding: 1.2rem;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #555;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.benefits-list li:hover {
+  background: rgba(255, 255, 255, 1);
+  transform: translateX(4px);
+  transition: all 0.3s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .about-hero h1 {
+    font-size: 2.2rem;
+  }
+  
+  .about-hero p {
+    font-size: 1rem;
+  }
+  
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .mission-wrapper {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .mission-container, .what-we-do {
+    height: auto;
+  }
+  
+  .about-hero, .mission-section, .core-values, .why-choose {
+    padding: 60px 20px;
+  }
+}
+</style>
 </body>
 <div id="footer-placeholder"></div>
 
