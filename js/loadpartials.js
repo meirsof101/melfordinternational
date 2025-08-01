@@ -1,8 +1,6 @@
-// Determine correct path based on location
-let basePath = '';
-if (window.location.pathname.includes('/pages/')) {
-  basePath = '../';
-}
+// Determine the correct base path to partials dynamically
+let depth = window.location.pathname.split('/').length - 2;
+let basePath = '../'.repeat(depth);
 
 // Load Topbar
 fetch(basePath + 'partials/topbar.html')

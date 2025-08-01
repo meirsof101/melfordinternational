@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Successful - Melford International</title>
+    <meta name="description" content="Thank you for registering for our event. We'll be in touch with more details soon.">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Jost', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .main-content {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+        }
+
+        .thank-you-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            padding: 3rem;
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            color: white;
+            font-size: 2rem;
+            animation: checkmark 0.6s ease-in-out;
+        }
+
+        @keyframes checkmark {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .thank-you-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1e7fb8;
+            margin-bottom: 1rem;
+        }
+
+        .thank-you-message {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .next-steps {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: left;
+        }
+
+        .next-steps h3 {
+            color: #1e7fb8;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .steps-list {
+            list-style: none;
+            margin: 0;
+        }
+
+        .steps-list li {
+            padding: 0.5rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: #555;
+        }
+
+        .steps-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #28a745;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #1e7fb8 0%, #2a9fd8 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(30, 127, 184, 0.3);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #1e7fb8;
+            border: 2px solid #1e7fb8;
+        }
+
+        .btn-secondary:hover {
+            background: #1e7fb8;
+            color: white;
+        }
+
+        .contact-info {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #eee;
+        }
+
+        .contact-info p {
+            margin-bottom: 0.5rem;
+            color: #666;
+        }
+
+        .contact-info strong {
+            color: #1e7fb8;
+        }
+
+        @media (max-width: 768px) {
+            .thank-you-container {
+                padding: 2rem 1.5rem;
+                margin: 1rem;
+            }
+
+            .thank-you-title {
+                font-size: 2rem;
+            }
+
+            .thank-you-message {
+                font-size: 1rem;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .thank-you-container {
+                padding: 1.5rem 1rem;
+            }
+
+            .success-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+
+            .thank-you-title {
+                font-size: 1.8rem;
+            }
+
+            .next-steps {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div id="topbar-placeholder"></div>
+<div id="navbar"></div>
+    
+    <main class="main-content">
+        <div class="thank-you-container">
+            <div class="success-icon">✓</div>
+            
+            <h1 class="thank-you-title">Registration Successful!</h1>
+            
+            <p class="thank-you-message">
+                Thank you for registering for our event. We're excited to have you join us and look forward to providing you with valuable insights about international education and career opportunities.
+            </p>
+
+            <div class="next-steps">
+                <h3>What Happens Next?</h3>
+                <ul class="steps-list">
+                    <li>You'll receive a confirmation email within the next few minutes</li>
+                    <li>Event details and joining instructions will be sent 24 hours before the event</li>
+                    <li>Our team may contact you to discuss your specific interests and questions</li>
+                    <li>You'll receive access to exclusive resources and materials</li>
+                    <li>Reminders will be sent via email and SMS (if provided)</li>
+                </ul>
+            </div>
+
+            <div class="action-buttons">
+                <a href="/events/events.html" class="btn btn-primary">View Other Events</a>
+                <a href="/" class="btn btn-secondary">Return to Homepage</a>
+            </div>
+
+            <div class="contact-info">
+                <p>Have questions or need to make changes to your registration?</p>
+                <p><strong>Email:</strong> info@melford.com</p>
+                <p><strong>Phone:</strong> +254 700 123 456</p>
+                <p><strong>WhatsApp:</strong> +254 700 123 456</p>
+            </div>
+        </div>
+    </main>
+<div id="footer-placeholder"></div>
+
+<script src="../js/loadpartials.js"></script>
+</body>
+</html>

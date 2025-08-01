@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Melford International - Study in Ireland</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: transparent;
+            color: #333;
+        }
+
+        .main-container {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            min-height: 100vh;
+        }
+
+        /* Content Section */
+        .content-section {
+            position: relative;
+            display: flex;
+            align-items: center;
+            background: #f8f9fa;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 0;
+        }
+
+        .content-overlay {
+            background: rgba(255, 255, 255, 0.95);
+            margin: 40px;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .country-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 30px;
+        }
+
+        .country-title {
+            font-size: 3.2rem;
+            color: #1e7fb8;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .why-title {
+            font-size: 2.5rem;
+            color: #1e7fb8;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .description {
+            font-size: 17px;
+            line-height: 1.7;
+            color: #4b5563;
+            margin-bottom: 30px;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .benefits-list {
+            list-style: none;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 18px;
+            font-size: 16px;
+            color: #374151;
+            font-weight: 500;
+        }
+
+        .check-icon {
+            width: 24px;
+            height: 24px;
+            background: #1e7fb8;
+            border-radius: 50%;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+            flex-shrink: 0;
+            box-shadow: 0 2px 5px rgba(16, 185, 129, 0.3);
+        }
+
+        /* Form Section */
+        .form-section {
+            background: white;
+            padding: 40px;
+            box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .form-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(135deg, #1e7fb8, #3b82f6);
+        }
+
+        .apply-title {
+            font-size: 2.8rem;
+            color: #1e7fb8;
+            font-weight: bold;
+            margin-bottom: 35px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .required {
+            color: #ef4444;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 15px 18px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 16px;
+            background: #f9fafb;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #3b82f6;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #1e40af, #3b82f6);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(30, 64, 175, 0.3);
+        }
+
+        .submit-btn:hover {
+            background: linear-gradient(135deg, #1d4ed8, #2563eb);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(30, 64, 175, 0.4);
+        }
+
+        @media (max-width: 1024px) {
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .content-section {
+                order: 1;
+            }
+            
+            .form-section {
+                order: 2;
+                box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            }
+            
+            .form-section::before {
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 5px;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .country-header {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .country-title {
+                font-size: 2.5rem;
+            }
+            
+            .why-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .content-overlay {
+                margin: 20px;
+                padding: 25px;
+            }
+            
+            .form-section {
+                padding: 25px;
+            }
+            
+            .apply-title {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div id="topbar-placeholder"></div>
+<div id="navbar"></div>
+    <div class="main-container">
+        <!-- Content Section -->
+        <div class="content-section">
+            <div class="content-overlay">
+                    <img src="../../assets/images/australia.jpg" alt="Study in Ireland" class="hero-image">
+
+                <div class="country-header">
+                    <div>
+                        <h2 class="country-title">Study in Ireland</h2>
+                        <p class="description">
+                            Start your Irish study journey with Melford International! 
+                            We provide expert guidance, helping you find the perfect course, 
+                            navigate applications, and secure your visa.
+                        </p>
+                        <p class="description">
+                            Discover Ireland's top universities and endless opportunities – 
+                            let's make your dream a reality!
+                        </p>
+                    </div>
+                </div>
+                git 
+                <div class="benefits-grid">
+                    <ul class="benefits-list">
+                        <li class="benefit-item">
+                            <span class="check-icon">✓</span>
+                            Top Quality Education
+                        </li>
+                        <li class="benefit-item">
+                            <span class="check-icon">✓</span>
+                            Work Ready Graduates
+                        </li>
+                        <li class="benefit-item">
+                            <span class="check-icon">✓</span>
+                            Work while studying
+                        </li>
+                        <li class="benefit-item">
+                            <span class="check-icon">✓</span>
+                            Post Study Work Visa
+                        </li>
+                    </ul>
+                    
+                    <ul class="benefits-list">
+                        <li class="benefit-item">
+                            <span class="check-icon">✓</span>
+                            Diverse Course Options
+                        </li>
+                        <li class="benefit-item">
+                            <span class="check-icon">✓</span>
+                            Multi-Cultural Community
+                        </li>
+                        <li class="benefit-item">
+                            <span class="check-icon">✓</span>
+                            English Speaking Country
+                        </li>
+                        <li class="benefit-item">
+                            <span class="check-icon">✓</span>
+                            EU Access & Opportunities
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Form Section -->
+        <div class="form-section">
+            <h1 class="apply-title">Apply Now</h1>
+            
+            <form>
+                <div class="form-group">
+                    <label for="fullName">Full Name <span class="required">*</span></label>
+                    <input type="text" id="fullName" name="fullName" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address <span class="required">*</span></label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Phone Number <span class="required">*</span></label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="studyLevel">Level Of Study</label>
+                    <select id="studyLevel" name="studyLevel">
+                        <option value="">Select One</option>
+                        <option value="bachelor">Bachelor's Degree</option>
+                        <option value="master">Master's Degree</option>
+                        <option value="phd">PhD</option>
+                        <option value="diploma">Diploma</option>
+                        <option value="certificate">Certificate</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="submit-btn">Submit Inquiry</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Country Selection for Development -->
+    <div style="position: fixed; bottom: 20px; right: 20px; background: white; padding: 15px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); z-index: 1000;">
+        <select onchange="changeCountry(this.value)" style="padding: 8px; border: 1px solid #ddd; border-radius: 5px;">
+            <option value="ireland">🇮🇪 Ireland</option>
+            <option value="uk">🇬🇧 United Kingdom</option>
+            <option value="canada">🇨🇦 Canada</option>
+            <option value="dubai">🇦🇪 Dubai/UAE</option>
+            <option value="australia">🇦🇺 Australia</option>
+            <option value="newzealand">🇳🇿 New Zealand</option>
+            <option value="germany">🇩🇪 Germany</option>
+            <option value="france">🇫🇷 France</option>
+            <option value="netherlands">🇳🇱 Netherlands</option>
+        </select>
+    </div>
+
+    <script>
+        const countryData = {
+            ireland: {
+                title: "Study in Ireland",
+                image: "https://images.unsplash.com/photo-1590736969955-71cc94901144?w=1200&h=800&fit=crop",
+                description1: "Start your Irish study journey with Melford International! We provide expert guidance, helping you find the perfect course, navigate applications, and secure your visa.",
+                description2: "Discover Ireland's top universities and endless opportunities – let's make your dream a reality!",
+                benefits: [
+                    "Top Quality Education", "Work Ready Graduates", "Work while studying", "Post Study Work Visa",
+                    "Diverse Course Options", "Multi-Cultural Community", "English Speaking Country", "EU Access & Opportunities"
+                ]
+            },
+            uk: {
+                title: "Study in United Kingdom",
+                image: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=1200&h=800&fit=crop",
+                description1: "Embark on your UK education journey with Melford International! We offer comprehensive support to help you access world-renowned universities and navigate the application process seamlessly.",
+                description2: "Experience the rich academic heritage of the UK with globally recognized qualifications that open doors worldwide!",
+                benefits: [
+                    "World-Class Universities", "Globally Recognized Degrees", "Rich Cultural Heritage", "Research Excellence",
+                    "Graduate Immigration Route", "Diverse Academic Programs", "English Language Advantage", "Gateway to Europe"
+                ]
+            },
+            canada: {
+                title: "Study in Canada",
+                image: "https://images.unsplash.com/photo-1517935706615-2717063c2225?w=1200&h=800&fit=crop",
+                description1: "Begin your Canadian education adventure with Melford International! We guide you through Canada's excellent education system and help secure your path to success.",
+                description2: "Explore Canada's top-ranked universities and colleges while experiencing one of the world's most welcoming countries!",
+                benefits: [
+                    "High Quality Education", "Post-Graduation Work Permit", "Pathway to Permanent Residency", "Affordable Tuition Fees",
+                    "Multicultural Environment", "Safe & Peaceful Country", "Bilingual Opportunities", "Co-op Programs Available"
+                ]
+            },
+            dubai: {
+                title: "Study in Dubai",
+                image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1200&h=800&fit=crop",
+                description1: "Launch your Dubai study experience with Melford International! We connect you with prestigious international universities and provide comprehensive support for your academic journey.",
+                description2: "Study in the heart of the Middle East's business hub with world-class facilities and global networking opportunities!",
+                benefits: [
+                    "International University Branches", "Tax-Free Income", "Strategic Business Location", "Modern Infrastructure",
+                    "Multicultural Society", "Gateway to Middle East & Asia", "English-Taught Programs", "Excellent Career Prospects"
+                ]
+            },
+            australia: {
+                title: "Study in Australia",
+                image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=800&fit=crop",
+                description1: "Start your Australian study journey with Melford International! We provide expert guidance to help you access Australia's world-renowned education system and vibrant student life.",
+                description2: "Discover Australia's top universities and endless opportunities in one of the world's most liveable countries!",
+                benefits: [
+                    "Top Quality Education", "Work Ready Graduates", "Work while studying", "Post Study Work Visa",
+                    "Diverse Course Options", "Multi-Cultural Community", "Diverse and Inclusive Environment", "Excellent Quality of Life"
+                ]
+            },
+            newzealand: {
+                title: "Study in New Zealand",
+                image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=1200&h=800&fit=crop",
+                description1: "Begin your New Zealand education journey with Melford International! We help you navigate the pathway to world-class education in one of the most beautiful countries on Earth.",
+                description2: "Experience New Zealand's innovative teaching methods and stunning natural environment while building your future!",
+                benefits: [
+                    "Innovative Education System", "Small Class Sizes", "Safe & Peaceful Environment", "Post-Study Work Rights",
+                    "Practical Learning Approach", "English Speaking Country", "Adventure & Lifestyle", "Pathway to Residency"
+                ]
+            },
+            germany: {
+                title: "Study in Germany",
+                image: "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=1200&h=800&fit=crop",
+                description1: "Start your German study adventure with Melford International! We guide you through Germany's excellent education system and help you access some of Europe's finest universities.",
+                description2: "Study in the heart of Europe with world-class education, cutting-edge research, and excellent career prospects!",
+                benefits: [
+                    "Tuition-Free Education", "World-Class Universities", "Strong Economy", "Research Excellence",
+                    "Stay-Back Options", "Central European Location", "Industrial Powerhouse", "English-Taught Programs"
+                ]
+            },
+            france: {
+                title: "Study in France",
+                image: "https://images.unsplash.com/photo-1502602898536-47ad22581b52?w=1200&h=800&fit=crop",
+                description1: "Embark on your French education journey with Melford International! We provide comprehensive support to help you access France's prestigious universities and rich academic tradition.",
+                description2: "Experience world-class education in the heart of Europe with unparalleled cultural richness and global opportunities!",
+                benefits: [
+                    "Prestigious Universities", "Affordable Education", "Rich Cultural Heritage", "Central European Location",
+                    "Work Opportunities", "Excellence in Research", "Diverse Academic Programs", "Gateway to Europe"
+                ]
+            },
+            netherlands: {
+                title: "Study in Netherlands",
+                image: "https://images.unsplash.com/photo-1534351590666-13e3e96b5017?w=1200&h=800&fit=crop",
+                description1: "Begin your Dutch education experience with Melford International! We help you navigate the pathway to the Netherlands' innovative universities and excellent quality of life.",
+                description2: "Study in one of Europe's most progressive countries with cutting-edge programs and endless opportunities!",
+                benefits: [
+                    "Innovative Education", "High Quality of Life", "English-Taught Programs", "Strong Economy",
+                    "International Environment", "Central European Location", "Research Excellence", "Post-Study Opportunities"
+                ]
+            }
+        };
+
+        function changeCountry(country) {
+            const data = countryData[country];
+            if (!data) return;
+
+            // Update title
+            document.querySelector('.country-title').textContent = data.title;
+            document.title = `Melford International - ${data.title}`;
+
+            // Update image
+            document.querySelector('.content-section').style.backgroundImage = 
+                `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)), url('${data.image}')`;
+
+            // Update descriptions
+            const descriptions = document.querySelectorAll('.description');
+            descriptions[0].textContent = data.description1;
+            descriptions[1].textContent = data.description2;
+
+            // Update benefits
+            const benefitItems = document.querySelectorAll('.benefit-item');
+            data.benefits.forEach((benefit, index) => {
+                if (benefitItems[index]) {
+                    benefitItems[index].querySelector('span:last-child') ? 
+                        benefitItems[index].querySelector('span:last-child').textContent = benefit :
+                        benefitItems[index].innerHTML = `<span class="check-icon">✓</span>${benefit}`;
+                }
+            });
+        }
+    </script>
+<div id="footer-placeholder"></div>
+
+<script src="../../js/loadpartials.js"></script>
+</body>
+</html>

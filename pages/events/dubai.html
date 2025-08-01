@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dubai Study & Work Expo - Melford International</title>
+    <meta name="description" content="Join our Dubai Study & Work Expo to explore education and career opportunities in the UAE. Connect with universities and employers in Dubai.">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Jost', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+
+        .main-content {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content-wrapper {
+            flex: 1;
+        }
+
+        .hero-section {
+            height: 400px;
+            background: linear-gradient(135deg, rgba(92, 62, 51, 0.9) 0%, rgba(210, 105, 30, 0.9) 100%), 
+                        url('../../assets/images/dubai1.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .event-details {
+            background: white;
+            margin: -50px auto 3rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+            z-index: 2;
+        }
+
+        .event-info {
+            padding: 3rem;
+        }
+
+        .event-meta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, #fff5f0 0%, #ffe8d6 100%);
+            border-radius: 15px;
+        }
+
+        .meta-item {
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .meta-icon {
+            width: 50px;
+            height: 50px;
+            background-color: #1e7fb8;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .meta-label {
+            font-weight: 600;
+            color: #1e7fb8;
+            margin-bottom: 0.5rem;
+        }
+
+        .meta-value {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .event-description {
+            margin-bottom: 2rem;
+        }
+
+        .event-description h2 {
+            color: #1e7fb8;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .event-description p {
+            margin-bottom: 1rem;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .highlights-list {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .highlights-list li {
+            padding: 0.5rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: #555;
+        }
+
+        .highlights-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #1e7fb8;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .registration-section {
+            background-color: #1e7fb8;
+            color: white;
+            padding: 3rem;
+            margin-top: 3rem;
+        }
+
+        .registration-section h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+
+        .registration-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: 'Jost', sans-serif;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #1e7fb8;
+        }
+
+        .required {
+            color: #1e7fb8;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #FF6B35 0%, #D2691E 100%);
+            color: white;
+            padding: 1rem 3rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 107, 53, 0.3);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: #D2691E;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border: 2px solid #D2691E;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            background: #D2691E;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .event-info {
+                padding: 2rem 1.5rem;
+            }
+
+            .event-meta-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                padding: 1.5rem;
+            }
+
+            .registration-section {
+                padding: 2rem 1rem;
+            }
+
+            .registration-form {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-section {
+                height: 300px;
+            }
+
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+
+            .container {
+                padding: 0 0.5rem;
+            }
+
+            .event-info {
+                padding: 1.5rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div id="topbar-placeholder"></div>
+<div id="navbar"></div>
+        <div class="hero-section">
+            <div class="hero-content">
+                <h1>Dubai Study & Work Expo</h1>
+                <p>Discover your future in the heart of the Middle East</p>
+            </div>
+        </div>
+
+        <main class="content-wrapper">
+            <div class="container">
+                <div class="event-details">
+                    <div class="event-info">
+                        <a href="events.html" class="back-link">← Back to Events</a>
+                        
+                        <div class="event-meta-grid">
+                            <div class="meta-item">
+                                <div class="meta-icon">📅</div>
+                                <div class="meta-label">Date</div>
+                                <div class="meta-value">August 24, 2025</div>
+                            </div>
+                            <div class="meta-item">
+                                <div class="meta-icon">⏰</div>
+                                <div class="meta-label">Time</div>
+                                <div class="meta-value">2:00 PM - 6:00 PM (EAT)</div>
+                            </div>
+                            <div class="meta-item">
+                                <div class="meta-icon">🏢</div>
+                                <div class="meta-label">Format</div>
+                                <div class="meta-value">Hybrid Event</div>
+                            </div>
+                            <div class="meta-item">
+                                <div class="meta-icon">💰</div>
+                                <div class="meta-label">Cost</div>
+                                <div class="meta-value">Free Registration</div>
+                            </div>
+                        </div>
+
+                        <div class="event-description">
+                            <h2>About This Expo</h2>
+                            <p>
+                                The Dubai Study & Work Expo is your comprehensive gateway to understanding the incredible opportunities available in the United Arab Emirates. Dubai has emerged as a global hub for education, business, and innovation, making it an ideal destination for international students and professionals.
+                            </p>
+                            <p>
+                                This expo brings together leading universities, colleges, and employers from Dubai and the broader UAE region. Whether you're looking to pursue higher education or explore career opportunities, this event will provide you with direct access to decision-makers and industry experts.
+                            </p>
+
+                            <h3 style="color: #1e7fb8; margin: 2rem 0 1rem 0;">What You'll Discover</h3>
+                            <ul class="highlights-list">
+                                <li>Top universities and educational institutions in Dubai and UAE</li>
+                                <li>Student visa requirements and residence permit processes</li>
+                                <li>Scholarship opportunities and government funding programs</li>
+                                <li>Work opportunities and career pathways in various industries</li>
+                                <li>Business setup and entrepreneurship opportunities</li>
+                                <li>Cost of living, accommodation, and lifestyle in Dubai</li>
+                                <li>Cultural integration and community support for internationals</li>
+                                <li>Networking opportunities with current students and professionals</li>
+                            </ul>
+
+                            <h3 style="color: #1e7fb8; margin: 2rem 0 1rem 0;">Featured Sectors</h3>
+                            <p>
+                                Dubai's economy is diverse and rapidly growing. This expo will cover opportunities in key sectors including:
+                            </p>
+                            <ul class="highlights-list">
+                                <li>Technology and Innovation</li>
+                                <li>Finance and Banking</li>
+                                <li>Healthcare and Medical Sciences</li>
+                                <li>Tourism and Hospitality</li>
+                                <li>Engineering and Construction</li>
+                                <li>Media and Creative Industries</li>
+                                <li>Renewable Energy and Sustainability</li>
+                                <li>Aviation and Logistics</li>
+                            </ul>
+
+                            <h3 style="color: #1e7fb8; margin: 2rem 0 1rem 0;">Who Should Attend</h3>
+                            <p>
+                                This expo is designed for students, recent graduates, and professionals who are interested in exploring opportunities in Dubai and the UAE. Whether you're considering undergraduate studies, postgraduate research, or career advancement, you'll find valuable information and connections at this event.
+                            </p>
+
+                            <h3 style="color: #1e7fb8; margin: 2rem 0 1rem 0;">Event Highlights</h3>
+                            <ul class="highlights-list">
+                                <li>Meet representatives from 15+ universities and institutions</li>
+                                <li>Connect with employers from leading UAE companies</li>
+                                <li>Attend expert panel discussions on living and working in Dubai</li>
+                                <li>Participate in one-on-one consultation sessions</li>
+                                <li>Access exclusive scholarship and job opportunity announcements</li>
+                                <li>Receive comprehensive information packages and guides</li>
+                                <li>Network with fellow students and professionals</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="registration-section">
+                        <h2>Register for the Dubai Expo</h2>
+                        <form class="registration-form" name="dubai-registration" method="POST" data-netlify="true" action="/thank-you.html">
+                            <input type="hidden" name="form-name" value="dubai-registration">
+                            <input type="hidden" name="event" value="Dubai Study & Work Expo">
+                            
+                            <div class="form-group">
+                                <label for="name">Full Name <span class="required">*</span></label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email Address <span class="required">*</span></label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="attendance">Attendance Preference <span class="required">*</span></label>
+                                <select id="attendance" name="attendance" required>
+                                    <option value="">Select attendance type</option>
+                                    <option value="In-Person">In-Person Attendance</option>
+                                    <option value="Virtual">Virtual Attendance</option>
+                                    <option value="Flexible">Flexible (Both Options)</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="interest-type">Primary Interest <span class="required">*</span></label>
+                                <select id="interest-type" name="interest-type" required>
+                                    <option value="">Select your primary interest</option>
+                                    <option value="Higher Education">Higher Education Opportunities</option>
+                                    <option value="Career Opportunities">Career & Work Opportunities</option>
+                                    <option value="Business Setup">Business & Entrepreneurship</option>
+                                    <option value="Both Education and Career">Both Education and Career</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="sector">Sector of Interest</label>
+                                <select id="sector" name="sector">
+                                    <option value="">Select sector of interest</option>
+                                    <option value="Technology & IT">Technology & IT</option>
+                                    <option value="Finance & Banking">Finance & Banking</option>
+                                    <option value="Healthcare">Healthcare & Medical Sciences</option>
+                                    <option value="Tourism & Hospitality">Tourism & Hospitality</option>
+                                    <option value="Engineering">Engineering & Construction</option>
+                                    <option value="Media & Creative">Media & Creative Industries</option>
+                                    <option value="Energy">Renewable Energy & Sustainability</option>
+                                    <option value="Aviation & Logistics">Aviation & Logistics</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="experience">Current Status</label>
+                                <select id="experience" name="experience">
+                                    <option value="">Select your current status</option>
+                                    <option value="Student">Current Student</option>
+                                    <option value="Recent Graduate">Recent Graduate</option>
+                                    <option value="Working Professional">Working Professional</option>
+                                    <option value="Career Changer">Looking to Change Career</option>
+                                    <option value="Entrepreneur">Aspiring Entrepreneur</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="questions">Questions or Specific Interests</label>
+                                <textarea id="questions" name="questions" rows="4" placeholder="What specific aspects of Dubai opportunities are you most interested in learning about?"></textarea>
+                            </div>
+
+                            <button type="submit" class="submit-btn">Register for Dubai Expo - Free!</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+<div id="footer-placeholder"></div>
+
+<script src="../../js/loadpartials.js"></script>    </div>
+</body>
+</html>

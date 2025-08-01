@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study in Australia Info Session - Melford International</title>
+    <meta name="description" content="Join our comprehensive Australia study abroad information session. Learn about universities, visa requirements, scholarships and career opportunities.">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Jost', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+
+        .main-content {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content-wrapper {
+            flex: 1;
+        }
+
+        .hero-section {
+            height: 400px;
+            background: linear-gradient(135deg, rgba(23, 32, 37, 0.9) 0%, rgba(101, 184, 226, 0.9) 100%), 
+                        url('../../assets/images/australia.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .event-details {
+            background: white;
+            margin: -50px auto 3rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+            z-index: 2;
+        }
+
+        .event-info {
+            padding: 3rem;
+        }
+
+        .event-meta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 15px;
+        }
+
+        .meta-item {
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .meta-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #1e7fb8 0%, #2a9fd8 100%);
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .meta-label {
+            font-weight: 600;
+            color: #1e7fb8;
+            margin-bottom: 0.5rem;
+        }
+
+        .meta-value {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .event-description {
+            margin-bottom: 2rem;
+        }
+
+        .event-description h2 {
+            color: #1e7fb8;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .event-description p {
+            margin-bottom: 1rem;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .highlights-list {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .highlights-list li {
+            padding: 0.5rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: #555;
+        }
+
+        .highlights-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #1e7fb8;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .registration-section {
+            background: linear-gradient(135deg, #1e7fb8 0%, #2a9fd8 100%);
+            color: white;
+            padding: 3rem;
+            margin-top: 3rem;
+        }
+
+        .registration-section h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+
+        .registration-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: 'Jost', sans-serif;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #1e7fb8;
+        }
+
+        .required {
+            color: #e74c3c;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #1e7fb8 0%, #2a9fd8 100%);
+            color: white;
+            padding: 1rem 3rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(30, 127, 184, 0.3);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: #1e7fb8;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border: 2px solid #1e7fb8;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            background: #1e7fb8;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .event-info {
+                padding: 2rem 1.5rem;
+            }
+
+            .event-meta-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                padding: 1.5rem;
+            }
+
+            .registration-section {
+                padding: 2rem 1rem;
+            }
+
+            .registration-form {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-section {
+                height: 300px;
+            }
+
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+
+            .container {
+                padding: 0 0.5rem;
+            }
+
+            .event-info {
+                padding: 1.5rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div id="topbar-placeholder"></div>
+<div id="navbar"></div>
+        <div class="hero-section">
+            <div class="hero-content">
+                <h1>Study in Australia Info Session</h1>
+                <p>Your gateway to world-class education and endless opportunities</p>
+            </div>
+        </div>
+
+        <main class="content-wrapper">
+            <div class="container">
+                <div class="event-details">
+                    <div class="event-info">
+                        <a href="events.html" class="back-link">← Back to Events</a>
+                        
+                        <div class="event-meta-grid">
+                            <div class="meta-item">
+                                <div class="meta-icon">📅</div>
+                                <div class="meta-label">Date</div>
+                                <div class="meta-value">August 10, 2025</div>
+                            </div>
+                            <div class="meta-item">
+                                <div class="meta-icon">⏰</div>
+                                <div class="meta-label">Time</div>
+                                <div class="meta-value">11:00 AM - 1:00 PM (EAT)</div>
+                            </div>
+                            <div class="meta-item">
+                                <div class="meta-icon">🌐</div>
+                                <div class="meta-label">Format</div>
+                                <div class="meta-value">Online via Zoom</div>
+                            </div>
+                            <div class="meta-item">
+                                <div class="meta-icon">💰</div>
+                                <div class="meta-label">Cost</div>
+                                <div class="meta-value">Free Registration</div>
+                            </div>
+                        </div>
+
+                        <div class="event-description">
+                            <h2>About This Event</h2>
+                            <p>
+                                Join us for an exclusive and comprehensive information session about studying in Australia. This event is designed for students who are considering Australia as their study destination and want to learn everything they need to know from industry experts.
+                            </p>
+                            <p>
+                                Australia is home to some of the world's top universities and offers exceptional opportunities for international students. From cutting-edge research facilities to vibrant campus life, Australia provides an ideal environment for academic and personal growth.
+                            </p>
+
+                            <h3 style="color: #1e7fb8; margin: 2rem 0 1rem 0;">What You'll Learn</h3>
+                            <ul class="highlights-list">
+                                <li>Top universities and colleges in Australia and their specializations</li>
+                                <li>Student visa requirements and application process</li>
+                                <li>Scholarship opportunities and financial aid options</li>
+                                <li>Post-study work opportunities and pathways to permanent residency</li>
+                                <li>Cost of living and budgeting for international students</li>
+                                <li>Campus life, accommodation options, and student support services</li>
+                                <li>Application deadlines and admission requirements</li>
+                                <li>IELTS/TOEFL requirements and preparation tips</li>
+                            </ul>
+
+                            <h3 style="color: #1e7fb8; margin: 2rem 0 1rem 0;">Who Should Attend</h3>
+                            <p>
+                                This session is perfect for high school graduates, undergraduate students looking to transfer, professionals seeking advanced degrees, and parents who want to learn about opportunities for their children. Whether you're interested in business, engineering, healthcare, arts, or any other field, this session will provide valuable insights.
+                            </p>
+
+                            <h3 style="color: #1e7fb8; margin: 2rem 0 1rem 0;">What's Included</h3>
+                            <ul class="highlights-list">
+                                <li>Live Q&A session with education counselors</li>
+                                <li>Downloadable guide to studying in Australia</li>
+                                <li>One-on-one consultation booking opportunity</li>
+                                <li>Access to exclusive scholarship information</li>
+                                <li>Networking opportunities with other prospective students</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="registration-section">
+                        <h2>Register for This Event</h2>
+                        <form class="registration-form" name="australia-registration" method="POST" data-netlify="true" action="/thank-you.html">
+                            <input type="hidden" name="form-name" value="australia-registration">
+                            <input type="hidden" name="event" value="Study in Australia Info Session">
+                            
+                            <div class="form-group">
+                                <label for="name">Full Name <span class="required">*</span></label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email Address <span class="required">*</span></label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="education">Current Education Level <span class="required">*</span></label>
+                                <select id="education" name="education" required>
+                                    <option value="">Select your education level</option>
+                                    <option value="High School Graduate">High School Graduate</option>
+                                    <option value="Undergraduate Student">Undergraduate Student</option>
+                                    <option value="Bachelor's Degree Holder">Bachelor's Degree Holder</option>
+                                    <option value="Master's Degree Holder">Master's Degree Holder</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="interest">Area of Study Interest</label>
+                                <select id="interest" name="interest">
+                                    <option value="">Select area of interest</option>
+                                    <option value="Business & Management">Business & Management</option>
+                                    <option value="Engineering & Technology">Engineering & Technology</option>
+                                    <option value="Health Sciences">Health Sciences</option>
+                                    <option value="Arts & Humanities">Arts & Humanities</option>
+                                    <option value="Sciences">Sciences</option>
+                                    <option value="Information Technology">Information Technology</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="questions">Questions or Special Requirements</label>
+                                <textarea id="questions" name="questions" rows="4" placeholder="Any specific questions you'd like us to address during the session?"></textarea>
+                            </div>
+
+                            <button type="submit" class="submit-btn">Register Now - It's Free!</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main> 
+</div>
+<div id="footer-placeholder"></div>
+
+<script src="../../js/loadpartials.js"></script>   
+</body>
+</html>
