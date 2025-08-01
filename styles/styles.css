@@ -11,6 +11,18 @@
   font-weight: 400;
   font-style:oblique;
 }
+@font-face {
+  font-family: 'Jost';
+  src: url('../fonts/Jost-Light.ttf') format('truetype');
+  font-weight: 400;
+  font-style:oblique;
+}
+@font-face {
+  font-family: 'Jost';
+  src: url('../fonts/Jost-Black.ttf') format('truetype');
+  font-weight: 400;
+  font-style:oblique;
+}
 * {
   margin: 0;
   padding: 0;
