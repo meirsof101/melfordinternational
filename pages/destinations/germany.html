@@ -4,174 +4,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Study in Germany - Melford International</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-        }
-
-        .main-content {
-            margin-top: 20px;
-        }
-
-        .content-section {
-            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=1200&h=800&fit=crop');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            color: white;
-            padding: 8rem 0;
-            text-align: center;
-            transition: all 0.5s ease;
-        }
-
-        .content-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .country-title {
-            font-size: 3.5rem;
-            font-weight: bold;
-            margin-bottom: 2rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
-            animation: fadeInUp 1s ease;
-        }
-
-        .description-section {
-            background: white;
-            padding: 6rem 0;
-        }
-
-        .description {
-            font-size: 1.2rem;
-            line-height: 1.8;
-            margin: 2rem 0;
-            color: #555;
-            text-align: center;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .benefits-section {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            color: white;
-            padding: 6rem 0;
-        }
-
-        .benefits-title {
-            font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 3rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .benefit-item {
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
-            padding: 2rem;
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            transition: all 0.3s ease;
-            font-size: 1.1rem;
-        }
-
-        .benefit-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-        }
-
-        .check-icon {
-            background: #4CAF50;
-            color: white;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            flex-shrink: 0;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .country-title {
-                font-size: 2.5rem;
-            }
-
-            .benefits-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .benefit-item {
-                padding: 1.5rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="../../styles/styles.css">
 </head>
 <body>
+<div id="topbar-placeholder"></div>
+<div id="navbar"></div>
+<div class="content-wrapper">
 
-<main class="main-content">
-    <section class="content-section">
-        <div class="content-container">
-            <h1 class="country-title">Study in Germany</h1>
-        </div>
-    </section>
+    <div class="main-container">
+        <!-- Image at the top -->
+        <div class="image-section germany"></div>
+        
+        <!-- Content below image - side by side -->
+        <div class="bottom-content">
+            <!-- Text Content -->
+            <div class="text-content">
+                <h1 class="country-title">Study in Germany</h1>
+                <p class="description">
+                    Start your German study adventure with Melford International! We guide you through Germany's excellent education system and help you access some of Europe's finest universities.
+                </p>
+                <p class="description">
+                    Study in the heart of Europe with world-class education, cutting-edge research, and excellent career prospects!
+                </p>
+            </div>
 
-    <section class="description-section">
-        <div class="content-container">
-            <p class="description">Start your German study adventure with Melford International! We guide you through Germany's excellent education system and help you access some of Europe's finest universities.</p>
-            <p class="description">Study in the heart of Europe with world-class education, cutting-edge research, and excellent career prospects!</p>
-        </div>
-    </section>
-
-    <section class="benefits-section">
-        <div class="content-container">
-            <h2 class="benefits-title">Why Choose This Destination?</h2>
-            <div class="benefits-grid">
-                <div class="benefit-item"><span class="check-icon">✓</span>Tuition-Free Education</div>
-                <div class="benefit-item"><span class="check-icon">✓</span>World-Class Universities</div>
-                <div class="benefit-item"><span class="check-icon">✓</span>Strong Economy</div>
-                <div class="benefit-item"><span class="check-icon">✓</span>Research Excellence</div>
-                <div class="benefit-item"><span class="check-icon">✓</span>Stay-Back Options</div>
-                <div class="benefit-item"><span class="check-icon">✓</span>Central European Location</div>
-                <div class="benefit-item"><span class="check-icon">✓</span>Industrial Powerhouse</div>
-                <div class="benefit-item"><span class="check-icon">✓</span>English-Taught Programs</div>
+            <!-- Benefits -->
+            <div class="benefits-section">
+                <h2 class="why-title">Why Germany?</h2>
+                <ul class="benefits-list">
+                    <li class="benefit-item">
+                        <span class="check-icon">✓</span>
+                        Tuition-Free Education
+                    </li>
+                    <li class="benefit-item">
+                        <span class="check-icon">✓</span>
+                        World-Class Universities
+                    </li>
+                    <li class="benefit-item">
+                        <span class="check-icon">✓</span>
+                        Strong Economy
+                    </li>
+                    <li class="benefit-item">
+                        <span class="check-icon">✓</span>
+                        Research Excellence
+                    </li>
+                    <li class="benefit-item">
+                        <span class="check-icon">✓</span>
+                        Stay-Back Options
+                    </li>
+                    <li class="benefit-item">
+                        <span class="check-icon">✓</span>
+                        Central European Location
+                    </li>
+                    <li class="benefit-item">
+                        <span class="check-icon">✓</span>
+                        Industrial Powerhouse
+                    </li>
+                    <li class="benefit-item">
+                        <span class="check-icon">✓</span>
+                        English-Taught Programs
+                    </li>
+                </ul>
             </div>
         </div>
-    </section>
-</main>
 
-</body>
+        <!-- Centered Button Section -->
+        <div class="button-section">
+            <button type="button" class="submit-btn">Make an Enquiry</button>
+        </div>
+    </div>
+</div>
+
+<div id="footer-placeholder"></div>
+
+<script src="../../js/loadpartials.js"></script> </body>
 </html>

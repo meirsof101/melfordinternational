@@ -4,437 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Study in United Kingdom - Melford International</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-        }
-
-        /* Navbar Styles */
-        .navbar {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 1rem 0;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .navbar-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .brand {
-            text-decoration: none;
-            color: white;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .brand-text h1 {
-            font-size: 1.5rem;
-            font-weight: bold;
-            line-height: 1.2;
-        }
-
-        .brand-text h1 span {
-            color: #ffd700;
-        }
-
-        .brand-text p {
-            font-size: 0.8rem;
-            opacity: 0.9;
-            margin-top: -5px;
-        }
-
-        .nav-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        .nav-menu {
-            display: flex;
-        }
-
-        .nav-list {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .nav-link {
-            color: white;
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .nav-link:hover, .nav-link.active {
-            background: rgba(255,255,255,0.2);
-            transform: translateY(-2px);
-        }
-
-        .dropdown {
-            position: relative;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: white;
-            min-width: 250px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
-            border-radius: 10px;
-            padding: 1rem 0;
-            z-index: 1001;
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        .dropdown-content a {
-            color: #333;
-            padding: 0.8rem 1.5rem;
-            text-decoration: none;
-            display: block;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .dropdown-content a:hover {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-        }
-
-        .book-btn {
-            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
-            padding: 0.8rem 2rem !important;
-            border-radius: 25px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-        }
-
-        .book-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255,107,107,0.4);
-        }
-
-        .mobile-menu {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            background: rgba(0,0,0,0.9);
-            z-index: 999;
-        }
-
-        .mobile-menu.active {
-            display: flex;
-        }
-
-        .mobile-menu-content {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            width: 80%;
-            height: 100%;
-            padding: 2rem;
-            margin-left: auto;
-        }
-
-        .mobile-list {
-            list-style: none;
-            padding-top: 4rem;
-        }
-
-        .mobile-list li {
-            margin: 1rem 0;
-        }
-
-        .mobile-list a {
-            color: white;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1rem;
-            border-radius: 10px;
-            transition: all 0.3s ease;
-        }
-
-        .mobile-list a:hover {
-            background: rgba(255,255,255,0.2);
-        }
-
-        /* Content Styles */
-        .main-content {
-            margin-top: 100px;
-            min-height: calc(100vh - 100px);
-        }
-
-        .content-section {
-            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=1200&h=800&fit=crop');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            color: white;
-            padding: 8rem 0;
-            text-align: center;
-            transition: all 0.5s ease;
-        }
-
-        .content-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .country-title {
-            font-size: 3.5rem;
-            font-weight: bold;
-            margin-bottom: 2rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
-            animation: fadeInUp 1s ease;
-        }
-
-        .description-section {
-            background: white;
-            padding: 6rem 0;
-        }
-
-        .description {
-            font-size: 1.2rem;
-            line-height: 1.8;
-            margin: 2rem 0;
-            color: #555;
-            text-align: center;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .benefits-section {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            color: white;
-            padding: 6rem 0;
-        }
-
-        .benefits-title {
-            font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 3rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .benefit-item {
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
-            padding: 2rem;
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            transition: all 0.3s ease;
-            font-size: 1.1rem;
-        }
-
-        .benefit-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-        }
-
-        .check-icon {
-            background: #4CAF50;
-            color: white;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            flex-shrink: 0;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-toggle {
-                display: block;
-            }
-
-            .nav-menu {
-                display: none;
-            }
-
-            .country-title {
-                font-size: 2.5rem;
-            }
-
-            .benefits-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .navbar-container {
-                padding: 0 1rem;
-            }
-
-            .brand-text h1 {
-                font-size: 1.2rem;
-            }
-
-            .benefit-item {
-                padding: 1.5rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="../../styles/styles.css">
 </head>
 <body>
-<nav class="navbar">
-  <div class="navbar-container">
-       <a href="/index.html" class="brand">
-        <div class="brand-text">
-          <h1>MELF<span>ORD</span><br>INTERNATIONAL</h1>
-          <P>-Discovers Education-</P>
-        </div>
-      </a>
-    <button id="navToggle" class="nav-toggle" aria-label="Toggle navigation menu">
-      <i class="fas fa-bars"></i>
-    </button>
+<div id="topbar-placeholder"></div>
+<div id="navbar"></div>
+<div class="content-wrapper">
+   <div class="main-container">
+        <!-- Image at the top -->
+        <div class="image-section uk"></div>
+        
+        <!-- Content below image - side by side -->
+        <div class="bottom-content">
+            <!-- Text Content -->
+            <div class="text-content">
+                <h1 class="country-title">Study in United Kingdom</h1>
+                <p class="description">
+                    Embark on your UK education journey with Melford International! We offer comprehensive support to help you access world-renowned universities and navigate the application process seamlessly.
+                </p>
+                <p class="description">
+                    Experience the rich academic heritage of the UK with globally recognized qualifications that open doors worldwide!
+                </p>
+            </div>
 
-    <div id="navMenu" class="nav-menu">
-      <ul class="nav-list">
-        <li><a href="/index.html" class="nav-link">Home</a></li>
-        <li><a href="/pages/about.html" class="nav-link">About Us</a></li>
->
-</nav>
-
-<main class="main-content">
-    <section class="content-section">
-        <div class="content-container">
-            <h1 class="country-title">Study in United Kingdom</h1>
-        </div>
-    </section>
-
-    <section class="description-section">
-        <div class="content-container">
-            <p class="description">Embark on your UK education journey with Melford International! We offer comprehensive support to help you access world-renowned universities and navigate the application process seamlessly.</p>
-            <p class="description">Experience the rich academic heritage of the UK with globally recognized qualifications that open doors worldwide!</p>
-        </div>
-    </section>
-
-    <section class="benefits-section">
-        <div class="content-container">
-            <h2 class="benefits-title">Why Choose This Destination?</h2>
-            <div class="benefits-grid">
-                <div class="benefit-item"><span class="check-icon">✓</span>World-Class Universities</div>
-                <div class="benefit-item"><span class="check-icon">✓</span>Globally Recognized Degrees</div>
-                <div class="benefit-item"><span class="check-icon">✓</span>Rich Cultural Heritage</div>
-                <div class="benefit-item"><span class="check-icon">✓</span>Research Excellence</div>
-                <div class="benefit-item"><span class="check-icon">✓</span>Graduate Immigration Route</div>
-                <div class="benefit-item"><span class="check-icon">✓</span>Diverse Academic Programs</div>
-                <div class="benefit-item"><span class="check-icon">✓</span>English Language Advantage</div>
-                <div class="benefit-item"><span class="check-icon">✓</span>Gateway to Europe</div>
+            <!-- Benefits -->
+            <div class="benefits-section">
+                <h2 class="why-title">Why United Kingdom?</h2>
+                <ul class="benefits-list">
+                    <li class="benefit-item">
+                        <span class="check-icon">✓</span>
+                        World-Class Universities
+                    </li>
+                    <li class="benefit-item">
+                        <span class="check-icon">✓</span>
+                        Globally Recognized Degrees
+                    </li>
+                    <li class="benefit-item">
+                        <span class="check-icon">✓</span>
+                        Rich Cultural Heritage
+                    </li>
+                    <li class="benefit-item">
+                        <span class="check-icon">✓</span>
+                        Research Excellence
+                    </li>
+                    <li class="benefit-item">
+                        <span class="check-icon">✓</span>
+                        Graduate Immigration Route
+                    </li>
+                    <li class="benefit-item">
+                        <span class="check-icon">✓</span>
+                        Diverse Academic Programs
+                    </li>
+                </ul>
             </div>
         </div>
-    </section>
-</main>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const navToggle = document.getElementById('navToggle');
-  const mobileMenu = document.getElementById('mobileMenu');
-  const navLinks = document.querySelectorAll('.mobile-list a');
+        <!-- Centered Button Section -->
+        <div class="button-section">
+            <button type="button" class="submit-btn">Make an Enquiry</button>
+        </div>
+    </div>
+</div>
+<div id="footer-placeholder"></div>
 
-  // Toggle mobile menu
-  navToggle.addEventListener('click', function() {
-    navToggle.classList.toggle('active');
-    mobileMenu.classList.toggle('active');
-    document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
-  });
-
-  // Close mobile menu when clicking on a link
-  navLinks.forEach(link => {
-    link.addEventListener('click', function() {
-      navToggle.classList.remove('active');
-      mobileMenu.classList.remove('active');
-      document.body.style.overflow = '';
-    });
-  });
-
-  // Close mobile menu when clicking outside
-  mobileMenu.addEventListener('click', function(e) {
-    if (e.target === mobileMenu) {
-      navToggle.classList.remove('active');
-      mobileMenu.classList.remove('active');
-      document.body.style.overflow = '';
-    }
-  });
-
-  // Handle escape key
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
-      navToggle.classList.remove('active');
-      mobileMenu.classList.remove('active');
-      document.body.style.overflow = '';
-    }
-  });
-
-  // Highlight active page
-  const currentPage = window.location.pathname;
-  const allNavLinks = document.querySelectorAll('.nav-link, .mobile-list a');
-  
-  allNavLinks.forEach(link => {
-    if (link.getAttribute('href') === currentPage || 
-        (currentPage === '/' && link.getAttribute('href') === '/index.html')) {
-      link.classList.add('active');
-    }
-  });
-});
-</script>
-</body>
+<script src="../../js/loadpartials.js"></script> </body>
 </html>
