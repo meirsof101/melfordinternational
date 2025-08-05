@@ -8,44 +8,50 @@
     <link rel="stylesheet" href="../../styles/service-detail.css">
 </head>
 <body>
-    <div class="service-detail-container">
-        <div class="service-detail-icon">🗣️</div>
-        
-        <h1 class="service-detail-title">German Language Classes</h1>
-        
-        <p class="service-detail-tagline">Master German from A1 to B2 with flexible learning</p>
-        
-        <div class="service-detail-description">
-            <p>Unlock opportunities in German-speaking countries with our structured German language courses. Whether you're starting from scratch or looking to improve your existing skills, our flexible programs cater to all proficiency levels from beginner A1 to intermediate B2.</p>
+    <!-- Hero Image Section -->
+    <section class="service-hero">
+        <div class="service-hero-content">
+            <h1>German Language Classes</h1>
+            <p>Master German from A1 to B2 with flexible learning</p>
         </div>
-        
-        <div class="service-detail-features">
-            <div class="service-detail-feature-item">
-                <span class="service-detail-feature-icon">📚</span>
-                <h3 class="service-detail-feature-title">Structured Curriculum</h3>
-                <p class="service-detail-feature-desc">Comprehensive courses following European Framework standards A1-B2</p>
-            </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="service-content">
+        <!-- Service Description -->
+        <div class="service-description">
+            <h2>Professional German Language Training</h2>
             
-            <div class="service-detail-feature-item">
-                <span class="service-detail-feature-icon">⏰</span>
-                <h3 class="service-detail-feature-title">Flexible Schedules</h3>
-                <p class="service-detail-feature-desc">Evening and weekend classes to fit your busy lifestyle</p>
-            </div>
+            <p>Unlock opportunities in German-speaking countries with our structured German language courses. Whether you're starting from scratch or looking to improve your existing skills, our flexible programs cater to all proficiency levels from beginner A1 to intermediate B2. Our comprehensive curriculum follows European Framework standards with progressive skill development.</p>
             
-            <div class="service-detail-feature-item">
-                <span class="service-detail-feature-icon">👥</span>
-                <h3 class="service-detail-feature-title">Small Class Sizes</h3>
-                <p class="service-detail-feature-desc">Personalized attention with interactive group learning experiences</p>
-            </div>
+            <p>We offer flexible scheduling with evening and weekend classes designed to fit your busy professional lifestyle and personal commitments. Small class sizes ensure personalized attention with interactive group learning experiences for optimal progress and engagement. Our experienced instructors use modern teaching methods combined with traditional language learning techniques.</p>
             
-            <div class="service-detail-feature-item">
-                <span class="service-detail-feature-icon">🎓</span>
-                <h3 class="service-detail-feature-title">Certification Prep</h3>
-                <p class="service-detail-feature-desc">Preparation for official German language certification exams</p>
-            </div>
+            <p>You'll develop practical communication skills through real-world scenarios, cultural immersion, and interactive exercises that prepare you for success in German-speaking environments. We also provide comprehensive preparation for official German language certification exams and professional assessments to help you achieve your career and academic goals.</p>
         </div>
-        
-        <a href="../services.html" class="service-detail-back-button">← Back to Services</a>
+
+        <!-- Action Buttons -->
+        <div class="service-actions">
+            <a href="../services.html" class="service-back-button">← Back to Services</a>
+            <a href="#" class="enquiry-button" onclick="openEnquiry()">
+                📞 Make Enquiry
+            </a>
+        </div>
     </div>
+
+    <script>
+        function openEnquiry() {
+            // You can customize this action - could open a modal, redirect to contact page, or open email
+            // Example options:
+            
+            // Option 1: Redirect to contact page
+            // window.location.href = '../contact.html';
+            
+            // Option 2: Open email client
+            // window.location.href = 'mailto:info@melford.com?subject=Enquiry about German Language Classes&body=Hello, I would like to enquire about your German language classes. Please provide more information about course schedules, fees, and enrollment process.';
+            
+            // Option 3: Open WhatsApp (replace with your number)
+            window.open('https://wa.me/1234567890?text=Hello, I would like to enquire about German language classes', '_blank');
+        }
+    </script>
 </body>
 </html>

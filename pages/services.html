@@ -4,12 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Services - Melford International Group</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../styles/styles.css">
     <style>
-        /* Services Page Specific Styles */
+        /* Clean, modern services page */
         .services-page-hero {
-            background-color: #1e7fb8;
+            background: linear-gradient(145deg, #1e7fb8, #0d5f94);
             min-height: 100vh;
             padding: 30px 0 60px;
             color: white;
@@ -18,13 +16,6 @@
         .services-page-hero .hero-content {
             text-align: center;
             margin-bottom: 60px;
-        }
-
-        .services-page-hero .hero-subtitle {
-            font-size: 16px;
-            font-weight: 400;
-            margin-bottom: 10px;
-            opacity: 0.9;
         }
 
         .services-page-hero .hero-title {
@@ -41,70 +32,92 @@
         .services-page-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
+            gap: 24px;
             max-width: 1400px;
             margin: 0 auto;
-            padding: 0 20px;
         }
 
         .services-page-card {
-            background: #07679e;
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            border-radius: 20px;
-            padding: 30px 30px;
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 32px 18px;
             text-align: left;
             transition: all 0.3s ease;
             position: relative;
-            overflow: hidden;
-        }
-        .service-header {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        .service-header .service-title {
-            margin-bottom: 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .services-page-card:hover {
-            transform: translateY(-5px);
-            border-color: #FFD700;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
         }
 
         .services-page-card .service-icon {
-            width: 70px;
-            height: 70px;
-            border-radius: 15px;
+            width: 56px;
+            height: 56px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #1e7fb8, #2196F3);
             display: flex;
             align-items: center;
             justify-content: center;
-             font-size: 50px;
-            color: #1e3c72;
+            font-size: 24px;
+            color: white;
+            flex-shrink: 0;
         }
 
         .services-page-card .service-title {
-            font-size: 1.5rem;
+            font-size: 1.35rem;
             font-weight: 600;
-            color: white;
-            margin-bottom: 15px;
+            color: #1a1a1a;
+            margin-bottom: 0;
             line-height: 1.3;
         }
 
         .services-page-card .service-desc {
-            font-size: 1rem;
-            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.95rem;
+            color: #666;
             line-height: 1.6;
+            font-weight: 400;
+        }
+
+        /* Modern minimalist icons */
+        .icon-counseling {
+            background: linear-gradient(135deg, #4CAF50, #2E7D32) !important;
+        }
+        
+        .icon-english {
+            background: linear-gradient(135deg, #FF9800, #F57C00) !important;
+        }
+        
+        .icon-university {
+            background: linear-gradient(135deg, #9C27B0, #7B1FA2) !important;
+        }
+        
+        .icon-visa {
+            background: linear-gradient(135deg, #F44336, #D32F2F) !important;
+        }
+        
+        .icon-travel {
+            background: linear-gradient(135deg, #00BCD4, #0097A7) !important;
+        }
+        
+        .icon-german {
+            background: linear-gradient(135deg, #607D8B, #455A64) !important;
         }
 
         /* Responsive Design */
         @media (max-width: 1024px) {
             .services-page-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 25px;
+                gap: 20px;
             }
         }
 
@@ -119,15 +132,15 @@
 
             .services-page-grid {
                 grid-template-columns: 1fr;
-                gap: 20px;
+                gap: 16px;
             }
 
             .services-page-card {
-                padding: 30px 25px;
+                padding: 24px 20px;
             }
 
             .services-page-card .service-title {
-                font-size: 1.3rem;
+                font-size: 1.25rem;
             }
         }
 
@@ -136,33 +149,29 @@
                 font-size: 2rem;
             }
 
-            .services-page-card {
-                padding: 25px 20px;
-            }
-
             .services-page-card .service-icon {
-                width: 60px;
-                height: 60px;
-                font-size: 28px;
+                width: 48px;
+                height: 48px;
+                font-size: 20px;
             }
         }
 
-        /* Animation styles */
+        /* Simple animations */
         .services-page-card {
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(20px);
         }
 
         .services-page-card.animate {
             opacity: 1;
             transform: translateY(0);
-            transition: all 0.6s ease;
+            transition: all 0.5s ease;
         }
     </style>
 </head>
 <body>
 <div id="topbar-placeholder"></div>
-  <div id="navbar"></div>
+<div id="navbar"></div>
 
     <!-- Services Hero Section with Cards -->
     <section class="services-page-hero">
@@ -174,7 +183,11 @@
             <div class="services-page-grid">
                 <div class="services-page-card">
                     <div class="service-header">
-                        <div class="service-icon">💬</div>
+                        <div class="service-icon icon-counseling">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                            </svg>
+                        </div>
                         <h3 class="service-title">Education & Career Counselling</h3>
                     </div>
                     <p class="service-desc">Explore top study destinations, compare costs and offerings, and receive personalized university recommendations tailored to your goals.</p>
@@ -182,7 +195,11 @@
 
                 <div class="services-page-card">
                     <div class="service-header">
-                        <div class="service-icon">📝</div>
+                        <div class="service-icon icon-english">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                            </svg>
+                        </div>
                         <h3 class="service-title">English Proficiency Training (IELTS & PTE)</h3>
                     </div>
                     <p class="service-desc">Intensive preparation for all exam components, plus full exam registration support, mock testing, and expert feedback for top scores.</p>
@@ -190,7 +207,11 @@
 
                 <div class="services-page-card">
                     <div class="service-header">
-                        <div class="service-icon">🎓</div>
+                        <div class="service-icon icon-university">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/>
+                            </svg>
+                        </div>
                         <h3 class="service-title">University/College Placement</h3>
                     </div>
                     <p class="service-desc">End-to-end support: from crafting applications and personal statements to deadline tracking, submission, and placement in the best-fit programs.</p>
@@ -198,7 +219,11 @@
 
                 <div class="services-page-card">
                     <div class="service-header">
-                        <div class="service-icon">📋</div>
+                        <div class="service-icon icon-visa">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 2 2h10c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+                            </svg>
+                        </div>
                         <h3 class="service-title">Migration & Visa Processing</h3>
                     </div>
                     <p class="service-desc">Full assistance with documentation, lodging visa applications, embassy interview prep, and both pre- and post-departure guidance for a smooth transition abroad.</p>
@@ -206,7 +231,11 @@
 
                 <div class="services-page-card">
                     <div class="service-header">
-                        <div class="service-icon">✈️</div>
+                        <div class="service-icon icon-travel">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M22 16v-2l-8.5-5V3.5c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5V9L2 14v2l8.5-2.5V19L8 20.5V22l4-1 4 1v-1.5L13.5 19v-5.5L22 16z"/>
+                            </svg>
+                        </div>
                         <h3 class="service-title">Pre and Post-departure Services</h3>
                     </div>
                     <p class="service-desc">We provide full support in terms of airport pickups, accommodation arrangements, and on-ground support to ensure a smooth and comfortable transition to your new academic life abroad.</p>
@@ -214,7 +243,11 @@
 
                 <div class="services-page-card">
                     <div class="service-header">
-                        <div class="service-icon">🗣️</div>
+                        <div class="service-icon icon-german">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12.65 15.67c.14-.36.05-.77-.23-1.05l-2.09-2.09.03-.03c1.74-1.94 2.98-4.17 3.71-6.53h1.94v-1.5h-6.5V3h-1.5v1.5H2v1.5h10.15c-.65 1.91-1.71 3.74-3.15 5.34-.96-1.05-1.77-2.18-2.41-3.38h-1.5c.75 1.42 1.6 2.78 2.54 4.03l-4.04 4.04 1.06 1.06L9.5 12l2.15 2.15c.14-.07.29-.12.45-.12.16 0 .31.05.45.12l2.09 2.09c.28.28.69.37 1.05.23.36-.14.59-.49.59-.88 0-.39-.23-.74-.59-.88z"/>
+                            </svg>
+                        </div>
                         <h3 class="service-title">German Language Classes (A1 – B2)</h3>
                     </div>
                     <p class="service-desc">We offer structured German courses from beginner A1 to B2 levels. Whether you are starting from scratch or looking to improve your skills with flexible schedules.</p>
@@ -223,35 +256,31 @@
         </div>
     </section>
 
+    <section class="melford-enquiry-section">
+        <div class="melford-enquiry-content">
+            <div class="melford-enquiry-card">
+                <h2 class="melford-enquiry-title">Ready to Start?</h2>
+                <p class="melford-enquiry-subtitle">
+                    Take the first step towards your international education journey. Let us guide you every step of the way.
+                </p>
+                <a href="/pages/enquire.html" class="melford-enquiry-btn">
+                    Make an Enquiry
+                </a>
+            </div>
+        </div>
+    </section>
+
     <div id="footer-placeholder"></div>
 
     <script>
-        // Smooth page load
+        // Simple page load animation
         document.addEventListener('DOMContentLoaded', () => {
-            document.body.style.opacity = '0';
-            document.body.style.transition = 'opacity 0.5s ease';
-            
-            setTimeout(() => {
-                document.body.style.opacity = '1';
-            }, 100);
-
             // Animate service cards on load
             const cards = document.querySelectorAll('.services-page-card');
             cards.forEach((card, index) => {
                 setTimeout(() => {
                     card.classList.add('animate');
                 }, index * 100);
-            });
-        });
-
-        // Enhanced hover effects
-        document.querySelectorAll('.services-page-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-5px) scale(1.02)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
             });
         });
     </script>

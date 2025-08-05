@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Destinations - Melford International</title>
+  <link rel="stylesheet" href="/styles/styles.css">
+</head>
+<style>
+    .destination-container {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.destination-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.destination-card {
+  border-radius: 8px;
+  padding: 30px;
+  text-decoration: none;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+  overflow: hidden;
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.destination-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.3);
+  transition: background 0.3s;
+}
+
+.destination-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.destination-card:hover::before {
+  background: rgba(0,0,0,0.1);
+}
+
+.destination-card h2 {
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* United Kingdom Flag */
+.uk-flag {
+  background: linear-gradient(45deg, 
+    #012169 0%, #012169 25%, 
+    #fff 25%, #fff 35%, 
+    #C8102E 35%, #C8102E 40%, 
+    #fff 40%, #fff 60%, 
+    #C8102E 60%, #C8102E 65%, 
+    #fff 65%, #fff 75%, 
+    #012169 75%, #012169 100%);
+  background-size: 60px 40px;
+}
+
+/* Canada Flag */
+.canada-flag {
+  background: linear-gradient(to right, #FF0000 0%, #FF0000 25%, #FFFFFF 25%, #FFFFFF 75%, #FF0000 75%, #FF0000 100%);
+  position: relative;
+}
+
+.canada-flag::after {
+  content: '🍁';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+  color: #FF0000;
+  z-index: 1;
+}
+
+/* Australia Flag */
+.australia-flag {
+  background: linear-gradient(135deg, #012169 0%, #012169 50%, #FFFFFF 50%, #FFFFFF 55%, #C8102E 55%, #C8102E 100%);
+}
+
+/* Germany Flag */
+.germany-flag {
+  background: linear-gradient(to bottom, #000000 0%, #000000 33.33%, #DD0000 33.33%, #DD0000 66.66%, #FFCE00 66.66%, #FFCE00 100%);
+}
+
+/* Ireland Flag */
+.ireland-flag {
+  background: linear-gradient(to right, #169B62 0%, #169B62 33.33%, #FFFFFF 33.33%, #FFFFFF 66.66%, #FF883E 66.66%, #FF883E 100%);
+}
+
+/* Netherlands Flag */
+.netherlands-flag {
+  background: linear-gradient(to bottom, #AE1C28 0%, #AE1C28 33.33%, #FFFFFF 33.33%, #FFFFFF 66.66%, #21468B 66.66%, #21468B 100%);
+}
+
+/* New Zealand Flag */
+.newzealand-flag {
+  background: linear-gradient(135deg, #012169 0%, #012169 50%, #FFFFFF 50%, #FFFFFF 55%, #C8102E 55%, #C8102E 100%);
+}
+
+/* Dubai/UAE Flag */
+.dubai-flag {
+  background: linear-gradient(to bottom, #00732F 0%, #00732F 33.33%, #FFFFFF 33.33%, #FFFFFF 66.66%, #000000 66.66%, #000000 100%);
+  position: relative;
+}
+
+.dubai-flag::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 25%;
+  background: #CE1126;
+}
+</style>
+<body>
+
+  <!-- Topbar Placeholder -->
+  <div id="topbar-placeholder"></div>
+
+  <!-- Navbar Placeholder -->
+  <div id="navbar"></div>
+
+  <main class="destination-container">
+    <h1>Explore Our Study Destinations</h1>
+    <div class="destination-grid">
+
+      <a href="pages/destinations/uk.html" class="destination-card uk-flag">
+        <h2>United Kingdom</h2>
+      </a>
+
+      <a href="pages/destinations/canada.html" class="destination-card canada-flag">
+        <h2>Canada</h2>
+      </a>
+
+      <a href="pages/destinations/australia.html" class="destination-card australia-flag">
+        <h2>Australia</h2>
+      </a>
+
+      <a href="pages/destinations/germany.html" class="destination-card germany-flag">
+        <h2>Germany</h2>
+      </a>
+
+      <a href="pages/destinations/ireland.html" class="destination-card ireland-flag">
+        <h2>Ireland</h2>
+      </a>
+
+      <a href="pages/destinations/netherlands.html" class="destination-card netherlands-flag">
+        <h2>Netherlands</h2>
+      </a>
+
+      <a href="pages/destinations/newzealand.html" class="destination-card newzealand-flag">
+        <h2>New Zealand</h2>
+      </a>
+
+      <a href="pages/destinations/dubai.html" class="destination-card dubai-flag">
+        <h2>Dubai</h2>
+      </a>
+
+    </div>
+    
+  </main>
+<section class="melford-enquiry-section">
+  <div class="melford-enquiry-content">
+    <div class="melford-enquiry-card">
+      <h2 class="melford-enquiry-title">Ready to Start?</h2>
+      <p class="melford-enquiry-subtitle">
+        Take the first step towards your international education journey. Let us guide you every step of the way.
+      </p>
+
+      <a href="/pages/enquire.html" class="melford-enquiry-btn">
+        Make an Enquiry
+      </a>
+    </div>
+  </div>
+</section>
+  <!-- Footer Placeholder -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Optionally, insert JS to load partials -->
+  <script src="../js/loadpartials.js"></script>
+</body>
+</html>

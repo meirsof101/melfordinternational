@@ -8,44 +8,45 @@
     <link rel="stylesheet" href="../../styles/service-detail.css">
 </head>
 <body>
-    <div class="service-detail-container">
-        <div class="service-detail-icon">✈️</div>
-        
-        <h1 class="service-detail-title">Pre & Post-departure Services</h1>
-        
-        <p class="service-detail-tagline">Seamless transition to your new academic life abroad</p>
-        
-        <div class="service-detail-description">
+    <!-- Hero Image Section -->
+    <section class="service-hero">
+        <div class="service-hero-content">
+            <h1>Pre & Post-departure Services</h1>
+            <p>Seamless transition to your new academic life abroad</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="service-content">
+        <!-- Service Description -->
+        <div class="service-description">
+            <h2>Comprehensive Support Throughout Your Journey</h2>
+            
             <p>Experience a smooth and comfortable transition to your new academic life with our comprehensive pre and post-departure services. We ensure you're well-prepared before you leave and fully supported when you arrive at your destination.</p>
+            
+            <p>Our dedicated team provides end-to-end assistance from the moment you receive your acceptance letter until you're fully settled in your new environment. We understand that moving to a new country can be overwhelming, which is why we've designed our services to eliminate stress and ensure your success from day one.</p>
         </div>
-        
-        <div class="service-detail-features">
-            <div class="service-detail-feature-item">
-                <span class="service-detail-feature-icon">🛬</span>
-                <h3 class="service-detail-feature-title">Airport Pickup</h3>
-                <p class="service-detail-feature-desc">Safe and reliable transportation from airport to your accommodation</p>
-            </div>
-            
-            <div class="service-detail-feature-item">
-                <span class="service-detail-feature-icon">🏠</span>
-                <h3 class="service-detail-feature-title">Accommodation</h3>
-                <p class="service-detail-feature-desc">Assistance with finding and arranging suitable housing options</p>
-            </div>
-            
-            <div class="service-detail-feature-item">
-                <span class="service-detail-feature-icon">🤝</span>
-                <h3 class="service-detail-feature-title">On-ground Support</h3>
-                <p class="service-detail-feature-desc">Local assistance with essential services and university enrollment</p>
-            </div>
-            
-            <div class="service-detail-feature-item">
-                <span class="service-detail-feature-icon">📞</span>
-                <h3 class="service-detail-feature-title">24/7 Assistance</h3>
-                <p class="service-detail-feature-desc">Round-the-clock support for any queries or emergencies</p>
-            </div>
+
+        <!-- Action Buttons -->
+        <div class="service-actions">
+            <a href="../services.html" class="service-back-button">← Back to Services</a>
+            <a href="#" class="enquiry-button" onclick="openEnquiry()">
+                📞 Make Enquiry
+            </a>
         </div>
-        
-        <a href="../services.html" class="service-detail-back-button">← Back to Services</a>
     </div>
+
+    <script>
+        function openEnquiry() {
+            // Option 1: Redirect to contact page
+            // window.location.href = '../contact.html';
+            
+            // Option 2: Open email client
+            window.location.href = 'mailto:info@melford.com?subject=Enquiry about Pre & Post-departure Services&body=Hello, I would like to enquire about your pre and post-departure services. Please provide more information about the support available and pricing.';
+            
+            // Option 3: Open WhatsApp (replace with your number)
+            // window.open('https://wa.me/1234567890?text=Hello, I would like to enquire about pre and post-departure services', '_blank');
+        }
+    </script>
 </body>
 </html>
