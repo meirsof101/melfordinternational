@@ -12,9 +12,12 @@
   <div id="navbar"></div>
   <!-- Enquiry Form Section -->
     <section class="enquiry-form-section">
-        <h2>Enquiry Form</h2>
-        <form class="enquiry-form" action="#" method="post">
-            <!-- Personal Information Row 1 -->
+        <h2>Enquiry Form</h2> 
+        <form class="enquiry-form" name="enquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="enquiry">
+            <p hidden>
+                <label>Don’t fill this out if you're human: <input name="bot-field"></label>
+                </p>       <!-- Personal Information Row 1 -->
             <div class="form-grid grid-3">
                 <div class="form-group">
                     <input type="text" name="first_name" placeholder="First Name" required>
