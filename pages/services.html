@@ -255,7 +255,523 @@
             </div>
         </div>
     </section>
+<section class="education-partners-section">
+    <style>
+        .education-partners-section {
+            background: #fff;
+            padding: 3rem 0;
+            overflow: hidden;
+            position: relative;
+            font-family: 'Jost';
+        }
 
+        .section-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 0 1rem;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e7fb8;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header p {
+            font-size: 1rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+
+        .cards-container {
+            position: relative;
+            height: 300px;
+            margin: 1.5rem 0;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .cards-track {
+            display: flex;
+            width: calc(280px * 8);
+            animation: flowRightToLeft 35s linear infinite;
+            will-change: transform;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .cards-track.paused {
+            animation-play-state: paused;
+        }
+
+        @keyframes flowRightToLeft {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-280px * 4)); }
+        }
+
+        .university-card {
+            background: #fff;
+            border: 2px solid #1e7fb8;
+            border-radius: 12px;
+            padding: 1rem;
+            margin-right: 20px;
+            width: 260px;
+            height: 300px;
+            flex-shrink: 0;
+            box-shadow: 0 6px 20px rgba(30, 127, 184, 0.12);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .university-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(30, 127, 184, 0.08), transparent);
+            transition: left 0.5s;
+        }
+
+        .university-card:hover::before {
+            left: 100%;
+        }
+
+        .university-card:hover {
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 0 12px 30px rgba(30, 127, 184, 0.2);
+        }
+
+        .university-card.clicked {
+            transform: scale(1.03);
+            box-shadow: 0 15px 35px rgba(30, 127, 184, 0.25);
+            background: linear-gradient(135deg, #fff 0%, rgba(30, 127, 184, 0.03) 100%);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.8rem;
+        }
+
+        .flag-icon {
+            width: 28px;
+            height: 20px;
+            border-radius: 3px;
+            margin-right: 0.6rem;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+            font-size: 0.6rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .uae { 
+            background: linear-gradient(0deg, #009639 0%, #FFFFFF 33%, #FFFFFF 66%, #CE1126 100%);
+            color: #000;
+        }
+        .uk { 
+            background: linear-gradient(45deg, #012169 0%, #FFFFFF 50%, #C8102E 100%);
+            color: #fff;
+        }
+        .canada { 
+            background: linear-gradient(0deg, #FF0000 0%, #FFFFFF 50%, #FF0000 100%);
+            color: #000;
+        }
+
+        .university-info {
+            flex: 1;
+        }
+
+        .university-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #1e7fb8;
+            line-height: 1.2;
+            margin-bottom: 0.2rem;
+        }
+
+        .location {
+            color: #666;
+            font-weight: 500;
+            font-size: 0.75rem;
+        }
+
+        .description {
+            color: #555;
+            line-height: 1.4;
+            margin: 0.8rem 0;
+            font-size: 0.8rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            flex: 1;
+        }
+
+        .highlights {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.3rem;
+            margin: 0.8rem 0;
+        }
+
+        .highlight-tag {
+            background: #1e7fb8;
+            color: #fff;
+            padding: 0.15rem 0.4rem;
+            border-radius: 8px;
+            font-size: 0.65rem;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+            padding-top: 0.8rem;
+            border-top: 1px solid rgba(30, 127, 184, 0.15);
+        }
+
+        .learn-more-btn {
+            background: #1e7fb8;
+            color: #fff;
+            text-decoration: none;
+            padding: 0.4rem 0.8rem;
+            border-radius: 15px;
+            font-weight: 600;
+            font-size: 0.75rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 8px rgba(30, 127, 184, 0.25);
+        }
+
+        .learn-more-btn:hover {
+            background: #1a6fa0;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(30, 127, 184, 0.35);
+        }
+
+        .accreditation {
+            font-size: 0.65rem;
+            color: #1e7fb8;
+            font-weight: 600;
+        }
+
+        .pause-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(30, 127, 184, 0.9);
+            color: #fff;
+            padding: 0.6rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .pause-overlay.show {
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+            
+            .university-card {
+                min-width: 240px;
+                height: 220px;
+                padding: 0.8rem;
+                margin-right: 15px;
+            }
+            
+            .cards-track {
+                width: calc(270px * 8);
+            }
+            
+            @keyframes flowRightToLeft {
+                0% { transform: translateX(0); }
+                100% { transform: translateX(calc(-270px * 4)); }
+            }
+        }
+    </style>
+
+    <div class="section-header">
+        <h2>GLOBAL EDUCATION PARTNERS</h2>
+        <p>Collaborating with globally recognized institutions committed to academic excellence</p>
+    </div>
+
+    <div class="cards-container">
+        <div class="pause-overlay" id="pauseOverlay">Click any card to pause/resume</div>
+        
+        <div class="cards-track" id="cardsTrack">
+            <!-- First Set -->
+            <div class="university-card" data-university="aurak">
+                <div class="card-header">
+                    <div class="university-info">
+                        <div class="university-title">American University of Ras Al Khaimah</div>
+                        <div class="location">Ras Al Khaimah, UAE</div>
+                    </div>
+                </div>
+                
+                <div class="description">
+                    Public, non-profit university offering American-style programs in engineering, business, and sciences. Diverse student body from 45+ nationalities with US transfer pathways.
+                </div>
+                
+                <div class="highlights">
+                    <span class="highlight-tag">SACSCOC</span>
+                    <span class="highlight-tag">45+ Nations</span>
+                    <span class="highlight-tag">US Transfers</span>
+                </div>
+                
+                <div class="card-footer">
+                    <div class="accreditation">✓ SACSCOC</div>
+                    <a href="https://aurak.ac.ae" class="learn-more-btn" onclick="event.stopPropagation();">Learn More</a>
+                </div>
+            </div>
+
+            <div class="university-card" data-university="regent">
+                <div class="card-header">
+                    <div class="university-info">
+                        <div class="university-title">Regent College Middle East</div>
+                        <div class="location">Dubai & UK</div>
+                    </div>
+                </div>
+                
+                <div class="description">
+                    Based in Dubai Knowledge Park, delivering vocational and higher education in Business, IT, Hospitality, and Digital Technologies with UK progression pathways.
+                </div>
+                
+                <div class="highlights">
+                    <span class="highlight-tag">Vocational</span>
+                    <span class="highlight-tag">UK Links</span>
+                    <span class="highlight-tag">Digital Tech</span>
+                </div>
+                
+                <div class="card-footer">
+                    <div class="accreditation">✓ Dubai KP</div>
+                    <a href="https://regenteducation.ae" class="learn-more-btn" onclick="event.stopPropagation();">Learn More</a>
+                </div>
+            </div>
+
+            <div class="university-card" data-university="newton">
+                <div class="card-header">
+                    <div class="university-info">
+                        <div class="university-title">Newton International College</div>
+                        <div class="location">Toronto, Canada</div>
+                    </div>
+                </div>
+                
+                <div class="description">
+                    Private secondary school (Grades 7-12) certified by Ontario Ministry. Personalized academic pathways with 100% university placement rate to top institutions.
+                </div>
+                
+                <div class="highlights">
+                    <span class="highlight-tag">100% Rate</span>
+                    <span class="highlight-tag">Grades 7-12</span>
+                    <span class="highlight-tag">Personal</span>
+                </div>
+                
+                <div class="card-footer">
+                    <div class="accreditation">✓ Ontario</div>
+                    <a href="https://nictoronto.ca/" class="learn-more-btn" onclick="event.stopPropagation();">Learn More</a>
+                </div>
+            </div>
+
+            <div class="university-card" data-university="malvern">
+                <div class="card-header">
+                    <div class="university-info">
+                        <div class="university-title">Malvern International College</div>
+                        <div class="location">London & Manchester</div>
+                    </div>
+                </div>
+                
+                <div class="description">
+                    Global education provider offering university pathway programs, English language training, and embedded international college experiences with UK partners.
+                </div>
+                
+                <div class="highlights">
+                    <span class="highlight-tag">Pathways</span>
+                    <span class="highlight-tag">English</span>
+                    <span class="highlight-tag">UK Partners</span>
+                </div>
+                
+                <div class="card-footer">
+                    <div class="accreditation">✓ UK Unis</div>
+                    <a href="https://malverncollegeinternational.org/" class="learn-more-btn" onclick="event.stopPropagation();">Learn More</a>
+                </div>
+            </div>
+
+            <!-- Duplicate Set -->
+            <div class="university-card" data-university="aurak">
+                <div class="card-header">
+                    <div class="university-info">
+                        <div class="university-title">American University of Ras Al Khaimah</div>
+                        <div class="location">Ras Al Khaimah, UAE</div>
+                    </div>
+                </div>
+                
+                <div class="description">
+                    Public, non-profit university offering American-style programs in engineering, business, and sciences. Diverse student body from 45+ nationalities with US transfer pathways.
+                </div>
+                
+                <div class="highlights">
+                    <span class="highlight-tag">SACSCOC</span>
+                    <span class="highlight-tag">45+ Nations</span>
+                    <span class="highlight-tag">US Transfers</span>
+                </div>
+                
+                <div class="card-footer">
+                    <div class="accreditation">✓ SACSCOC</div>
+                    <a href="https://aurak.ac.ae" class="learn-more-btn" onclick="event.stopPropagation();">Learn More</a>
+                </div>
+            </div>
+
+            <div class="university-card" data-university="regent">
+                <div class="card-header">
+                    <div class="university-info">
+                        <div class="university-title">Regent College Middle East</div>
+                        <div class="location">Dubai & UK</div>
+                    </div>
+                </div>
+                
+                <div class="description">
+                    Based in Dubai Knowledge Park, delivering vocational and higher education in Business, IT, Hospitality, and Digital Technologies with UK progression pathways.
+                </div>
+                
+                <div class="highlights">
+                    <span class="highlight-tag">Vocational</span>
+                    <span class="highlight-tag">UK Links</span>
+                    <span class="highlight-tag">Digital Tech</span>
+                </div>
+                
+                <div class="card-footer">
+                    <div class="accreditation">✓ Dubai KP</div>
+                    <a href="https://regenteducation.ae" class="learn-more-btn" onclick="event.stopPropagation();">Learn More</a>
+                </div>
+            </div>
+
+            <div class="university-card" data-university="newton">
+                <div class="card-header">
+                    <div class="university-info">
+                        <div class="university-title">Newton International College</div>
+                        <div class="location">Toronto, Canada</div>
+                    </div>
+                </div>
+                
+                <div class="description">
+                    Private secondary school (Grades 7-12) certified by Ontario Ministry. Personalized academic pathways with 100% university placement rate to top institutions.
+                </div>
+                
+                <div class="highlights">
+                    <span class="highlight-tag">100% Rate</span>
+                    <span class="highlight-tag">Grades 7-12</span>
+                    <span class="highlight-tag">Personal</span>
+                </div>
+                
+                <div class="card-footer">
+                    <div class="accreditation">✓ Ontario</div>
+                    <a href="https://nictoronto.ca/" class="learn-more-btn" onclick="event.stopPropagation();">Learn More</a>
+                </div>
+            </div>
+
+            <div class="university-card" data-university="malvern">
+                <div class="card-header">
+                    <div class="university-info">
+                        <div class="university-title">Malvern International College</div>
+                        <div class="location">London & Manchester</div>
+                    </div>
+                </div>
+                
+                <div class="description">
+                    Global education provider offering university pathway programs, English language training, and embedded international college experiences with UK partners.
+                </div>
+                
+                <div class="highlights">
+                    <span class="highlight-tag">Pathways</span>
+                    <span class="highlight-tag">English</span>
+                    <span class="highlight-tag">UK Partners</span>
+                </div>
+                
+                <div class="card-footer">
+                    <div class="accreditation">✓ UK Unis</div>
+                    <a href="https://malverncollegeinternational.org/" class="learn-more-btn" onclick="event.stopPropagation();">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const cardsTrack = document.getElementById('cardsTrack');
+        const pauseOverlay = document.getElementById('pauseOverlay');
+        let isPaused = false;
+
+        document.querySelectorAll('.university-card').forEach(card => {
+            card.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                isPaused = !isPaused;
+                
+                if (isPaused) {
+                    cardsTrack.classList.add('paused');
+                    pauseOverlay.textContent = 'Click to resume';
+                    this.classList.add('clicked');
+                } else {
+                    cardsTrack.classList.remove('paused');
+                    pauseOverlay.textContent = 'Click to pause';
+                    document.querySelectorAll('.university-card').forEach(c => c.classList.remove('clicked'));
+                }
+                
+                pauseOverlay.classList.add('show');
+                setTimeout(() => {
+                    pauseOverlay.classList.remove('show');
+                }, 1500);
+            });
+
+            card.addEventListener('mouseenter', function() {
+                if (!isPaused) {
+                    this.style.transform = 'translateY(-6px) scale(1.02)';
+                }
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                if (!isPaused && !this.classList.contains('clicked')) {
+                    this.style.transform = 'translateY(0) scale(1)';
+                }
+            });
+        });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !isPaused) {
+                    cardsTrack.classList.remove('paused');
+                } else if (!entry.isIntersecting) {
+                    cardsTrack.classList.add('paused');
+                }
+            });
+        }, { threshold: 0.3 });
+
+        observer.observe(document.querySelector('.education-partners-section'));
+    </script>
+</section>
+    
     <section class="melford-enquiry-section">
         <div class="melford-enquiry-content">
             <div class="melford-enquiry-card">

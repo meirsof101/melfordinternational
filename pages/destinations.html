@@ -132,6 +132,157 @@
   width: 25%;
   background: #CE1126;
 }
+
+/* Destination Expertise Section */
+.destination-expertise {
+  background: #f8f9fa;
+  padding: 80px 20px;
+  margin-top: 40px;
+}
+
+.expertise-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.expertise-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.expertise-header h2 {
+  color: #1e7fb8;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.expertise-header p {
+  font-size: 1.15rem;
+  color: #555;
+  line-height: 1.8;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.expertise-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.expertise-card {
+  background: white;
+  padding: 0;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.expertise-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.expertise-flag {
+  height: 120px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}
+
+.expertise-flag::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.2);
+}
+
+.expertise-flag h3 {
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: white;
+}
+
+.expertise-content {
+  padding: 25px;
+}
+
+.expertise-content p {
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Specific country color accents */
+.expertise-card.australia .expertise-flag { 
+  background: linear-gradient(135deg, #012169 0%, #012169 50%, #FFFFFF 50%, #FFFFFF 55%, #C8102E 55%, #C8102E 100%);
+}
+
+.expertise-card.uk .expertise-flag { 
+  background: linear-gradient(45deg, 
+    #012169 0%, #012169 25%, 
+    #fff 25%, #fff 35%, 
+    #C8102E 35%, #C8102E 40%, 
+    #fff 40%, #fff 60%, 
+    #C8102E 60%, #C8102E 65%, 
+    #fff 65%, #fff 75%, 
+    #012169 75%, #012169 100%);
+  background-size: 60px 40px;
+}
+
+.expertise-card.canada .expertise-flag { 
+  background: linear-gradient(to right, #FF0000 0%, #FF0000 25%, #FFFFFF 25%, #FFFFFF 75%, #FF0000 75%, #FF0000 100%);
+  position: relative;
+}
+
+.expertise-card.canada .expertise-flag::after {
+  content: '🍁';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+  color: #FF0000;
+  z-index: 1;
+}
+
+.expertise-card.ireland .expertise-flag { 
+  background: linear-gradient(to right, #169B62 0%, #169B62 33.33%, #FFFFFF 33.33%, #FFFFFF 66.66%, #FF883E 66.66%, #FF883E 100%);
+}
+
+.expertise-card.germany .expertise-flag { 
+  background: linear-gradient(to bottom, #000000 0%, #000000 33.33%, #DD0000 33.33%, #DD0000 66.66%, #FFCE00 66.66%, #FFCE00 100%);
+}
+
+.expertise-card.dubai .expertise-flag { 
+  background: linear-gradient(to bottom, #00732F 0%, #00732F 33.33%, #FFFFFF 33.33%, #FFFFFF 66.66%, #000000 66.66%, #000000 100%);
+  position: relative;
+}
+
+.expertise-card.dubai .expertise-flag::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 25%;
+  background: #CE1126;
+}
+
 </style>
 <body>
 
@@ -140,46 +291,73 @@
 
   <!-- Navbar Placeholder -->
   <div id="navbar"></div>
+  <!-- Main Content -->
+  <!-- Destination Expertise Section -->
+  <section class="destination-expertise">
+    <div class="expertise-container">
+      <div class="expertise-header">
+        <h2>Destination Expertise</h2>
+        <p>At Melford International Group, we guide students toward world-class institutions in some of the most sought-after education destinations. Each country offers unique academic strengths, cultural experiences, and career pathways:</p>
+      </div>
+      
+      <div class="expertise-grid">
+        <div class="expertise-card australia">
+          <div class="expertise-flag australia-flag">
+            <h3>Australia</h3>
+          </div>
+          <div class="expertise-content">
+            <p>A global leader in research and innovation, Australia boasts diverse, multicultural campuses and a vibrant student lifestyle. Its universities are known for excellence in science, engineering, business, and healthcare.</p>
+          </div>
+        </div>
 
-  <main class="destination-container">
-    <h1>Explore Our Study Destinations</h1>
-    <div class="destination-grid">
+        <div class="expertise-card uk">
+          <div class="expertise-flag uk-flag">
+            <h3>United Kingdom</h3>
+          </div>
+          <div class="expertise-content">
+            <p>Home to some of the world's oldest and most prestigious universities, the UK offers rigorous academic programs, rich cultural heritage, and strong post-graduate opportunities across all fields of study.</p>
+          </div>
+        </div>
 
-      <a href="pages/destinations/uk.html" class="destination-card uk-flag">
-        <h2>United Kingdom</h2>
-      </a>
+        <div class="expertise-card canada">
+          <div class="expertise-flag canada-flag">
+            <h3>Canada</h3>
+          </div>
+          <div class="expertise-content">
+            <p>Renowned for its inclusive society and high academic standards, Canada provides exceptional education, affordable tuition, and generous post-study work options—especially in tech, health sciences, and business.</p>
+          </div>
+        </div>
 
-      <a href="pages/destinations/canada.html" class="destination-card canada-flag">
-        <h2>Canada</h2>
-      </a>
+        <div class="expertise-card ireland">
+          <div class="expertise-flag ireland-flag">
+            <h3>Ireland</h3>
+          </div>
+          <div class="expertise-content">
+            <p>A rising star in global education, Ireland is a hub for innovation in technology, pharmaceuticals, and finance. Its welcoming environment and English-speaking institutions make it ideal for international students.</p>
+          </div>
+        </div>
 
-      <a href="pages/destinations/australia.html" class="destination-card australia-flag">
-        <h2>Australia</h2>
-      </a>
+        <div class="expertise-card germany">
+          <div class="expertise-flag germany-flag">
+            <h3>Germany</h3>
+          </div>
+          <div class="expertise-content">
+            <p>Known for its tuition-free or low-cost education, Germany offers cutting-edge programs in engineering, IT, and applied sciences. Its strong economy and research-driven universities attract ambitious students worldwide.</p>
+          </div>
+        </div>
 
-      <a href="pages/destinations/germany.html" class="destination-card germany-flag">
-        <h2>Germany</h2>
-      </a>
-
-      <a href="pages/destinations/ireland.html" class="destination-card ireland-flag">
-        <h2>Ireland</h2>
-      </a>
-
-      <a href="pages/destinations/netherlands.html" class="destination-card netherlands-flag">
-        <h2>Netherlands</h2>
-      </a>
-
-      <a href="pages/destinations/newzealand.html" class="destination-card newzealand-flag">
-        <h2>New Zealand</h2>
-      </a>
-
-      <a href="pages/destinations/dubai.html" class="destination-card dubai-flag">
-        <h2>Dubai</h2>
-      </a>
-
+        <div class="expertise-card dubai">
+          <div class="expertise-flag dubai-flag">
+            <h3>Dubai</h3>
+          </div>
+          <div class="expertise-content">
+            <p>A dynamic and fast-growing education hub, Dubai hosts international campuses from top global universities. It offers modern infrastructure, multicultural exposure, and career opportunities in business, hospitality, and tech.</p>
+          </div>
+        </div>
+      </div>
     </div>
-    
-  </main>
+  </section>
+
 <section class="melford-enquiry-section">
   <div class="melford-enquiry-content">
     <div class="melford-enquiry-card">
@@ -194,6 +372,7 @@
     </div>
   </div>
 </section>
+
   <!-- Footer Placeholder -->
   <div id="footer-placeholder"></div>
 
