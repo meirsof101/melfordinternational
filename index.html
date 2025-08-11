@@ -13,7 +13,7 @@
         /* Hero Section */
         .home-hero {
             position: relative;
-            height: 75vh;
+            height: 80vh;
             overflow: hidden;
             display: flex;
             align-items: center;
@@ -331,44 +331,6 @@
             </div>
   
     </section>
-
-    <!-- Services Section -->
-    <section class="home-services">
-                <h2 class="melford-testimonials-title">Our Services</h2>
-
-        <div class="services-grid">
-            <div class="service-card">
-                <h3 class="service-title">Education & Career Counselling</h3>
-                <p class="service-description">Explore top study destinations, compare costs and offerings, and receive personalized university recommendations tailored to your goals.</p>
-            </div>
-
-            <div class="service-card">
-                <h3 class="service-title">English Proficiency Training (IELTS & PTE)</h3>
-                <p class="service-description">Intensive preparation for all exam components, plus full exam registration support, mock testing, and expert feedback for top scores.</p>
-            </div>
-
-            <div class="service-card">
-                <h3 class="service-title">University/College Placement</h3>
-                <p class="service-description">End-to-end support: from crafting applications and personal statements to deadline tracking, submission, and placement in the best-fit programs.</p>
-            </div>
-
-            <div class="service-card">
-                <h3 class="service-title">Migration & Visa Processing</h3>
-                <p class="service-description">Full assistance with documentation, lodging visa applications, embassy interview prep, and both pre- and post-departure guidance for a smooth transition abroad.</p>
-            </div>
-
-            <div class="service-card">
-                <h3 class="service-title">German Projects (Language + Ausbildung)</h3>
-                <p class="service-description">German courses (A1–B2) and structured dual vocational training (Ausbildung) in Germany—earning while learning, gaining recognized certifications, and supported through placement and visa logistics.</p>
-            </div>
-
-            <div class="service-card">
-                <h3 class="service-title">Pre-departure & Post-departure Services</h3>
-                <p class="service-description">We provide full support in terms of airport pickups, accommodation arrangements, and on-ground support to ensure a smooth and comfortable transition to your new academic life abroad.</p>
-            </div>
-        </div>
-    </section>
-
     <script>
         class HeroSlider {
             constructor() {
@@ -451,7 +413,241 @@
             new HeroSlider();
         });
     </script>
- <section class="why-choose-us" style="
+       <!-- Services Section -->
+          <style>
+
+        .home-services {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .melford-testimonials-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            font-weight: 700;
+            position: relative;
+            color: #ffa500;
+        }
+
+        .melford-testimonials-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: hsl(202, 93%, 29%);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+            perspective: 1000px;
+        }
+
+        .service-card {
+            background: hsl(202, 93%, 29%);
+            border-radius: 60px 0px 60px 0px;
+            padding: 40px 25px;
+            color: white;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(30, 127, 184, 0.2);
+            transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transform-style: preserve-3d;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                hsl(202, 93%, 29%) 0%, 
+                hsl(202, 87%, 35%) 50%, 
+                hsl(202, 93%, 29%) 100%);
+            opacity: 0;
+            transition: opacity 0.6s ease;
+            z-index: -1;
+        }
+
+        .service-card:hover {
+            transform: rotateX(10deg) rotateY(-10deg) translateY(-15px);
+            box-shadow: 
+                0 30px 60px rgba(30, 127, 184, 0.4),
+                0 10px 30px rgba(30, 127, 184, 0.2);
+            height: auto;
+            min-height: 280px;
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-card:nth-child(even):hover {
+            transform: rotateX(10deg) rotateY(10deg) translateY(-15px);
+        }
+
+        .service-title {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .service-description {
+            line-height: 1.6;
+            font-size: 1rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease 0.1s;
+            position: relative;
+            z-index: 2;
+            max-height: 0;
+            overflow: hidden;
+        }
+
+        .service-card:hover .service-description {
+            opacity: 0.95;
+            transform: translateY(0);
+            max-height: 200px;
+        }
+
+        .service-card:hover .service-title {
+            transform: translateY(-10px);
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+        }
+
+        /* Individual card animations */
+        .service-card:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .service-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .service-card:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .service-card:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        .service-card:nth-child(5) {
+            animation-delay: 0.5s;
+        }
+
+        .service-card:nth-child(6) {
+            animation-delay: 0.6s;
+        }
+
+        @keyframes cardEntry {
+            from {
+                opacity: 0;
+                transform: translateY(30px) rotateX(20deg);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) rotateX(0);
+            }
+        }
+
+        .service-card {
+            animation: cardEntry 0.8s ease forwards;
+            opacity: 0;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .service-card {
+                height: 180px;
+            }
+
+            .service-card:hover {
+                transform: rotateX(5deg) rotateY(-5deg) translateY(-10px);
+                min-height: 260px;
+            }
+
+            .service-card:nth-child(even):hover {
+                transform: rotateX(5deg) rotateY(5deg) translateY(-10px);
+            }
+
+            .melford-testimonials-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .service-card {
+                border-radius: 40px 0px 40px 0px;
+                padding: 30px 20px;
+            }
+
+            .melford-testimonials-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+    <section class="home-services">
+                <h2 class="melford-testimonials-title">Our Services</h2>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <h3 class="service-title">Education & Career Counselling</h3>
+                <p class="service-description">Explore top study destinations, compare costs and offerings, and receive personalized university recommendations tailored to your goals.</p>
+            </div>
+
+            <div class="service-card">
+                <h3 class="service-title">English Proficiency Training (IELTS & PTE)</h3>
+                <p class="service-description">Intensive preparation for all exam components, plus full exam registration support, mock testing, and expert feedback for top scores.</p>
+            </div>
+
+            <div class="service-card">
+                <h3 class="service-title">University/College Placement</h3>
+                <p class="service-description">End-to-end support: from crafting applications and personal statements to deadline tracking, submission, and placement in the best-fit programs.</p>
+            </div>
+
+            <div class="service-card">
+                <h3 class="service-title">Migration & Visa Processing</h3>
+                <p class="service-description">Full assistance with documentation, lodging visa applications, embassy interview prep, and both pre- and post-departure guidance for a smooth transition abroad.</p>
+            </div>
+
+            <div class="service-card">
+                <h3 class="service-title">German Projects (Language + Ausbildung)</h3>
+                <p class="service-description">German courses (A1–B2) and structured dual vocational training (Ausbildung) in Germany—earning while learning, gaining recognized certifications, and supported through placement and visa logistics.</p>
+            </div>
+
+            <div class="service-card">
+                <h3 class="service-title">Pre-departure & Post-departure Services</h3>
+                <p class="service-description">We provide full support in terms of airport pickups, accommodation arrangements, and on-ground support to ensure a smooth and comfortable transition to your new academic life abroad.</p>
+            </div>
+        </div>
+    </section>
+    <!-- Why Choose Us Section -->
+    <section class="why-choose-us" style="
     background: hsl(202, 93%, 29%);
     padding: 60px 20px;
     color: white;
