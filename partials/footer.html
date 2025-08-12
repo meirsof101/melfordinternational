@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Melford International Footer</title>
+    <title>Melford International Footer - Enhanced</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --primary-blue: #1a365d;
-            --accent-gold: #FFC000;
-            --text-light: #ccc;
+            --dark-bg: #2a2a2a;
+            --darker-bg: #1a1a1a;
             --text-white: #ffffff;
-            --border-color: #444;
+            --text-gray: #cccccc;
+            --border-gray: #404040;
+            --primary-color: #e7d913;
         }
 
         * {
@@ -21,482 +22,478 @@
         }
 
         body {
-            font-family: 'Jost';
+            font-family: 'Jost', sans-serif;
             line-height: 1.6;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+            background: #f5f5f5;
         }
-
         .footer {
-            position: relative;
-            overflow: hidden;
-            font-family: 'Jost';
-            min-height: auto;
-        }
-
-
-        .footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: url(/assets/images/Dubai.png);
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            z-index: 0;
+            background: var(--dark-bg);
+            color: var(--text-white);
+            padding: 50px 0 0;
+            margin-top: auto;
         }
 
         .footer-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 30px 20px 0;
-            position: relative;
-            z-index: 2;
-            height: 100%;
+            padding: 0 20px; /* Added padding for mobile */
         }
 
         .footer-main {
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 30px;
-            padding: 20px 0;
-            border-top: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color);
+            grid-template-columns: 2fr 1fr 1fr 1fr 1fr; /* Better proportions */
+            gap: 30px; /* Reduced gap */
+            margin-bottom: 40px;
         }
 
         .footer-section {
-            padding-right: 20px;
-            border-right: 1px solid var(--border-color);
+            position: relative;
         }
 
-        .footer-section:last-child {
-            border-right: none;
+        .footer-section h3 {
+            color: var(--primary-color);
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            position: relative;
+            padding-bottom: 10px;
         }
 
-        .company-header {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 25px;
-            gap: 15px;
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 4px;
+            background: var(--primary-color);
+        }
+
+        .company-info {
+            max-width: 100%;
         }
 
         .company-logo {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            flex-shrink: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 18px;
+            margin-bottom: 20px;
         }
 
-        .company-info h3 {
-            font-size: 24px;
-            font-weight: bold;
-            color: var(--text-white);
-            margin: 0 0 5px 0;
+        .company-logo img {
+            max-width: 180px;
+            height: auto;
+            filter: brightness(1.1);
         }
 
-        .company-info p {
-            font-size: 14px;
-            color: var(--text-white);
-            margin: 0 0 20px 0;
-            line-height: 1.5;
+        .company-description {
+            color: var(--text-gray);
+            font-size: 17px;
+            line-height: 1.6;
+            margin-bottom: 20px;
         }
 
-        .social-links {
-            display: flex;
-            gap: 15px;
+        .office-info {
             margin-bottom: 25px;
         }
 
-        .social-link {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            color: #2c5aa0;
-            font-size: 24px;
+        .office-info h4 {
+            color: var(--primary-color);
+            font-size: 17px;
+            font-weight: 300;
+            margin-bottom: 8px;
         }
 
-        .social-link:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            background: #f5f4ee;
-        }
-
-        .contact-info {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 20px;
-            gap: 15px;
-            font-style: normal;
-        }
-
-        .contact-details h4 {
-            font-weight: 600;
-            margin: 0 0 5px 0;
-            font-size: 24px;
-            color: var(--text-white);
-        }
-
-        .contact-details p {
-            color: white;
-            margin: 0;
-            line-height: 1.4;
-            font-size: 14px;
-        }
-
-        .contact-details a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .contact-details a:hover {
-            color: var(--accent-gold);
-        }
-
-        .contact-row {
-            display: flex;
-            gap: 30px;
+        .office-info p {
+            color: var(--text-gray);
+            font-size: 15px;
+            line-height: 1.5;
         }
 
         .contact-item {
-            flex: 1;
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            font-size: 13px;
         }
 
-        .footer-title {
-            font-weight: 600;
-            margin: 0 0 20px 0;
-            color: var(--text-white);
-            font-size: 18px;
+        .contact-item i {
+            color: var(--primary-color);
+            width: 20px;
+            margin-right: 10px;
+            font-size: 15px;
+        }
+
+        .contact-item a {
+            color: var(--text-gray);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 15px;
+        }
+
+        .contact-item a:hover {
+            color: var(--primary-color);
         }
 
         .footer-nav {
             list-style: none;
-            padding: 0;
-            margin: 0 0 -10px 0 ;
         }
 
         .footer-nav li {
-            margin-bottom: 12px;
+            margin-bottom: 8px;
         }
 
         .footer-nav a {
-            color: var(--text-light);
+            color: var(--text-gray);
             text-decoration: none;
-            font-size: 14px;
-            transition: color 0.3s ease;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            padding: 6px 0;
             position: relative;
         }
 
-        .footer-nav a:hover {
-            color: var(--accent-gold);
-        }
-
+        /* Arrow styling for quick links - always visible */
         .footer-nav a::before {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -2px;
-            left: 0;
-            background: var(--accent-gold);
-            transition: width 0.3s ease;
+            content: '→';
+            color: var(--primary-color);
+            margin-right: 8px;
+            opacity: 1;
+            transform: translateX(0);
+            transition: all 0.3s ease;
         }
 
         .footer-nav a:hover::before {
-            width: 100%;
+            color: var(--text-white);
         }
 
-        .copyright {
+        .footer-nav a:hover {
+            color: var(--primary-color);
+            padding-left: 5px;
+            transform: translateX(5px);
+        }
+
+        /* Alternative arrow style using Font Awesome */
+        .footer-nav.fa-arrows a::before {
+            content: '\f061'; /* Font Awesome arrow-right */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            font-size: 11px;
+        }
+
+        .newsletter-section {
+            margin-bottom: 20px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            margin-top: 15px;
+            gap: 0;
+        }
+
+        /* Enhanced email input styling */
+        .newsletter-input {
+            flex: 1;
+            padding: 14px 16px; /* Increased padding */
+            min-height: 48px; /* Set minimum height */
+            border: 1px solid var(--border-gray);
+            background: var(--darker-bg);
+            color: var(--text-white);
+            font-size: 14px; /* Slightly larger font */
+            border-radius: 6px 0 0 6px;
+            transition: all 0.3s ease;
+            min-width: 200px; /* Ensure minimum width */
+        }
+
+        .newsletter-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            background: #222;
+            box-shadow: 0 0 0 2px rgba(21, 111, 191, 0.2);
+        }
+
+        .newsletter-input::placeholder {
+            color: #888;
+            font-size: 13px;
+        }
+
+        .newsletter-btn {
+            padding: 14px 18px; /* Match input padding */
+            min-height: 48px; /* Match input height */
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 0 6px 6px 0;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .newsletter-btn:hover {
+            background: #1557a3;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(21, 111, 191, 0.3);
+        }
+
+        .newsletter-btn:active {
+            transform: translateY(0);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border-gray);
+            padding: 20px 0;
             text-align: center;
-            padding: 25px 0;
+            background: var(--darker-bg);
         }
 
-        .copyright p {
-            color: var(--text-light);
-            font-size: 14px;
-            margin: 0;
+        .footer-bottom p {
+            color: var(--text-gray);
+            font-size: 15px;
         }
 
+        /* Improved Mobile Responsiveness */
+        @media (max-width: 1200px) {
+            .footer-main {
+                grid-template-columns: 2fr 1fr 1fr 1fr; /* Remove one column */
+                gap: 25px;
+            }
+            
+            /* Combine Eldoret and Kitengela into one column */
+            .branch-offices {
+                display: flex;
+                flex-direction: column;
+                gap: 30px;
+            }
+        }
 
-        /* Media Queries */
         @media (max-width: 1024px) {
             .footer-main {
-                grid-template-columns: 2fr 1fr;
-                gap: 30px;
-                padding-bottom: 40px;
-            }
-
-            .footer-section {
-                border-right: none;
-                border-bottom: 1px solid var(--border-color);
-                padding-bottom: 30px;
-                padding-right: 0;
-            }
-
-            .footer-section:nth-child(2n) {
-                border-right: 1px solid var(--border-color);
-                padding-right: 20px;
+                grid-template-columns: 1fr 1fr 1fr; /* 3 columns */
+                gap: 25px;
             }
         }
 
         @media (max-width: 768px) {
-            .footer-container {
-                padding: 30px 15px 0;
-                padding-bottom: 40px;
-            }
-
             .footer-main {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
-            .footer-section {
-                border-right: none;
-                border-bottom: 1px solid var(--border-color);
-                padding-bottom: 30px;
-                padding-right: 0;
-            }
-
-            .footer-section:last-child {
-                border-bottom: none;
-                padding-bottom: 0;
-            }
-
-            .company-header {
-                flex-direction: column;
-                text-align: center;
-                align-items: center;
-            }
-
-            .company-info h3 {
-                font-size: 20px;
-            }
-
-            .contact-row {
-                flex-direction: column;
+                grid-template-columns: 1fr 1fr; /* 2 columns */
                 gap: 20px;
             }
 
-            .social-links {
-                justify-content: center;
+            .company-info {
+                grid-column: 1 / -1; /* Full width */
+                text-align: center;
+                margin-bottom: 20px;
             }
 
-            .language-bar {
-                padding: 20px 10px;
+            .newsletter-form {
+                max-width: 400px;
+                margin: 15px auto 0;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .footer-main {
+                grid-template-columns: 1fr; /* Single column */
+                gap: 30px;
             }
 
-            .language-link {
-                display: block;
-                margin: 10px auto;
-                width: fit-content;
+            .footer-container {
+                padding: 0 15px;
+            }
+
+            .footer {
+                padding: 30px 0 0;
+            }
+
+            .company-info {
+                text-align: center;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+                gap: 10px;
+                max-width: 100%;
+            }
+
+            .newsletter-input {
+                border-radius: 6px;
+                min-width: 100%;
+            }
+
+            .newsletter-btn {
+                border-radius: 6px;
+                width: 100%;
+            }
+
+            /* Stack office sections vertically on mobile */
+            .office-section {
+                margin-bottom: 25px;
+                padding-bottom: 20px;
+                border-bottom: 1px solid var(--border-gray);
+            }
+
+            .office-section:last-child {
+                border-bottom: none;
             }
         }
 
         @media (max-width: 480px) {
-            .footer-container {
-                padding: 20px 10px 0;
-                padding-bottom: 40px;
-            }
-
-            .footer-main {
-                padding: 20px 0;
-                gap: 25px;
-            }
-
-            .company-header {
-                gap: 10px;
-            }
-
-            .company-logo {
-                width: 40px;
-                height: 40px;
-                font-size: 16px;
-            }
-            .contact-info {
-                flex-direction: column;
-                align-items: flex-start;
-                text-align: left;
-            }
-            .company-info h3 {
-                font-size: 18px;
-            }
-
-            .company-info p {
-                font-size: 13px;
-            }
-
-            .social-links {
-                gap: 10px;
-            }
-
-            .social-link {
-                width: 35px;
-                height: 35px;
+            .footer-section h3 {
                 font-size: 14px;
             }
 
-            .contact-icon {
-                width: 35px;
-                height: 35px;
+            .company-description {
+                font-size: 15px;
+            }
+
+            .office-info p {
                 font-size: 14px;
             }
 
-            .contact-details h4 {
+            .contact-item a {
                 font-size: 14px;
-            }
-
-            .contact-details p {
-                font-size: 13px;
-            }
-
-            .footer-title {
-                font-size: 16px;
-                margin-bottom: 15px;
             }
 
             .footer-nav a {
-                font-size: 13px;
+                font-size: 14px;
             }
 
-            .copyright {
-                padding: 20px 0;
+            .newsletter-input {
+                padding: 16px;
+                min-height: 50px;
+                font-size: 15px;
             }
 
-            .copyright p {
-                font-size: 13px;
+            .newsletter-btn {
+                padding: 16px;
+                min-height: 50px;
+                font-size: 14px;
             }
         }
 
-        @media (max-width: 320px) {
-            .footer-container {
-                padding: 15px 8px 0;
+        /* Additional utility class for branch offices grouping */
+        .branch-offices {
+            display: contents;
+        }
+
+        @media (max-width: 1200px) {
+            .branch-offices {
+                display: block;
             }
-
-            .company-info h3 {
-                font-size: 16px;
-            }
-
-            .social-links {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            .contact-info {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-
-
         }
     </style>
 </head>
 <body>
-
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-main">
-                <!-- Contact Info Section -->
-                <section class="footer-section">
-                    <header class="company-header">
-                        <div class="company-info">
-                            <h3>Melford International</h3>
-                            <p>Your gateway to global education excellence. We connect ambitious students with world-class universities worldwide.</p>
-                        </div>
-                    </header>
-                    
-                    <!-- Social Links -->
-                    <div class="social-links">
-                        <a href="#" class="social-link">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="social-link">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="social-link">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#" class="social-link">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="#" class="social-link">
-                            <i class="fab fa-youtube"></i>
-                        </a>
+                <!-- Company Info Section -->
+                <div class="footer-section company-info">
+                    <div class="company-logo">
+                        <img src="/assets/images/logo1.png" alt="Melford International Logo">
                     </div>
                     
-                    <address class="contact-info">
-                        <div class="contact-details">
-                            <h4>Headquarters</h4>
-                            <p>Loita Street Behind Chester House,<br>ABSA Towers Nairobi Kenya</p>
-                        </div>
-                    </address>
+                    <div class="company-description">
+                        Approved by the Commission for University Education (CUE) Kenya.
+                    </div>
 
-                    <div class="contact-row">
-                        <div class="contact-info contact-item">
-                            <div class="contact-details">
-                                <h4>Phone</h4>
-                                <p>
-                                    <a href="tel:+254719231999">+254 719 231 999</a>
-                                </p>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-info contact-item">
-                            <div class="contact-details">
-                                <h4>Email</h4>
-                                <p>
-                                    <a href="mailto:info@melfordintlgroup.com">info@melfordintlgroup.com</a>
-                                </p>
-                            </div>
-                        </div>
+                    <div class="newsletter-section">
+                        <h3>Subscribe to our Newsletter</h3>
+                        <form name="newsletter" method="POST" data-netlify="true" class="newsletter-form">
+                            <input type="email" name="email" class="newsletter-input" placeholder="Enter your email here" required>
+                            <button type="submit" class="newsletter-btn">Subscribe</button>
+                        </form>
                     </div>
-                </section>
+                </div>
 
                 <!-- Quick Links Section -->
-                <section class="footer-section">
-                    <h5 class="footer-title">Quick Links</h5>
-                    <nav>
-                        <ul class="footer-nav">
-                            <li><a href="#home">Home</a></li>
-                            <li><a href="#services">Our Services</a></li>
-                            <li><a href="#testimonials">Success Stories</a></li>
-                            <li><a href="#contact">Contact Us</a></li>
-                        </ul>
-                    </nav>
-                </section>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-nav">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#destinations">Destinations</a></li>
+                    </ul>
+                </div>
 
-                <!-- Study Destinations Section -->
-                <section class="footer-section">
-                    <h5 class="footer-title">Study Destinations</h5>
-                    <nav>
-                        <ul class="footer-nav">
-                            <li><a href="#">Study in Ireland</a></li>
-                            <li><a href="#">Study in Germany</a></li>
-                            <li><a href="#">Study in UK</a></li>
-                            <li><a href="#">Study in Canada</a></li>
-                            <li><a href="#">Study in Australia</a></li>
-                            <li><a href="#">Study in Dubai</a></li>
-                        </ul>
-                    </nav>
-                </section>
+                <!-- Head Office Section -->
+                <div class="footer-section office-section">
+                    <h3>Head Office</h3>
+                    <div class="office-info">
+                        <h4>Nairobi Office</h4>
+                        <p>Loita Street, Behind Chester House (CBD),<br>
+                        ABSA Towers, Nairobi<br>
+                        GPO 00100, Kenya</p>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <a href="tel:+254719231999">+254 719 231 999</a>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:info@melfordintlgroup.com">info@melfordintlgroup.com</a>
+                    </div>
+                </div>
+
+                <!-- Branch Offices Section (Combined for better responsiveness) -->
+                <div class="footer-section branch-offices">
+                    <!-- Eldoret Office -->
+                    <div class="office-section">
+                        <h3>Eldoret Office</h3>
+                        <div class="office-info">
+                            <h4>Branch Office</h4>
+                            <p>18th Floor, Daima Tower<br>
+                            Uganda Road<br>
+                            Eldoret, Kenya</p>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+254719231999">+254 719 231 999</a>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:eldoret@melfordintlgroup.com">eldoret@melfordintlgroup.com</a>
+                        </div>
+                    </div>
+
+                    <!-- Kitengela Office -->
+                    <div class="office-section">
+                        <h3>Kitengela Office</h3>
+                        <div class="office-info">
+                            <h4>Branch Office</h4>
+                            <p>3rd Floor, Capital Centre<br>
+                            Kitengela, Kenya</p>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+254719231999">+254 719 231 999</a>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:kitengela@melfordintlgroup.com">kitengela@melfordintlgroup.com</a>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </div>
 
-            <!-- Copyright -->
-            <div class="copyright">
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="footer-container">
                 <p>Copyright © 2025 • Melford International. All rights reserved.</p>
             </div>
         </div>
