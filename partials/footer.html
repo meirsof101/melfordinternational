@@ -12,7 +12,7 @@
             --text-white: #ffffff;
             --text-gray: #cccccc;
             --border-gray: #404040;
-            --primary-color: #e7d913;
+            --logo-underline: hsl(202, 93%, 29%);
         }
 
         * {
@@ -54,7 +54,7 @@
         }
 
         .footer-section h3 {
-            color: var(--primary-color);
+            color: var(--text-white);
             font-size: 16px;
             font-weight: 600;
             margin-bottom: 20px;
@@ -70,7 +70,7 @@
             left: 0;
             width: 40px;
             height: 4px;
-            background: var(--primary-color);
+            background: var(--logo-underline);
         }
 
         .company-info {
@@ -78,13 +78,23 @@
         }
 
         .company-logo {
-            margin-bottom: 20px;
+            margin-bottom: 0; /* Removed bottom margin */
+            position: relative;
+        }
+
+        .company-logo::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: var(--logo-underline);
         }
 
         .company-logo img {
-            max-width: 180px;
+            max-width: 240px;
             height: auto;
-            filter: brightness(1.1);
+            display: block;
+
         }
 
         .company-description {
@@ -92,17 +102,20 @@
             font-size: 17px;
             line-height: 1.6;
             margin-bottom: 20px;
+            margin-top: 20px; /* Add space between logo underline and description */
+            
         }
 
         .office-info {
             margin-bottom: 25px;
         }
-
+        
         .office-info h4 {
             color: var(--primary-color);
             font-size: 17px;
             font-weight: 300;
             margin-bottom: 8px;
+
         }
 
         .office-info p {
@@ -222,7 +235,7 @@
         .newsletter-btn {
             padding: 14px 18px; /* Match input padding */
             min-height: 48px; /* Match input height */
-            background: var(--primary-color);
+            background: hsl(202, 93%, 29%);
             color: white;
             border: none;
             border-radius: 0 6px 6px 0;
@@ -237,7 +250,7 @@
         }
 
         .newsletter-btn:hover {
-            background: #1557a3;
+            background: #ffd900;
             transform: translateY(-1px);
             box-shadow: 0 4px 12px rgba(21, 111, 191, 0.3);
         }
@@ -397,7 +410,7 @@
                 <!-- Company Info Section -->
                 <div class="footer-section company-info">
                     <div class="company-logo">
-                        <img src="/assets/images/logo1.png" alt="Melford International Logo">
+                        <img src="/assets/images/bg5.png" alt="Melford International Logo">
                     </div>
                     
                     <div class="company-description">
