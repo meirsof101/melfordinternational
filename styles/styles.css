@@ -23,163 +23,9 @@
   font-weight: 400;
   font-style:oblique;
 }
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-.top-contact-bar {
-  background-color: #41abe9;
-  font-size: 14px;
-  padding: 8px 20px;
-  z-index: 1000;
-  font-family: 'Jost';
-}
-
-.contact-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.contact-info {
-  display: flex;
-  align-items: center;
-  gap: 60px;
-  font-size: 17px;
-  padding-top:5px;
-}
-.contact-info h4 {
-  color: white;
-  font-weight: 100;
-}
-.contact-info a {
-  color: white;
-  text-decoration: none;
-}
-
-.contact-info a:hover {
-  color: #f0f0f0;
-  text-decoration: underline;
-}
-
-.social-icons {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.social-icons a {
-  color: #41abe9;
-  text-decoration: none;
-  width: 30px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #ffffff;
-  transition: all 0.3s ease;
-  font-size: 16px;
-}
-
-.social-icons a:hover {
-  background-color: #f3f4f6;
-  transform: translateY(-1px);
-}
-@media (max-width: 1024px) {
-  .contact-info {
-    gap: 40px;
-    font-size: 16px;
-  }
-  
-  .top-contact-bar {
-    padding: 8px 15px;
-  }
-}
-
-@media (max-width: 768px) {
-  .contact-info {
-    gap: 30px;
-    font-size: 15px;
-  }
-  
-  .top-contact-bar {
-    padding: 6px 12px;
-    font-size: 13px;
-  }
-  
-  .social-icons a {
-    width: 28px;
-    height: 28px;
-    font-size: 15px;
-  }
-}
-
-@media (max-width: 640px) {
-  .contact-info {
-    gap: 15px;
-    position: relative;
-  }
-  
-  .contact-info h4,
-  .contact-info p {
-    display: none; 
-  }
-  
-  .social-icons a {
-    width: 26px;
-    height: 26px;
-    font-size: 14px;
-  }
-  
-  .top-contact-bar {
-    padding: 5px 10px;
-  }
-}
-
-@media (max-width: 480px) {
-  .contact-container {
-    justify-content: center;
-    gap: 15px;
-  }
-  
-  .contact-info {
-    gap: 15px;
-  }
-  
-  .social-icons {
-    gap: 8px;
-  }
-  
-  .social-icons a {
-    width: 24px;
-    height: 24px;
-    font-size: 12px;
-  }
-  
-  .top-contact-bar {
-    padding: 4px 8px;
-  }
-}
-
-@media (max-width: 360px) {
-  .contact-info {
-    gap: 10px;
-  }
-  
-  .social-icons {
-    gap: 6px;
-  }
-  
-  .social-icons a {
-    width: 22px;
-    height: 22px;
-    font-size: 11px;
-  }
-}
-
+/* ==============
+NAVBAR PAGE
+================ */
 .navbar {
   background-color: #fff;
   position: sticky;
@@ -561,7 +407,9 @@ border-bottom-color: var(--white);
   }
 }
 
-/* Testimonials Section */
+/*===============
+TESTIMONIALS SECTION
+================*/
 .melford-testimonials-section {
             padding: 3px;
             background-color: #f0f2f1;
@@ -719,7 +567,9 @@ border-bottom-color: var(--white);
             border-color: #ffc107;
         }
 /* Google section */
-      
+      /*======================
+      ENQUIRY FORM
+    ===========================*/
 .melford-enquiry-section {
   background: hsl(202, 93%, 29%);
   color: white;

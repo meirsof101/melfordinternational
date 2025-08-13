@@ -7,18 +7,23 @@
     <link rel="stylesheet" href="../styles/styles.css">
 </head>
 <body>
-<div id="topbar-placeholder"></div>
-<div id="navbar"></div>
+  <div id="navbar"></div>
+
 <!-- Our Story Section as Hero -->
 <section class="story-hero-section">
     <div class="story-hero-container">
-        <h1><span class="our-word">Our</span> <span class="story-word">Story</span></h1>
-        <div class="story-content">
-            <p>Melford International Express Gateway, trading as Melford International Group is a trusted educational and migration service provider based in the heart of Nairobi, Kenya. Established as a government-registered company, we are dedicated to offering top-quality educational guidance to students seeking opportunities abroad.</p>
-            
-            <p>Melford International is deeply committed to integrity, reliability, and unwavering support for students pursuing international education. Since our establishment in 2021, Melford International has been privileged to support students in achieving their academic goals worldwide. With more than three (3) years of experience, we have built partnerships with respected universities and colleges in the United Kingdom, Canada, New Zealand, Australia, Europe, UAE, and beyond.</p>
-            
-            <p>Our approach combines modern facilities with the guidance of experienced counsellors who provide personalized advice, making the journey easier and more transparent for our clients. Watching our students thrive and achieve their dreams is a constant source of pride and inspiration for us at Melford International Group.</p>
+        <div class="hero-image">
+            <img src="../assets/images/about1.png" alt="Melford International" class="hero-img">
+        </div>
+        <div class="hero-content">
+            <h1><span class="our-word">Our</span> <span class="story-word">Story</span></h1>
+            <div class="story-text">
+                <p>Melford International Express Gateway, trading as Melford International Group is a trusted educational and migration service provider based in the heart of Nairobi, Kenya. Established as a government-registered company, we are dedicated to offering top-quality educational guidance to students seeking opportunities abroad.</p>
+                
+                <p>Melford International is deeply committed to integrity, reliability, and unwavering support for students pursuing international education. Since our establishment in 2021, Melford International has been privileged to support students in achieving their academic goals worldwide. With more than three (3) years of experience, we have built partnerships with respected universities and colleges in the United Kingdom, Canada, New Zealand, Australia, Europe, UAE, and beyond.</p>
+                
+                <p>Our approach combines modern facilities with the guidance of experienced counsellors who provide personalized advice, making the journey easier and more transparent for our clients. Watching our students thrive and achieve their dreams is a constant source of pride and inspiration for us at Melford International Group.</p>
+            </div>
         </div>
     </div>
 </section>
@@ -27,16 +32,31 @@
 <section class="vmv-section">
     <div class="vmv-container">
         <div class="vmv-item vision-item">
-            <h3>Our Vision</h3>
-            <p>To become a leading global education consultancy, empowering aspiring students across continents to realize their academic and career dreams through trusted, transformative guidance.</p>
+            <div class="vmv-image-placeholder">
+                <img src="/assets/images/vision.png" alt="Our Vision" class="vmv-img">
+            </div>
+            <div class="vmv-content">
+                <h3>Our Vision</h3>
+                <p>To become a leading global education consultancy, empowering aspiring students across continents to realize their academic and career dreams through trusted, transformative guidance.</p>
+            </div>
         </div>
         <div class="vmv-item mission-item">
-            <h3>Our Mission</h3>
-            <p>To help students discover life-changing academic opportunities across the globe by providing genuine guidance, personalized support, and expert services every step of the process.</p>
+            <div class="vmv-image-placeholder">
+                <img src="/assets/images/mission.png" alt="Our Mission" class="vmv-img">
+            </div>
+            <div class="vmv-content">
+                <h3>Our Mission</h3>
+                <p>To help students discover life-changing academic opportunities across the globe by providing genuine guidance, personalized support, and expert services every step of the process.</p>
+            </div>
         </div>
         <div class="vmv-item values-item">
-            <h3>Our Values</h3>
-            <p>We provide personalized and authentic study abroad experiences, grounded in integrity and honesty. Our commitment is to empower students with comprehensive support, access to top institutions, and a global community, all designed to help them achieve their academic and professional goals.</p>
+            <div class="vmv-image-placeholder">
+                <img src="/assets/images/values.png" alt="Our Values" class="vmv-img">
+            </div>
+            <div class="vmv-content">
+                <h3>Our Values</h3>
+                <p>We provide personalized and authentic study abroad experiences, grounded in integrity and honesty. Our commitment is to empower students with comprehensive support, access to top institutions, and a global community, all designed to help them achieve their academic and professional goals.</p>
+            </div>
         </div>
     </div>
 </section>
@@ -78,161 +98,177 @@
 <section class="director-message">
     <div class="director-container">
         <div class="director-photo">
-            <img src="../assets/images/australi.jpg" alt="Abednego Paul - Group Managing Director" class="director-img">
+            <img src="../assets/images/Screenshot 2025-08-13 140144.png" alt="Abednego Paul - Group Managing Director" class="director-img">
             <div class="director-title">
                 <h4>Abednego Paul</h4>
-                <p>Group Managing Director<br>Melford International Group</p>
+                <p>Group Director<br>Melford International Group</p>
             </div>
         </div>
         <div class="director-content">
             <h2>A Message From Our Director</h2>
             <p>Welcome to Melford International Group.</p>
-            
             <p>I wholeheartedly align with the timeless wisdom of Nelson Mandela, who once said, <em>"Education is the most powerful weapon which you can use to change the world."</em> This truth holds even greater significance when education is pursued in a forward-thinking, globally connected environment—one that nurtures innovation, cultural exchange, and boundless opportunity.</p>
-            
             <p>At Melford International Group, we offer you a precise pathway to your educational dreams. Through our partnerships with top-tier universities and colleges across five premier study destinations—Australia, New Zealand, the United Kingdom, the United States, and Canada—you gain access to world-class education that prepares you for a dynamic global future.</p>
-            
             <p>Our offices are staffed with a dedicated team of professionals who combine expertise with empathy. They are committed to guiding you through a smooth and personalized application journey, ensuring you reach your ideal academic destination with confidence and clarity.</p>
-            
             <p>We wish you every success as you embark on this remarkable journey, and we thank you for entrusting Melford International Group with your future.</p>
         </div>
     </div>
 </section>
 
 <style>
-/* Our Story Hero Section */
+/* Our Story Hero Section - Redesigned */
 .story-hero-section {
-  position: relative;
   padding: 100px 20px;
-  background: linear-gradient(to right, #1e7fb8, #ffffff);
-  min-height: 80vh;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
+  background: #f8f9fa;
   font-family: 'Jost';
-}
-
-.story-hero-section::before {
-  content: '';
-  position: absolute;
-  top: -50px;
-  right: -50px;
-  width: 300px;
-  height: 100px;
-  background: rgba(255, 255, 255, 0.1);
-  transform: rotate(45deg);
-  border-radius: 20px;
-}
-
-.story-hero-section::after {
-  content: '';
-  position: absolute;
-  bottom: -100px;
-  left: -100px;
-  width: 400px;
-  height: 400px;
-  background: rgba(255, 255, 255, 0.08);
-  transform: rotate(30deg);
-  border-radius: 30px;
-}
-
-.story-hero-section:hover::before {
-  animation: float 6s ease-in-out infinite;
-}
-
-.story-hero-section:hover::after {
-  animation: float 8s ease-in-out infinite reverse;
-}
-
-@keyframes float {
-  0%, 100% { transform: rotate(45deg) translateY(0px); }
-  50% { transform: rotate(45deg) translateY(-20px); }
 }
 
 .story-hero-container {
   max-width: 1200px;
   margin: 0 auto;
-  position: relative;
-  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
 }
 
-.story-hero-container h1 {
-  font-size: clamp(3rem, 8vw, 6rem);
+.hero-image {
+  position: relative;
+}
+
+.hero-img {
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.hero-content h1 {
+  font-size: clamp(3rem, 6vw, 4.5rem);
   font-weight: 700;
-  margin: 0 0 40px 0;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 0 0 30px 0;
   letter-spacing: -2px;
   line-height: 1.1;
-  text-align: center;
 }
 
-.story-hero-container h1 .our-word {
+.hero-content h1 .our-word {
   color: #f59e0b;
 }
 
-.story-hero-container h1 .story-word {
-  color: #1e7fb8;
+.hero-content h1 .story-word {
+  color: hsl(202, 87%, 41%);
 }
 
-.story-content {
-  background: rgba(255, 255, 255, 0.95);
-  padding: 40px;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10px);
-}
-
-.story-content p {
-  font-size: 1.15rem;
+.story-text p {
+  font-size: 1rem;
   line-height: 1.8;
-  color: #555;
+  color: black;
   margin-bottom: 25px;
   text-align: justify;
 }
 
-.story-content p:last-child {
+.story-text p:last-child {
   margin-bottom: 0;
 }
 
-/* Vision, Mission, Values Section */
+/* Vision, Mission, Values Section - Enhanced */
 .vmv-section {
-  padding: 0;
+  padding: 80px 20px;
   background: #ffffff;
   font-family: 'Jost';
 }
 
 .vmv-container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 0;
-  max-width: 100%;
-  margin: 0;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .vmv-item {
-  padding: 60px 40px;
-  color: white;
-  min-height: 300px;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 450px;
   position: relative;
+  overflow: hidden;
 }
 
-.vision-item {
-  background: #1e7fb8;
+.vmv-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.95;
+  z-index: 1;
 }
 
-.mission-item {
-  background: #f59e0b;
+.vision-item::before {
+  background: hsl(202, 87%, 41%);
 }
 
-.values-item {
-  background: #059669;
+.mission-item::before {
+  background: linear-gradient(135deg, #f59e0b, #f97316);
+}
+
+.values-item::before {
+  background: hsl(202, 87%, 41%);
+}
+
+.vmv-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+.vmv-image-placeholder {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 25px;
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  position: relative;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vmv-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* Placeholder styling when no image is available */
+.vmv-image-placeholder::after {
+  font-size: 3rem;
+  color: rgba(255, 255, 255, 0.7);
+  position: absolute;
+  top: 50%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+}
+
+.vmv-content {
+  position: relative;
+  z-index: 2;
+  color: white;
 }
 
 .vmv-item h3 {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 700;
   margin-bottom: 20px;
   color: white;
@@ -241,7 +277,8 @@
 .vmv-item p {
   font-size: 1.1rem;
   line-height: 1.7;
-  color: white;
+  color: black;
+  opacity: 0.95;
 }
 
 /* Core Values Section */
@@ -261,7 +298,7 @@
 
 .core-values > p {
   text-align: center;
-  color: #555;
+  color: black;
   margin-bottom: 3rem;
   font-size: 1.1rem;
   line-height: 1.7;
@@ -283,7 +320,6 @@
 .value-item {
   background: white;
   padding: 2.5rem;
-  border-radius: 10px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border-top: 4px solid #1e7fb8;
@@ -302,7 +338,7 @@
 }
 
 .value-item p {
-  color: #555;
+  color: black;
   line-height: 1.7;
   font-size: 1rem;
 }
@@ -329,7 +365,7 @@
 
 .director-img {
   width: 100%;
-  height: 400px;
+  height: 500px;
   object-fit: cover;
   border-radius: 15px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -366,9 +402,9 @@
 }
 
 .director-content p {
-  font-size: 1.1rem;
+  font-size: 1rem;
   line-height: 1.8;
-  color: #555;
+  color: black;
   margin-bottom: 20px;
 }
 
@@ -380,6 +416,15 @@
 
 /* Responsive Design */
 @media (max-width: 1024px) {
+  .story-hero-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .hero-image {
+    order: -1;
+  }
+  
   .vmv-container {
     grid-template-columns: 1fr;
   }
@@ -396,15 +441,12 @@
 }
 
 @media (max-width: 768px) {
-  .story-hero-container h1 {
+  .hero-content h1 {
     font-size: 2.5rem;
+    text-align: center;
   }
   
-  .story-content {
-    padding: 30px 20px;
-  }
-  
-  .story-content p {
+  .story-text p {
     font-size: 1rem;
   }
   
@@ -418,16 +460,20 @@
   }
   
   .vmv-item {
-    padding: 40px 20px;
-    min-height: 250px;
+    padding: 30px 20px;
+    min-height: 400px;
   }
   
   .vmv-item h3 {
     font-size: 1.5rem;
   }
   
-  .story-hero-section, .core-values, .director-message {
+  .story-hero-section, .vmv-section, .core-values, .director-message {
     padding: 60px 20px;
+  }
+  
+  .hero-img {
+    height: 300px;
   }
 }
 </style>
