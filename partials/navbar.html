@@ -1,20 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Navbar - Melford International</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="/styles/styles.css">
-</head>
-<body>
+<link rel="stylesheet" href="/assets/css/navbar.css">
 <nav class="navbar">
   <div class="navbar-container">
-       <a href="/index.html" class="brand">
-        <div class="brand-logo-square">
-          <img src="/assets/images/logo1.jpg" alt="Melford International Logo">
-        </div>
-      </a>
+    <a href="/index.html" class="brand">
+      <div class="brand-logo-square">
+        <img src="/assets/images/logo1.jpg" alt="Melford International Logo">
+      </div>
+    </a>
     <button id="navToggle" class="nav-toggle" aria-label="Toggle navigation menu">
       <i class="fas fa-bars"></i>
     </button>
@@ -23,7 +14,18 @@
       <ul class="nav-list">
         <li><a href="/index.html" class="nav-link">Home</a></li>
         <li><a href="/pages/about.html" class="nav-link">About Us</a></li>
-        <li><a href="/pages/services.html" class="nav-link">Our Services</a></li>
+          <li class="dropdown">
+            <a href="/pages/services.html" class="nav-link">Our Services <i class="fas fa-caret-down"></i></a>
+            <ul class="dropdown-menu">
+              <li><a href="/pages/services.html#education-counselling">Counselling</a></li>
+              <li><a href="/pages/services.html#english-training">English</a></li>
+              <li><a href="/pages/services.html#university-placement">University</a></li>
+              <li><a href="/pages/services.html#visa-processing">Visa</a></li>
+              <li><a href="/pages/services.html#pre-post-departure">Departure</a></li>
+              <li><a href="/pages/services.html#german-classes">German</a></li>
+            </ul>
+          </li>
+        </li>
         <li><a href="/pages/destinations.html" class="nav-link">Destinations</a></li>
         <li><a href="/pages/events.html" class="nav-link">Events</a></li>
         <li><a href="/pages/contact.html" class="book-btn">Contact Us</a></li>
@@ -44,58 +46,3 @@
     </div>
   </div>
 </nav>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const navToggle = document.getElementById('navToggle');
-  const mobileMenu = document.getElementById('mobileMenu');
-  const navLinks = document.querySelectorAll('.mobile-list a');
-
-  // Toggle mobile menu
-  navToggle.addEventListener('click', function() {
-    navToggle.classList.toggle('active');
-    mobileMenu.classList.toggle('active');
-    document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
-  });
-
-  // Close mobile menu when clicking on a link
-  navLinks.forEach(link => {
-    link.addEventListener('click', function() {
-      navToggle.classList.remove('active');
-      mobileMenu.classList.remove('active');
-      document.body.style.overflow = '';
-    });
-  });
-
-  // Close mobile menu when clicking outside
-  mobileMenu.addEventListener('click', function(e) {
-    if (e.target === mobileMenu) {
-      navToggle.classList.remove('active');
-      mobileMenu.classList.remove('active');
-      document.body.style.overflow = '';
-    }
-  });
-
-  // Handle escape key
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
-      navToggle.classList.remove('active');
-      mobileMenu.classList.remove('active');
-      document.body.style.overflow = '';
-    }
-  });
-
-  // Highlight active page
-  const currentPage = window.location.pathname;
-  const allNavLinks = document.querySelectorAll('.nav-link, .mobile-list a');
-  
-  allNavLinks.forEach(link => {
-    if (link.getAttribute('href') === currentPage || 
-        (currentPage === '/' && link.getAttribute('href') === '/index.html')) {
-      link.classList.add('active');
-    }
-  });
-});
-</script>
-
-</body>
-</html>

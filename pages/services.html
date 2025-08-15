@@ -4,28 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Services - Melford International Group</title>
-    <style>
-        /* Clean, modern services page */
+    <link rel="stylesheet" href="/styles/styles.css">
+   <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Jost';
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Services Hero Section with Cards */
         .services-page-hero {
             background: linear-gradient(145deg, #1e7fb8, #0d5f94);
-            min-height: 100vh;
-            padding: 30px 0 60px;
+            min-height: 60vh;
             color: white;
+            position: relative;
+            background-image: url('/assets/images/services.png');
+            background-size: cover;
+            background-position: center;
         }
 
         .services-page-hero .hero-content {
             text-align: center;
             margin-bottom: 60px;
+            padding-top: 60px;
         }
 
         .services-page-hero .hero-title {
             font-size: 3.5rem;
             font-weight: 700;
-            margin-bottom: 0;
+            margin-bottom: 20px;
+            color: #1e7fb8
         }
 
         .services-page-hero .highlight-word {
             color: #FFD700;
+        }
+        .hero-subtitle {
+            font-size: 1.3rem;
+            font-weight: 300;
+            max-width: 600px;
+            margin: 0 auto;
+            color: white;
         }
 
         /* Services Grid */
@@ -46,6 +77,14 @@
             position: relative;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
             border: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .services-page-card.animate {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.5s ease;
         }
 
         .services-page-card:hover {
@@ -60,27 +99,6 @@
             margin-bottom: 20px;
         }
 
-        .services-page-card .service-icon {
-            width: 56px;
-            height: 56px;
-            border-radius: 12px;
-            background: linear-gradient(135deg, #1e7fb8, #2196F3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            color: white;
-            flex-shrink: 0;
-        }
-
-        .services-page-card .service-title {
-            font-size: 1.35rem;
-            font-weight: 600;
-            color: #1a1a1a;
-            margin-bottom: 0;
-            line-height: 1.3;
-        }
-
         .services-page-card .service-desc {
             font-size: 0.95rem;
             color: #666;
@@ -88,29 +106,431 @@
             font-weight: 400;
         }
 
-        /* Modern minimalist icons */
-        .icon-counseling {
-            background: linear-gradient(135deg, #4CAF50, #2E7D32) !important;
+        /* Enquiry Section */
+        .services-enquiry-section {
+            background: linear-gradient(135deg, #1e7fb8, #2196F3); 
+            color: white; 
+            text-align: center;
         }
-        
-        .icon-english {
-            background: linear-gradient(135deg, #FF9800, #F57C00) !important;
+
+        .services-enquiry-title {
+            font-size: 2.5rem; 
+            font-weight: 700; 
+            margin-bottom: 20px;
         }
-        
-        .icon-university {
-            background: linear-gradient(135deg, #9C27B0, #7B1FA2) !important;
+
+        .services-enquiry-subtitle {
+            font-size: 1.2rem; 
+            margin-bottom: 30px; 
+            opacity: 0.9;
         }
-        
-        .icon-visa {
-            background: linear-gradient(135deg, #F44336, #D32F2F) !important;
+
+        .services-enquiry-btn {
+            display: inline-block; 
+            background: white; 
+            color: #1e7fb8; 
+            padding: 18px 40px; 
+            border-radius: 30px; 
+            text-decoration: none; 
+            font-weight: 600; 
+            font-size: 1.2rem; 
+            transition: all 0.3s ease; 
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
         }
-        
-        .icon-travel {
-            background: linear-gradient(135deg, #00BCD4, #0097A7) !important;
+
+        .services-enquiry-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.3);
         }
-        
-        .icon-german {
-            background: linear-gradient(135deg, #607D8B, #455A64) !important;
+
+        /* Detailed Services Section */
+        .detailed-services {
+            background: #f8fafc;
+            padding: 80px 0;
+        }
+
+        .service-detail {
+            background: white;
+            margin-bottom: 60px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            scroll-margin-top: 80px;
+            border-radius: 5px;
+        }
+
+        /* Updated Service Detail Headers with Backgrounds */
+        .service-detail-header {
+            position: relative;
+            color: white;
+            padding: 80px;
+            text-align: center;
+            background-size: 100% 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            overflow: hidden;
+        }
+
+        .service-detail-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(120deg, rgba(180, 222, 247, 0.658), rgba(97, 99, 100, 0.712));
+            z-index: 1;
+        }
+
+        .service-detail-header > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Individual service header backgrounds */
+        #education-counselling .service-detail-header {
+            background-image: url('/assets/images/education.jpg');
+        }
+
+        #english-training .service-detail-header {
+            background-image: url('/assets/images/english.jpg');
+        }
+
+        #university-placement .service-detail-header {
+            background-image: url('/assets/images/placement.jpg');
+        }
+
+        #visa-processing .service-detail-header {
+            background-image: url('/assets/images/visa.jpg');
+        }
+
+        #pre-post-departure .service-detail-header {
+            background-image: url('/assets/images/predeparture.jpg');
+        }
+
+        #german-classes .service-detail-header {
+            background-image: url('/assets/images/germany1.jpg');
+        }
+
+        .service-detail-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .service-detail-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            font-weight: 400;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .service-detail-content {
+            padding: 50px 40px;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 40px;
+        }
+
+        .service-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-features {
+            background: #f8fafc;
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 5px solid #1e7fb8;
+        }
+
+        .service-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #1e7fb8, #2196F3);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-top: 40px;
+            border-radius: 15px;
+        }
+
+        .cta-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: white;
+            color: #1e7fb8;
+            padding: 5px 20px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            border-radius: 25px;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            color: hsl(240, 100%, 95%);
+        }
+
+        /* Enhanced University Partners Section */
+        .education-partners-section {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 4rem 0;
+            font-family: 'Jost';
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 0 1rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1e7fb8;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Updated partner grid layout */
+        .static-partners-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* The 4th card to be centered below the 2nd card */
+        .partner-card:nth-child(4) {
+            grid-column: 2;
+            grid-row: 2;
+        }
+
+        /* Enhanced Partner Cards with Background Images */
+        .partner-card {
+            background: #fff;
+            border: 2px solid #1e7fb8;
+            padding: 30px 25px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(30, 127, 184, 0.15);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* Background overlay for partner cards */
+        .partner-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.466), rgba(165, 179, 194, 0.9));
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+
+        .partner-card:hover::after {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(248, 250, 252, 0.8));
+        }
+
+        /* Animated shimmer effect */
+        .partner-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(30, 127, 184, 0.1), transparent);
+            transition: left 0.5s;
+            z-index: 2;
+        }
+
+        .partner-card:hover::before {
+            left: 100%;
+        }
+
+        .partner-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(30, 127, 184, 0.25);
+        }
+
+        /* Ensure content is above overlays */
+        .partner-card > * {
+            position: relative;
+            z-index: 3;
+        }
+
+        /* Individual partner card backgrounds */
+        .partner-card:nth-child(1) {
+            background-image: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=400&h=300&fit=crop');
+        }
+
+        .partner-card:nth-child(2) {
+            background-image: url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=400&h=300&fit=crop');
+        }
+
+        .partner-card:nth-child(3) {
+            background-image: url('https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?w=400&h=300&fit=crop');
+        }
+
+        .partner-card:nth-child(4) {
+            background-image: url('https://images.unsplash.com/photo-1564981797816-1043664bf78d?w=400&h=300&fit=crop');
+        }
+
+        .partner-header {
+            margin-bottom: 20px;
+        }
+
+        .partner-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1e7fb8;
+            line-height: 1.3;
+            margin-bottom: 8px;
+        }
+
+        .partner-location {
+            color: #666;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .partner-description {
+            color: #333;
+            line-height: 1.6;
+            margin: 20px 0;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .partner-highlights {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .partner-tag {
+            background: #1e7fb8;
+            color: #fff;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            box-shadow: 0 2px 8px rgba(30, 127, 184, 0.3);
+        }
+
+        .partner-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(30, 127, 184, 0.15);
+        }
+
+        .partner-accreditation {
+            font-size: 0.85rem;
+            color: #1e7fb8;
+            font-weight: 600;
+        }
+
+        .partner-btn {
+            background: #1e7fb8;
+            color: #fff;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(30, 127, 184, 0.3);
+        }
+
+        .partner-btn:hover {
+            background: #1a6fa0;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(30, 127, 184, 0.4);
+        }
+
+        /* Quick Navigation */
+        .quick-nav {
+            position: fixed;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #e6ac00;
+            border-radius: 0 25px 0 25px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+            padding: 20px 0;
+            z-index: 1000;
+            opacity: 0.9;
+            transition: opacity 0.3s ease;
+        }
+
+        .quick-nav:hover {
+            opacity: 1;
+        }
+
+        .nav-item {
+            display: block;
+            padding: 12px 20px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border-bottom: 1px solid #f0f0f0;
+            transition: all 0.3s ease;
+        }
+
+        .nav-item:last-child {
+            border-bottom: none;
+        }
+
+        .nav-item:hover {
+            background: #f8fafc;
+            color: #0d5f94;
+        }
+
+        .nav-item.active {
+            background: #1e7fb8;
+            color: white;
         }
 
         /* Responsive Design */
@@ -118,6 +538,27 @@
             .services-page-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 20px;
+            }
+
+            .service-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .quick-nav {
+                display: none;
+            }
+
+            .static-partners-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(2, 1fr);
+            }
+
+            .partner-card:nth-child(4) {
+                grid-column: span 2;
+                max-width: 400px;
+                justify-self: center;
+                grid-row: 2;
             }
         }
 
@@ -142,359 +583,31 @@
             .services-page-card .service-title {
                 font-size: 1.25rem;
             }
-        }
 
-        @media (max-width: 480px) {
-            .services-page-hero .hero-title {
+            .service-detail-content {
+                padding: 30px 20px;
+            }
+
+            .service-detail-title {
                 font-size: 2rem;
             }
 
-            .services-page-card .service-icon {
-                width: 48px;
-                height: 48px;
-                font-size: 20px;
+            .service-detail-header {
+                padding: 60px 40px;
             }
-        }
 
-        /* Simple animations */
-        .services-page-card {
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        .services-page-card.animate {
-            opacity: 1;
-            transform: translateY(0);
-            transition: all 0.5s ease;
-        }
-    </style>
-</head>
-<body>
-<div id="topbar-placeholder"></div>
-<div id="navbar"></div>
-
-    <!-- Services Hero Section with Cards -->
-    <section class="services-page-hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title"><span class="highlight-word">Our</span> Services</h1>
-            </div>
-
-            <div class="services-page-grid">
-                <div class="services-page-card">
-                    <div class="service-header">
-                        <div class="service-icon icon-counseling">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                            </svg>
-                        </div>
-                        <h3 class="service-title">Education & Career Counselling</h3>
-                    </div>
-                    <p class="service-desc">Explore top study destinations, compare costs and offerings, and receive personalized university recommendations tailored to your goals.</p>
-                </div>
-
-                <div class="services-page-card">
-                    <div class="service-header">
-                        <div class="service-icon icon-english">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
-                            </svg>
-                        </div>
-                        <h3 class="service-title">English Proficiency Training (IELTS & PTE)</h3>
-                    </div>
-                    <p class="service-desc">Intensive preparation for all exam components, plus full exam registration support, mock testing, and expert feedback for top scores.</p>
-                </div>
-
-                <div class="services-page-card">
-                    <div class="service-header">
-                        <div class="service-icon icon-university">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/>
-                            </svg>
-                        </div>
-                        <h3 class="service-title">University/College Placement</h3>
-                    </div>
-                    <p class="service-desc">End-to-end support: from crafting applications and personal statements to deadline tracking, submission, and placement in the best-fit programs.</p>
-                </div>
-
-                <div class="services-page-card">
-                    <div class="service-header">
-                        <div class="service-icon icon-visa">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 2 2h10c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
-                            </svg>
-                        </div>
-                        <h3 class="service-title">Migration & Visa Processing</h3>
-                    </div>
-                    <p class="service-desc">Full assistance with documentation, lodging visa applications, embassy interview prep, and both pre- and post-departure guidance for a smooth transition abroad.</p>
-                </div>
-
-                <div class="services-page-card">
-                    <div class="service-header">
-                        <div class="service-icon icon-travel">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M22 16v-2l-8.5-5V3.5c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5V9L2 14v2l8.5-2.5V19L8 20.5V22l4-1 4 1v-1.5L13.5 19v-5.5L22 16z"/>
-                            </svg>
-                        </div>
-                        <h3 class="service-title">Pre and Post-departure Services</h3>
-                    </div>
-                    <p class="service-desc">We provide full support in terms of airport pickups, accommodation arrangements, and on-ground support to ensure a smooth and comfortable transition to your new academic life abroad.</p>
-                </div>
-
-                <div class="services-page-card">
-                    <div class="service-header">
-                        <div class="service-icon icon-german">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12.65 15.67c.14-.36.05-.77-.23-1.05l-2.09-2.09.03-.03c1.74-1.94 2.98-4.17 3.71-6.53h1.94v-1.5h-6.5V3h-1.5v1.5H2v1.5h10.15c-.65 1.91-1.71 3.74-3.15 5.34-.96-1.05-1.77-2.18-2.41-3.38h-1.5c.75 1.42 1.6 2.78 2.54 4.03l-4.04 4.04 1.06 1.06L9.5 12l2.15 2.15c.14-.07.29-.12.45-.12.16 0 .31.05.45.12l2.09 2.09c.28.28.69.37 1.05.23.36-.14.59-.49.59-.88 0-.39-.23-.74-.59-.88z"/>
-                            </svg>
-                        </div>
-                        <h3 class="service-title">German Language Classes (A1 – B2)</h3>
-                    </div>
-                    <p class="service-desc">We offer structured German courses from beginner A1 to B2 levels. Whether you are starting from scratch or looking to improve your skills with flexible schedules.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-<section class="education-partners-section">
-    <style>
-        .education-partners-section {
-            background: #fff;
-            padding: 3rem 0;
-            overflow: hidden;
-            position: relative;
-            font-family: 'Jost';
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 2rem;
-            padding: 0 1rem;
-        }
-
-        .section-header h2 {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #1e7fb8;
-            margin-bottom: 0.5rem;
-        }
-
-        .section-header p {
-            font-size: 1rem;
-            color: #666;
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.5;
-        }
-
-        .cards-container {
-            position: relative;
-            height: 300px;
-            margin: 1.5rem 0;
-            overflow: hidden;
-            width: 100%;
-        }
-
-        .cards-track {
-            display: flex;
-            width: calc(280px * 8);
-            animation: flowRightToLeft 35s linear infinite;
-            will-change: transform;
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
-
-        .cards-track.paused {
-            animation-play-state: paused;
-        }
-
-        @keyframes flowRightToLeft {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(calc(-280px * 4)); }
-        }
-
-        .university-card {
-            background: #fff;
-            border: 2px solid #1e7fb8;
-            border-radius: 12px;
-            padding: 1rem;
-            margin-right: 20px;
-            width: 260px;
-            height: 300px;
-            flex-shrink: 0;
-            box-shadow: 0 6px 20px rgba(30, 127, 184, 0.12);
-            transition: all 0.3s ease;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .university-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(30, 127, 184, 0.08), transparent);
-            transition: left 0.5s;
-        }
-
-        .university-card:hover::before {
-            left: 100%;
-        }
-
-        .university-card:hover {
-            transform: translateY(-6px) scale(1.02);
-            box-shadow: 0 12px 30px rgba(30, 127, 184, 0.2);
-        }
-
-        .university-card.clicked {
-            transform: scale(1.03);
-            box-shadow: 0 15px 35px rgba(30, 127, 184, 0.25);
-            background: linear-gradient(135deg, #fff 0%, rgba(30, 127, 184, 0.03) 100%);
-        }
-
-        .card-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 0.8rem;
-        }
-
-        .flag-icon {
-            width: 28px;
-            height: 20px;
-            border-radius: 3px;
-            margin-right: 0.6rem;
-            box-shadow: 0 1px 4px rgba(0,0,0,0.2);
-            font-size: 0.6rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-        }
-
-        .uae { 
-            background: linear-gradient(0deg, #009639 0%, #FFFFFF 33%, #FFFFFF 66%, #CE1126 100%);
-            color: #000;
-        }
-        .uk { 
-            background: linear-gradient(45deg, #012169 0%, #FFFFFF 50%, #C8102E 100%);
-            color: #fff;
-        }
-        .canada { 
-            background: linear-gradient(0deg, #FF0000 0%, #FFFFFF 50%, #FF0000 100%);
-            color: #000;
-        }
-
-        .university-info {
-            flex: 1;
-        }
-
-        .university-title {
-            font-size: 1rem;
-            font-weight: 700;
-            color: #1e7fb8;
-            line-height: 1.2;
-            margin-bottom: 0.2rem;
-        }
-
-        .location {
-            color: #666;
-            font-weight: 500;
-            font-size: 0.75rem;
-        }
-
-        .description {
-            color: #555;
-            line-height: 1.4;
-            margin: 0.8rem 0;
-            font-size: 0.8rem;
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-            flex: 1;
-        }
-
-        .highlights {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.3rem;
-            margin: 0.8rem 0;
-        }
-
-        .highlight-tag {
-            background: #1e7fb8;
-            color: #fff;
-            padding: 0.15rem 0.4rem;
-            border-radius: 8px;
-            font-size: 0.65rem;
-            font-weight: 500;
-            white-space: nowrap;
-        }
-
-        .card-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: auto;
-            padding-top: 0.8rem;
-            border-top: 1px solid rgba(30, 127, 184, 0.15);
-        }
-
-        .learn-more-btn {
-            background: #1e7fb8;
-            color: #fff;
-            text-decoration: none;
-            padding: 0.4rem 0.8rem;
-            border-radius: 15px;
-            font-weight: 600;
-            font-size: 0.75rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 3px 8px rgba(30, 127, 184, 0.25);
-        }
-
-        .learn-more-btn:hover {
-            background: #1a6fa0;
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(30, 127, 184, 0.35);
-        }
-
-        .accreditation {
-            font-size: 0.65rem;
-            color: #1e7fb8;
-            font-weight: 600;
-        }
-
-        .pause-overlay {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: rgba(30, 127, 184, 0.9);
-            color: #fff;
-            padding: 0.6rem 1rem;
-            border-radius: 20px;
-            font-weight: 600;
-            font-size: 0.85rem;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            pointer-events: none;
-            z-index: 10;
-        }
-
-        .pause-overlay.show {
-            opacity: 1;
-        }
-
-        @media (max-width: 768px) {
-            .section-header h2 {
-                font-size: 1.8rem;
+            .static-partners-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
             }
-            
+
+            .partner-card:nth-child(4) {
+                grid-column: 1;
+                grid-row: auto;
+                max-width: none;
+                justify-self: stretch;
+            }
+
             .university-card {
                 min-width: 240px;
                 height: 220px;
@@ -511,295 +624,331 @@
                 100% { transform: translateX(calc(-270px * 4)); }
             }
         }
+
+        @media (max-width: 480px) {
+            .services-page-hero .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .services-page-card .service-icon {
+                width: 48px;
+                height: 48px;
+                font-size: 20px;
+            }
+
+            .service-detail-title {
+                font-size: 1.8rem;
+            }
+
+            .service-detail-header {
+                padding: 40px 20px;
+            }
+
+            .partner-title {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
     </style>
+</head>
+<body>
+    <div id="navbar"></div>
 
-    <div class="section-header">
-        <h2>GLOBAL EDUCATION PARTNERS</h2>
-        <p>Collaborating with globally recognized institutions committed to academic excellence</p>
+    <!-- Quick Navigation -->
+    <div class="quick-nav">
+        <a href="#education-counselling" class="nav-item">Counselling</a>
+        <a href="#english-training" class="nav-item">English</a>
+        <a href="#university-placement" class="nav-item">University</a>
+        <a href="#visa-processing" class="nav-item">Visa</a>
+        <a href="#pre-post-departure" class="nav-item">Departure</a>
+        <a href="#german-classes" class="nav-item">German</a>
     </div>
 
-    <div class="cards-container">
-        <div class="pause-overlay" id="pauseOverlay">Click any card to pause/resume</div>
-        
-        <div class="cards-track" id="cardsTrack">
-            <!-- First Set -->
-            <div class="university-card" data-university="aurak">
-                <div class="card-header">
-                    <div class="university-info">
-                        <div class="university-title">American University of Ras Al Khaimah</div>
-                        <div class="location">Ras Al Khaimah, UAE</div>
+    <!-- Services Hero Section with Cards -->
+    <section class="services-page-hero">
+            <div class="hero-content">
+                <h1 class="hero-title"><span class="highlight-word">Our</span> Services</h1>
+                <p class="hero-subtitle">Comprehensive solutions for your international education journey</p>
+            </div>
+    </section>
+    <!-- Detailed Services Section -->
+    <section class="detailed-services">
+        <div class="container">
+            <!-- Education & Career Counselling -->
+            <div id="education-counselling" class="service-detail">
+                <div class="service-detail-header">
+                    <h2 class="service-detail-title">Education & Career Counselling</h2>
+                    <p class="service-detail-subtitle">Your pathway to the right educational choices</p>
+                </div>
+                <div class="service-detail-content">
+                    <div class="service-grid">
+                        <div class="service-info">
+                            <p class="service-description">
+                                Our experienced counsellors provide personalized guidance to help you navigate the complex world of international education. We start with an initial consultation to assess your goals, followed by a thorough review of your academic and financial background. Based on this, we conduct in-depth research to shortlist suitable countries, universities, and programs, considering your career aspirations and scholarship opportunities. We then present a detailed comparison and tailored recommendations, helping you finalize your choices, plan your application timeline, and align your studies with long-term career goals. Throughout the journey, we offer ongoing support, ensuring every step — from course selection to financial planning — is seamless and well-informed.                            
+                            </p>
+                        </div>
+                        <div class="cta-section">
+                            <h3 class="cta-title">Ready to Discover Your Perfect Educational Path?</h3>
+                            <p>Book a free consultation with our expert counsellors today</p>
+                            <a href="/pages/enquire.html" class="cta-btn">Book Free Consultation</a>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="description">
-                    Public, non-profit university offering American-style programs in engineering, business, and sciences. Diverse student body from 45+ nationalities with US transfer pathways.
-                </div>
-                
-                <div class="highlights">
-                    <span class="highlight-tag">SACSCOC</span>
-                    <span class="highlight-tag">45+ Nations</span>
-                    <span class="highlight-tag">US Transfers</span>
-                </div>
-                
-                <div class="card-footer">
-                    <div class="accreditation">✓ SACSCOC</div>
-                    <a href="https://aurak.ac.ae" class="learn-more-btn" onclick="event.stopPropagation();">Learn More</a>
                 </div>
             </div>
 
-            <div class="university-card" data-university="regent">
-                <div class="card-header">
-                    <div class="university-info">
-                        <div class="university-title">Regent College Middle East</div>
-                        <div class="location">Dubai & UK</div>
+            <!-- English Proficiency Training -->
+            <div id="english-training" class="service-detail">
+                <div class="service-detail-header">
+                    <h2 class="service-detail-title">English Proficiency Training</h2>
+                    <p class="service-detail-subtitle">Master IELTS & PTE with confidence</p>
+                </div>
+                <div class="service-detail-content">
+                    <div class="service-grid">
+                        <div class="service-info">
+                            <p class="service-description">
+                                Our intensive English training programs are designed to help you achieve outstanding results in exams like IELTS and PTE. Guided by expert trainers, you'll follow a personalized study plan with targeted practice, regular mock tests, and detailed feedback to strengthen all four language skills. We equip you with proven strategies for exam success, provide flexible online and offline learning options, and assist with exam registration. From your first assessment to your final test, we prepare you thoroughly to perform at your best.
+                            </p>
+                        </div>
+                        <div class="cta-section">
+                            <h3 class="cta-title">Achieve Your Target Score Today!</h3>
+                            <p>Join our high-success rate English proficiency programs</p>
+                            <a href="/pages/enquire.html" class="cta-btn">Enroll Now</a>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="description">
-                    Based in Dubai Knowledge Park, delivering vocational and higher education in Business, IT, Hospitality, and Digital Technologies with UK progression pathways.
-                </div>
-                
-                <div class="highlights">
-                    <span class="highlight-tag">Vocational</span>
-                    <span class="highlight-tag">UK Links</span>
-                    <span class="highlight-tag">Digital Tech</span>
-                </div>
-                
-                <div class="card-footer">
-                    <div class="accreditation">✓ Dubai KP</div>
-                    <a href="https://regenteducation.ae" class="learn-more-btn" onclick="event.stopPropagation();">Learn More</a>
                 </div>
             </div>
 
-            <div class="university-card" data-university="newton">
-                <div class="card-header">
-                    <div class="university-info">
-                        <div class="university-title">Newton International College</div>
-                        <div class="location">Toronto, Canada</div>
+            <!-- University Placement -->
+            <div id="university-placement" class="service-detail">
+                <div class="service-detail-header">
+                    <h2 class="service-detail-title">International University Placement</h2>
+                    <p class="service-detail-subtitle">Your gateway to world-class education</p>
+                </div>
+                <div class="service-detail-content">
+                    <div class="service-grid">
+                        <div class="service-info">
+                            <p class="service-description">
+                                We handle the entire university application process so you can focus on achieving your dreams. From evaluating your profile and matching you with the right universities to crafting compelling applications, we take care of research, personal statement guidance, document preparation, and deadline tracking. We also provide interview coaching, assist in evaluating offers, and help you make the best decision for your future. With our structured process, your application stands out for all the right reasons.
+                            </p>
+                        </div>
+                        <div class="cta-section">
+                            <h3 class="cta-title">Ready to Apply to Top Universities?</h3>
+                            <p>Let our experts guide you through the application process</p>
+                            <a href="/pages/enquire.html" class="cta-btn">Start Your Application</a>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="description">
-                    Private secondary school (Grades 7-12) certified by Ontario Ministry. Personalized academic pathways with 100% university placement rate to top institutions.
-                </div>
-                
-                <div class="highlights">
-                    <span class="highlight-tag">100% Rate</span>
-                    <span class="highlight-tag">Grades 7-12</span>
-                    <span class="highlight-tag">Personal</span>
-                </div>
-                
-                <div class="card-footer">
-                    <div class="accreditation">✓ Ontario</div>
-                    <a href="https://nictoronto.ca/" class="learn-more-btn" onclick="event.stopPropagation();">Learn More</a>
                 </div>
             </div>
 
-            <div class="university-card" data-university="malvern">
-                <div class="card-header">
-                    <div class="university-info">
-                        <div class="university-title">Malvern International College</div>
-                        <div class="location">London & Manchester</div>
+            <!-- Migration & Visa Processing -->
+            <div id="visa-processing" class="service-detail">
+                <div class="service-detail-header">
+                    <h2 class="service-detail-title">Migration & Visa Processing</h2>
+                    <p class="service-detail-subtitle">Seamless visa solutions for your journey abroad</p>
+                </div>
+                <div class="service-detail-content">
+                    <div class="service-grid">
+                        <div class="service-info">
+                            <p class="service-description">
+                                Our dedicated visa support service ensures your application is complete, accurate, and ready for approval. We guide you through requirement analysis, prepare your documents, assist with financial proofs, and coach you for embassy interviews. We also help with appointment scheduling, application tracking, and post-approval steps. From your initial assessment to the moment your visa is granted, we make the process seamless and stress-free.
+                            </p>
+                        </div>
+                        <div class="cta-section">
+                            <h3 class="cta-title">Ready to Begin Your Visa Journey?</h3>
+                            <p>Get expert assistance with your visa application process</p>
+                            <a href="/pages/enquire.html" class="cta-btn">Get Visa Support</a>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="description">
-                    Global education provider offering university pathway programs, English language training, and embedded international college experiences with UK partners.
-                </div>
-                
-                <div class="highlights">
-                    <span class="highlight-tag">Pathways</span>
-                    <span class="highlight-tag">English</span>
-                    <span class="highlight-tag">UK Partners</span>
-                </div>
-                
-                <div class="card-footer">
-                    <div class="accreditation">✓ UK Unis</div>
-                    <a href="https://malverncollegeinternational.org/" class="learn-more-btn" onclick="event.stopPropagation();">Learn More</a>
                 </div>
             </div>
 
-            <!-- Duplicate Set -->
-            <div class="university-card" data-university="aurak">
-                <div class="card-header">
-                    <div class="university-info">
-                        <div class="university-title">American University of Ras Al Khaimah</div>
-                        <div class="location">Ras Al Khaimah, UAE</div>
+            <!-- Pre and Post-departure Services -->
+            <div id="pre-post-departure" class="service-detail">
+                <div class="service-detail-header">
+                    <h2 class="service-detail-title">Pre and Post-departure Services</h2>
+                    <p class="service-detail-subtitle">Complete support for your transition abroad</p>
+                </div>
+                <div class="service-detail-content">
+                    <div class="service-grid">
+                        <div class="service-info">
+                            <p class="service-description">
+                                Your journey abroad doesn't stop with securing your visa — and neither does our support. We prepare you for life in your new destination with pre-departure briefings, travel and accommodation arrangements, and essential service setups like bank accounts and SIM cards. Upon arrival, we provide airport pickup, university enrollment assistance, cultural orientation, and ongoing mentorship to help you adapt smoothly. We're with you every step of the way to ensure your transition is comfortable and confident.
+                            </p>
+                        </div>
+                        <div class="cta-section">
+                            <h3 class="cta-title">Need Complete Journey Support?</h3>
+                            <p>From departure to settlement - we're with you every step</p>
+                            <a href="/pages/enquire.html" class="cta-btn">Get Full Support</a>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="description">
-                    Public, non-profit university offering American-style programs in engineering, business, and sciences. Diverse student body from 45+ nationalities with US transfer pathways.
-                </div>
-                
-                <div class="highlights">
-                    <span class="highlight-tag">SACSCOC</span>
-                    <span class="highlight-tag">45+ Nations</span>
-                    <span class="highlight-tag">US Transfers</span>
-                </div>
-                
-                <div class="card-footer">
-                    <div class="accreditation">✓ SACSCOC</div>
-                    <a href="https://aurak.ac.ae" class="learn-more-btn" onclick="event.stopPropagation();">Learn More</a>
                 </div>
             </div>
 
-            <div class="university-card" data-university="regent">
-                <div class="card-header">
-                    <div class="university-info">
-                        <div class="university-title">Regent College Middle East</div>
-                        <div class="location">Dubai & UK</div>
+            <!-- German Language Classes -->
+            <div id="german-classes" class="service-detail">
+                <div class="service-detail-header">
+                    <h2 class="service-detail-title">German Language Classes (A1 – B2)</h2>
+                    <p class="service-detail-subtitle">Master German for your European education journey</p>
+                </div>
+                <div class="service-detail-content">
+                    <div class="service-grid">
+                        <div class="service-info">
+                            <p class="service-description">
+                                Our structured German language courses open the door to academic and career opportunities in Germany. Covering levels A1 to B2, our interactive sessions blend language learning with cultural immersion activities. You'll benefit from small class sizes, flexible scheduling, regular assessments, and certification upon completion. Whether you're a beginner or advancing your skills, we prepare you for both daily communication and academic readiness — even supporting your university application process.
+                            </p>
+                        </div>
+                        <div class="cta-section">
+                            <h3 class="cta-title">Ready to Learn German?</h3>
+                            <p>Start your German language journey with our expert instructors</p>
+                            <a href="/pages/enquire.html" class="cta-btn">Join German Classes</a>
+                        </div>
                     </div>
                 </div>
-                
-                <div class="description">
-                    Based in Dubai Knowledge Park, delivering vocational and higher education in Business, IT, Hospitality, and Digital Technologies with UK progression pathways.
-                </div>
-                
-                <div class="highlights">
-                    <span class="highlight-tag">Vocational</span>
-                    <span class="highlight-tag">UK Links</span>
-                    <span class="highlight-tag">Digital Tech</span>
-                </div>
-                
-                <div class="card-footer">
-                    <div class="accreditation">✓ Dubai KP</div>
-                    <a href="https://regenteducation.ae" class="learn-more-btn" onclick="event.stopPropagation();">Learn More</a>
-                </div>
-            </div>
-
-            <div class="university-card" data-university="newton">
-                <div class="card-header">
-                    <div class="university-info">
-                        <div class="university-title">Newton International College</div>
-                        <div class="location">Toronto, Canada</div>
-                    </div>
-                </div>
-                
-                <div class="description">
-                    Private secondary school (Grades 7-12) certified by Ontario Ministry. Personalized academic pathways with 100% university placement rate to top institutions.
-                </div>
-                
-                <div class="highlights">
-                    <span class="highlight-tag">100% Rate</span>
-                    <span class="highlight-tag">Grades 7-12</span>
-                    <span class="highlight-tag">Personal</span>
-                </div>
-                
-                <div class="card-footer">
-                    <div class="accreditation">✓ Ontario</div>
-                    <a href="https://nictoronto.ca/" class="learn-more-btn" onclick="event.stopPropagation();">Learn More</a>
-                </div>
-            </div>
-
-            <div class="university-card" data-university="malvern">
-                <div class="card-header">
-                    <div class="university-info">
-                        <div class="university-title">Malvern International College</div>
-                        <div class="location">London & Manchester</div>
-                    </div>
-                </div>
-                
-                <div class="description">
-                    Global education provider offering university pathway programs, English language training, and embedded international college experiences with UK partners.
-                </div>
-                
-                <div class="highlights">
-                    <span class="highlight-tag">Pathways</span>
-                    <span class="highlight-tag">English</span>
-                    <span class="highlight-tag">UK Partners</span>
-                </div>
-                
-                <div class="card-footer">
-                    <div class="accreditation">✓ UK Unis</div>
-                    <a href="https://malverncollegeinternational.org/" class="learn-more-btn" onclick="event.stopPropagation();">Learn More</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        const cardsTrack = document.getElementById('cardsTrack');
-        const pauseOverlay = document.getElementById('pauseOverlay');
-        let isPaused = false;
-
-        document.querySelectorAll('.university-card').forEach(card => {
-            card.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                isPaused = !isPaused;
-                
-                if (isPaused) {
-                    cardsTrack.classList.add('paused');
-                    pauseOverlay.textContent = 'Click to resume';
-                    this.classList.add('clicked');
-                } else {
-                    cardsTrack.classList.remove('paused');
-                    pauseOverlay.textContent = 'Click to pause';
-                    document.querySelectorAll('.university-card').forEach(c => c.classList.remove('clicked'));
-                }
-                
-                pauseOverlay.classList.add('show');
-                setTimeout(() => {
-                    pauseOverlay.classList.remove('show');
-                }, 1500);
-            });
-
-            card.addEventListener('mouseenter', function() {
-                if (!isPaused) {
-                    this.style.transform = 'translateY(-6px) scale(1.02)';
-                }
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                if (!isPaused && !this.classList.contains('clicked')) {
-                    this.style.transform = 'translateY(0) scale(1)';
-                }
-            });
-        });
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting && !isPaused) {
-                    cardsTrack.classList.remove('paused');
-                } else if (!entry.isIntersecting) {
-                    cardsTrack.classList.add('paused');
-                }
-            });
-        }, { threshold: 0.3 });
-
-        observer.observe(document.querySelector('.education-partners-section'));
-    </script>
-</section>
-    
-    <section class="melford-enquiry-section">
-        <div class="melford-enquiry-content">
-            <div class="melford-enquiry-card">
-                <h2 class="melford-enquiry-title">Ready to Start?</h2>
-                <p class="melford-enquiry-subtitle">
-                    Take the first step towards your international education journey. Let us guide you every step of the way.
-                </p>
-                <a href="/pages/enquire.html" class="melford-enquiry-btn">
-                    Make an Enquiry
-                </a>
             </div>
         </div>
     </section>
 
-    <div id="footer-placeholder"></div>
+    <!-- Education Partners Section -->
+    <section class="education-partners-section">
+        <div class="section-header">
+            <h2>GLOBAL EDUCATION PARTNERS</h2>
+            <p>Collaborating with globally recognized institutions committed to academic excellence</p>
+        </div>
 
-    <script>
-        // Simple page load animation
-        document.addEventListener('DOMContentLoaded', () => {
-            // Animate service cards on load
-            const cards = document.querySelectorAll('.services-page-card');
-            cards.forEach((card, index) => {
-                setTimeout(() => {
-                    card.classList.add('animate');
-                }, index * 100);
+        <div class="static-partners-grid">
+            <div class="partner-card" style="background-image: url('/assets/images/americanuni.jpg');">
+                <div class="partner-header">
+                    <div class="partner-title">American University of Ras Al Khaimah</div>
+                    <div class="partner-location">Ras Al Khaimah, UAE</div>
+                </div>
+                
+                <div class="partner-description">
+                    Public, non-profit university offering American-style programs in engineering, business, and sciences. Diverse student body from 45+ nationalities with US transfer pathways.
+                </div>
+                
+                <div class="partner-highlights">
+                    <span class="partner-tag">SACSCOC</span>
+                    <span class="partner-tag">45+ Nations</span>
+                    <span class="partner-tag">US Transfers</span>
+                </div>
+                
+                <div class="partner-footer">
+                    <div class="partner-accreditation">✓ SACSCOC</div>
+                    <a href="https://aurak.ac.ae" class="partner-btn" target="_blank">Learn More</a>
+                </div>
+            </div>
+
+            <div class="partner-card" style="background-image: url('/assets/images/regent.png');">
+                <div class="partner-header">
+                    <div class="partner-title">Regent College Middle East</div>
+                    <div class="partner-location">Dubai & UK</div>
+                </div>
+                
+                <div class="partner-description">
+                    Based in Dubai Knowledge Park, delivering vocational and higher education in Business, IT, Hospitality, and Digital Technologies with UK progression pathways.
+                </div>
+                
+                <div class="partner-highlights">
+                    <span class="partner-tag">Vocational</span>
+                    <span class="partner-tag">UK Links</span>
+                    <span class="partner-tag">Digital Tech</span>
+                </div>
+                
+                <div class="partner-footer">
+                    <div class="partner-accreditation">✓ Dubai KP</div>
+                    <a href="https://regenteducation.ae" class="partner-btn" target="_blank">Learn More</a>
+                </div>
+            </div>
+
+            <div class="partner-card" style="background-image: url('/assets/images/newton.jpeg');">
+                <div class="partner-header">
+                    <div class="partner-title">Newton International College</div>
+                    <div class="partner-location">Toronto, Canada</div>
+                </div>
+                
+                <div class="partner-description">
+                    Private secondary school (Grades 7-12) certified by Ontario Ministry. Personalized academic pathways with 100% university placement rate to top institutions.
+                </div>
+                
+                <div class="partner-highlights">
+                    <span class="partner-tag">100% Rate</span>
+                    <span class="partner-tag">Grades 7-12</span>
+                    <span class="partner-tag">Personal</span>
+                </div>
+                
+                <div class="partner-footer">
+                    <div class="partner-accreditation">✓ Ontario</div>
+                    <a href="https://nictoronto.ca/" class="partner-btn" target="_blank">Learn More</a>
+                </div>
+            </div>
+
+            <div class="partner-card" style="background-image: url('/assets/images/malvern.jpg');">
+                <div class="partner-header">
+                    <div class="partner-title">Malvern International College</div>
+                    <div class="partner-location">London & Manchester</div>
+                </div>
+                
+                <div class="partner-description">
+                    Global education provider offering university pathway programs, English language training, and embedded international college experiences with UK partners.
+                </div>
+                
+                <div class="partner-highlights">
+                    <span class="partner-tag">Pathways</span>
+                    <span class="partner-tag">English</span>
+                    <span class="partner-tag">UK Partners</span>
+                </div>
+                
+                <div class="partner-footer">
+                    <div class="partner-accreditation">✓ UK Unis</div>
+                    <a href="https://malverncollegeinternational.org/" class="partner-btn" target="_blank">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div id="footer-placeholder"></div>
+<script>
+// Quick navigation functionality
+const navItems = document.querySelectorAll('.nav-item');
+const serviceDetails = document.querySelectorAll('.service-detail');
+
+function updateActiveNav() {
+    const scrollPos = window.scrollY + 100;
+    serviceDetails.forEach((section, index) => {
+        const sectionTop = section.offsetTop;
+        const sectionBottom = sectionTop + section.offsetHeight;
+        if (scrollPos >= sectionTop && scrollPos < sectionBottom) {
+            navItems.forEach(nav => nav.classList.remove('active'));
+            navItems[index].classList.add('active');
+        }
+    });
+}
+
+window.addEventListener('scroll', updateActiveNav);
+updateActiveNav(); // Initial call
+
+// Smooth scroll for navigation links
+navItems.forEach(item => {
+    item.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetSection = document.querySelector(targetId);
+        if (targetSection) {
+            targetSection.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
             });
-        });
-    </script>
+        }
+    });
+});
+</script>
     <script src="../js/loadpartials.js" defer></script>
 </body>
 </html>

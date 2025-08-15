@@ -533,6 +533,7 @@
             }
         }
     </style>
+    <div id="navbar"></div>
     <section class="home-services">
         <h2 class="melford-testimonials-title">Our Services</h2>
 
@@ -1409,7 +1410,7 @@
             serviceCards.forEach(card => {
                 card.addEventListener('click', function() {
                     const serviceId = this.dataset.service;
-                    window.location.href = `services.html#${serviceId}`;
+                    window.location.href = `/pages/services.html#${serviceId}`;
                 });
                 
                 // Add pointer cursor to show it's clickable

@@ -23,8 +23,63 @@
   font-weight: 400;
   font-style:oblique;
 }
+
+/* Dropdown Styles */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  min-width: 200px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  border-radius: 6px;
+  display: none;
+  flex-direction: column;
+  padding: 10px 0;
+  z-index: 1000;
+}
+
+.dropdown-menu li {
+  list-style: none;
+}
+
+.dropdown-menu li a {
+  display: block;
+  padding: 10px 16px;
+  color: #333;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: background 0.3s;
+}
+
+.dropdown-menu li a:hover {
+  background: #f0f0f0;
+  color: #1e7fb8;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: flex;
+}
+
+@media (max-width: 768px) {
+  .dropdown-menu {
+    position: static;
+    box-shadow: none;
+    border-radius: 0;
+    display: none;
+  }
+  .dropdown.open .dropdown-menu {
+    display: flex;
+  }
+}
+
+
 /* ==============
-NAVBAR PAGE
+Navbar Styles 
 ================ */
 .navbar {
   background-color: #fff;
@@ -307,7 +362,7 @@ border-bottom-color: var(--white);
     color: black !important;
   }
 }
-/* Logo styles - add this to your existing CSS */
+/* Logo styles */
 
 .brand {
   display: flex;
@@ -317,7 +372,7 @@ border-bottom-color: var(--white);
 }
 
 .brand-logo-square {
-  height: 120px; /* Adjust based on your navbar height of 70px */
+  height: 120px; 
   width: auto;
   display: flex;
   align-items: center;
@@ -329,15 +384,15 @@ border-bottom-color: var(--white);
   height: 100%;
   width: auto;
   max-height: 50px;
-  object-fit: contain; /* Maintains aspect ratio */
+  object-fit: contain; 
   display: block;
 }
 
 /* Hamburger menu visibility fix */
 .nav-toggle {
   background: none;
-  border: 2px solid var(--primary-blue); /* Change from white to primary-blue for visibility */
-  color: var(--primary-blue); /* Change from white to primary-blue */
+  border: 2px solid var(--primary-blue);
+  color: var(--primary-blue);
   font-size: 20px;
   cursor: pointer;
   display: none;
@@ -358,11 +413,9 @@ border-bottom-color: var(--white);
   color: var(--primary-blue);
   border-color: var(--accent-yellow);
 }
-
-/* Mobile responsive adjustments for logo */
 @media (max-width: 575px) {
   .brand-logo-square {
-    height: 40px; /* Smaller on mobile */
+    height: 40px; 
   }
   
   .brand-logo-square img {
@@ -380,7 +433,6 @@ border-bottom-color: var(--white);
   }
 }
 
-/* Alternative logo styles if you want a circular/rounded logo */
 .brand-logo-square.rounded {
   border-radius: 50%;
   overflow: hidden;
@@ -392,14 +444,12 @@ border-bottom-color: var(--white);
   border-radius: 50%;
 }
 
-/* If your logo has transparent background and needs padding */
 .brand-logo-square.with-padding {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 8px;
   padding: 5px;
 }
 
-/* High DPI display optimization */
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
   .brand-logo-square img {
     image-rendering: -webkit-optimize-contrast;
@@ -410,7 +460,7 @@ border-bottom-color: var(--white);
 /*===============
 TESTIMONIALS SECTION
 ================*/
-.melford-testimonials-section {
+        .melford-testimonials-section {
             padding: 3px;
             background-color: #f0f2f1;
             min-height: auto;
@@ -566,7 +616,6 @@ TESTIMONIALS SECTION
         .melford-pagination-dot:hover {
             border-color: #ffc107;
         }
-/* Google section */
       /*======================
       ENQUIRY FORM
     ===========================*/
@@ -792,342 +841,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   cursor: pointer;
   font-size: 16px;
 }
-
-.hero-banner {
-  position: relative;
-  min-height: 70vh;
-  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-gray) 100%);
-  display: flex;
-  align-items: center;
-  color: var(--white);
-}
-
-.hero-banner::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: repeating-linear-gradient(
-    45deg,
-    transparent,
-    transparent 100px,
-    rgba(241, 196, 15, 0.05) 100px,
-    rgba(241, 196, 15, 0.05) 102px
-  );
-}
-.services-wrapper {
-  padding: 5rem 0;
-  background: #f9f9f9;
-}
-
-.services-title {
-  text-align: center;
-  font-size: 1.5rem;
-  color: var(--primary-blue);
-  margin-bottom: 3rem;
-  font-weight: 80;
-}
-
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 1rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.service-box {
-  background: #ffffff;
-  padding: 2.8rem;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s ease;
-  border: 1px solid rgba(30, 90, 150, 0.1);
-  position: relative;
-  overflow: hidden;
-}
-
-.service-box::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  transform: scaleX(0);
-  transition: transform 0.8s ease;
-}
-
-.service-box:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-}
-
-.service-box:hover::before {
-  transform: scaleX(1);
-}
-
-.service-heading {
-  font-size: 1.4rem;
-  color: var(--primary-blue);
-  margin-bottom: 1.2rem;
-  font-weight: 600;
-  line-height: 1.3;
-}
-
-.service-description {
-  font-size: 1rem;
-  line-height: 1.7;
-  color: white;
-  opacity: 0.8;
-}
-
-@media (max-width: 576px) {
-  .hero-content {
-    padding: 1rem;
-  }
-  
-  .hero-content h1 {
-    font-size: 2rem;
-    margin-bottom: 0.75rem;
-  }
-  
-  .hero-content p {
-    font-size: 1.1rem;
-    margin-bottom: 1.5rem;
-  }
-  
-  .cta-button {
-    padding: 0.6rem 1.5rem;
-    margin-right: 1rem;
-    margin-bottom: 1rem;
-    display: block;
-    text-align: center;
-  }
-  
-  .about-container {
-    flex-direction: column;
-    padding: 2rem 1rem;
-    gap: 1.5rem;
-  }
-  
-  .about-image {
-    max-width: 100%;
-    order: 2;
-  }
-  
-  .about-mission-column {
-    order: 1;
-  }
-  
-  .about-text h2,
-  .mission-text h2 {
-    font-size: 1.5rem;
-  }
-  
-  .about-text p,
-  .mission-text p {
-    font-size: 0.95rem;
-  }
-  
-  .core-values-section {
-    margin-top: -50px;
-    padding: 20px 10px;
-  }
-  
-  .section-title {
-    font-size: 1.8rem;
-    margin-bottom: 30px;
-  }
-  
-  .values-grid {
-    grid-template-columns: 1fr;
-    gap: 15px;
-  }
-  
-  .value-card {
-    padding: 25px 20px;
-    min-height: 220px;
-  }
-  
-  .value-icon {
-    width: 60px;
-    height: 60px;
-    font-size: 1.8rem;
-    margin-bottom: 20px;
-  }
-  
-  .value-title {
-    font-size: 1.4rem;
-  }
-  
-  .value-description {
-    font-size: 0.9rem;
-  }
-  
-  .enquiry-section {
-    height: auto;
-    padding: 30px 15px;
-  }
-  
-  .enquiry-container h2 {
-    font-size: 20px;
-  }
-  
-  .enquiry-container p {
-    font-size: 14px;
-  }
-  
-  .about-hero {
-    height: 60vh;
-    padding: 40px 15px;
-  }
-  
-  .about-hero h1 {
-    font-size: 2.5rem;
-    margin: 20px 0;
-    letter-spacing: -1px;
-  }
-  
-  .about-hero p {
-    font-size: 1rem;
-  }
-  
-  .contact-main-wrapper {
-    padding: 0 1rem;
-  }
-  
-  .contact-page-title {
-    font-size: 2rem;
-  }
-  
-  .contact-form-container {
-    padding: 2rem 1.5rem;
-    margin: 1rem;
-  }
-  
-  .enquiry-form-section {
-    padding: 20px;
-    margin: 10px;
-  }
-  
-  .grid-3, .grid-2 {
-    grid-template-columns: 1fr;
-  }
-  
-  h2 {
-    font-size: 24px;
-  }
-  
-  .services-title {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-  }
-  
-  .services-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    padding: 0 1rem;
-  }
-  
-  .service-box {
-    padding: 1.5rem;
-  }
-  
-  .service-heading {
-    font-size: 1.2rem;
-  }
-  
-  .hero-title {
-    font-size: 2.5rem;
-  }
-  
-  .hero-description {
-    font-size: 1.1rem;
-  }
-  
-  .container {
-    padding: 0 1rem;
-  }
-}
-
-@media (min-width: 576px) and (max-width: 768px) {
-  .hero-content h1 {
-    font-size: 2.5rem;
-  }
-  
-  .hero-content p {
-    font-size: 1.25rem;
-  }
-  
-  .about-container {
-    flex-direction: column;
-    padding: 3rem 2rem;
-  }
-  
-  .about-image {
-    max-width: 100%;
-  }
-  
-  .values-grid {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 18px;
-  }
-  
-  .value-card {
-    padding: 30px 25px;
-    min-height: 250px;
-  }
-  
-  .value-title {
-    font-size: 1.6rem;
-  }
-  
-  .contact-form-container {
-    padding: 2.5rem;
-  }
-  
-  .services-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    padding: 0 1rem;
-  }
-  
-  .service-box {
-    padding: 2rem;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 992px) {
-  .about-container {
-    padding: 4rem 3rem;
-  }
-  
-  .mission-wrapper {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-  
-  .mission-section {
-    padding: 60px 15px;
-  }
-  
-  .mission-container,
-  .what-we-do {
-    padding: 30px 20px;
-    height: auto;
-  }
-  
-  .mission-container h2,
-  .what-we-do h2 {
-    font-size: 1.7rem;
-  }
-  
-  .mission-container p,
-  .what-we-do p {
-    font-size: 1rem;
-  }
   
   .alumni-section {
     padding: 60px 15px;
@@ -1150,39 +863,3 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   .stat-number {
     font-size: 2.5rem;
   }
-  
-  .services-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .about-hero::before,
-  .about-hero::after {
-    width: 200px;
-    height: 200px;
-  }
-}
-
-@media (min-width: 992px) and (max-width: 1200px) {
-  .about-container {
-    padding: 4.5rem 4rem;
-  }
-  
-  .values-grid {
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  }
-  
-  .services-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-  }
-}
-
-@media (min-width: 1200px) {
-  .values-grid {
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  }
-  
-  .services-grid {
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  }
-}
