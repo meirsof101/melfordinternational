@@ -1,3 +1,11 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 @font-face {
   font-family: 'Jost';
   src: url('../fonts/Jost-Medium.ttf') format('truetype');
@@ -34,7 +42,7 @@
   top: 100%;
   left: 0;
   background: white;
-  min-width: 200px;
+  min-width: 280px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.1);
   border-radius: 6px;
   display: none;
@@ -77,7 +85,6 @@
   }
 }
 
-
 /* ==============
 Navbar Styles 
 ================ */
@@ -100,28 +107,39 @@ Navbar Styles
   justify-content: space-between;
   height: 100%;
 }
+
+/* FIXED: Ensure hamburger button is properly styled */
 .nav-toggle {
   background: none;
-  border: 2px solid var(--white);
-  color: var(--white);
+  border: 2px solid hsl(202, 87%, 41%);
+  color: hsl(202, 87%, 41%);
   font-size: 20px;
   cursor: pointer;
-  display: none;
+  display: none; /* Hidden by default */
   padding: 8px 12px;
   border-radius: 4px;
   transition: all 0.3s ease;
   z-index: 1001;
+  position: relative; /* Ensure proper positioning */
+  min-width: 44px; /* Ensure minimum touch target */
+  min-height: 44px; /* Ensure minimum touch target */
 }
 
 .nav-toggle:hover {
-  background: var(--white);
-  color: #992400;
+  background: hsl(202, 87%, 41%);
+  color: #fff;
 }
 
 .nav-toggle.active {
   background: var(--accent-yellow);
   color: var(--primary-blue);
   border-color: var(--accent-yellow);
+}
+
+/* Ensure the icon inside button is visible */
+.nav-toggle i {
+  display: block;
+  line-height: 1;
 }
 
 .nav-menu {
@@ -156,6 +174,7 @@ Navbar Styles
   white-space: nowrap;
   border-bottom: 3px solid transparent;
 }
+
 .mobile-menu {
   position: fixed;
   top: 70px;
@@ -169,6 +188,7 @@ Navbar Styles
   max-height: 0;
   overflow: hidden;
   border-top: 1px solid rgba(255, 255, 255, 0.2);
+  display: none; /* Hidden by default */
 }
 
 .mobile-menu.active {
@@ -179,6 +199,7 @@ Navbar Styles
 
 .mobile-menu-content {
   padding: 0;
+  background-color: hsl(202, 87%, 41%);
 }
 
 .mobile-list {
@@ -236,15 +257,17 @@ Navbar Styles
 }
 
 .nav-link:hover {
-background: #e6ac00;
-border-bottom-color: var(--white);  
+  background: #e6ac00;
+  border-bottom-color: var(--white);  
 }
+
 .book-btn:hover {
   background: #e6ac00;
   border-bottom-color: var(--white);
 }
 
-@media (max-width: 575px) {
+/* FIXED: Simplified and consolidated media queries */
+@media (max-width: 767px) {
   .navbar-container {
     padding: 0 15px;
   }
@@ -257,33 +280,40 @@ border-bottom-color: var(--white);
     font-size: 9px;
   }
   
+  /* CRITICAL: Force hamburger to show on mobile */
   .nav-toggle {
-    display: block;
+    display: block !important;
   }
   
+  /* CRITICAL: Hide desktop menu on mobile */
   .nav-menu {
-    display: none;
+    display: none !important;
   }
   
+  /* CRITICAL: Enable mobile menu container */
   .mobile-menu {
-    display: block;
+    display: block !important;
   }
 }
 
-@media (min-width: 576px) and (max-width: 767px) {
+@media (min-width: 768px) {
+  /* CRITICAL: Hide hamburger on desktop */
   .nav-toggle {
-    display: block;
+    display: none !important;
   }
   
+  /* CRITICAL: Show desktop menu */
   .nav-menu {
-    display: none;
+    display: flex !important;
   }
   
+  /* CRITICAL: Hide mobile menu on desktop */
   .mobile-menu {
-    display: block;
+    display: none !important;
   }
 }
 
+/* Additional responsive adjustments for larger screens */
 @media (min-width: 768px) and (max-width: 991px) {
   .navbar-container {
     padding: 0 25px;
@@ -386,32 +416,6 @@ border-bottom-color: var(--white);
   max-height: 50px;
   object-fit: contain; 
   display: block;
-}
-
-/* Hamburger menu visibility fix */
-.nav-toggle {
-  background: none;
-  border: 2px solid var(--primary-blue);
-  color: var(--primary-blue);
-  font-size: 20px;
-  cursor: pointer;
-  display: none;
-  padding: 8px 12px;
-  border-radius: 4px;
-  transition: all 0.3s ease;
-  z-index: 1001;
-}
-
-.nav-toggle:hover {
-  background: var(--primary-blue);
-  color: var(--white);
-  border-color: var(--primary-blue);
-}
-
-.nav-toggle.active {
-  background: var(--accent-yellow);
-  color: var(--primary-blue);
-  border-color: var(--accent-yellow);
 }
 @media (max-width: 575px) {
   .brand-logo-square {
