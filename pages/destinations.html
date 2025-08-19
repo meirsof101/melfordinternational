@@ -175,7 +175,6 @@
 .expertise-card {
   background: white;
   padding: 0;
-  border-radius: 12px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
@@ -282,7 +281,287 @@
   width: 25%;
   background: #CE1126;
 }
+/* Enhanced University Partners Section with Continuous Animation */
+.education-partners-section {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    padding: 4rem 0;
+    font-family: 'Jost';
+    overflow: hidden; /* Hide cards when they move outside viewport */
+}
 
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 0 1rem;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1e7fb8;
+    margin-bottom: 0.5rem;
+}
+
+.section-header p {
+    font-size: 1.1rem;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Animation container wrapper */
+.partners-animation-container {
+    overflow: hidden;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Updated partner grid layout with seamless infinite animation */
+.static-partners-grid {
+    display: flex;
+    gap: 20px;
+    animation: seamlessScroll 15s linear infinite;
+    width: calc((280px + 20px) * 8); /* Double the cards for seamless loop */
+}
+
+/* Keyframe animation for seamless infinite scroll */
+@keyframes seamlessScroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%); /* Move exactly half the width to loop seamlessly */
+    }
+}
+
+/* Enhanced Partner Cards with Background Images */
+.partner-card {
+    background: #fff;
+    border: 2px solid #1e7fb8;
+    border-radius: 12px;
+    padding: 25px 20px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(30, 127, 184, 0.15);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 280px; /* Fixed responsive width */
+    flex-shrink: 0; /* Prevent cards from shrinking */
+    height: 380px; /* Fixed height for consistency */
+}
+
+/* Background overlay for partner cards */
+.partner-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.466), rgba(165, 179, 194, 0.9));
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.partner-card:hover::after {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(248, 250, 252, 0.8));
+}
+
+/* Animated shimmer effect */
+.partner-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(30, 127, 184, 0.1), transparent);
+    transition: left 0.5s;
+    z-index: 2;
+}
+
+.partner-card:hover::before {
+    left: 100%;
+}
+
+.partner-card:hover {
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0 15px 35px rgba(30, 127, 184, 0.25);
+    animation-play-state: paused; /* Only pause individual card animation on hover */
+}
+
+/* Remove section-wide pause - keep animation running */
+
+/* Ensure content is above overlays */
+.partner-card > * {
+    position: relative;
+    z-index: 3;
+}
+
+/* Individual partner card backgrounds */
+.partner-card:nth-child(1) {
+    background-image: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=400&h=300&fit=crop');
+}
+
+.partner-card:nth-child(2) {
+    background-image: url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=400&h=300&fit=crop');
+}
+
+.partner-card:nth-child(3) {
+    background-image: url('https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?w=400&h=300&fit=crop');
+}
+
+.partner-card:nth-child(4) {
+    background-image: url('https://images.unsplash.com/photo-1564981797816-1043664bf78d?w=400&h=300&fit=crop');
+}
+
+.partner-header {
+    margin-bottom: 20px;
+}
+
+.partner-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1e7fb8;
+    line-height: 1.3;
+    margin-bottom: 6px;
+}
+
+.partner-location {
+    color: #666;
+    font-weight: 500;
+    font-size: 0.85rem;
+}
+
+.partner-description {
+    color: #333;
+    line-height: 1.5;
+    margin: 15px 0;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.partner-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    justify-content: center;
+    margin: 15px 0;
+}
+
+.partner-tag {
+    background: #1e7fb8;
+    color: #fff;
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(30, 127, 184, 0.3);
+}
+
+.partner-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(30, 127, 184, 0.15);
+}
+
+.partner-accreditation {
+    font-size: 0.85rem;
+    color: #1e7fb8;
+    font-weight: 600;
+}
+
+.partner-btn {
+    background: #1e7fb8;
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(30, 127, 184, 0.3);
+}
+
+.partner-btn:hover {
+    background: #1a6fa0;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(30, 127, 184, 0.4);
+}
+
+.partner-btn {
+    background: #1e7fb8;
+    color: #fff;
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 15px;
+    font-weight: 600;
+    font-size: 0.75rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(30, 127, 184, 0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .static-partners-grid {
+        animation-duration: 20s; /* Slower on tablets */
+        width: calc((250px + 20px) * 8); /* Adjust for smaller cards */
+    }
+    
+    .partner-card {
+        width: 250px;
+        height: 350px;
+    }
+}
+
+@media (max-width: 768px) {
+    .static-partners-grid {
+        animation-duration: 25s; /* Even slower on mobile for better readability */
+        width: calc((220px + 20px) * 8); /* Adjust for smaller cards */
+    }
+    
+    .partner-card {
+        width: 220px;
+        height: 320px;
+        padding: 20px 15px;
+    }
+    
+    .section-header h2 {
+        font-size: 2rem;
+    }
+    
+    .partner-title {
+        font-size: 1rem;
+    }
+    
+    .partner-description {
+        font-size: 0.8rem;
+        margin: 12px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .static-partners-grid {
+        animation-duration: 30s;
+        width: calc((200px + 20px) * 8); /* Adjust for smaller cards */
+    }
+    
+    .partner-card {
+        width: 200px;
+        height: 300px;
+    }
+    
+    .section-header h2 {
+        font-size: 1.8rem;
+    }
+}
 </style>
 <body>
 
@@ -358,6 +637,103 @@
     </div>
   </section>
 
+    <!-- Education Partners Section -->
+    <section class="education-partners-section">
+        <div class="section-header">
+            <h2>GLOBAL EDUCATION PARTNERS</h2>
+            <p>Collaborating with globally recognized institutions committed to academic excellence</p>
+        </div>
+
+        <div class="static-partners-grid">
+            <div class="partner-card" style="background-image: url('/assets/images/americanuni.jpg');">
+                <div class="partner-header">
+                    <div class="partner-title">American University of Ras Al Khaimah</div>
+                    <div class="partner-location">Ras Al Khaimah, UAE</div>
+                </div>
+                
+                <div class="partner-description">
+                    Public, non-profit university offering American-style programs in engineering, business, and sciences. Diverse student body from 45+ nationalities with US transfer pathways.
+                </div>
+                
+                <div class="partner-highlights">
+                    <span class="partner-tag">SACSCOC</span>
+                    <span class="partner-tag">45+ Nations</span>
+                    <span class="partner-tag">US Transfers</span>
+                </div>
+                
+                <div class="partner-footer">
+                    <div class="partner-accreditation">✓ SACSCOC</div>
+                    <a href="https://aurak.ac.ae" class="partner-btn" target="_blank">Learn More</a>
+                </div>
+            </div>
+
+            <div class="partner-card" style="background-image: url('/assets/images/regent.png');">
+                <div class="partner-header">
+                    <div class="partner-title">Regent College Middle East</div>
+                    <div class="partner-location">Dubai & UK</div>
+                </div>
+                
+                <div class="partner-description">
+                    Based in Dubai Knowledge Park, delivering vocational and higher education in Business, IT, Hospitality, and Digital Technologies with UK progression pathways.
+                </div>
+                
+                <div class="partner-highlights">
+                    <span class="partner-tag">Vocational</span>
+                    <span class="partner-tag">UK Links</span>
+                    <span class="partner-tag">Digital Tech</span>
+                </div>
+                
+                <div class="partner-footer">
+                    <div class="partner-accreditation">✓ Dubai KP</div>
+                    <a href="https://regenteducation.ae" class="partner-btn" target="_blank">Learn More</a>
+                </div>
+            </div>
+
+            <div class="partner-card" style="background-image: url('/assets/images/newton.jpeg');">
+                <div class="partner-header">
+                    <div class="partner-title">Newton International College</div>
+                    <div class="partner-location">Toronto, Canada</div>
+                </div>
+                
+                <div class="partner-description">
+                    Private secondary school (Grades 7-12) certified by Ontario Ministry. Personalized academic pathways with 100% university placement rate to top institutions.
+                </div>
+                
+                <div class="partner-highlights">
+                    <span class="partner-tag">100% Rate</span>
+                    <span class="partner-tag">Grades 7-12</span>
+                    <span class="partner-tag">Personal</span>
+                </div>
+                
+                <div class="partner-footer">
+                    <div class="partner-accreditation">✓ Ontario</div>
+                    <a href="https://nictoronto.ca/" class="partner-btn" target="_blank">Learn More</a>
+                </div>
+            </div>
+
+            <div class="partner-card" style="background-image: url('/assets/images/malvern.jpg');">
+                <div class="partner-header">
+                    <div class="partner-title">Malvern International College</div>
+                    <div class="partner-location">London & Manchester</div>
+                </div>
+                
+                <div class="partner-description">
+                    Global education provider offering university pathway programs, English language training, and embedded international college experiences with UK partners.
+                </div>
+                
+                <div class="partner-highlights">
+                    <span class="partner-tag">Pathways</span>
+                    <span class="partner-tag">English</span>
+                    <span class="partner-tag">UK Partners</span>
+                </div>
+                
+                <div class="partner-footer">
+                    <div class="partner-accreditation">✓ UK Unis</div>
+                    <a href="https://malverncollegeinternational.org/" class="partner-btn" target="_blank">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
 <section class="melford-enquiry-section">
   <div class="melford-enquiry-content">
     <div class="melford-enquiry-card">
