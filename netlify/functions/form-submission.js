@@ -182,12 +182,13 @@ exports.handler = async (event, context) => {
     };
 
     await transporter.sendMail(mailOptions);
-
-    // Return success response
+    // Return success redirect instead of JSON
     return {
-      statusCode: 200,
-      headers,
-      body: JSON.stringify({ message: 'Form submitted successfully!' })
+    statusCode: 302,
+    headers: {
+        Location: event.headers.referer || '/', // reload same page, fallback to homepage
+    },
+    body: ''
     };
 
   } catch (error) {
