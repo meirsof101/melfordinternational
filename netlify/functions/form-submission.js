@@ -28,7 +28,7 @@ exports.handler = async (event, context) => {
   }
 
   try {
-    // Create transporter - FIXED: createTransport (not createTransporter)
+    // Create transporter - FIXED: createTransport
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
