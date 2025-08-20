@@ -1,0 +1,11 @@
+{
+  "name": "melford-netlify-functions",
+  "version": "1.0.0",
+  "description": "Netlify functions for Melford International Group forms",
+  "dependencies": {
+    "nodemailer": "^6.9.7"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

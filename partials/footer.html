@@ -11,13 +11,14 @@
                     Approved by the Commission for University Education (CUE) Kenya.
                 </div>
 
-                <div class="newsletter-section">
-                    <h3>Subscribe to our Newsletter</h3>
-                    <form name="newsletter" action="/thankyou.html?type=subscribe" method="POST" data-netlify="true" class="newsletter-form">
-                        <input type="email" name="email" class="newsletter-input" placeholder="Enter your email here" required>
-                        <button type="submit" class="newsletter-btn">Subscribe</button>
-                    </form>
-                </div>
+                    <div class="newsletter-section">
+                        <h3>Subscribe to our Newsletter</h3>
+                        <form name="newsletter" action="/.netlify/functions/form-submission" method="POST" data-netlify="true" class="newsletter-form">
+                            <input type="hidden" name="form-name" value="newsletter">
+                            <input type="email" name="email" class="newsletter-input" placeholder="Enter your email here" required>
+                            <button type="submit" class="newsletter-btn">Subscribe</button>
+                        </form>
+                    </div>
             </div>
 
             <!-- Quick Links Section -->
