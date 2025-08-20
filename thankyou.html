@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration Successful - Melford International</title>
-    <meta name="description" content="Thank you for registering for our event. We'll be in touch with more details soon.">
+    <title id="page-title">Thank You - Melford International</title>
+    <meta name="description" content="Thank you for your submission. We'll be in touch with you soon.">
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -53,6 +53,22 @@
             color: white;
             font-size: 2rem;
             animation: checkmark 0.6s ease-in-out;
+        }
+
+        .success-icon.enquiry {
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+        }
+
+        .success-icon.contact {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+        }
+
+        .success-icon.subscribe {
+            background: linear-gradient(135deg, #ffc107 0%, #e0a800 100%);
+        }
+
+        .success-icon.registration {
+            background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
         }
 
         @keyframes checkmark {
@@ -228,32 +244,30 @@
     
     <main class="main-content">
         <div class="thank-you-container">
-            <div class="success-icon">✓</div>
+            <div class="success-icon" id="success-icon">✓</div>
             
-            <h1 class="thank-you-title">Registration Successful!</h1>
+            <h1 class="thank-you-title" id="thank-you-title">Thank You!</h1>
             
-            <p class="thank-you-message">
-                Thank you for registering for our event. We're excited to have you join us and look forward to providing you with valuable insights about international education and career opportunities.
+            <p class="thank-you-message" id="thank-you-message">
+                Thank you for your submission. We appreciate your interest and will get back to you soon.
             </p>
 
             <div class="next-steps">
-                <h3>What Happens Next?</h3>
-                <ul class="steps-list">
+                <h3 id="next-steps-title">What Happens Next?</h3>
+                <ul class="steps-list" id="steps-list">
                     <li>You'll receive a confirmation email within the next few minutes</li>
-                    <li>Event details and joining instructions will be sent 24 hours before the event</li>
-                    <li>Our team may contact you to discuss your specific interests and questions</li>
-                    <li>You'll receive access to exclusive resources and materials</li>
-                    <li>Reminders will be sent via email and SMS (if provided)</li>
+                    <li>Our team will review your submission</li>
+                    <li>We'll get back to you as soon as possible</li>
                 </ul>
             </div>
 
-            <div class="action-buttons">
-                <a href="/events/events.html" class="btn btn-primary">View Other Events</a>
-                <a href="/" class="btn btn-secondary">Return to Homepage</a>
+            <div class="action-buttons" id="action-buttons">
+                <a href="/" class="btn btn-primary">Return to Homepage</a>
+                <a href="/contact" class="btn btn-secondary">Contact Us</a>
             </div>
 
             <div class="contact-info">
-                <p>Have questions or need to make changes to your registration?</p>
+                <p>Have questions or need assistance?</p>
                 <p><strong>Email:</strong> info@melford.com</p>
                 <p><strong>Phone:</strong> +254 700 123 456</p>
                 <p><strong>WhatsApp:</strong> +254 700 123 456</p>
@@ -263,5 +277,126 @@
 <div id="footer-placeholder"></div>
 
 <script src="../js/loadpartials.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Get URL parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const formType = urlParams.get('type') || 'general';
+    
+    // Define content for each form type
+    const formContent = {
+        enquiry: {
+            title: 'Enquiry Submitted Successfully!',
+            message: 'Thank you for your enquiry about our international education services. Our expert counselors will review your questions and provide you with detailed information tailored to your needs.',
+            icon: '❓',
+            iconClass: 'enquiry',
+            pageTitle: 'Enquiry Submitted - Melford International',
+            nextStepsTitle: 'What Happens Next?',
+            steps: [
+                'You\'ll receive a confirmation email within the next few minutes',
+                'Our education counselor will review your enquiry within 24 hours',
+                'We\'ll contact you with personalized guidance and recommendations',
+                'You\'ll receive relevant brochures and information materials',
+                'A follow-up call will be scheduled at your convenience'
+            ],
+            buttons: [
+                { text: 'Browse Programs', href: '/programs', class: 'btn-primary' },
+                { text: 'Book Consultation', href: '/consultation', class: 'btn-secondary' }
+            ]
+        },
+        contact: {
+            title: 'Message Received Successfully!',
+            message: 'Thank you for contacting Melford International. We\'ve received your message and our team will respond to your inquiry as quickly as possible.',
+            icon: '📧',
+            iconClass: 'contact',
+            pageTitle: 'Message Sent - Melford International',
+            nextStepsTitle: 'What Happens Next?',
+            steps: [
+                'You\'ll receive an email confirmation shortly',
+                'Our customer service team will review your message',
+                'We\'ll respond within 1-2 business days',
+                'For urgent matters, feel free to call us directly',
+                'We\'ll provide comprehensive answers to all your questions'
+            ],
+            buttons: [
+                { text: 'Visit FAQ', href: '/faq', class: 'btn-primary' },
+                { text: 'Return Home', href: '/', class: 'btn-secondary' }
+            ]
+        },
+        subscribe: {
+            title: 'Successfully Subscribed!',
+            message: 'Welcome to the Melford International community! You\'ve successfully subscribed to our newsletter and will now receive the latest updates about study abroad opportunities, scholarships, and educational insights.',
+            icon: '📨',
+            iconClass: 'subscribe',
+            pageTitle: 'Subscription Confirmed - Melford International',
+            nextStepsTitle: 'What to Expect:',
+            steps: [
+                'Welcome email with exclusive resources will arrive shortly',
+                'Monthly newsletter with study abroad opportunities',
+                'Early notifications about scholarship deadlines',
+                'Exclusive invitations to webinars and events',
+                'Tips and guides for international students'
+            ],
+            buttons: [
+                { text: 'Explore Programs', href: '/programs', class: 'btn-primary' },
+                { text: 'Read Our Blog', href: '/blog', class: 'btn-secondary' }
+            ]
+        },
+        registration: {
+            title: 'Registration Successful!',
+            message: 'Thank you for registering for our event. We\'re excited to have you join us and look forward to providing you with valuable insights about international education and career opportunities.',
+            icon: '✓',
+            iconClass: 'registration',
+            pageTitle: 'Registration Confirmed - Melford International',
+            nextStepsTitle: 'What Happens Next?',
+            steps: [
+                'You\'ll receive a confirmation email within the next few minutes',
+                'Event details and joining instructions will be sent 24 hours before the event',
+                'Our team may contact you to discuss your specific interests',
+                'You\'ll receive access to exclusive resources and materials',
+                'Reminders will be sent via email and SMS (if provided)'
+            ],
+            buttons: [
+                { text: 'View Other Events', href: '/events', class: 'btn-primary' },
+                { text: 'Return Home', href: '/', class: 'btn-secondary' }
+            ]
+        }
+    };
+
+    // Get content for the current form type, fallback to general if not found
+    const content = formContent[formType] || formContent.registration;
+
+    // Update page elements
+    document.getElementById('page-title').textContent = content.pageTitle;
+    document.getElementById('thank-you-title').textContent = content.title;
+    document.getElementById('thank-you-message').textContent = content.message;
+    document.getElementById('next-steps-title').textContent = content.nextStepsTitle;
+    
+    // Update icon
+    const iconElement = document.getElementById('success-icon');
+    iconElement.textContent = content.icon;
+    iconElement.className = `success-icon ${content.iconClass}`;
+
+    // Update steps list
+    const stepsList = document.getElementById('steps-list');
+    stepsList.innerHTML = '';
+    content.steps.forEach(step => {
+        const li = document.createElement('li');
+        li.textContent = step;
+        stepsList.appendChild(li);
+    });
+
+    // Update action buttons
+    const buttonsContainer = document.getElementById('action-buttons');
+    buttonsContainer.innerHTML = '';
+    content.buttons.forEach(button => {
+        const a = document.createElement('a');
+        a.href = button.href;
+        a.textContent = button.text;
+        a.className = `btn ${button.class}`;
+        buttonsContainer.appendChild(a);
+    });
+});
+</script>
 </body>
 </html>
