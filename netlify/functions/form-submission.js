@@ -230,7 +230,7 @@ exports.handler = async (event, context) => {
     await transporter.sendMail(mailOptions);
     
     // Return success redirect with success parameter
-    const redirectUrl = new URL(event.headers.referer || event.headers.origin || 'https://your-domain.com');
+    const redirectUrl = new URL(event.headers.referer || event.headers.origin || 'https://melfordintlgroup.com');
     redirectUrl.searchParams.set('success', 'true');
     redirectUrl.searchParams.set('form', formType);
     
