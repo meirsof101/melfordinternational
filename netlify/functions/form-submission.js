@@ -43,6 +43,18 @@ exports.handler = async (event, context) => {
       rawFormData[key] = value ? value.trim() : '';
     }
 
+    // Get current time in Kenya timezone (EAT - UTC+3)
+    const kenyaTime = new Date().toLocaleString('en-US', {
+      timeZone: 'Africa/Nairobi',
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: true
+    });
+
     // Determine form type
     const formType = rawFormData['form-name'] || 'contact';
     let emailHTML = '';
@@ -206,18 +218,6 @@ exports.handler = async (event, context) => {
         </div>
       `;
     }
-
-    // Get current time in Kenya timezone (EAT - UTC+3)
-    const kenyaTime = new Date().toLocaleString('en-US', {
-      timeZone: 'Africa/Nairobi',
-      year: 'numeric',
-      month: '2-digit',
-      day: '2-digit',
-      hour: '2-digit',
-      minute: '2-digit',
-      second: '2-digit',
-      hour12: true
-    });
 
     // Send email
     const mailOptions = {
