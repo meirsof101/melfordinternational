@@ -108,21 +108,20 @@ Navbar Styles
   height: 100%;
 }
 
-/* FIXED: Ensure hamburger button is properly styled */
 .nav-toggle {
   background: none;
   border: 2px solid hsl(202, 87%, 41%);
   color: hsl(202, 87%, 41%);
   font-size: 20px;
   cursor: pointer;
-  display: none; /* Hidden by default */
+  display: none; 
   padding: 8px 12px;
   border-radius: 4px;
   transition: all 0.3s ease;
   z-index: 1001;
-  position: relative; /* Ensure proper positioning */
-  min-width: 44px; /* Ensure minimum touch target */
-  min-height: 44px; /* Ensure minimum touch target */
+  position: relative; 
+  min-width: 44px; 
+  min-height: 44px; 
 }
 
 .nav-toggle:hover {
@@ -136,7 +135,6 @@ Navbar Styles
   border-color: var(--accent-yellow);
 }
 
-/* Ensure the icon inside button is visible */
 .nav-toggle i {
   display: block;
   line-height: 1;
@@ -188,7 +186,7 @@ Navbar Styles
   max-height: 0;
   overflow: hidden;
   border-top: 1px solid rgba(255, 255, 255, 0.2);
-  display: none; /* Hidden by default */
+  display: none;
 }
 
 .mobile-menu.active {
@@ -266,7 +264,6 @@ Navbar Styles
   border-bottom-color: var(--white);
 }
 
-/* FIXED: Simplified and consolidated media queries */
 @media (max-width: 767px) {
   .navbar-container {
     padding: 0 15px;
@@ -280,34 +277,30 @@ Navbar Styles
     font-size: 9px;
   }
   
-  /* CRITICAL: Force hamburger to show on mobile */
   .nav-toggle {
     display: block !important;
   }
-  
-  /* CRITICAL: Hide desktop menu on mobile */
+ 
   .nav-menu {
     display: none !important;
   }
   
-  /* CRITICAL: Enable mobile menu container */
   .mobile-menu {
     display: block !important;
   }
 }
 
 @media (min-width: 768px) {
-  /* CRITICAL: Hide hamburger on desktop */
+
   .nav-toggle {
     display: none !important;
   }
   
-  /* CRITICAL: Show desktop menu */
   .nav-menu {
     display: flex !important;
   }
   
-  /* CRITICAL: Hide mobile menu on desktop */
+ 
   .mobile-menu {
     display: none !important;
   }
@@ -620,7 +613,7 @@ TESTIMONIALS SECTION
         .melford-pagination-dot:hover {
             border-color: #ffc107;
         }
-      /*======================
+/*======================
       ENQUIRY FORM
     ===========================*/
 .melford-enquiry-section {
@@ -728,7 +721,7 @@ h2 {
   position: relative;
 }
 
-input, select, textarea {
+input, select, textarea, .large-textarea {
   width: 100%;
   padding: 15px;
   border: none;
@@ -782,7 +775,7 @@ select option {
 .large-textarea {
   height: 100px;
   resize: vertical;
-  color: var(--primary-blue);
+  color: #333;
   font-size: 14px;
 }
 
@@ -846,24 +839,292 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   font-size: 16px;
 }
   
-  .alumni-section {
+.alumni-section {
+  padding: 60px 15px;
+}
+
+.alumni-cards {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.alumni-card {
+  padding: 30px 20px;
+}
+
+.stats-grid {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.stat-number {
+  font-size: 2.5rem;
+}
+
+/*======================
+  MEDIA QUERIES - MOBILE RESPONSIVE
+===========================*/
+
+/* Tablets and small laptops */
+@media (max-width: 768px) {
+  .melford-enquiry-section {
     padding: 60px 15px;
   }
   
-  .alumni-cards {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+  .melford-enquiry-title {
+    font-size: 2rem;
   }
   
-  .alumni-card {
-    padding: 30px 20px;
+  .melford-enquiry-subtitle {
+    font-size: 1.1rem;
   }
   
-  .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .melford-enquiry-features {
     gap: 30px;
   }
   
-  .stat-number {
-    font-size: 2.5rem;
+  .enquiry-form-section {
+    padding: 25px 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
   }
+  
+  h2 {
+    font-size: 24px;
+  }
+  
+  .grid-3 {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+  
+  .alumni-cards {
+    grid-template-columns: 1fr;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+.education-textarea::placeholder {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+/* Mobile phones */
+@media (max-width: 480px) {
+  .melford-enquiry-section {
+    padding: 40px 10px;
+  }
+  
+  .melford-enquiry-title {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+  }
+  
+  .melford-enquiry-subtitle {
+    font-size: 1rem;
+    margin-bottom: 25px;
+    padding: 0 10px;
+  }
+  
+  .melford-enquiry-btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+  
+  .melford-enquiry-features {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .melford-enquiry-feature-icon {
+    font-size: 1.5rem;
+  }
+  
+  .enquiry-form-section {
+    padding: 20px 15px;
+    margin: 20px 5px;
+  }
+  
+  h2 {
+    font-size: 20px;
+    margin-bottom: 25px;
+  }
+  
+  .form-grid {
+    gap: 12px;
+  }
+  
+  .grid-3, .grid-2, .grid-1 {
+    grid-template-columns: 1fr;
+  }
+  
+  input, select, textarea, .large-textarea {
+    padding: 12px;
+    font-size: 13px;
+  }
+  
+  .large-textarea {
+    height: 80px;
+    font-size: 13px;
+    line-height: 1.4;
+  }
+  
+  .checkbox-container {
+    font-size: 13px;
+    gap: 8px;
+  }
+  
+  .checkbox-container input[type="checkbox"] {
+    min-width: 18px;
+    height: 18px;
+  }
+  
+  .submit-btn {
+    padding: 15px;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+  }
+  
+  .alumni-section {
+    padding: 40px 10px;
+  }
+  
+  .alumni-card {
+    padding: 20px 15px;
+  }
+  
+  .stat-number {
+    font-size: 2rem;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 320px) {
+  .melford-enquiry-title {
+    font-size: 1.6rem;
+  }
+  
+  .melford-enquiry-subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .enquiry-form-section {
+    padding: 15px 10px;
+  }
+  
+  h2 {
+    font-size: 18px;
+  }
+  
+  input, select, textarea, .large-textarea {
+    padding: 10px;
+    font-size: 12px;
+  }
+  
+  .large-textarea {
+    height: 70px;
+    font-size: 12px;
+  }
+  
+  .checkbox-container {
+    font-size: 12px;
+  }
+  
+  .submit-btn {
+    padding: 12px;
+    font-size: 13px;
+  }
+  
+  .stat-number {
+    font-size: 1.8rem;
+  }
+}
+  /* Success Popup Styles */
+.success-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.success-popup.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.success-popup-content {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    transform: scale(0.7);
+    transition: transform 0.3s ease;
+}
+
+.success-popup.show .success-popup-content {
+    transform: scale(1);
+}
+
+.success-icon {
+    font-size: 48px;
+    color: #28a745;
+    margin-bottom: 15px;
+}
+
+.success-title {
+    color: #333;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.success-message {
+    color: #666;
+    font-size: 16px;
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+.success-close-btn {
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.success-close-btn:hover {
+    transform: translateY(-2px);
+}
+
+/* Form type specific colors */
+.success-popup.newsletter .success-icon { color: #667eea; }
+.success-popup.newsletter .success-close-btn { 
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+}
+
+.success-popup.contact .success-icon { color: #dc3545; }
+.success-popup.contact .success-close-btn { 
+    background: linear-gradient(135deg, #dc3545 0%, #fd7e14 100%); 
+}

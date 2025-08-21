@@ -63,7 +63,7 @@
             <!-- Education Details and Level -->
             <div class="form-grid grid-2">
                 <div class="form-group">
-                    <textarea name="education_details" style="color: var(--primary-blue);" placeholder="Enter your education details here, KCSE, O Level, A Level, IB" class="large-textarea" required></textarea>
+                    <textarea name="education_details" style="color: var(--primary-blue);" placeholder="Enter your education details here, KCSE, O Level, A Level, IB" style="color: black;" class="large-textarea" required></textarea>
                 </div>
                 <div class="form-group">
                     <select name="level_of_study" required>
@@ -119,6 +119,14 @@
             <button type="submit" class="submit-btn">Submit Enquiry</button>
         </form>
     </section>
+        <div id="successPopup" class="success-popup">
+            <div class="success-popup-content">
+                <div class="success-icon">✅</div>
+                <h3 class="success-title">Message Sent Successfully!</h3>
+                <p class="success-message">Thank you for contacting us. We'll get back to you soon.</p>
+                <button class="success-close-btn" onclick="closeSuccessPopup()">Close</button>
+            </div>
+        </div>
 </body>
 <!-- Footer -->
 <div id="footer-placeholder"></div>

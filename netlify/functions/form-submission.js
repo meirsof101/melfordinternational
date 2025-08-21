@@ -1,4 +1,3 @@
-// netlify/functions/form-submission.js
 const nodemailer = require('nodemailer');
 
 exports.handler = async (event, context) => {
@@ -28,7 +27,7 @@ exports.handler = async (event, context) => {
   }
 
   try {
-    // Create transporter - FIXED: createTransport
+    // Create transporter
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
@@ -39,13 +38,13 @@ exports.handler = async (event, context) => {
 
     // Parse form data
     const params = new URLSearchParams(event.body);
-    const formData = {};
+    const rawFormData = {};
     for (const [key, value] of params.entries()) {
-      formData[key] = value;
+      rawFormData[key] = value ? value.trim() : '';
     }
 
     // Determine form type
-    const formType = formData['form-name'] || 'contact';
+    const formType = rawFormData['form-name'] || 'contact';
     let emailHTML = '';
     let emailSubject = '';
 
@@ -62,11 +61,11 @@ exports.handler = async (event, context) => {
             <table style="width: 100%; border-collapse: collapse;">
               <tr>
                 <td style="padding: 12px; background: #f8f9fa; border: 1px solid #dee2e6; font-weight: bold;">Email Address:</td>
-                <td style="padding: 12px; border: 1px solid #dee2e6;">${formData.email}</td>
+                <td style="padding: 12px; border: 1px solid #dee2e6;">${rawFormData.email || 'N/A'}</td>
               </tr>
               <tr>
                 <td style="padding: 12px; background: #f8f9fa; border: 1px solid #dee2e6; font-weight: bold;">Submitted:</td>
-                <td style="padding: 12px; border: 1px solid #dee2e6;">${new Date().toLocaleString()}</td>
+                <td style="padding: 12px; border: 1px solid #dee2e6;">${kenyaTime}</td>
               </tr>
             </table>
           </div>
@@ -76,6 +75,9 @@ exports.handler = async (event, context) => {
         </div>
       `;
     } else if (formType === 'enquiry') {
+      // Map enquiry form fields correctly
+      const fullName = `${rawFormData.first_name || ''} ${rawFormData.last_name || ''}`.trim();
+      
       emailSubject = '📋 New Student Enquiry - Melford International Group';
       emailHTML = `
         <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 600px; margin: 0 auto; background-color: #f8f9fa;">
@@ -87,52 +89,84 @@ exports.handler = async (event, context) => {
             <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
               <tr>
                 <td style="padding: 12px; background: #f8f9fa; border: 1px solid #dee2e6; font-weight: bold;">Full Name:</td>
-                <td style="padding: 12px; border: 1px solid #dee2e6;">${formData.fullname || 'N/A'}</td>
+                <td style="padding: 12px; border: 1px solid #dee2e6;">${fullName || 'N/A'}</td>
               </tr>
               <tr>
                 <td style="padding: 12px; background: #f8f9fa; border: 1px solid #dee2e6; font-weight: bold;">Email:</td>
-                <td style="padding: 12px; border: 1px solid #dee2e6;">${formData.email || 'N/A'}</td>
+                <td style="padding: 12px; border: 1px solid #dee2e6;">${rawFormData.email || 'N/A'}</td>
               </tr>
               <tr>
                 <td style="padding: 12px; background: #f8f9fa; border: 1px solid #dee2e6; font-weight: bold;">Phone:</td>
-                <td style="padding: 12px; border: 1px solid #dee2e6;">${formData.phone || 'N/A'}</td>
+                <td style="padding: 12px; border: 1px solid #dee2e6;">${rawFormData.phone || 'N/A'}</td>
               </tr>
               <tr>
                 <td style="padding: 12px; background: #f8f9fa; border: 1px solid #dee2e6; font-weight: bold;">Date of Birth:</td>
-                <td style="padding: 12px; border: 1px solid #dee2e6;">${formData.dob || 'N/A'}</td>
+                <td style="padding: 12px; border: 1px solid #dee2e6;">${rawFormData.date || 'N/A'}</td>
+              </tr>
+              <tr>
+                <td style="padding: 12px; background: #f8f9fa; border: 1px solid #dee2e6; font-weight: bold;">Nationality:</td>
+                <td style="padding: 12px; border: 1px solid #dee2e6;">${rawFormData.nationality || 'N/A'}</td>
+              </tr>
+              <tr>
+                <td style="padding: 12px; background: #f8f9fa; border: 1px solid #dee2e6; font-weight: bold;">Current School:</td>
+                <td style="padding: 12px; border: 1px solid #dee2e6;">${rawFormData.current_school || 'N/A'}</td>
+              </tr>
+            </table>
+
+            <h3 style="color: #333;">Parent Information</h3>
+            <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
+              <tr>
+                <td style="padding: 12px; background: #f8f9fa; border: 1px solid #dee2e6; font-weight: bold;">Parent's Email:</td>
+                <td style="padding: 12px; border: 1px solid #dee2e6;">${rawFormData.parent_email || 'N/A'}</td>
+              </tr>
+              <tr>
+                <td style="padding: 12px; background: #f8f9fa; border: 1px solid #dee2e6; font-weight: bold;">Parent's Phone:</td>
+                <td style="padding: 12px; border: 1px solid #dee2e6;">${rawFormData.parent_phone || 'N/A'}</td>
               </tr>
             </table>
 
             <h3 style="color: #333;">Academic Information</h3>
             <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
               <tr>
-                <td style="padding: 12px; background: #f8f9fa; border: 1px solid #dee2e6; font-weight: bold;">Education Level:</td>
-                <td style="padding: 12px; border: 1px solid #dee2e6;">${formData.education || 'N/A'}</td>
+                <td style="padding: 12px; background: #f8f9fa; border: 1px solid #dee2e6; font-weight: bold;">Level of Study:</td>
+                <td style="padding: 12px; border: 1px solid #dee2e6;">${rawFormData.level_of_study || 'N/A'}</td>
               </tr>
               <tr>
                 <td style="padding: 12px; background: #f8f9fa; border: 1px solid #dee2e6; font-weight: bold;">Preferred Country:</td>
-                <td style="padding: 12px; border: 1px solid #dee2e6;">${formData.country || 'N/A'}</td>
+                <td style="padding: 12px; border: 1px solid #dee2e6;">${rawFormData.preferred_country || 'N/A'}</td>
               </tr>
               <tr>
                 <td style="padding: 12px; background: #f8f9fa; border: 1px solid #dee2e6; font-weight: bold;">Preferred Course:</td>
-                <td style="padding: 12px; border: 1px solid #dee2e6;">${formData.course || 'N/A'}</td>
+                <td style="padding: 12px; border: 1px solid #dee2e6;">${rawFormData.preferred_course || 'N/A'}</td>
+              </tr>
+              <tr>
+                <td style="padding: 12px; background: #f8f9fa; border: 1px solid #dee2e6; font-weight: bold;">Preferred Institution:</td>
+                <td style="padding: 12px; border: 1px solid #dee2e6;">${rawFormData.preferred_institution || 'N/A'}</td>
+              </tr>
+              <tr>
+                <td style="padding: 12px; background: #f8f9fa; border: 1px solid #dee2e6; font-weight: bold;">Year of Entry:</td>
+                <td style="padding: 12px; border: 1px solid #dee2e6;">${rawFormData.year_of_entry || 'N/A'}</td>
               </tr>
             </table>
 
-            <h3 style="color: #333;">Additional Information</h3>
-            <div style="background: #f8f9fa; padding: 15px; border-left: 4px solid #28a745;">
-              <p style="margin: 0;"><strong>Message:</strong></p>
-              <p style="margin: 10px 0 0 0;">${formData.message || 'No additional message provided'}</p>
+            <h3 style="color: #333;">Education Details</h3>
+            <div style="background: #f8f9fa; padding: 15px; border-left: 4px solid #28a745; margin-bottom: 20px;">
+              <p style="margin: 0;"><strong>Education Background:</strong></p>
+              <p style="margin: 10px 0 0 0;">${rawFormData.education_details || 'No education details provided'}</p>
+            </div>
+
+            <div style="background: #e8f5e8; padding: 10px; border-radius: 5px;">
+              <p style="margin: 0; font-size: 14px;"><strong>Consent:</strong> ${rawFormData.consent ? '✅ Student has provided consent for Melford to act on their behalf' : '❌ Consent not provided'}</p>
             </div>
           </div>
           <div style="background: #28a745; padding: 20px; text-align: center;">
             <p style="color: white; margin: 0;">Melford International Group - Student Enquiry System</p>
-            <p style="color: white; margin: 5px 0 0 0; font-size: 14px;">Submitted: ${new Date().toLocaleString()}</p>
+            <p style="color: white; margin: 5px 0 0 0; font-size: 14px;">Submitted: ${kenyaTime}</p>
           </div>
         </div>
       `;
     } else {
-      // Contact form
+      // Contact form - fix the education-level field name
       emailSubject = '📞 New Contact Form Submission - Melford International Group';
       emailHTML = `
         <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 600px; margin: 0 auto; background-color: #f8f9fa;">
@@ -144,34 +178,46 @@ exports.handler = async (event, context) => {
             <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
               <tr>
                 <td style="padding: 12px; background: #f8f9fa; border: 1px solid #dee2e6; font-weight: bold;">Name:</td>
-                <td style="padding: 12px; border: 1px solid #dee2e6;">${formData.name || 'N/A'}</td>
+                <td style="padding: 12px; border: 1px solid #dee2e6;">${rawFormData.name || 'N/A'}</td>
               </tr>
               <tr>
                 <td style="padding: 12px; background: #f8f9fa; border: 1px solid #dee2e6; font-weight: bold;">Email:</td>
-                <td style="padding: 12px; border: 1px solid #dee2e6;">${formData.email || 'N/A'}</td>
+                <td style="padding: 12px; border: 1px solid #dee2e6;">${rawFormData.email || 'N/A'}</td>
               </tr>
               <tr>
                 <td style="padding: 12px; background: #f8f9fa; border: 1px solid #dee2e6; font-weight: bold;">Phone:</td>
-                <td style="padding: 12px; border: 1px solid #dee2e6;">${formData.phone || 'N/A'}</td>
+                <td style="padding: 12px; border: 1px solid #dee2e6;">${rawFormData.phone || 'N/A'}</td>
               </tr>
               <tr>
                 <td style="padding: 12px; background: #f8f9fa; border: 1px solid #dee2e6; font-weight: bold;">Education Level:</td>
-                <td style="padding: 12px; border: 1px solid #dee2e6;">${formData.education || 'N/A'}</td>
+                <td style="padding: 12px; border: 1px solid #dee2e6;">${rawFormData['education-level'] || 'N/A'}</td>
               </tr>
             </table>
 
             <h3 style="color: #333;">Message</h3>
             <div style="background: #f8f9fa; padding: 15px; border-left: 4px solid #dc3545;">
-              <p style="margin: 0;">${formData.message || 'No message provided'}</p>
+              <p style="margin: 0;">${rawFormData.message || 'No message provided'}</p>
             </div>
           </div>
           <div style="background: #dc3545; padding: 20px; text-align: center;">
             <p style="color: white; margin: 0;">Melford International Group - Contact Form</p>
-            <p style="color: white; margin: 5px 0 0 0; font-size: 14px;">Submitted: ${new Date().toLocaleString()}</p>
+            <p style="color: white; margin: 5px 0 0 0; font-size: 14px;">Submitted: ${kenyaTime}</p>
           </div>
         </div>
       `;
     }
+
+    // Get current time in Kenya timezone (EAT - UTC+3)
+    const kenyaTime = new Date().toLocaleString('en-US', {
+      timeZone: 'Africa/Nairobi',
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: true
+    });
 
     // Send email
     const mailOptions = {
@@ -182,13 +228,18 @@ exports.handler = async (event, context) => {
     };
 
     await transporter.sendMail(mailOptions);
-    // Return success redirect instead of JSON
+    
+    // Return success redirect with success parameter
+    const redirectUrl = new URL(event.headers.referer || event.headers.origin || 'https://your-domain.com');
+    redirectUrl.searchParams.set('success', 'true');
+    redirectUrl.searchParams.set('form', formType);
+    
     return {
-    statusCode: 302,
-    headers: {
-        Location: event.headers.referer || '/', // reload same page, fallback to homepage
-    },
-    body: ''
+      statusCode: 302,
+      headers: {
+        Location: redirectUrl.toString(),
+      },
+      body: ''
     };
 
   } catch (error) {
