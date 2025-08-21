@@ -114,369 +114,96 @@
         </div>
     </div>
 </section>
+<!-- Our Team Section -->
+<section class="our-team">
+    <div class="team-container">
+        <h2>Meet Our Team</h2>
+        <p>Our dedicated professionals are committed to guiding you through every step of your educational journey.</p>
+        
+        <div class="team-grid">
+            <div class="team-member">
+                <div class="member-photo">
+                    <img src="../assets/images/rebecca.jpg" alt="Rebecca Irungu" class="member-img">
+                </div>
+                <div class="member-info">
+                    <h4>Rebecca Irungu</h4>
+                    <p>Language Department Manager</p>
+                </div>
+            </div>
+            
+            <div class="team-member">
+                <div class="member-photo">
+                    <img src="../assets/images/teresia.webp" alt="Teresia Njoki" class="member-img">
+                </div>
+                <div class="member-info">
+                    <h4>Teresia Njoki</h4>
+                    <p>Customer Liaison Manager</p>
+                </div>
+            </div>
+            
+            <div class="team-member">
+                <div class="member-photo">
+                    <img src="../assets/images/christine.jpg" alt="Christine Mutinda" class="member-img">
+                </div>
+                <div class="member-info">
+                    <h4>Christine Mutinda</h4>
+                    <p>Partnership & Business Development Manager</p>
+                </div>
+            </div>
+            
+            <div class="team-member">
+                <div class="member-photo">
+                    <img src="../assets/images/jennifer.jpg" alt="Jennifer Mutinda" class="member-img">
+                </div>
+                <div class="member-info">
+                    <h4>Jennifer Mutinda</h4>
+                    <p>General Operations Manager</p>
+                </div>
+            </div>
+            
+            <div class="team-member">
+                <div class="member-photo">
+                    <img src="../assets/images/richard.webp" alt="Richard Musila" class="member-img">
+                </div>
+                <div class="member-info">
+                    <h4>Richard Musila</h4>
+                    <p>Senior Accountant</p>
+                </div>
+            </div>
+            
+            <div class="team-member">
+                <div class="member-photo">
+                    <img src="../assets/images/stephanie.jpg" alt="Stephanie Cheruto" class="member-img">
+                </div>
+                <div class="member-info">
+                    <h4>Stephanie Cheruto</h4>
+                    <p>Senior Counsellor & Admissions Manager</p>
+                </div>
+            </div>
+            
+            <div class="team-member">
+                <div class="member-photo">
+                    <img src="../assets/images/ancient1.webp" alt="Ancient Muli" class="member-img">
+                </div>
+                <div class="member-info">
+                    <h4>Ancient Muli</h4>
+                    <p>Social Media & Marketing Manager</p>
+                </div>
+            </div>
+            
+            <div class="team-member">
+                <div class="member-photo">
+                    <img src="../assets/images/trevor.webp" alt="Trevor Tayari" class="member-img">
+                </div>
+                <div class="member-info">
+                    <h4>Trevor Tayari</h4>
+                    <p>German Language Trainer</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-<style>
-/* Our Story Hero Section - Redesigned */
-.story-hero-section {
-  padding: 100px 20px;
-  background: #f8f9fa;
-  font-family: 'Jost';
-}
-
-.story-hero-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: center;
-}
-
-.hero-image {
-  position: relative;
-}
-
-.hero-img {
-  width: 100%;
-  height: 600px;
-  object-fit: cover;
-  border-radius: 20px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-}
-
-.hero-content h1 {
-  font-size: clamp(3rem, 6vw, 4.5rem);
-  font-weight: 700;
-  margin: 0 0 30px 0;
-  letter-spacing: -2px;
-  line-height: 1.1;
-}
-
-.hero-content h1 .our-word {
-  color: #f59e0b;
-}
-
-.hero-content h1 .story-word {
-  color: hsl(202, 87%, 41%);
-}
-
-.story-text p {
-  font-size: 1rem;
-  line-height: 1.8;
-  color: black;
-  margin-bottom: 25px;
-  text-align: justify;
-}
-
-.story-text p:last-child {
-  margin-bottom: 0;
-}
-
-/* Vision, Mission, Values Section - Enhanced */
-.vmv-section {
-  padding: 80px 20px;
-  background: #ffffff;
-  font-family: 'Jost';
-}
-
-.vmv-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 40px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.vmv-item {
-  padding: 40px;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  min-height: 450px;
-  position: relative;
-  overflow: hidden;
-}
-
-.vmv-item::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  opacity: 0.95;
-  z-index: 1;
-}
-
-.vision-item::before {
-  background: hsl(202, 87%, 41%);
-}
-
-.mission-item::before {
-  background: linear-gradient(135deg, #f59e0b, #f97316);
-}
-
-.values-item::before {
-  background: hsl(202, 87%, 41%);
-}
-
-.vmv-item:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
-}
-
-.vmv-image-placeholder {
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  overflow: hidden;
-  margin-bottom: 25px;
-  border: 4px solid rgba(255, 255, 255, 0.3);
-  position: relative;
-  z-index: 2;
-  background: rgba(255, 255, 255, 0.1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.vmv-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
-}
-
-/* Placeholder styling when no image is available */
-.vmv-image-placeholder::after {
-  font-size: 3rem;
-  color: rgba(255, 255, 255, 0.7);
-  position: absolute;
-  top: 50%;
-  left: 70%;
-  transform: translate(-50%, -50%);
-}
-
-.vmv-content {
-  position: relative;
-  z-index: 2;
-  color: white;
-}
-
-.vmv-item h3 {
-  font-size: 1.8rem;
-  font-weight: 700;
-  margin-bottom: 20px;
-  color: white;
-}
-
-.vmv-item p {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  color: black;
-  opacity: 0.95;
-}
-
-/* Core Values Section */
-.core-values {
-  padding: 80px 20px;
-  background: #f8f9fa;
-  font-family: 'Jost';
-}
-
-.core-values h2 {
-  color: #1e7fb8;
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  text-align: center;
-  font-weight: 700;
-}
-
-.core-values > p {
-  text-align: center;
-  color: black;
-  margin-bottom: 3rem;
-  font-size: 1.1rem;
-  line-height: 1.7;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.values-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.value-item {
-  background: white;
-  padding: 2.5rem;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border-top: 4px solid #1e7fb8;
-}
-
-.value-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-}
-
-.value-item h3 {
-  color: #1e7fb8;
-  font-size: 1.4rem;
-  margin-bottom: 1rem;
-  font-weight: 600;
-}
-
-.value-item p {
-  color: black;
-  line-height: 1.7;
-  font-size: 1rem;
-}
-
-/* Director's Message Section */
-.director-message {
-  padding: 80px 20px;
-  background: #ffffff;
-  font-family: 'Jost';
-}
-
-.director-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 350px 1fr;
-  gap: 60px;
-  align-items: start;
-}
-
-.director-photo {
-  position: relative;
-}
-
-.director-img {
-  width: 100%;
-  height: 500px;
-  object-fit: cover;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
-
-.director-title {
-  background: #f59e0b;
-  color: white;
-  padding: 20px;
-  text-align: center;
-  margin-top: -50px;
-  position: relative;
-  z-index: 2;
-  border-radius: 0 0 15px 15px;
-}
-
-.director-title h4 {
-  font-size: 1.3rem;
-  font-weight: 700;
-  margin-bottom: 5px;
-}
-
-.director-title p {
-  font-size: 1rem;
-  margin: 0;
-  opacity: 0.9;
-}
-
-.director-content h2 {
-  color: #1e7fb8;
-  font-size: 2.2rem;
-  margin-bottom: 20px;
-  font-weight: 700;
-}
-
-.director-content p {
-  font-size: 1rem;
-  line-height: 1.8;
-  color: black;
-  margin-bottom: 20px;
-}
-
-.director-content em {
-  color: #1e7fb8;
-  font-style: italic;
-  font-weight: 500;
-}
-
-/* Responsive Design */
-@media (max-width: 1024px) {
-  .story-hero-container {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-  
-  .hero-image {
-    order: -1;
-  }
-  
-  .vmv-container {
-    grid-template-columns: 1fr;
-  }
-  
-  .director-container {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-  
-  .director-photo {
-    max-width: 400px;
-    margin: 0 auto;
-  }
-}
-
-@media (max-width: 768px) {
-  .hero-content h1 {
-    font-size: 2.5rem;
-    text-align: center;
-  }
-  
-  .story-text p {
-    font-size: 1rem;
-  }
-  
-  .values-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .core-values h2,
-  .director-content h2 {
-    font-size: 2rem;
-  }
-  
-  .vmv-item {
-    padding: 30px 20px;
-    min-height: 400px;
-  }
-  
-  .vmv-item h3 {
-    font-size: 1.5rem;
-  }
-  
-  .story-hero-section, .vmv-section, .core-values, .director-message {
-    padding: 60px 20px;
-  }
-  
-  .hero-img {
-    height: 300px;
-  }
-}
-</style>
 </body>
 <div id="footer-placeholder"></div>
 
