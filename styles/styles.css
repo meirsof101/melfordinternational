@@ -1132,161 +1132,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 /* =========================================================================================
 ABOUT US PAGE STYLES
 =============================================================================================*/
-
-/* Our Team Section */
-.our-team {
-    padding: 80px 20px;
-    background: #f8f9fa;
-    font-family: 'Jost';
-}
-
-.team-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.our-team h2 {
-    color: #1e7fb8;
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    font-weight: 700;
-}
-
-.our-team > .team-container > p {
-    color: black;
-    font-size: 1.1rem;
-    line-height: 1.7;
-    margin-bottom: 3rem;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.team-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    margin-top: 2rem;
-}
-
-.team-member {
-    background: white;
-    padding: 30px 20px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    border-radius: 15px;
-}
-
-.team-member::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-}
-
-.team-member:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-}
-
-.member-photo {
-    width: 140px;
-    height: 140px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin: 0 auto 20px auto;
-    border: 4px solid #f59e0b;
-    position: relative;
-    background: #f0f0f0;
-}
-
-.member-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-}
-
-/* Placeholder styling when no image is available */
-.member-photo::after {
-    font-size: 3rem;
-    color: #ccc;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.member-info h4 {
-    color: #1e7fb8;
-    font-size: 1.3rem;
-    font-weight: 600;
-    margin-bottom: 8px;
-}
-
-.member-info p {
-    color: #666;
-    font-size: 1rem;
-    margin: 0;
-    font-weight: 500;
-}
-
-/* Responsive Design for Team */
-@media (max-width: 768px) {
-    .our-team {
-        padding: 60px 20px;
-    }
-    
-    .our-team h2 {
-        font-size: 2rem;
-    }
-    
-    .team-grid {
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 20px;
-    }
-    
-    .team-member {
-        padding: 25px 15px;
-    }
-    
-    .member-photo {
-        width: 100px;
-        height: 100px;
-    }
-    
-    .member-info h4 {
-        font-size: 1.2rem;
-    }
-    
-    .member-info p {
-        font-size: 0.9rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .team-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-    
-    .member-photo {
-        width: 90px;
-        height: 90px;
-    }
-    
-    .member-info h4 {
-        font-size: 1.1rem;
-    }
-}
 /* Our Story Hero Section - Redesigned */
 .story-hero-section {
   padding: 100px 20px;
@@ -1650,313 +1495,274 @@ ABOUT US PAGE STYLES
   }
 }
 /* ==============================================================================================
-CONTACT US PAGE STYLES
+CONTACT US PAGE STYLES - FORM LEFT, BRANCHES RIGHT
 ================================================================================================= */
-        body {
-            margin: 0;
-            font-family: 'Jost';
-            min-height: 100vh;
-        }
+body {
+    margin: 0;
+    font-family: 'Jost';
+    min-height: 100vh;
+}
 
-        .contact-main-wrapper {
-            padding: 60px 0;
-        }
+.contact-main-wrapper {
+    padding: 60px 0;
+}
 
-        .contact-page-title {
-            text-align: center;
-            color: hsl(202, 87%, 41%);
-            font-size: 3rem;
-            margin-bottom: 60px;
-            font-weight: 300;
-            padding: 0 20px;
-        }
+.contact-page-title {
+    text-align: center;
+    color: hsl(202, 87%, 41%);
+    font-size: 3rem;
+    margin-bottom: 60px;
+    font-weight: 300;
+    padding: 0 20px;
+}
 
-        .contact-container {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 60px;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
 
-        /* Office Cards with City Backgrounds */
-        .offices-section {
-            display: grid;
-            gap: 40px;
-        }
+/* Contact Form Section - Left Side */
+.contact-form-section {
+    position: relative;
+    background: url('https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
 
-        .office-card {
-            position: relative;
-            min-height: 300px;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-            transition: transform 0.3s ease;
-        }
+.contact-form-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(30, 127, 184, 0.9) 0%, rgba(27, 79, 109, 0.8) 100%);
+    z-index: 1;
+}
 
-        .office-card:hover {
-            transform: translateY(-5px);
-        }
+.contact-card {
+    position: relative;
+    z-index: 2;
+    padding: 50px;
+    color: white;
+}
 
-        .office-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 100%);
-            z-index: 1;
-        }
+.card-title {
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: white;
+    margin: 0 0 40px 0;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
 
-        .office-card.nairobi {
-            background: url('https://images.unsplash.com/photo-1611348524140-53c9a25263d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover;
-        }
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
 
-        .office-card.eldoret {
-            background: url('https://upload.wikimedia.org/wikipedia/commons/a/ac/Skyline_of_Eldoret_Facing_West_from_Mups_Plaza.jpg') center/cover;
-        }
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
 
-        .office-card.kitengela {
-            background: url('/assets/images/kitengela.jpg') center/cover;
-        }
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
 
-        .office-content {
-            position: relative;
-            z-index: 2;
-            padding: 40px;
-            color: white;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
 
-        .office-name {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
+.form-input, .form-select, .form-textarea {
+    border: none;
+    border-bottom: 2px solid rgba(255,255,255,0.5);
+    padding: 15px 0;
+    font-size: 1.1rem;
+    background: transparent;
+    color: white;
+    outline: none;
+    transition: all 0.3s;
+}
 
-        .office-badge {
-            display: inline-block;
-            background: rgba(255,255,255,0.2);
-            backdrop-filter: blur(10px);
-            padding: 5px 15px;
-            font-size: 0.9rem;
-            margin-bottom: 20px;
-            border: 1px solid rgba(255,255,255,0.3);
-        }
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+    border-color: #1e7fb8;
+    transform: translateY(-2px);
+}
 
-        .office-address {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            margin-bottom: 20px;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-        }
+.form-input::placeholder, .form-textarea::placeholder {
+    color: rgba(255,255,255,0.7);
+}
 
-        .office-contacts {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
+.form-select {
+    appearance: none;
+    cursor: pointer;
+    color: rgba(255,255,255,0.9);
+}
 
-        .office-contact {
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 1.1rem;
-            transition: all 0.3s;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
+.form-select option {
+    background-color: #1e7fb8;
+    color: white;
+}
 
-        .office-contact:hover {
-            color: #1e7fb8;
-            transform: translateX(5px);
-        }
+.form-textarea {
+    resize: vertical;
+    min-height: 120px;
+    font-family: inherit;
+}
 
-        .office-contact::before {
-            content: '📞';
-            font-size: 1rem;
-        }
+.submit-btn {
+    background: #1e7fb8;
+    color: white;
+    border: none;
+    padding: 18px 50px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    align-self: center;
+    box-shadow: 0 10px 30px rgba(30, 127, 184, 0.3);
+}
 
-        .office-contact[href^="mailto"]::before {
-            content: '✉️';
-        }
+.submit-btn:hover {
+    background: #ffd900;
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(30, 127, 184, 0.4);
+}
 
-        /* Contact Form Section */
-        .contact-form-section {
-            position: relative;
-            background: url('https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-        }
+/* Office Cards - Right Side */
+.offices-section {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
 
-        .contact-form-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(30, 127, 184, 0.9) 0%, rgba(27, 79, 109, 0.8) 100%);
-            z-index: 1;
-        }
+.office-card {
+    background: #ffffff;
+    border: 1px solid #e0e7ff;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
 
-        .contact-card {
-            position: relative;
-            z-index: 2;
-            padding: 50px;
-            color: white;
-        }
+.office-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(30, 127, 184, 0.15);
+    border-color: #1e7fb8;
+}
 
-        .card-title {
-            font-size: 2.5rem;
-            font-weight: 300;
-            color: white;
-            margin: 0 0 40px 0;
-            text-align: center;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
+.office-content {
+    color: #333333;
+}
 
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-        }
+.office-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #1e7fb8;
+}
 
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
-        }
+.office-badge {
+    display: inline-block;
+    color: white;
+    padding: 6px 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    border-radius: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
 
-        .form-group {
-            display: flex;
-            flex-direction: column;
-        }
+.office-address {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #666666;
+}
 
-        .form-group.full-width {
-            grid-column: 1 / -1;
-        }
+.office-contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
 
-        .form-input, .form-select, .form-textarea {
-            border: none;
-            border-bottom: 2px solid rgba(255,255,255,0.5);
-            padding: 15px 0;
-            font-size: 1.1rem;
-            background: transparent;
-            color: white;
-            outline: none;
-            transition: all 0.3s;
-        }
+.office-contact {
+    color: #1e7fb8;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
 
-        .form-input:focus, .form-select:focus, .form-textarea:focus {
-            border-color: #1e7fb8;
-            transform: translateY(-2px);
-        }
+.office-contact:hover {
+    color: #ffd900;
+}
 
-        .form-input::placeholder, .form-textarea::placeholder {
-            color: rgba(255,255,255,0.7);
-        }
+.office-contact::before {
+    content: '📞';
+    font-size: 0.9rem;
+}
 
-        .form-select {
-            appearance: none;
-            cursor: pointer;
-            color: rgba(255,255,255,0.9);
-        }
+.office-contact[href^="mailto"]::before {
+    content: '✉️';
+}
 
-        .form-select option {
-            background-color: #1e7fb8;
-            color: white;
-        }
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-main-wrapper {
+        padding: 40px 0;
+    }
+    
+    .contact-card {
+        padding: 30px 20px;
+    }
 
-        .form-textarea {
-            resize: vertical;
-            min-height: 120px;
-            font-family: inherit;
-        }
+    .contact-page-title {
+        font-size: 2.5rem;
+    }
 
-        .submit-btn {
-            background: #1e7fb8;
-            color: white;
-            border: none;
-            padding: 18px 50px;
-            font-size: 1.1rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s;
-            margin-top: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            align-self: center;
-            box-shadow: 0 10px 30px rgba(30, 127, 184, 0.3);
-        }
+    .card-title {
+        font-size: 2rem;
+    }
+}
 
-        .submit-btn:hover {
-            background: #ffd900;
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(30, 127, 184, 0.4);
-        }
+@media (max-width: 480px) {
+    .contact-page-title {
+        font-size: 2rem;
+    }
 
-        .offices-section-title {
-            text-align: center;
-            color: hsl(202, 87%, 41%);
-            font-size: 2.5rem;
-            margin-bottom: 40px;
-            font-weight: 300;
-        }
-
-        @media (max-width: 768px) {
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-            
-            .contact-main-wrapper {
-                padding: 40px 0;
-            }
-            
-            .contact-card {
-                padding: 30px 20px;
-            }
-
-            .office-content {
-                padding: 30px 20px;
-            }
-
-            .contact-page-title {
-                font-size: 2.5rem;
-            }
-
-            .offices-section-title {
-                font-size: 2rem;
-            }
-
-            .office-name {
-                font-size: 1.5rem;
-            }
-
-            .card-title {
-                font-size: 2rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .contact-page-title {
-                font-size: 2rem;
-            }
-
-            .offices-section-title {
-                font-size: 1.8rem;
-            }
-
-            .card-title {
-                font-size: 1.8rem;
-            }
-        }
+    .card-title {
+        font-size: 1.8rem;
+    }
+    
+    .office-card {
+        padding: 20px;
+    }
+}
       /* ===========================================================================================
       DESTINATIONS PAGE STYLES
       ===============================================================================================*/
