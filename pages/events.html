@@ -51,7 +51,6 @@
             overflow: hidden;
             box-shadow: 0 2px 20px rgba(0,0,0,0.08);
             transition: all 0.3s ease;
-            cursor: pointer;
         }
 
         .event-card:hover {
@@ -170,23 +169,51 @@
             font-weight: 500;
         }
 
-        .register-btn {
-            background: #1e7fb8;
-            color: white;
-            border: none;
-            padding: 12px 30px;
-            border-radius: 6px;
-            font-size: 15px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+        .register-info {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
         }
 
-        .register-btn:hover {
-            background: #1e7fb8;
-            transform: translateY(-1px);
+        .register-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .register-contact {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+        .contact-icon {
+            font-size: 16px;
+            color: #1e7fb8;
+        }
+
+        .contact-text {
+            font-size: 15px;
+            color: #666;
+        }
+
+        .phone-number {
+            color: #1e7fb8;
+            font-weight: 600;
+        }
+
+        .website-link {
+            color: #1e7fb8;
+            font-weight: 500;
+            text-decoration: none;
+        }
+
+        .website-link:hover {
+            text-decoration: underline;
         }
 
         .contact-info {
@@ -246,6 +273,12 @@
                 flex-direction: column;
                 gap: 20px;
             }
+
+            .register-contact {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
         }
     </style>
 </head>
@@ -254,7 +287,7 @@
     <div class="container">
         <div class="events-container">
             <!-- Study in UK Event -->
-            <div class="event-card" onclick="handleRegister('UK')">
+            <div class="event-card">
                 <div class="event-header event-bg-1">
                     <div class="event-date">
                         <div class="event-day">THU</div>
@@ -280,12 +313,22 @@
                         <span class="category-value">All Programs</span>
                     </div>
                     
-                    <button class="register-btn">Register Now</button>
+                    <div class="register-info">
+                        <div class="register-title">To Register:</div>
+                        <div class="register-contact">
+                            <span class="contact-icon">📞</span>
+                            <span class="contact-text">Call us at <span class="phone-number">(+254) 719 231 999</span></span>
+                        </div>
+                        <div class="register-contact">
+                            <span class="contact-icon">🌐</span>
+                            <span class="contact-text">Visit <a href="https://www.melfordintlgroup.com" class="website-link">www.melfordintlgroup.com</a></span>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <!-- Study in Asia Event -->
-            <div class="event-card" onclick="handleRegister('Asia')">
+            <div class="event-card">
                 <div class="event-header event-bg-2">
                     <div class="event-date">
                         <div class="event-day">FRI</div>
@@ -311,12 +354,22 @@
                         <span class="category-value">Business, Engineering, Medicine</span>
                     </div>
                     
-                    <button class="register-btn">Register Now</button>
+                    <div class="register-info">
+                        <div class="register-title">To Register:</div>
+                        <div class="register-contact">
+                            <span class="contact-icon">📞</span>
+                            <span class="contact-text">Call us at <span class="phone-number">(+254) 719 231 999</span></span>
+                        </div>
+                        <div class="register-contact">
+                            <span class="contact-icon">🌐</span>
+                            <span class="contact-text">Visit <a href="https://www.melfordintlgroup.com" class="website-link">www.melfordintlgroup.com</a></span>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <!-- Study in Dubai Event -->
-            <div class="event-card" onclick="handleRegister('Dubai')">
+            <div class="event-card">
                 <div class="event-header event-bg-3">
                     <div class="event-date">
                         <div class="event-day">FRI</div>
@@ -342,32 +395,25 @@
                         <span class="category-value">Business, Technology, Hospitality</span>
                     </div>
                     
-                    <button class="register-btn">Register Now</button>
+                    <div class="register-info">
+                        <div class="register-title">To Register:</div>
+                        <div class="register-contact">
+                            <span class="contact-icon">📞</span>
+                            <span class="contact-text">Call us at <span class="phone-number">(+254) 719 231 999</span></span>
+                        </div>
+                        <div class="register-contact">
+                            <span class="contact-icon">🌐</span>
+                            <span class="contact-text">Visit <a href="https://www.melfordintlgroup.com" class="website-link">www.melfordintlgroup.com</a></span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 <div id="footer-placeholder"></div>
 <script src="../js/loadpartials.js"></script>
-<script src="../js/showpopup.js" defer></script>
 
     <script>
-        function handleRegister(destination) {
-            const card = event.currentTarget;
-            card.style.transform = 'scale(0.98)';
-            setTimeout(() => {
-                card.style.transform = '';
-            }, 150);
-
-            const messages = {
-                'UK': 'Ready to study in the UK? Join us on September 5th for an exciting webinar!',
-                'Asia': 'Discover opportunities in Malaysia & Thailand on September 12th!',
-                'Dubai': 'Explore Dubai\'s world-class universities on September 19th!'
-            };
-
-            alert(`${messages[destination]}\n\nCall us at (+254) 719 231 999 to register or visit www.melfordintlgroup.com`);
-        }
-
         document.addEventListener('DOMContentLoaded', function() {
             const cards = document.querySelectorAll('.event-card');
             
